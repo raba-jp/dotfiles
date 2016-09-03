@@ -1,6 +1,8 @@
+### dein ###
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+### Color Scheme ###
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
 hook_add = '''
@@ -11,7 +13,7 @@ hook_add = '''
   au AutoCmd VimEnter * nested colorscheme solarized
 '''
 
-# ----------Unite----------
+### Unite ###
 [[plugins]]
 repo = 'Shougo/unite.vim'
 hook_add = '''
@@ -23,18 +25,20 @@ hook_add = '''
   au FileType unite nnoremap <silent> <buffer> uh :<C-u>Unite history/yank<CR>
 '''
 
+### Unite Source ###
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
-# -------------------------
 
+### Auto Complete ###
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add ='''
   let g:deoplete#enable_at_startup = 1
 '''
 
+### for Ruby ###
 [[plugin]]
 repo = 'tpope/vim-endwise'
