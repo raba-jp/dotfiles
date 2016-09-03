@@ -21,8 +21,9 @@ hook_add = '''
   let g:unite_enable_smart_case = 1
   au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
   au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-  au FileType unite nnoremap <silent> <buffer> uf :<C-u>Unite file<CR>
-  au FileType unite nnoremap <silent> <buffer> uh :<C-u>Unite history/yank<CR>
+  nnoremap <silent> <buffer> <Space>f :<C-u>Unite file<CR>
+  nnoremap <silent> <buffer> <Space>h :<C-u>Unite history/yank<CR>
+  nnoremap <silent> <buffer> <Space>m :<C-u>Unite file_mru<CR>
 '''
 
 ### Unite Source ###
