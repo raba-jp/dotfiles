@@ -42,3 +42,6 @@ hook_add ='''
 ### for Ruby ###
 [[plugin]]
 repo = 'tpope/vim-endwise'
+
+[[plugins]]
+repo = 'basyura/unite-rails'
