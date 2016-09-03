@@ -10,3 +10,31 @@ hook_add = '''
   let g:solarized_termcolors=256
   au AutoCmd VimEnter * nested colorscheme solarized
 '''
+
+# ----------Unite----------
+[[plugins]]
+repo = 'Shougo/unite.vim'
+hook_add = '''
+  let g:unite_enable_ignore_case = 1
+  let g:unite_enable_smart_case = 1
+  au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+  au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+  au FileType unite nnoremap <silent> <buffer> uf :<C-u>Unite file<CR>
+  au FileType unite nnoremap <silent> <buffer> uh :<C-u>Unite history/yank<CR>
+'''
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+# -------------------------
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add ='''
+  let g:deoplete#enable_at_startup = 1
+'''
+
+[[plugin]]
+repo = 'tpope/vim-endwise'

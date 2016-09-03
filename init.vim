@@ -25,3 +25,8 @@ endif
 if dein#check_install()
   call dein#install()
 endif
+
+" Clipboard settings
+set clipboard+=unnamedplus
+
+let g:python3_host_prog = '/usr/local/bin/python3'
