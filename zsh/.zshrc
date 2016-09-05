@@ -1,3 +1,6 @@
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 source ~/.cache/zplug/init.zsh
 
 zplug "zsh-users/zsh-syntax-highlighting"
