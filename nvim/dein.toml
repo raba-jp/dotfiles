@@ -45,6 +45,13 @@ repo = 'Shougo/neomru.vim'
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
 
+[[plugins]]
+repo = 'scrooloose/syntastic'
+hook_add = '''
+  let g:syntastic_mode_map = { 'mode': 'active' }
+  let g:syntastic_ruby_checkers = ['rubocop']
+'''
+
 ### Lightline ###
 [[plugins]]
 repo = 'itchyny/lightline.vim'
