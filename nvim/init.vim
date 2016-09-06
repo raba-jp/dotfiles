@@ -1,3 +1,5 @@
+set number
+
 if &compatible
   set nocompatible
 endif
