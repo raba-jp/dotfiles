@@ -13,6 +13,18 @@ hook_add = '''
   au AutoCmd VimEnter * nested colorscheme solarized
 '''
 
+### vimfiler
+[[plugins]]
+repo = 'Shougo/vimfiler.vim'
+hook_add = '''
+  let g:vimfiler_safe_mode_by_default = 0
+  let g:vimfiler_tree_leaf_icon = ' '
+  let g:vimfiler_tree_opened_icon = '▾'
+  let g:vimfiler_tree_closed_icon = '▸'
+  let g:vimfiler_file_icon = '-'
+  let g:vimfiler_marked_file_icon = '*'
+  nnoremap <silent> <buffer> <space>f :<C-u>VimFiler<CR>
+'''
 ### Unite ###
 [[plugins]]
 repo = 'Shougo/unite.vim'
@@ -21,7 +33,7 @@ hook_add = '''
   let g:unite_enable_smart_case = 1
   au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
   au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-  nnoremap <silent> <buffer> <Space>f :<C-u>Unite file<CR>
+  nnoremap <silent> <buffer> <Space>u :<C-u>Unite file<CR>
   nnoremap <silent> <buffer> <Space>h :<C-u>Unite history/yank<CR>
   nnoremap <silent> <buffer> <Space>m :<C-u>Unite file_mru<CR>
 '''
@@ -33,6 +45,7 @@ repo = 'Shougo/neomru.vim'
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
 
+### Lightline ###
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 
@@ -46,3 +59,9 @@ hook_add ='''
 ### for Ruby ###
 [[plugins]]
 repo = 'basyura/unite-rails'
+
+[[plugins]]
+repo = 'vim-ruby/vim-ruby'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
