@@ -33,6 +33,9 @@ repo = 'Shougo/neomru.vim'
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
 
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
 ### Auto Complete ###
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
