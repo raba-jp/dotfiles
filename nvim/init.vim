@@ -1,4 +1,12 @@
 set number
+set fenc=utf-8
+set noswapfile
+set showcmd
+set cursorcolumn
+set smartindent
+set virtualedit=onemore
+set visualbell
+set laststatus=2
 
 if &compatible
   set nocompatible
