@@ -16,3 +16,9 @@ ln -s ~/dotfile/tmux/.tmux.conf .tmux.conf
 # zplug install
 zsh ~/dotfile/installer.zsh
 ln -s ~/dotfile/zsh/.zshrc ~/.zshrc
+
+rbenv install 2.3.1
+rbenv rehash
+rbenv global 2.3.1
+gem install bundler
+gem install rubocop
