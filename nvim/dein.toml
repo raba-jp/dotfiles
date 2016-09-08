@@ -6,7 +6,6 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
 hook_add = '''
-  syntax enable
   set background=dark
   let g:solarized_termtrans=1
   let g:solarized_termcolors=256
@@ -72,3 +71,6 @@ repo = 'vim-ruby/vim-ruby'
 
 [[plugins]]
 repo = 'tpope/vim-rails'
+
+[[plugins]]
+repo = 'tpope/vim-haml'
