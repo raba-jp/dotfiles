@@ -7,6 +7,9 @@ set smartindent
 set virtualedit=onemore
 set visualbell
 set laststatus=2
+filetype plugin indent on
+set list
+set listchars=tab:»-,trail:-,nbsp:%,eol:↲
 
 if &compatible
   set nocompatible
