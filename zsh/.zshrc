@@ -1,4 +1,5 @@
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/bin":"$HOME/.nodebrew/current/bin:$PATH"
+
 eval "$(rbenv init -)"
 
 source ~/.cache/zplug/init.zsh
