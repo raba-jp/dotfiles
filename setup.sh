@@ -17,8 +17,14 @@ ln -s ~/dotfile/tmux/.tmux.conf .tmux.conf
 zsh ~/dotfile/installer.zsh
 ln -s ~/dotfile/zsh/.zshrc ~/.zshrc
 
+# Ruby
 rbenv install 2.3.1
 rbenv rehash
 rbenv global 2.3.1
 gem install bundler
 gem install rubocop
+
+# Node.js
+curl -L git.io/nodebrew | perl - setup
+nodebrew install-binary 6.5.0
+nodebrew use 6.5.0
