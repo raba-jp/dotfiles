@@ -64,13 +64,13 @@ hook_add ='''
 
 ### for Ruby ###
 [[plugins]]
-repo = 'basyura/unite-rails'
-
-[[plugins]]
 repo = 'vim-ruby/vim-ruby'
 
 [[plugins]]
 repo = 'tpope/vim-rails'
+
+[[plugins]]
+repo = 'basyura/unite-rails'
 
 [[plugins]]
 repo = 'tpope/vim-haml'
