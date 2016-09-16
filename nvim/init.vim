@@ -16,6 +16,11 @@ if &compatible
   set nocompatible
 endif
 
+augroup FileTypeFormat
+  autocmd!
+  autocmd BufNewFile,BufRead *.rb setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
+
 augroup AutoCmd
   autocmd!
 augroup END
