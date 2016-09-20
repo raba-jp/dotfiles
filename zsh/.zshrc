@@ -32,6 +32,7 @@ PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~%# "
 # Alias
 alias ll='ls -l'
 alias vim='nvim'
+alias git tree='git log --graph --all --format="%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s"'
 
 # Enter key -> ls + git status
 function do_enter() {
