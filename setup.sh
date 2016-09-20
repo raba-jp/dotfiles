@@ -18,6 +18,8 @@ brew install rbenv
 brew install pyenv
 brew install zsh
 brew install tmux
+brew install go
+brew install glide
 
 # NeoVim
 mkdir ~/.cache/dein

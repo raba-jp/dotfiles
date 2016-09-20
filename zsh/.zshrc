@@ -1,4 +1,5 @@
 export PATH="$HOME/.rbenv/bin":"$HOME/.nodebrew/current/bin:$PATH"
+export GOPATH="$HOME/go:$GOPATH"
 
 eval "$(rbenv init -)"
 
