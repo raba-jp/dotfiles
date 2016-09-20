@@ -22,6 +22,7 @@ brew install go
 brew install glide
 brew install ghq
 brew install peco
+brew install ctags
 
 # Git
 ln -s ~/dotfile/git/.gitconfig ~/.gitconfig

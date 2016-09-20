@@ -12,7 +12,6 @@ hook_add = '''
   au AutoCmd VimEnter * nested colorscheme solarized
 '''
 
-### vimfiler
 [[plugins]]
 repo = 'Shougo/vimfiler.vim'
 hook_add = '''
@@ -24,6 +23,13 @@ hook_add = '''
   let g:vimfiler_marked_file_icon = '*'
   nnoremap <silent> <buffer> <space>f :<C-u>VimFiler<CR>
 '''
+
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]]
+repo = 'tyru/caw.vim'
+
 ### Unite ###
 [[plugins]]
 repo = 'Shougo/unite.vim'
@@ -51,16 +57,20 @@ hook_add = '''
   let g:syntastic_ruby_checkers = ['rubocop']
 '''
 
-### Lightline ###
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 
-### Auto Complete ###
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add ='''
   let g:deoplete#enable_at_startup = 1
 '''
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
 
 ### for Ruby ###
 [[plugins]]

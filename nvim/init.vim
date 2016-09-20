@@ -2,7 +2,6 @@ set number
 set fenc=utf-8
 set noswapfile
 set showcmd
-set cursorcolumn
 set smartindent
 set virtualedit=onemore
 set visualbell
@@ -23,6 +22,15 @@ augroup END
 
 augroup AutoCmd
   autocmd!
+augroup END
+
+augroup AlpacaTags
+  autocmd!
+  if exists(':Tags')
+    autocmd BufWritePost Gemfile TagsBundle
+    autocmd BufEnter * TagsSet
+    autocmd BufWritePost * TagsUpdate
+  endif
 augroup END
 
 " dein settings ------------
