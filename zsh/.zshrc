@@ -36,7 +36,10 @@ alias git tree='git log --graph --all --format="%x09%C(cyan bold)%an%Creset%x09%
 alias git branches=git branch -a
 alias git tags=git tag
 alias git stashes=git stash list
-
+alias git unstage=git reset -q HEAD --
+alias git discard=git checkout --
+alias git uncommit=git reset --mixed HEAD~
+alias git amend=git commit --amend
 # Enter key -> ls + git status
 function do_enter() {
     if [ -n "$BUFFER" ]; then
