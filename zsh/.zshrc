@@ -115,3 +115,14 @@ function tmux_automatically_attach_session()
     fi
 }
 tmux_automatically_attach_session
+
+function peco-src () {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src
+bindkey '^^' peco-src
