@@ -1,0 +1,7 @@
+[user]
+	name = Hiroki Sakuraba
+	email = sakuraba@ksf.jp
+[core]
+	editor = nvim
+[ghq]
+	root=~/SourceCode/src

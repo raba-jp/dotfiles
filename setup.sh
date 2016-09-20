@@ -20,6 +20,11 @@ brew install zsh
 brew install tmux
 brew install go
 brew install glide
+brew install ghq
+brew install peco
+
+# Git
+ln -s ~/dotfile/git/.gitconfig
 
 # NeoVim
 mkdir ~/.cache/dein
