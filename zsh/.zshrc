@@ -33,16 +33,6 @@ PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~%# "
 # Alias
 alias ll='ls -l'
 alias vim='nvim'
-alias git tree='git log --graph --all --format="%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s"'
-alias git branches=git branch -a
-alias git tags=git tag
-alias git stashes=git stash list
-alias git unstage=git reset -q HEAD --
-alias git discard=git checkout --
-alias git uncommit=git reset --mixed HEAD~
-alias git amend=git commit --amend
-alias git precommit=git diff --cached --diff-algorithm=minimal -w
-alias git remotes=git remote -v
 
 # Enter key -> ls + git status
 function do_enter() {

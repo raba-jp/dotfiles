@@ -24,7 +24,7 @@ brew install ghq
 brew install peco
 
 # Git
-ln -s ~/dotfile/git/.gitconfig
+ln -s ~/dotfile/git/.gitconfig ~/.gitconfig
 
 # NeoVim
 mkdir ~/.cache/dein
