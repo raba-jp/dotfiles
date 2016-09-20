@@ -3,8 +3,22 @@ mkdir ~/.config
 mkdir ~/.cache
 
 # Homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
-"
+if ! which brew >& /dev/null;then
+  brew_installed=0
+  echo Homebrew is not installed!
+  echo Install now...
+  echo ruby -e \"\$\(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install\)\"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  echo
+fi
+
+# CLI install
+brew install neovim/neovim/neovim
+brew install rbenv
+brew install pyenv
+brew install zsh
+brew install tmux
+
 # NeoVim
 mkdir ~/.cache/dein
 ln -s ~/dotfile/nvim ~/.config/nvim
