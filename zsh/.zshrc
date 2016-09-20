@@ -40,6 +40,9 @@ alias git unstage=git reset -q HEAD --
 alias git discard=git checkout --
 alias git uncommit=git reset --mixed HEAD~
 alias git amend=git commit --amend
+alias git precommit=git diff --cached --diff-algorithm=minimal -w
+alias git remotes=git remote -v
+
 # Enter key -> ls + git status
 function do_enter() {
     if [ -n "$BUFFER" ]; then
