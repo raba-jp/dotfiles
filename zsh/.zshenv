@@ -5,3 +5,7 @@ path=(
   $HOME/.nodebrew/current/bin:$NDPATH(N-/)
   $path
 )
+
+fpath=(
+  $HOME/.plug
+)

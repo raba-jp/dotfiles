@@ -38,6 +38,8 @@ ln -s ~/dotfile/tmux/.tmux.conf .tmux.conf
 # zplug install
 zsh ~/dotfile/installer.zsh
 ln -s ~/dotfile/zsh/.zshrc ~/.zshrc
+ln -s ~/dotfile/config/zsh/themes/pure/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
+ln -s ~/dotfile/config/zsh/themes/pure/async.zsh /usr/local/share/zsh/site-functions/async
 
 # Ruby
 rbenv install 2.3.1
