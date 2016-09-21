@@ -46,6 +46,11 @@ rbenv global 2.3.1
 gem install bundler
 gem install rubocop
 
+# Python
+pyenv install 3.5.2
+pyenv rehash
+pyenv global 3.5.2
+
 # Node.js
 curl -L git.io/nodebrew | perl - setup
 nodebrew install-binary 6.5.0

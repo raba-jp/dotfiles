@@ -16,3 +16,9 @@
 	amend = commit --amend
 	precommit = diff --cached --diff-algorithm=minimal -w
 	remotes = remote -v
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Users/hiroki.sakuraba/Downloads/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

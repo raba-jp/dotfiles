@@ -57,8 +57,8 @@ endif
 " Clipboard settings
 set clipboard+=unnamedplus
 
-" Python3 settings
-let g:python3_host_prog = '/usr/local/bin/python3'
+" Python3 support
+let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
 
 " Command Line Mode settings
 set wildmenu

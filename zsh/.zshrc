@@ -1,8 +1,6 @@
-export PATH="$HOME/.rbenv/bin":"$HOME/.nodebrew/current/bin:$PATH"
-export GOPATH="$HOME/go:$GOPATH"
-
 eval "$(rbenv init -)"
-
+eval "$(pyenv init -)
+"
 source ~/.cache/zplug/init.zsh
 
 zplug "zsh-users/zsh-syntax-highlighting"
