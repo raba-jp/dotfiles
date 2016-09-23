@@ -23,6 +23,7 @@ brew install glide
 brew install ghq
 brew install peco
 brew install ctags
+brew install the_silver_searcher
 
 # Git
 ln -s ~/dotfile/git/.gitconfig ~/.gitconfig
