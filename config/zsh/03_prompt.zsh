@@ -1,1 +1,2 @@
-PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~%# "
+autoload -U promptinit; promptinit
+prompt pure
