@@ -1,11 +1,12 @@
-path=(
-  $HOME/go:$GOPATH(N-/)
-  $HOME/.rbenv/bin:$RBPATH(N-/)
-  $HOME/.pyenv/bin:$PYPATH(N-/)
-  $HOME/.nodebrew/current/bin:$NDPATH(N-/)
-  $path
-)
+GOPATH=$HOME/go
+RBPATH=$HOME/.rbenv/bin
+PYPATH=$HOME/.pyenv/bin
+NDPATH=$HOME/.nodebrew/current/bin
 
-fpath=(
-  $HOME/.plug
+path=(
+  $GOPATH(N-/)
+  $RBPATH(N-/)
+  $PYPATH(N-/)
+  $NDPATH(N-/)
+  $path
 )
