@@ -5,3 +5,5 @@ zplug "b4b4r07/enhancd"
 zplug "mafredri/zsh-async"
 zplug "zsh-users/zsh-completions"
 zplug "sindresorhus/pure"
+
+zplug load --verbose
