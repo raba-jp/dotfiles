@@ -1,44 +1,39 @@
 #!/bin/sh
+packages=(
+"neovim/neovim/neovim"
+"rbenv"
+"pyenv"
+"zsh"
+"tmux"
+"go"
+"glide"
+"ghq"
+"peco"
+"ctags"
+"the_silver_searcher"
+)
+
 mkdir ~/.config
 mkdir ~/.cache
-
-# Homebrew
-if ! which brew >& /dev/null;then
-  brew_installed=0
-  echo Homebrew is not installed!
-  echo Install now...
-  echo ruby -e \"\$\(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install\)\"
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  echo
-fi
-
-# CLI install
-brew install neovim/neovim/neovim
-brew install rbenv
-brew install pyenv
-brew install zsh
-brew install tmux
-brew install go
-brew install glide
-brew install ghq
-brew install peco
-brew install ctags
-brew install the_silver_searcher
-
-# Git
-ln -s ~/dotfile/git/.gitconfig ~/.gitconfig
-
-# NeoVim
 mkdir ~/.cache/dein
-ln -s ~/dotfile/nvim ~/.config/nvim
 
-# tmux
-ln -s ~/dotfile/tmux/.tmux.conf .tmux.conf
+for f in .??*
+do
+  [[ "$f" == ".git" ]] && continue
+  [[ "$f" == ".DS_Store" ]] && continue
+  echo "$f"
+done
+
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+for package in packages
+do
+  brew install $package
+end
 
 # zsh
 # zplug install
 zsh ~/dotfile/installer.zsh
-ln -s ~/dotfile/zsh/.zshrc ~/.zshrc
 ln -s ~/dotfile/config/zsh/themes/pure/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
 ln -s ~/dotfile/config/zsh/themes/pure/async.zsh /usr/local/share/zsh/site-functions/async
 
