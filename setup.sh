@@ -26,7 +26,7 @@ done
 
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-for package in packages
+for package in ${packages[@]}
 do
   brew install $package
 end
