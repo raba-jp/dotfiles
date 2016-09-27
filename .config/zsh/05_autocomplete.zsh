@@ -1,3 +1,3 @@
 autoload -Uz compinit
-compinit
+compinit -u
 setopt auto_menu
