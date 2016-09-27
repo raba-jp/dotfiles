@@ -4,7 +4,7 @@
 [core]
 	editor = nvim
 [ghq]
-	root=~/SourceCode/src
+	root=~/Sources
 [alias]
 	tree = log --graph --all --format='%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s'
 	branches = branch -a

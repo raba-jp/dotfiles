@@ -17,9 +17,13 @@ packages=(
   "the_silver_searcher"
   "curl"
   "wget"
+  "docker"
+  "docker-compose"
+  "docker-machine"
 )
 
 cask_packages=(
+  "slack"
   "virtualbox"
   "appcleaner"
   "quicklook-csv"
@@ -29,7 +33,6 @@ cask_packages=(
   "bathyscaphe"
   "sourcetree"
   "qlmarkdown"
-
 )
 
 mkdir ~/.config
