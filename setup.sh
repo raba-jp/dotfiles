@@ -55,6 +55,11 @@ do
   brew install $package
 done
 
+for cask in ${cask_package[a]}
+do
+  brew cask install $cask
+done
+
 # zsh
 # zplug install
 zsh ~/dotfile/installer.zsh
@@ -65,19 +70,10 @@ ln -s ~/.zplug/repos/sindresourhus/pure/async.zsh /usr/local/share/zsh/site-func
 
 # Ruby
 rbenv install 2.3.1
-rbenv rehash
-rbenv global 2.3.1
-gem install bundler
-gem install rubocop
 
 # Python
 pyenv install 3.5.2
-pyenv rehash
-pyenv global 3.5.2
-pip install neovim
 
 # Node.js
 curl -L git.io/nodebrew | perl - setup
-nodebrew install-binary 6.5.0
-nodebrew use 6.5.0
 
