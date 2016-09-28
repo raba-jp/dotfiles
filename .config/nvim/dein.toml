@@ -1,8 +1,6 @@
-### dein ###
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-### Color Scheme ###
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
 hook_add = '''
@@ -12,25 +10,6 @@ hook_add = '''
   au AutoCmd VimEnter * nested colorscheme solarized
 '''
 
-[[plugins]]
-repo = 'Shougo/vimfiler.vim'
-hook_add = '''
-  let g:vimfiler_safe_mode_by_default = 0
-  let g:vimfiler_tree_leaf_icon = ' '
-  let g:vimfiler_tree_opened_icon = '▾'
-  let g:vimfiler_tree_closed_icon = '▸'
-  let g:vimfiler_file_icon = '-'
-  let g:vimfiler_marked_file_icon = '*'
-  nnoremap <silent> <buffer> <space>f :<C-u>VimFiler<CR>
-'''
-
-[[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
-
-[[plugins]]
-repo = 'tyru/caw.vim'
-
-### Unite ###
 [[plugins]]
 repo = 'Shougo/unite.vim'
 hook_add = '''
@@ -43,7 +22,6 @@ hook_add = '''
   nnoremap <silent> <buffer> <Space>m :<C-u>Unite file_mru<CR>
 '''
 
-### Unite Source ###
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 
@@ -51,10 +29,53 @@ repo = 'Shougo/neomru.vim'
 repo = 'Shougo/neoyank.vim'
 
 [[plugins]]
-repo = 'scrooloose/syntastic'
+repo = 'thinca/vim-quickrun'
 hook_add = '''
-  let g:syntastic_mode_map = { 'mode': 'active' }
-  let g:syntastic_ruby_checkers = ['rubocop']
+  let g:quickrun_config={
+\   "_" : {
+\       "outputter/buffer/split" : ":botright 8sp",
+\       "runner" : "vimproc",
+\       "runner/vimproc/updatetime" : 40,
+\   }
+\ }
+'''
+
+[[plugins]]
+repo = 'tyru/caw.vim'
+
+[[plugins]]
+repo = 'dannyob/quickfixstatus'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'osyo-manga/shabadou.vim'
+
+[[plugins]]
+repo = 'KazuakiM/vim-qfsigns'
+
+[[plugins]]
+repo = 'osyo-manga/vim-watchdogs'
+hook_add = '''
+  let g:watchdogs_check_BufWritePost_enable = 1
+  let g:watchdogs_check_CursorHold_enable = 1
+  let g:config = {
+\   "watchdogs_checker/_" : {
+\      'hook/qfsigns_update/enable_exit': 1,
+\      'hook/qfsigns_update/priority_exit': 3,
+\      'outputter/quickfix/open_cmd' : ''
+\   },
+\   "javascript/watchdogs_checker" : {
+\     "type" : "eslint"
+\   },
+\     "ruby/watchdogs_checker" : {
+\     "type" : "watchdogs_checke/rubocop"
+\   }
+\ }
+
+call watchdogs#setup(g:config)
 '''
 
 [[plugins]]
@@ -72,7 +93,6 @@ repo = 'Shougo/neosnippet.vim'
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
-### for Ruby ###
 [[plugins]]
 repo = 'vim-ruby/vim-ruby'
 
@@ -84,3 +104,6 @@ repo = 'basyura/unite-rails'
 
 [[plugins]]
 repo = 'tpope/vim-haml'
+
+[[plugins]]
+repo = 'elzr/vim-json'
