@@ -1,26 +1,26 @@
+##### Required ######
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'altercation/vim-colors-solarized'
-hook_add = '''
-  set background=dark
-  let g:solarized_termtrans=1
-  let g:solarized_termcolors=256
-  au AutoCmd VimEnter * nested colorscheme solarized
-'''
+repo = 'Shougo/vimproc.vim'
+build = 'make'
 
 [[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'osyo-manga/shabadou.vim'
+#####################
+
+##### Color Scheme #####
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+########################
+
+##### Unite #####
+[[plugins]]
 repo = 'Shougo/unite.vim'
-hook_add = '''
-  let g:unite_enable_ignore_case = 1
-  let g:unite_enable_smart_case = 1
-  au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-  au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-  nnoremap <silent> <buffer> <Space>u :<C-u>Unite file<CR>
-  nnoremap <silent> <buffer> <Space>h :<C-u>Unite history/yank<CR>
-  nnoremap <silent> <buffer> <Space>m :<C-u>Unite file_mru<CR>
-'''
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
@@ -29,81 +29,56 @@ repo = 'Shougo/neomru.vim'
 repo = 'Shougo/neoyank.vim'
 
 [[plugins]]
-repo = 'thinca/vim-quickrun'
-hook_add = '''
-  let g:quickrun_config={
-\   "_" : {
-\       "outputter/buffer/split" : ":botright 8sp",
-\       "runner" : "vimproc",
-\       "runner/vimproc/updatetime" : 40,
-\   }
-\ }
-'''
+repo = 'osyo-manga/unite-quickfix'
 
 [[plugins]]
-repo = 'tyru/caw.vim'
+repo = 'basyura/unite-rails'
+#################
 
-[[plugins]]
-repo = 'dannyob/quickfixstatus'
-
-[[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
-
-[[plugins]]
-repo = 'osyo-manga/shabadou.vim'
-
-[[plugins]]
-repo = 'KazuakiM/vim-qfsigns'
-
-[[plugins]]
-repo = 'osyo-manga/vim-watchdogs'
-hook_add = '''
-  let g:watchdogs_check_BufWritePost_enable = 1
-  let g:watchdogs_check_CursorHold_enable = 1
-  let g:config = {
-\   "watchdogs_checker/_" : {
-\      'hook/qfsigns_update/enable_exit': 1,
-\      'hook/qfsigns_update/priority_exit': 3,
-\      'outputter/quickfix/open_cmd' : ''
-\   },
-\   "javascript/watchdogs_checker" : {
-\     "type" : "eslint"
-\   },
-\     "ruby/watchdogs_checker" : {
-\     "type" : "watchdogs_checke/rubocop"
-\   }
-\ }
-
-call watchdogs#setup(g:config)
-'''
-
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-
+##### Auto Complete #####
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-hook_add ='''
-  let g:deoplete#enable_at_startup = 1
-'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+#########################
 
+##### Language #####
 [[plugins]]
 repo = 'vim-ruby/vim-ruby'
 
 [[plugins]]
 repo = 'tpope/vim-rails'
 
-[[plugins]]
-repo = 'basyura/unite-rails'
 
 [[plugins]]
 repo = 'tpope/vim-haml'
 
 [[plugins]]
 repo = 'elzr/vim-json'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+####################
+
+##### Status Line #####
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+#######################
+
+##### Syntax Check #####
+[[plugins]]
+repo = 'osyo-manga/vim-watchdogs'
+
+[[plugins]]
+repo = 'dannyob/quickfixstatus'
+# [[plugins]]
+# repo = 'KazuakiM/vim-qfsigns'
+
+# [[plugins]]
+# repo = 'KazuakiM/vim-qfstatusline'
+
+########################

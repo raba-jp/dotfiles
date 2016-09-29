@@ -1,41 +1,28 @@
-set number
-set fenc=utf-8
-set noswapfile
-set showcmd
-set smartindent
-set virtualedit=onemore
-set visualbell
-set laststatus=2
-filetype plugin indent on
-set list
-set listchars=tab:»-,trail:-,nbsp:%,eol:↲
-set relativenumber number
+""""" ColorScheme """""
+set background=dark
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
 
-if &compatible
-  set nocompatible
-endif
+augroup AutoCmd
+  autocmd!
+  au AutoCmd VimEnter * nested colorscheme solarized
+augroup END
+"""""""""""""""""""""""
 
+""""" File Type Settings """""
 augroup FileTypeFormat
   autocmd!
   autocmd BufNewFile,BufRead *.rb setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.json setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 augroup END
+""""""""""""""""""""""""""""""
 
-augroup AutoCmd
-  autocmd!
-augroup END
+""""" Dein.vim Settings """""
+if &compatible
+  set nocompatible
+endif
 
-augroup AlpacaTags
-  autocmd!
-  if exists(':Tags')
-    autocmd BufWritePost Gemfile TagsBundle
-    autocmd BufEnter * TagsSet
-    autocmd BufWritePost * TagsUpdate
-  endif
-augroup END
-
-" dein settings ------------
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CAHCE_HOME
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -54,18 +41,9 @@ endif
 if dein#check_install()
   call dein#install()
 endif
+"""""""""""""""""""""""""""""
 
-" Clipboard settings
-set clipboard+=unnamedplus
-
-" Python3 support
-let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
-
-" Command Line Mode settings
-set wildmenu
-
-
-" lightline settings
+""""" lightline.vim Settings """""
 let g:lightline = {
   \ 'colorscheme': 'solarized',
   \ 'mode_map': {'c': 'NORMAL'},
@@ -83,6 +61,87 @@ let g:lightline = {
   \   'mode': 'LightLineMode'
   \ }
   \ }
+""""""""""""""""""""""""""""""""""
+
+""""" vim-watchdogs Settings """""
+let g:watchdogs_check_BufWritePost_enable = 1
+let g:watchdogs_check_CursorHold_enable = 1
+""""""""""""""""""""""""""""""""""
+
+""""" vim-watchdogs & vim-quickrun Settings """""
+let g:quickrun_config = {
+\   '_': {
+\     'runner': 'vimproc',
+\     'runner/vimproc/updatetime' : 40,
+\     'outputter/buffer/split': ':botright 4sp',
+\   },
+\   'watchdogs_checker/_': {
+\     'hook/close_quickfix/enable_exit': 1,
+\     'outputter/quickfix/open_cmd': '',
+\     'hook/qfsigns_update/enable_exit': 1,
+\     'hook/qfsigns_update/priority_exit': 3,
+\   },
+\   'javascript/watchdogs_checker': {
+\     'type': 'eslint'
+\   },
+\     'ruby/watchdogs_checker': {
+\     'type': 'watchdogs_checke/rubocop'
+\   }
+\ }
+
+call watchdogs#setup(g:quickrun_config)
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""" Unite.vim Settings """""
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+nnoremap <silent> <buffer> <Space>u :<C-u>Unite file<CR>
+nnoremap <silent> <buffer> <Space>h :<C-u>Unite history/yank<CR>
+nnoremap <silent> <buffer> <Space>m :<C-u>Unite file_mru<CR>
+""""""""""""""""""""""""""""""
+
+""""" deoplete.nvim Settings """""
+let g:deoplete#enable_at_startup = 1
+""""""""""""""""""""""""""""""""""
+set number
+set fenc=utf-8
+set noswapfile
+set showcmd
+set smartindent
+set virtualedit=onemore
+set visualbell
+set laststatus=2
+filetype plugin indent on
+set list
+set listchars=tab:»-,trail:-,nbsp:%,eol:↲
+set relativenumber number
+
+
+
+
+augroup AlpacaTags
+  autocmd!
+  if exists(':Tags')
+    autocmd BufWritePost Gemfile TagsBundle
+    autocmd BufEnter * TagsSet
+    autocmd BufWritePost * TagsUpdate
+  endif
+augroup END
+
+" Clipboard settings
+set clipboard+=unnamedplus
+
+" Python3 support
+let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
+
+" Command Line Mode settings
+set wildmenu
+
+
+
+
 
 function! LightLineModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
