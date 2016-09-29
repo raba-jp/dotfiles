@@ -75,6 +75,9 @@ repo = 'osyo-manga/vim-watchdogs'
 
 [[plugins]]
 repo = 'dannyob/quickfixstatus'
+
+[[plugins]]
+repo = 'jceb/vim-hier'
 # [[plugins]]
 # repo = 'KazuakiM/vim-qfsigns'
 

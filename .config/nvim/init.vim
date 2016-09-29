@@ -76,7 +76,6 @@ let g:quickrun_config = {
 \     'outputter/buffer/split': ':botright 4sp',
 \   },
 \   'watchdogs_checker/_': {
-\     'hook/close_quickfix/enable_exit': 1,
 \     'outputter/quickfix/open_cmd': '',
 \     'hook/qfsigns_update/enable_exit': 1,
 \     'hook/qfsigns_update/priority_exit': 3,
@@ -85,7 +84,7 @@ let g:quickrun_config = {
 \     'type': 'eslint'
 \   },
 \     'ruby/watchdogs_checker': {
-\     'type': 'watchdogs_checke/rubocop'
+\     'type': 'rubocop'
 \   }
 \ }
 
