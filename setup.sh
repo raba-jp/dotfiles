@@ -36,8 +36,12 @@ cask_packages=(
 )
 
 mkdir ~/.config
+mkdir ~/.config/vim
+mkdir ~/.config/tmux
 mkdir ~/.cache
 mkdir ~/.cache/dein
+mkdir ~/.cache/vim
+mkdir ~/.cache/zsh
 
 cd $DOT_DIR
 for f in .??*

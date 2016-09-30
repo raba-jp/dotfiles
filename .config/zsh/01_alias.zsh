@@ -1,6 +1,5 @@
 alias sudo='sudo '
 alias ll='ls -alG'
-alias vim='nvim'
 alias untar='tar xzvf'
 alias setlangja='export LANG=ja_JP.UTF-8'
 alias setlangc='export LANG=C'
