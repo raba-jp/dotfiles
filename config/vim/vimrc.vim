@@ -15,35 +15,13 @@ augroup ColorSchemeSetting
 augroup END
 """"""""""""""""""""""""
 
-""""" Common """""
-filetype on
-syntax on
-set number
-set noswapfile
-set showcmd
-set smartindent
-set virtualedit=block
-set visualbell
-set laststatus=2
-filetype plugin indent on
-
-""""""""""""""""""
-
 """"" XDG Base Direcotry """""
 set directory=$XDG_CACHE_HOME/vim,~/,/tmp
 set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
-set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+" set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+set viminfo=
 set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
 let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
-""""""""""""""""""""""""""""""
-
-""""" File Type Settings """""
-augroup FileTypeFormat
-  autocmd!
-  autocmd BufNewFile,BufRead *.rb setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.json setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
-augroup END
 """"""""""""""""""""""""""""""
 
 """"" Dein.vim Settings """""
@@ -68,6 +46,28 @@ if dein#check_install()
   call dein#install()
 endif
 """""""""""""""""""""""""""""
+
+""""" Common """""
+filetype on
+syntax on
+set number
+set noswapfile
+set showcmd
+set smartindent
+set virtualedit=block
+set visualbell
+set laststatus=2
+filetype plugin indent on
+""""""""""""""""""
+
+""""" File Type Settings """""
+augroup FileTypeFormat
+  autocmd!
+  autocmd BufNewFile,BufRead *.rb setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.json setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+augroup END
+""""""""""""""""""""""""""""""
 
 """"" lightline.vim """""
 let g:lightline = {
