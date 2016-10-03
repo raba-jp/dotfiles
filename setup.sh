@@ -20,6 +20,7 @@ packages=(
   "docker"
   "docker-compose"
   "docker-machine"
+  "vim --with-lua --with-luajit --with-python3"
 )
 
 cask_packages=(

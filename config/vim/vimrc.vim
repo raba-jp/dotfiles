@@ -1,4 +1,4 @@
-""""" nocompatible mode """""
+"""" nocompatible mode """""
 if &compatible
   set nocompatible
 endif
@@ -16,6 +16,8 @@ augroup END
 """"""""""""""""""""""""
 
 """"" Common """""
+set filetype on
+set syntax on
 set number
 set noswapfile
 set showcmd
@@ -24,7 +26,7 @@ set virtualedit=block
 set visualbell
 set laststatus=2
 filetype plugin indent on
-set list
+
 """"""""""""""""""
 
 """"" XDG Base Direcotry """""
@@ -93,4 +95,22 @@ endfunction
 function! LightLineReadOnly()
   return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
 endfunction
+
+function! LightLineFilename()
+  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+\   (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+\   &ft == 'unite' ? unite#get_status_string() :
+\   &ft == 'vimshell' ? vimshell#get_status_string() :
+\   '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+\   ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+function! LightLineFugitive()
+  if &ft !~? 'vimfiler\|gundo' && exists('fugitive#head')
+    return fugitive#head()
+  else
+    return ''
+  endif
+endfunction
+
 """""""""""""""""""""""""
