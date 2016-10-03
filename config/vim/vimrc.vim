@@ -16,8 +16,8 @@ augroup END
 """"""""""""""""""""""""
 
 """"" Common """""
-set filetype on
-set syntax on
+filetype on
+syntax on
 set number
 set noswapfile
 set showcmd
@@ -47,8 +47,8 @@ augroup END
 """"""""""""""""""""""""""""""
 
 """"" Dein.vim Settings """""
-let s:vim_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME/vim
-let s:vimrc = s:vim_home . 'vimrc'
+let s:vim_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
+let s:vimrc = s:vim_home . 'vim/vimrc.vim'
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/vim/dein'
 let s:dein_repo_dir = s:dein_dir . 'repos/github.com/Shougo/dein.vim'
@@ -72,7 +72,7 @@ endif
 """"" lightline.vim """""
 let g:lightline = {
 \ 'colorscheme': 'solarized',
-\ 'mode_map': {'c': 'NORMAL'}
+\ 'mode_map': {'c': 'NORMAL'},
 \ 'active': {
 \   'left': [['mode', 'paste'], ['fugitive', 'filename']]
 \ },
@@ -113,4 +113,19 @@ function! LightLineFugitive()
   endif
 endfunction
 
+function! LightLineFileFormat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightLineFiletype()
+  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightLineFileencoding()
+  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+endfunction
+
+function! LightLineMode()
+  return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
 """""""""""""""""""""""""
