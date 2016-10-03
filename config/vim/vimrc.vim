@@ -58,6 +58,11 @@ set virtualedit=block
 set visualbell
 set laststatus=2
 filetype plugin indent on
+set clipboard+=unnamed
+set list
+set listchars=tab:»-,trail:-,nbsp:%,eol:↲
+set relativenumber number
+set wildmenu
 """"""""""""""""""
 
 """"" File Type Settings """""
@@ -128,4 +133,49 @@ endfunction
 function! LightLineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
+"""""""""""""""""""""""""
+
+""""" Unite.vim """""
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+nnoremap <silent> <buffer> <Space>u :<C-u>Unite file<CR>
+nnoremap <silent> <buffer> <Space>h :<C-u>Unite history/yank<CR>
+nnoremap <silent> <buffer> <Space>m :<C-u>Unite file_mru<CR>
+"""""""""""""""""""""
+
+""""" AlpacaTags """""
+augroup AlpacaTags
+  autocmd!
+  if exists(':Tags')
+    autocmd BufWritePost Gemfile TagsBundle
+    autocmd BufEnter * TagsSet
+    autocmd BufWriterPost * TagsUpdate
+  endif
+augroup END
+""""""""""""""""""""""
+
+""""" vim-watchdogs """""
+let g:watchdogs_check_BufWritePost_enable = 1
+let g:watchdogs_check_CursorHold_enable = 1
+let g:quickrun_config = {
+\ '_': {
+\   'runner': 'vimproc',
+\   'runner/vimproc/updatetime': 40,
+\   'outputter/buffer/split': ':botright 4sp',
+\ },
+\ 'watchdogs_checker/_': {
+\   'outputter/quickfix/open_cmd': '',
+\   'hook/qfsigns_update/enable_exit': 1,
+\   'hook/qfsigns_update/priority_exit': 3
+\ },
+\ 'javascript/watchdogs_checker': {
+\   'type': 'eslint'
+\ },
+\ 'ruby/watchdogs_checker': {
+\  'type': 'rubocop'
+\ }
+\}
+call watchdogs#setup(g:quickrun_config)
 """""""""""""""""""""""""
