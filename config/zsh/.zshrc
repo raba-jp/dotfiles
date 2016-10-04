@@ -1,7 +1,7 @@
 source $ZPLUG_HOME/init.zsh
 
 zplug "zsh-users/zsh-syntax-highlighting"
-zplug "b4b4r07/enhancd"
+zplug "b4b4r07/enhancd", use:init.sh
 zplug "zsh-users/zsh-completions"
 
 if ! zplug check --verbose; then
@@ -18,4 +18,3 @@ zplug load --verbose
 
 export ENHANCD_FILTER=peco
 export ENHANCD_DIR=$XDG_CAHCE_HOME/zsh
-source $ZPLUG_HOME/repos/b4b4r07/enhancd/init.sh
