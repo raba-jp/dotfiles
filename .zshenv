@@ -1,3 +1,6 @@
+##### zplug #####
+export ZPLUG_HOME=/usr/local/opt/zplug
+
 ##### XDG BASE DIRECTORY #####
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache

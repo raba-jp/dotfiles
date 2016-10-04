@@ -68,6 +68,7 @@ set wildmenu
 """"" File Type Settings """""
 augroup FileTypeFormat
   autocmd!
+  autocmd BufNewFile,BufRead *.sh setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.rb setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.json setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
@@ -156,26 +157,12 @@ augroup AlpacaTags
 augroup END
 """"""""""""""""""""""
 
-""""" vim-watchdogs """""
-let g:watchdogs_check_BufWritePost_enable = 1
-let g:watchdogs_check_CursorHold_enable = 1
+""""" quickrun.vim """""
 let g:quickrun_config = {
 \ '_': {
 \   'runner': 'vimproc',
 \   'runner/vimproc/updatetime': 40,
 \   'outputter/buffer/split': ':botright 4sp',
 \ },
-\ 'watchdogs_checker/_': {
-\   'outputter/quickfix/open_cmd': '',
-\   'hook/qfsigns_update/enable_exit': 1,
-\   'hook/qfsigns_update/priority_exit': 3
-\ },
-\ 'javascript/watchdogs_checker': {
-\   'type': 'eslint'
-\ },
-\ 'ruby/watchdogs_checker': {
-\  'type': 'rubocop'
-\ }
 \}
-call watchdogs#setup(g:quickrun_config)
 """""""""""""""""""""""""

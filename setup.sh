@@ -1,29 +1,71 @@
 #!/bin/sh
 DOT_DIR=~/dotfile
 
-packages=(
-  "caskroom/cask/brew-cask"
-  "neovim/neovim/neovim"
-  "reattach-to-user-namespace"
-  "rbenv"
-  "pyenv"
-  "zsh"
-  "tmux"
-  "go"
-  "glide"
-  "ghq"
-  "peco"
+cd $DOT_DIR
+
+if ! type brew
+then
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+## Create Directory
+dirs=(
+  "~/.cache"
+  "~/.cache/vim"
+  "~/.cache/vim/dein"
+  "~/.cache/zsh"
+)
+
+for dir in ${dirs[@]}
+do
+  if [ ! -e "$dir" ]
+    then
+      echo "Create Directory -> $dir"
+      mkdir $dir
+  fi
+done
+
+## brew tap
+brew_tap=(
+  "caskroom/cask"
+  "neovim/neovim"
+)
+
+for brew in ${brew_tap[@]}
+do
+  brew tap $brew 
+done
+
+## brew install
+brew_install=(
+  "brew-cask"
   "ctags"
-  "the_silver_searcher"
   "curl"
-  "wget"
   "docker"
   "docker-compose"
   "docker-machine"
+  "ghq"
+  "git"
+  "glide"
+  "go"
+  "neovim"
+  "peco"
+  "reattach-to-user-namespace"
+  "tmux"
+  "the_silver_searcher"
   "vim --with-lua --with-luajit --with-python3"
+  "wget"
+  "zsh"
+  "zplug"
 )
 
-cask_packages=(
+for brew in ${brew_install[@]}
+do
+  brew install $brew 
+done
+
+## brew cask install
+brew_cask_install=(
   "slack"
   "virtualbox"
   "appcleaner"
@@ -34,51 +76,21 @@ cask_packages=(
   "bathyscaphe"
   "sourcetree"
   "qlmarkdown"
+  "cheatsheet"
 )
 
-mkdir ~/.config
-mkdir ~/.config/vim
-mkdir ~/.config/tmux
-mkdir ~/.cache
-mkdir ~/.cache/dein
-mkdir ~/.cache/vim
-mkdir ~/.cache/zsh
-
-cd $DOT_DIR
-for f in .??*
+for brew in ${brew_cask_install[a]}
 do
-  [[ "$f" == ".git" ]] && continue
-  [[ "$f" == ".DS_Store" ]] && continue
-  ln -snfv $DOT_DIR/$f $HOME/$f
-done
-cd $HOME
-
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-for package in ${packages[@]}
-do
-  brew install $package
+  brew cask install $brew
 done
 
-for cask in ${cask_package[a]}
-do
-  brew cask install $cask
-done
+## dotfile init
+if [-e '~/.zshenv' ]
+then
+  mv $HOME/.zshenv $HOME/.zshenv.bk
+fi
+ln -s $DOTDIR/.zshenv $HOME/.zshenv
+ln -s $DOTDIR/config $HOME/.config
 
-# zsh
-# zplug install
-zsh ~/dotfile/installer.zsh
-zsh
-zplug install
-ln -s ~/.zplug/repos/sindresourhus/pure/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
-ln -s ~/.zplug/repos/sindresourhus/pure/async.zsh /usr/local/share/zsh/site-functions/async
-
-# Ruby
-rbenv install 2.3.1
-
-# Python
-pyenv install 3.5.2
-
-# Node.js
-curl -L git.io/nodebrew | perl - setup
-
+git clone https://github.com/riywo/anyenv ~/.anyenv
+exec $SHELL -l 
