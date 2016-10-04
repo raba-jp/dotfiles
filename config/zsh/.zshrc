@@ -17,4 +17,5 @@ zplug "$ZSH_CONF_DIR/options", from:local
 zplug load --verbose
 
 export ENHANCD_FILTER=peco
+export ENHANCD_DIR=$XDG_CAHCE_HOME/zsh
 source $ZPLUG_HOME/repos/b4b4r07/enhancd/init.sh
