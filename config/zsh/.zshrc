@@ -1,18 +1,20 @@
+source $ZPLUG_HOME/init.zsh
+
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "b4b4r07/enhancd"
+zplug "zsh-users/zsh-completions"
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
 ZSH_CONF_DIR=$XDG_CONFIG_HOME/zsh
+zplug "$ZSH_CONF_DIR/options", from:local
 
-function loadlib() {
-        lib=${1:?"You have to specify a library file"}
-        if [ -f "$lib" ];then #ファイルの存在を確認
-                source "$lib"
-        fi
-}
+zplug load --verbose
 
-loadlib $ZSH_CONF_DIR/00_plugins.zsh
-loadlib $ZSH_CONF_DIR/01_alias.zsh
-loadlib $ZSH_CONF_DIR/02_options.zsh
-loadlib $ZSH_CONF_DIR/03_prompt.zsh
-loadlib $ZSH_CONF_DIR/04_functions.zsh
-loadlib $ZSH_CONF_DIR/05_autocomplete.zsh
-loadlib $ZSH_CONF_DIR/06_environment.zsh
-loadlib $ZSH_CONF_DIR/07_tmux.zsh
-loadlib $ZSH_CONF_DIR/08_peco.zsh
+export ENHANCD_FILTER=peco
+source $ZPLUG_HOME/repos/b4b4r07/enhancd/init.sh
