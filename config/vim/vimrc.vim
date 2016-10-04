@@ -164,5 +164,9 @@ let g:quickrun_config = {
 \   'runner/vimproc/updatetime': 40,
 \   'outputter/buffer/split': ':botright 4sp',
 \ },
+\ 'eslint': {
+\   'command': 'eslint',
+\   'exec': 'docker-compose run mock %c %s',
+\ },
 \}
 """""""""""""""""""""""""
