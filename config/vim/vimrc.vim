@@ -63,6 +63,8 @@ set list
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲
 set relativenumber number
 set wildmenu
+
+nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
 """"""""""""""""""
 
 """"" File Type Settings """""
