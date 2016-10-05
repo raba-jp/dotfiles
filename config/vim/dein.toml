@@ -65,3 +65,8 @@ repo = 'cespare/vim-toml'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 #######################
+
+##### Git #####
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+###############

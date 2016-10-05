@@ -1,8 +1,9 @@
 [user]
-	name = Hiroki Sakuraba
+	name = sakuraba
 	email = sakuraba@ksf.jp
 [core]
 	editor = nvim
+	excludesfile = /Users/sakuraba/.gitignore_global
 [ghq]
 	root=~/Sources
 [alias]
@@ -20,5 +21,7 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Users/hiroki.sakuraba/Downloads/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[commit]
+	template = /Users/sakuraba/.stCommitMsg
