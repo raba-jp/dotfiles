@@ -1,7 +1,7 @@
 #!/bin/sh
-DOT_DIR=~/dotfile
+DOTDIR=$HOME/dotfile
 
-cd $DOT_DIR
+cd $DOTDIR
 
 if ! type brew
 then
@@ -77,9 +77,12 @@ brew_cask_install=(
   "sourcetree"
   "qlmarkdown"
   "cheatsheet"
+  "google-chrome"
+  "google-drive"
+  "dropbox"
 )
 
-for brew in ${brew_cask_install[a]}
+for brew in ${brew_cask_install[@]}
 do
   brew cask install $brew
 done
@@ -88,9 +91,13 @@ done
 if [-e '~/.zshenv' ]
 then
   mv $HOME/.zshenv $HOME/.zshenv.bk
+  ln -s $DOTDIR/.zshenv $HOME/.zshenv
+  ln -s $DOTDIR/config $HOME/.config
 fi
-ln -s $DOTDIR/.zshenv $HOME/.zshenv
-ln -s $DOTDIR/config $HOME/.config
 
 git clone https://github.com/riywo/anyenv ~/.anyenv
 exec $SHELL -l 
+
+anyenv install pyenv
+anyenv install rbenv
+anyenv install ndenv
