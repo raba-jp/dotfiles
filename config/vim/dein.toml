@@ -8,40 +8,66 @@ build = 'make'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
-
-[[plugins]]
-repo = 'osyo-manga/shabadou.vim'
+hook_source = '''
+  let g:quickrun_config = {
+\   '_': {
+\     'runner': 'vimproc',
+\     'runner/vimproc/updatetime': 40,
+\     'outputter': 'error',
+\     'outputter/error/success': 'buffer',
+\     'outputter/error/error': 'quickfix',
+\     'outputter/buffer/close_on_empty': 1,
+\     'outputter/buffer/split': ':botright 4sp',
+\   }
+\ }
+'''
 #####################
+
 
 ##### Color Scheme #####
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
+hook_add = '''
+  set background=dark
+  let g:solarized_termtrans = 1
+  let g:solarized_termcolors = 256
+  augroup ColorScheme
+    autocmd!
+    au ColorScheme VimEnter * nested colorscheme solarized
+  augroup END
+'''
 ########################
 
 ##### Unite #####
 [[plugins]]
 repo = 'Shougo/unite.vim'
+hook_source = '''
+  let g:unite_enable_ignore_case = 1
+  let g:unite_enable_smart_case = 1
+  au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+  au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+  nnoremap <silent> <buffer> <Space>u :<C-u>Unite file<CR>
+  nnoremap <silent> <buffer> <Space>h :<C-u>Unite history/yank<CR>
+  nnoremap <silent> <buffer> <Space>m :<C-u>Unite file_mru<CR>
+'''
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
-
-[[plugins]]
-repo = 'osyo-manga/unite-quickfix'
-
-[[plugins]]
-repo = 'basyura/unite-rails'
 #################
 
 ##### Auto Complete #####
-
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'Shougo/neocomplete'
+hook_source = '''
+  let g:neocomplete#enable_to_startup = 1
+  let g:neocomplete#enable_underbar_completion = 1
+  let g:neocomplete#enable_camel_case_completion = 1
+  let g:neocomplete#max_list = 20
+  let g:neocomplete#auto_completion_start_length = 2
+'''
 #########################
 
 ##### Language #####
@@ -64,9 +90,63 @@ repo = 'cespare/vim-toml'
 ##### Status Line #####
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-#######################
+hook_add = '''
+  let g:lightline = {
+\   'colorscheme': 'solarized',
+\   'mode_map': {'c': 'NORMAL'},
+\   'active': {
+\     'left': [['mode', 'paste'], ['fugitive', 'filename']]
+\   },
+\   'component_function': {
+\     'modified': 'LightLineModified',
+\     'readonly': 'LightLineReadOnly',
+\     'fugitive': 'LightLineFugitive',
+\     'filename': 'LightLineFileName',
+\     'fileformat': 'LightLineFileformat',
+\     'filetype': 'LightLineFiletype',
+\     'fileencoding': 'LightLineFileEncoding',
+\     'mode': 'LightLineMode'
+\   }
+\ }
+  function! LightLineModified()
+    return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+  endfunction
 
-##### Git #####
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-###############
+  function! LightLineReadOnly()
+    return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
+  endfunction
+
+  function! LightLineFilename()
+    return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+\     (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+\     &ft == 'unite' ? unite#get_status_string() :
+\     &ft == 'vimshell' ? vimshell#get_status_string() :
+\     '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+\     ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+  endfunction
+
+  function! LightLineFugitive()
+    if &ft !~? 'vimfiler\|gundo' && exists('fugitive#head')
+      return fugitive#head()
+    else
+      return ''
+    endif
+  endfunction
+
+  function! LightLineFileFormat()
+    return winwidth(0) > 70 ? &fileformat : ''
+  endfunction
+
+  function! LightLineFiletype()
+    return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+  endfunction
+
+  function! LightLineFileencoding()
+    return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+  endfunction
+
+  function! LightLineMode()
+    return winwidth(0) > 60 ? lightline#mode() : ''
+  endfunction
+'''
+#######################

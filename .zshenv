@@ -22,7 +22,7 @@ export HISTFILE=$XDG_CACHE_HOME/zsh/history
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 ##### Language Path #####
-export GOPATH=$HOME/go
+export GOPATH=$HOME/Sources
 export RBPATH=$HOME/.rbenv/bin
 export PYPATH=$HOME/.pyenv/bin
 export NDPATH=$HOME/.nodebrew/current/bin

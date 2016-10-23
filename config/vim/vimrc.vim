@@ -4,17 +4,6 @@ if &compatible
 endif
 """""""""""""""""""""""""""""
 
-""""" Color Scheme """""
-set background=dark
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-
-augroup ColorSchemeSetting
-  autocmd!
-  au ColorSchemeSetting VimEnter * nested colorscheme solarized
-augroup END
-""""""""""""""""""""""""
-
 """"" XDG Base Direcotry """""
 set directory=$XDG_CACHE_HOME/vim,~/,/tmp
 set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
@@ -78,77 +67,6 @@ augroup FileTypeFormat
 augroup END
 """"""""""""""""""""""""""""""
 
-""""" lightline.vim """""
-let g:lightline = {
-\ 'colorscheme': 'solarized',
-\ 'mode_map': {'c': 'NORMAL'},
-\ 'active': {
-\   'left': [['mode', 'paste'], ['fugitive', 'filename']]
-\ },
-\ 'component_function': {
-\   'modified': 'LightLineModified',
-\   'readonly': 'LightLineReadOnly',
-\   'fugitive': 'LightLineFugitive',
-\   'filename': 'LightLineFileName',
-\   'fileformat': 'LightLineFileformat',
-\   'filetype': 'LightLineFiletype',
-\   'fileencoding': 'LightLineFileEncoding',
-\   'mode': 'LightLineMode'
-\ }
-\}
-
-function! LightLineModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! LightLineReadOnly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
-endfunction
-
-function! LightLineFilename()
-  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-\   (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-\   &ft == 'unite' ? unite#get_status_string() :
-\   &ft == 'vimshell' ? vimshell#get_status_string() :
-\   '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-\   ('' != LightLineModified() ? ' ' . LightLineModified() : '')
-endfunction
-
-function! LightLineFugitive()
-  if &ft !~? 'vimfiler\|gundo' && exists('fugitive#head')
-    return fugitive#head()
-  else
-    return ''
-  endif
-endfunction
-
-function! LightLineFileFormat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! LightLineFiletype()
-  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-endfunction
-
-function! LightLineFileencoding()
-  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-endfunction
-
-function! LightLineMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-"""""""""""""""""""""""""
-
-""""" Unite.vim """""
-let g:unite_enable_ignore_case = 1
-let g:unite_enable_smart_case = 1
-au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-nnoremap <silent> <buffer> <Space>u :<C-u>Unite file<CR>
-nnoremap <silent> <buffer> <Space>h :<C-u>Unite history/yank<CR>
-nnoremap <silent> <buffer> <Space>m :<C-u>Unite file_mru<CR>
-"""""""""""""""""""""
-
 """"" AlpacaTags """""
 augroup AlpacaTags
   autocmd!
@@ -159,21 +77,3 @@ augroup AlpacaTags
   endif
 augroup END
 """"""""""""""""""""""
-
-""""" quickrun.vim """""
-let g:quickrun_config = {
-\ '_': {
-\   'runner': 'vimproc',
-\   'runner/vimproc/updatetime': 40,
-\   'outputter': 'error',
-\   'outputter/error/success': 'buffer',
-\   'outputter/error/error': 'quickfix',
-\   'outputter/buffer/close_on_empty': 1,
-\   'outputter/buffer/split': ':botright 4sp',
-\ },
-\ 'eslint': {
-\   'command': 'eslint',
-\   'exec': 'docker-compose run mock %c %s',
-\ },
-\}
-"""""""""""""""""""""""""
