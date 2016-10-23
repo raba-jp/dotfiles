@@ -41,14 +41,14 @@ hook_add = '''
 ##### Unite #####
 [[plugins]]
 repo = 'Shougo/unite.vim'
-hook_source = '''
+hook_add = '''
   let g:unite_enable_ignore_case = 1
   let g:unite_enable_smart_case = 1
   au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
   au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-  nnoremap <silent> <buffer> <Space>u :<C-u>Unite file<CR>
-  nnoremap <silent> <buffer> <Space>h :<C-u>Unite history/yank<CR>
-  nnoremap <silent> <buffer> <Space>m :<C-u>Unite file_mru<CR>
+  nnoremap <silent> <buffer> <Leader>f :<C-u>Unite file<CR>
+  nnoremap <silent> <buffer> <Leader>h :<C-u>Unite history/yank<CR>
+  nnoremap <silent> <buffer> <Leader>m :<C-u>Unite file_mru<CR>
 '''
 
 [[plugins]]
@@ -70,22 +70,6 @@ hook_source = '''
 '''
 #########################
 
-##### Language #####
-[[plugins]]
-repo = 'vim-ruby/vim-ruby'
-
-[[plugins]]
-repo = 'tpope/vim-rails'
-
-[[plugins]]
-repo = 'tpope/vim-haml'
-
-[[plugins]]
-repo = 'elzr/vim-json'
-
-[[plugins]]
-repo = 'cespare/vim-toml'
-####################
 
 ##### Status Line #####
 [[plugins]]
@@ -150,3 +134,35 @@ hook_add = '''
   endfunction
 '''
 #######################
+
+##### Language #####
+##### Go #####
+[[plugins]]
+repo = 'faith/vim-go'
+if = ''' &ft == 'go' '''
+##############
+
+##### Ruby #####
+[[plugins]]
+repo = 'vim-ruby/vim-ruby'
+if = ''' &ft == 'ruby' '''
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+if = ''' $ft == 'ruby' '''
+################
+
+[[plugins]]
+repo = 'tpope/vim-haml'
+
+[[plugins]]
+repo = 'elzr/vim-json'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+####################
+
+##### Git #####
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+###############

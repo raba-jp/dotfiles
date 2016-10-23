@@ -1,3 +1,4 @@
+let mapleader = "\<Space>"
 """" nocompatible mode """""
 if &compatible
   set nocompatible
