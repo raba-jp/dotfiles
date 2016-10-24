@@ -8,8 +8,6 @@ export XDG_DATA_HOME=$HOME/.local/share
 
 ##### Editor Path #####
 export ATOM_HOME=$XDG_DATA_HOME/atom
-export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc.vim" | source $MYVIMRC'
-export VIMDOTDIR="$XDG_CONFIG_HOME/vim"
 
 #### #Common Path #####
 export LESSHISTFILE=$XDG_CACHE_HOME/less/history

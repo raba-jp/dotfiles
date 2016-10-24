@@ -45,7 +45,7 @@ hook_add = '''
   let g:unite_enable_smart_case = 1
   au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
   au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-  nnoremap <silent> <buffer> <Leader>f :<C-u>Unite file<CR>
+  nnoremap <silent> <buffer> <Leader>o :<C-u>Unite file<CR>
   nnoremap <silent> <buffer> <Leader>h :<C-u>Unite history/yank<CR>
   nnoremap <silent> <buffer> <Leader>m :<C-u>Unite file_mru<CR>
 '''
@@ -60,6 +60,11 @@ repo = 'Shougo/neoyank.vim'
 ##### Auto Complete #####
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
@@ -69,11 +74,17 @@ repo = 'Shougo/neosnippet-snippets'
 #########################
 
 ##### Syntax Check #####
+[[plugins]]
 repo = 'neomake/neomake'
 hook_add = '''
   autocmd! BufWritePost * Neomake
 '''
 ########################
+
+##### Cursor Move #####
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+#######################
 
 ##### Status Line #####
 [[plugins]]

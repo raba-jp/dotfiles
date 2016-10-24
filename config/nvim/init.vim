@@ -1,19 +1,14 @@
 let mapleader = "\<Space>"
 
 """"" XDG Base Direcotry """""
-set directory=$XDG_CACHE_HOME/vim,~/,/tmp
-set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
-" set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
-set viminfo=
-set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
-let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+set runtimepath=$XDG_CONFIG_HOME/nvim
 """"""""""""""""""""""""""""""
 
 """"" Dein.vim Settings """""
 let s:vim_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
-let s:vimrc = s:vim_home . 'vim/vimrc.vim'
+let s:vimrc = s:vim_home . 'nvim/init.vim'
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-let s:dein_dir = s:cache_home . '/vim/dein'
+let s:dein_dir = s:cache_home . '/nvim/dein'
 let s:dein_repo_dir = s:dein_dir . 'repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
   execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_repo_dir)
@@ -33,12 +28,6 @@ if dein#check_install()
   call dein#install()
 endif
 """""""""""""""""""""""""""""
-
-""""" deoplete.nvim Settings """""
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-""""""""""""""""""""""""""""""""""
 
 """"" Common """""
 set number
