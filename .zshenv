@@ -26,6 +26,7 @@ export ANYENV=$HOME/.anyenv/bin
 ##### Path #####
 path=(
   $GOPATH(N-/)
+  $GOPATH/bin(N-/)
   $ANYENV(N-/)
   $path
 )
