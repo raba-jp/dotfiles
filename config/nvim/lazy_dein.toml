@@ -1,0 +1,36 @@
+##### Go #####
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+##############
+
+##### Ruby #####
+[[plugins]]
+repo = 'vim-ruby/vim-ruby'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = 'ruby'
+################
+
+##### JavaScript #####
+######################
+
+##### Json #####
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = 'json'
+################
+
+##### Toml #####
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+################
+
+##### Haml #####
+[[plugins]]
+repo = 'tpope/vim-haml'
+on_ft = 'haml'
+################

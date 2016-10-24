@@ -23,16 +23,11 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 ##### Language Path #####
 export GOPATH=$HOME/Sources
-export RBPATH=$HOME/.rbenv/bin
-export PYPATH=$HOME/.pyenv/bin
-export NDPATH=$HOME/.nodebrew/current/bin
-
+export ANYENV=$HOME/.anyenv/bin
 
 ##### Path #####
 path=(
   $GOPATH(N-/)
-  $RBPATH(N-/)
-  $PYPATH(N-/)
-  $NDPATH(N-/)
+  $ANYENV(N-/)
   $path
 )

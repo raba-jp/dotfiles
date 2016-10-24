@@ -19,4 +19,6 @@ zplug load --verbose
 export ENHANCD_FILTER=peco
 export ENHANCD_DIR=$XDG_CAHCE_HOME/zsh
 
+eval "$(anyenv init -)"
+
 [ -f $ZSH_CONF_DIR/.zshrc.local ] && source $ZSH_CONF_DIR/.zshrc.local

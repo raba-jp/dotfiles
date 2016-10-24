@@ -8,31 +8,53 @@ build = 'make'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
-
-[[plugins]]
-repo = 'osyo-manga/shabadou.vim'
+hook_source = '''
+  let g:quickrun_config = {
+\   '_': {
+\     'runner': 'vimproc',
+\     'runner/vimproc/updatetime': 40,
+\     'outputter': 'error',
+\     'outputter/error/success': 'buffer',
+\     'outputter/error/error': 'quickfix',
+\     'outputter/buffer/close_on_empty': 1,
+\     'outputter/buffer/split': ':botright 4sp',
+\   }
+\ }
+'''
 #####################
 
 ##### Color Scheme #####
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
+hook_add = '''
+  set background=dark
+  let g:solarized_termtrans = 1
+  let g:solarized_termcolors = 256
+  augroup ColorScheme
+    autocmd!
+    au ColorScheme VimEnter * nested colorscheme solarized
+  augroup END
+'''
 ########################
 
 ##### Unite #####
 [[plugins]]
 repo = 'Shougo/unite.vim'
+hook_add = '''
+  let g:unite_enable_ignore_case = 1
+  let g:unite_enable_smart_case = 1
+  au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+  au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+  nnoremap <silent> <buffer> <Leader>f :<C-u>Unite file<CR>
+  nnoremap <silent> <buffer> <Leader>h :<C-u>Unite history/yank<CR>
+  nnoremap <silent> <buffer> <Leader>m :<C-u>Unite file_mru<CR>
+'''
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
-
-[[plugins]]
-repo = 'osyo-manga/unite-quickfix'
-
-[[plugins]]
-repo = 'basyura/unite-rails'
 #################
 
 ##### Auto Complete #####
@@ -46,42 +68,78 @@ repo = 'Shougo/neosnippet.vim'
 repo = 'Shougo/neosnippet-snippets'
 #########################
 
-##### Language #####
-[[plugins]]
-repo = 'vim-ruby/vim-ruby'
-
-[[plugins]]
-repo = 'tpope/vim-rails'
-
-
-[[plugins]]
-repo = 'tpope/vim-haml'
-
-[[plugins]]
-repo = 'elzr/vim-json'
-
-[[plugins]]
-repo = 'cespare/vim-toml'
-####################
+##### Syntax Check #####
+repo = 'neomake/neomake'
+hook_add = '''
+  autocmd! BufWritePost * Neomake
+'''
+########################
 
 ##### Status Line #####
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+hook_add = '''
+  let g:lightline = {
+\   'colorscheme': 'solarized',
+\   'mode_map': {'c': 'NORMAL'},
+\   'active': {
+\     'left': [['mode', 'paste'], ['fugitive', 'filename']]
+\   },
+\   'component_function': {
+\     'modified': 'LightLineModified',
+\     'readonly': 'LightLineReadOnly',
+\     'fugitive': 'LightLineFugitive',
+\     'filename': 'LightLineFileName',
+\     'fileformat': 'LightLineFileformat',
+\     'filetype': 'LightLineFiletype',
+\     'fileencoding': 'LightLineFileEncoding',
+\     'mode': 'LightLineMode'
+\   }
+\ }
+  function! LightLineModified()
+    return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+  endfunction
+
+  function! LightLineReadOnly()
+    return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
+  endfunction
+
+  function! LightLineFilename()
+    return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+\     (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+\     &ft == 'unite' ? unite#get_status_string() :
+\     &ft == 'vimshell' ? vimshell#get_status_string() :
+\     '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+\     ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+  endfunction
+
+  function! LightLineFugitive()
+    if &ft !~? 'vimfiler\|gundo' && exists('fugitive#head')
+      return fugitive#head()
+    else
+      return ''
+    endif
+  endfunction
+
+  function! LightLineFileFormat()
+    return winwidth(0) > 70 ? &fileformat : ''
+  endfunction
+
+  function! LightLineFiletype()
+    return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+  endfunction
+
+  function! LightLineFileencoding()
+    return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+  endfunction
+
+  function! LightLineMode()
+    return winwidth(0) > 60 ? lightline#mode() : ''
+  endfunction
+'''
 #######################
 
-##### Syntax Check #####
+##### Git #####
 [[plugins]]
-repo = 'osyo-manga/vim-watchdogs'
-
-[[plugins]]
-repo = 'dannyob/quickfixstatus'
-
-[[plugins]]
-repo = 'jceb/vim-hier'
-# [[plugins]]
-# repo = 'KazuakiM/vim-qfsigns'
-
-# [[plugins]]
-# repo = 'KazuakiM/vim-qfstatusline'
-
-########################
+repo = 'tpope/vim-fugitive'
+###############

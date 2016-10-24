@@ -138,14 +138,18 @@ hook_add = '''
 ##### Language #####
 ##### Go #####
 [[plugins]]
-repo = 'faith/vim-go'
-if = ''' &ft == 'go' '''
+repo = 'fatih/vim-go'
+#if = ''' &filetype == 'go' '''
+
+[[plugins]]
+repo = 'nsf/gocode'
+#if = ''' &filetype == 'go' '''
 ##############
 
 ##### Ruby #####
 [[plugins]]
 repo = 'vim-ruby/vim-ruby'
-if = ''' &ft == 'ruby' '''
+if = ''' &filetype == 'ruby' '''
 
 [[plugins]]
 repo = 'tpope/vim-rails'
@@ -166,3 +170,5 @@ repo = 'cespare/vim-toml'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 ###############
+
+
