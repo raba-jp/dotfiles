@@ -1,9 +1,5 @@
 let mapleader = "\<Space>"
 
-""""" XDG Base Direcotry """""
-set runtimepath=$XDG_CONFIG_HOME/nvim
-""""""""""""""""""""""""""""""
-
 """"" Dein.vim Settings """""
 let s:vim_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
 let s:vimrc = s:vim_home . 'nvim/init.vim'
