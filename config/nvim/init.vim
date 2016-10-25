@@ -40,7 +40,7 @@ set listchars=tab:»-,trail:-,nbsp:%,eol:↲
 set relativenumber number
 set wildmenu
 set clipboard+=unnamedplus
-let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
+let g:python3_host_prog = expand('$HOME') . '/.anyenv/envs/pyenv/shims/python'
 """"""""""""""""""
 
 """"" File Type Settings """""
