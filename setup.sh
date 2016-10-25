@@ -11,9 +11,8 @@ fi
 ## Create Directory
 dirs=(
   "~/.cache"
-  "~/.cache/vim"
-  "~/.cache/vim/dein"
-  "~/.cache/zsh"
+  "~/Development"
+  "~/Development/src"
 )
 
 for dir in ${dirs[@]}
