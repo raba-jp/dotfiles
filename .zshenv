@@ -20,7 +20,7 @@ export HISTFILE=$XDG_CACHE_HOME/zsh/history
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 ##### Language Path #####
-export GOPATH=$HOME/Sources
+export GOPATH=$HOME/Development
 export ANYENV=$HOME/.anyenv/bin
 
 ##### Path #####
