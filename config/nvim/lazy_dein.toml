@@ -34,3 +34,19 @@ on_ft = 'toml'
 repo = 'tpope/vim-haml'
 on_ft = 'haml'
 ################
+
+##### slim #####
+repo = 'slim-template/vim-slim'
+on_ft = 'slim'
+################
+
+##### Unite.vim #####
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_source = 'unite.vim'
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_source = 'unite.vim'
+#####################
+

@@ -49,12 +49,6 @@ hook_add = '''
   nnoremap <silent> <buffer> <Leader>h :<C-u>Unite history/yank<CR>
   nnoremap <silent> <buffer> <Leader>m :<C-u>Unite file_mru<CR>
 '''
-
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-
-[[plugins]]
-repo = 'Shougo/neoyank.vim'
 #################
 
 ##### Auto Complete #####
@@ -65,12 +59,6 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 '''
-
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
 #########################
 
 ##### Syntax Check #####
