@@ -37,25 +37,20 @@ hook_add = '''
 '''
 ########################
 
-##### Unite #####
+##### EasyMotion #####
 [[plugins]]
-repo = 'Shougo/unite.vim'
+repo = 'easymotion/vim-easymotion'
 hook_add = '''
-  let g:unite_enable_ignore_case = 1
-  let g:unite_enable_smart_case = 1
-  au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-  au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-  nnoremap <silent> <buffer> <Leader>o :<C-u>Unite file<CR>
-  nnoremap <silent> <buffer> <Leader>h :<C-u>Unite history/yank<CR>
-  nnoremap <silent> <buffer> <Leader>m :<C-u>Unite file_mru<CR>
+  let g:EasyMotion_smartcase = 1
+  let g:EasyMotion_do_mapping = 0
+  nmap <Leader> <Plug>(easymotion-prefix)
+  nmap <Leader>l <Plug>(easymotion-lineforward)
+  nmap <Leader>j <Plug>(easymotion-j)
+  nmap <Leader>k <Plug>(easymotion-k)
+  nmap <Leader>h <Plug>(easymotion-linebackword)
+  nmap <Leader>s <Plug>(easymotion-overwin-f2)
 '''
-
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-
-[[plugins]]
-repo = 'Shougo/neoyank.vim'
-#################
+######################
 
 ##### Auto Complete #####
 [[plugins]]
