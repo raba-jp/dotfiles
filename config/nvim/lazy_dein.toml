@@ -23,6 +23,14 @@ on_event = 'BufRead'
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
+hook_add = '''
+  let g:go_fmt_command = "goimports"
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_structs = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_build_constraints = 1
+'''
 ##############
 
 ##### Ruby #####
@@ -32,6 +40,10 @@ on_ft = 'ruby'
 
 [[plugins]]
 repo = 'tpope/vim-rails'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'fishbullet/deoplete-ruby'
 on_ft = 'ruby'
 ################
 
