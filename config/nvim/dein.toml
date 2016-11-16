@@ -56,9 +56,8 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#sources#omni_patterns.go = '\h\w\.\w*'
 '''
 #########################
 

@@ -57,6 +57,14 @@ augroup FileTypeFormat
 augroup END
 """"""""""""""""""""""""""""""
 
+""""" Golang """""
+augroup Golang
+  autocmd!
+  autocmd FileType Golang :highlight goErr cterm=bold ctermfg=214
+  autocmd FileType go :match goErr /\<err\>/
+augroup END
+""""""""""""""""""
+
 """"" AlpacaTags """""
 augroup AlpacaTags
   autocmd!
