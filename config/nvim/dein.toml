@@ -60,12 +60,6 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 '''
-
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
 #########################
 
 ##### Syntax Check #####
@@ -75,11 +69,6 @@ hook_add = '''
   autocmd! BufWritePost * Neomake
 '''
 ########################
-
-##### Cursor Move #####
-[[plugins]]
-repo = 'easymotion/vim-easymotion'
-#######################
 
 ##### Status Line #####
 [[plugins]]

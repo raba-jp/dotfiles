@@ -3,7 +3,7 @@ DOTDIR=$HOME/dotfile
 
 cd $DOTDIR
 
-if ! type brew
+if ! type brew >/dev/null 2>&1
 then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
@@ -27,6 +27,7 @@ done
 ## brew tap
 brew_tap=(
   "caskroom/cask"
+  "caskroom/fonts"
   "neovim/neovim"
 )
 
@@ -37,7 +38,6 @@ done
 
 ## brew install
 brew_install=(
-  "brew-cask"
   "ctags"
   "curl"
   "docker"
@@ -52,7 +52,6 @@ brew_install=(
   "reattach-to-user-namespace"
   "tmux"
   "the_silver_searcher"
-  "vim --with-lua --with-luajit --with-python3"
   "wget"
   "zsh"
   "zplug"
@@ -89,14 +88,8 @@ done
 ## dotfile init
 if [-e '~/.zshenv' ]
 then
-  mv $HOME/.zshenv $HOME/.zshenv.bk
-  ln -s $DOTDIR/.zshenv $HOME/.zshenv
-  ln -s $DOTDIR/config $HOME/.config
+  ln -s $DOTDIR/.zshenv ~/.zshenv
+  ln -s $DOTDIR/config ~/.config
 fi
 
 git clone https://github.com/riywo/anyenv ~/.anyenv
-exec $SHELL -l 
-
-anyenv install pyenv
-anyenv install rbenv
-anyenv install ndenv
