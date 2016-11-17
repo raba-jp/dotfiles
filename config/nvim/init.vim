@@ -40,8 +40,16 @@ set listchars=tab:»-,trail:-,nbsp:%,eol:↲
 set relativenumber number
 set wildmenu
 set clipboard+=unnamedplus
+set showmatch
+set matchtime=1
 let g:python3_host_prog = expand('$HOME') . '/.anyenv/envs/pyenv/shims/python'
 """"""""""""""""""
+
+""""" Mapping ""'""
+nnoremap Y y$
+nnoremap + <C-a>
+nnoremap - <C-x>
+"""""""""""""""""""
 
 """"" File Type Settings """""
 augroup FileTypeFormat
