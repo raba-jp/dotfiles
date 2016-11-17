@@ -57,6 +57,8 @@ hook_add = '''
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
   let g:deoplete#enable_at_startup = 1
+'''
+hook_post_source = '''
   let g:deoplete#sources#omni_patterns.go = '\h\w\.\w*'
 '''
 #########################
