@@ -47,7 +47,7 @@ hook_add = '''
   nmap <Leader>l <Plug>(easymotion-lineforward)
   nmap <Leader>j <Plug>(easymotion-j)
   nmap <Leader>k <Plug>(easymotion-k)
-  nmap <Leader>h <Plug>(easymotion-linebackword)
+  nmap <Leader>h <Plug>(easymotion-linebackward)
   nmap <Leader>s <Plug>(easymotion-overwin-f2)
 '''
 ######################
