@@ -49,6 +49,9 @@ let g:python3_host_prog = expand('$HOME') . '/.anyenv/envs/pyenv/shims/python'
 nnoremap Y y$
 nnoremap + <C-a>
 nnoremap - <C-x>
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
+nnoremap Q <Nop>
 """""""""""""""""""
 
 """"" File Type Settings """""
