@@ -52,10 +52,6 @@ on_ft = 'ruby'
 [[plugins]]
 repo = 'tpope/vim-rails'
 on_ft = 'ruby'
-
-[[plugins]]
-repo = 'fishbullet/deoplete-ruby'
-on_ft = 'ruby'
 ################
 
 ##### JavaScript #####
