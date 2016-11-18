@@ -1,3 +1,6 @@
+set encoding=utf-8
+scriptencoding utf-8
+
 let mapleader = "\<Space>"
 
 """"" Dein.vim Settings """""
@@ -42,6 +45,7 @@ set wildmenu
 set clipboard+=unnamedplus
 set showmatch
 set matchtime=1
+set sh=zsh
 let g:python3_host_prog = expand('$HOME') . '/.anyenv/envs/pyenv/shims/python'
 """"""""""""""""""
 
