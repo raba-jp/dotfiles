@@ -78,7 +78,7 @@ augroup END
 """"" Golang """""
 augroup Golang
   autocmd!
-  autocmd FileType Golang :highlight goErr cterm=bold ctermfg=214
+  autocmd FileType go :highlight goErr cterm=bold ctermfg=214
   autocmd FileType go :match goErr /\<err\>/
 augroup END
 """"""""""""""""""
