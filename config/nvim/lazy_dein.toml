@@ -23,19 +23,18 @@ on_event = 'BufRead'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 on_i = 1
-if 'has("python3")'
+if = 'has("python3")'
 hook_add = '''
   let g:deoplete#enable_at_startup = 1
 '''
 hook_post_source = '''
-  let g:deoplete#sources#omni_patterns.go = '\h\w\.\w*'
+  let g:deoplete#omni_patterns.go = '\h\w\.\w*'
 '''
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
 build = 'make'
 on_ft = 'go'
-on_i = 1
 depends = 'deoplete.nvim'
 hook_add = '''
   let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
@@ -45,60 +44,6 @@ hook_add = '''
   let g:deoplete#sources#go#json_directory = $XDG_CACHE_HOME.'/go'
 '''
 #########################
-
-##### Go #####
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
-hook_add = '''
-  let g:go_fmt_command = "goimports"
-  let g:go_highlight_functions = 1
-  let g:go_highlight_methods = 1
-  let g:go_highlight_structs = 1
-  let g:go_highlight_operators = 1
-  let g:go_highlight_build_constraints = 1
-'''
-##############
-
-##### Ruby #####
-[[plugins]]
-repo = 'vim-ruby/vim-ruby'
-on_ft = 'ruby'
-
-[[plugins]]
-repo = 'tpope/vim-rails'
-on_ft = 'ruby'
-
-[[plugins]]
-repo = 'fishbullet/deoplete-ruby'
-on_ft = 'ruby'
-################
-
-##### JavaScript #####
-######################
-
-##### Json #####
-[[plugins]]
-repo = 'elzr/vim-json'
-on_ft = 'json'
-################
-
-##### Toml #####
-[[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-################
-
-##### Haml #####
-[[plugins]]
-repo = 'tpope/vim-haml'
-on_ft = 'haml'
-################
-
-##### slim #####
-repo = 'slim-template/vim-slim'
-on_ft = 'slim'
-################
 
 ##### Unite.vim #####
 [[plugins]]

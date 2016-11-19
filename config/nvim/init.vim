@@ -9,15 +9,21 @@ let s:vimrc = s:vim_home . 'nvim/init.vim'
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/nvim/dein'
 let s:dein_repo_dir = s:dein_dir . 'repos/github.com/Shougo/dein.vim'
+
 if !isdirectory(s:dein_repo_dir)
   execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_repo_dir)
 endif
+
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
+
 let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
+let s:filetype_file = fnamemodify(expand('<sfile>'), ':h').'/filetype.toml'
 let s:lazy_toml_file = fnamemodify(expand('<sfile>'), ':h').'/lazy_dein.toml'
+
 if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir, [s:vimrc, s:toml_file])
+  call dein#begin(s:dein_dir, [s:vimrc, s:toml_file, s:filetype_file, s:lazy_toml_file])
   call dein#load_toml(s:toml_file, {'lazy': 0})
+  call dein#load_toml(s:filetype_file, {'lazy': 0})
   call dein#load_toml(s:lazy_toml_file, {'lazy': 1})
   call dein#end()
   call dein#save_state()
@@ -71,6 +77,7 @@ augroup FileTypeFormat
   autocmd BufNewFile,BufRead *.js setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
   autocmd BufNewFile,BufRead *.yaml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufRead,BufNewFile *.toml set filetype=toml
   autocmd BufNewFile,BufRead *.toml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 """"""""""""""""""""""""""""""
