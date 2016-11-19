@@ -1,0 +1,50 @@
+##### Go #####
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+hook_add = '''
+  let g:go_fmt_command = "goimports"
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_structs = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_build_constraints = 1
+'''
+##############
+
+##### Ruby #####
+[[plugins]]
+repo = 'vim-ruby/vim-ruby'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'fishbullet/deoplete-ruby'
+on_ft = 'ruby'
+################
+
+
+##### Toml #####
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+################
+
+##### HAML #####
+repo = 'tpope/vim-haml'
+on_ft = 'haml'
+################
+
+##### JSON #####
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = 'json'
+################
+
+##### Slim #####
+repo = 'slim-template/vim-slim'
+on_ft = 'slim'
+################
