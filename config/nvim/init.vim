@@ -1,7 +1,7 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 
 """"" Dein.vim Settings """""
 let s:vim_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
@@ -46,6 +46,7 @@ set clipboard+=unnamedplus
 set showmatch
 set matchtime=1
 set sh=zsh
+syntax on
 let g:python3_host_prog = expand('$HOME') . '/.anyenv/envs/pyenv/shims/python'
 """"""""""""""""""
 
@@ -53,6 +54,8 @@ let g:python3_host_prog = expand('$HOME') . '/.anyenv/envs/pyenv/shims/python'
 nnoremap Y y$
 nnoremap + <C-a>
 nnoremap - <C-x>
+
+""危険なキーマップの無効化
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap Q <Nop>
