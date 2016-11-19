@@ -26,7 +26,6 @@ repo = 'fishbullet/deoplete-ruby'
 on_ft = 'ruby'
 ################
 
-
 ##### Toml #####
 [[plugins]]
 repo = 'cespare/vim-toml'
@@ -34,6 +33,7 @@ on_ft = 'toml'
 ################
 
 ##### HAML #####
+[[plugins]]
 repo = 'tpope/vim-haml'
 on_ft = 'haml'
 ################
