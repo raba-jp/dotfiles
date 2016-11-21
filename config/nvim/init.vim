@@ -53,7 +53,7 @@ set showmatch
 set matchtime=1
 set sh=zsh
 syntax on
-let g:python3_host_prog = expand('$HOME') . '/.anyenv/envs/pyenv/shims/python'
+let g:python3_host_prog = expand('$HOME') . '/.anyenv/envs/pyenv/shims/python3.5'
 """"""""""""""""""
 
 """"" Mapping ""'""
