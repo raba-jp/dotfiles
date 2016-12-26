@@ -40,6 +40,7 @@ done
 brew_install=(
   "ctags"
   "curl"
+  "direnv"
   "docker"
   "docker-compose"
   "docker-machine"
@@ -50,6 +51,7 @@ brew_install=(
   "neovim"
   "peco"
   "reattach-to-user-namespace"
+  "tig"
   "tmux"
   "the_silver_searcher"
   "wget"
