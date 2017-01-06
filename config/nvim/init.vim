@@ -80,6 +80,7 @@ augroup FileTypeFormat
   autocmd BufNewFile,BufRead *.js setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
   autocmd BufNewFile,BufRead *.yaml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.yml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.toml set filetype=toml
   autocmd BufNewFile,BufRead *.toml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.zsh setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
