@@ -53,6 +53,7 @@ set smartcase
 set incsearch
 set hlsearch
 set matchtime=1
+set wrapscan
 set sh=zsh
 syntax on
 let g:python3_host_prog = expand('$HOME') . '/.anyenv/envs/pyenv/shims/python3.5'
