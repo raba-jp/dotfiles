@@ -78,6 +78,7 @@ brew_cask_install=(
   "google-chrome"
   "google-drive"
   "dropbox"
+  "bettertouchtool"
 )
 
 for brew in ${brew_cask_install[@]}
