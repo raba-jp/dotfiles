@@ -25,7 +25,7 @@ on_ft = 'ruby'
 ##### JavaScript #####
 [[plugins]]
 repo = 'pangloss/vim-javascript'
-on_ft = 'js'
+on_ft = 'javascript'
 ######################
 
 ##### Toml #####
