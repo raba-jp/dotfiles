@@ -1,3 +1,4 @@
 config/zsh/.zshrc.local
 config/zsh/.zcompdump
-
+config/direnv
+config/gcloud
