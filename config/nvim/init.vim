@@ -40,7 +40,6 @@ set fenc=utf-8
 set noswapfile
 set showcmd
 set smartindent
-set virtualedit=onemore
 set visualbell
 set laststatus=2
 filetype plugin indent on
@@ -50,7 +49,11 @@ set relativenumber number
 set wildmenu
 set clipboard+=unnamedplus
 set showmatch
+set smartcase
+set incsearch
+set hlsearch
 set matchtime=1
+set wrapscan
 set sh=zsh
 syntax on
 let g:python3_host_prog = expand('$HOME') . '/.anyenv/envs/pyenv/shims/python3.5'
@@ -77,6 +80,7 @@ augroup FileTypeFormat
   autocmd BufNewFile,BufRead *.js setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
   autocmd BufNewFile,BufRead *.yaml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.yml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.toml set filetype=toml
   autocmd BufNewFile,BufRead *.toml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.zsh setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
