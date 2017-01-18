@@ -1,0 +1,25 @@
+[user]
+	name = sakuraba
+	email = sakuraba@ksf.jp
+[core]
+	editor = nvim
+	excludesfile = /Users/sakuraba/.gitignore_global
+[ghq]
+	root=~/Development/src
+[alias]
+	tree = log --graph --all --format='%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s'
+	branches = branch -a
+	tags = tag
+	stashes = stash list
+	unstage = reset -q HEAD --
+	discard = checkout --
+	uncommit = reset --mixed HEAD~
+	amend = commit --amend
+	precommit = diff --cached --diff-algorithm=minimal -w
+	remotes = remote -v
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Users/sakuraba/Downloads/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
