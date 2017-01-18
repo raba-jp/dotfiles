@@ -15,6 +15,7 @@ export MPLAYER_HOME=$XDG_CONFIG_HOME/mplayer
 export INPUTRC=$XDG_CONFIG_HOME/readline/inputrc
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export HISTFILE=$XDG_CACHE_HOME/zsh/history
+export EDITOR=nvim
 
 ##### npm Path #####
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
@@ -23,10 +24,25 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export GOPATH=$HOME/Development
 export ANYENV=$HOME/.anyenv/bin
 
+##### Goolge App Engine SDK #####
+export GAEPATH=$HOME/GoogleAppEngine
+export GAE_GOPATH=$GAEPATH/go_appengine
+
+##### Google Cloud SDK #####
+export GCPPATH=$HOME/GoogleCloudSDK/bin
+
+##### Android SDK #####
+export ANDROID_SDK_TOOLS=$HOME/Library/Android/sdk/tools
+export ANDROID_SDK_PLATFORM_TOOLS=$HOME/Library/Android/sdk/platform-tools
+
 ##### Path #####
 path=(
   $GOPATH(N-/)
   $GOPATH/bin(N-/)
   $ANYENV(N-/)
+  $GAE_GOPATH(N-/)
+  $GCPPATH(N-/)
+  $ANDROID_SDK_TOOLS(N-/)
+  $ANDROID_SDK_PLATFORM_TOOLS(N-/)
   $path
 )
