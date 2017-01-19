@@ -1,8 +1,0 @@
-alias sudo='sudo '
-alias ll='ls -alG'
-alias untar='tar xzvf'
-alias setlangja='export LANG=ja_JP.UTF-8'
-alias setlangc='export LANG=C'
-alias vim='nvim'
-alias vi='nvim'
-# alias vim='vim -u $XDG_CONFIG_HOME/vim/vimrc.vim'

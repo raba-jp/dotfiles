@@ -23,6 +23,11 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 ##### Language Path #####
 export GOPATH=$HOME/Development
 export ANYENV=$HOME/.anyenv/bin
+if [ -d $HOME/.anyenv ]; then
+  for D in `ls $HOME/.anyenv/envs`; do
+    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
+  done 
+fi
 
 ##### Goolge App Engine SDK #####
 export GAEPATH=$HOME/GoogleAppEngine
