@@ -51,3 +51,8 @@ path=(
   $ANDROID_SDK_PLATFORM_TOOLS(N-/)
   $path
 )
+
+fpath=(
+  $ZDOTDIR/completion
+  $fpath
+)

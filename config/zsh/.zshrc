@@ -1,11 +1,14 @@
+if [ ! -d $XDG_CACHE_HOME/anyenv ]; then
+  git clone https://github.com/riywo/anyenv $XDG_CACHE_HOME/anyenv
+fi
+
+if [ ! -d $XDG_CACHE_HOME/tmux/plugins/tpm ]; then
+  git clone https://github.com/tmux-plugins/tpm $XDG_CACHE_HOME/tmux/plugins/tpm
+fi
+
 source $ZPLUG_HOME/init.zsh
 eval "$(anyenv init -)"
 eval "$(direnv hook zsh)"
-
-##### Tmux Plugin Manager #####
-if [ ! -d $XDG_CACHE_HOME/tmux/tpm ]; then
-  git clone https://github.com/tmux-plugins/tpm $XDG_CACHE_HOME/tmux/tpm
-fi
 
 ##### plugins ######
 zplug "zsh-users/zsh-syntax-highlighting"
@@ -23,7 +26,7 @@ zplug load --verbose
 
 ##### enhancd #####
 export ENHANCD_FILTER=peco
-export ENHANCD_DIR=$XDG_CAHCE_HOME/zsh
+export ENHANCD_DIR=$XDG_CACHE_HOME/zsh
 
 ##### alias #####
 alias sudo='sudo '
@@ -45,8 +48,30 @@ compinit -u
 setopt auto_menu
 
 source $ZDOTDIR/prompt.zsh
-source $ZDOTDIR/tmux.zsh
 
-source $ZDOTDIR/completion/gcloud
 ##### zsh local config #####
 [ -f $ZSH_CONF_DIR/.zshrc.local ] && source $ZSH_CONF_DIR/.zshrc.local
+
+function do_enter() {
+  if [ -n "$BUFFER" ]; then
+    zle accept-line
+      return 0
+  fi
+  echo
+  echo -e "\e[0;33m--- list files ---\e[0m"
+    ll 
+    if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
+      echo
+      echo -e "\e[0;33m--- git status ---\e[0m"
+      git status --short --branch
+      echo
+    fi
+    zle reset-prompt
+    return 0
+}
+
+zle -N do_enter
+bindkey '^m' do_enter
+
+##### Run tmux with my config #####
+tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf
