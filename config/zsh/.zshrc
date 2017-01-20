@@ -15,6 +15,8 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "zsh-users/zsh-completions"
 zplug "mrowa44/emojify", as:command
+zplug "mafredri/zsh-async"
+zplug "sindresorhus/pure", use:pure.zsh, as:theme
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -46,8 +48,6 @@ SAVEHIST=1000
 autoload -Uz compinit
 compinit -u
 setopt auto_menu
-
-source $ZDOTDIR/prompt.zsh
 
 ##### zsh local config #####
 [ -f $ZSH_CONF_DIR/.zshrc.local ] && source $ZSH_CONF_DIR/.zshrc.local
