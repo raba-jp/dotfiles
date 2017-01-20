@@ -60,9 +60,11 @@ let g:python3_host_prog = expand('$HOME') . '/.anyenv/envs/pyenv/shims/python3.5
 """"""""""""""""""
 
 """"" Mapping ""'""
+inoremap <silent> jj <ESC>
 nnoremap Y y$
 nnoremap + <C-a>
 nnoremap - <C-x>
+nnoremap <ESC><ESC> :nohlsearch<CR>
 
 ""危険なキーマップの無効化
 nnoremap ZZ <Nop>
