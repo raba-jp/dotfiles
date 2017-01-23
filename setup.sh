@@ -41,9 +41,6 @@ brew_install=(
   "ctags"
   "curl"
   "direnv"
-  "docker"
-  "docker-compose"
-  "docker-machine"
   "ghq"
   "git"
   "glide"
@@ -67,19 +64,19 @@ done
 ## brew cask install
 brew_cask_install=(
   "slack"
-  "virtualbox"
   "appcleaner"
   "quicklook-csv"
   "quicklook-json"
   "betterzipql"
   "the-unarchiver"
   "bathyscaphe"
-  "sourcetree"
   "qlmarkdown"
   "cheatsheet"
   "google-chrome"
   "google-drive"
   "dropbox"
+  "bettertouchtool"
+  "docker"
 )
 
 for brew in ${brew_cask_install[@]}
