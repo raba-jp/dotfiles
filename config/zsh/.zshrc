@@ -1,3 +1,7 @@
+if [ ! -f $XDG_CONFIG_HOME/zsh/.zshrc.zwc -o $XDG_CONFIG_HOME/zsh/.zshrc -nt $XDG_CONFIG_HOME/zsh/.zshrc.zwc ]; then
+   zcompile $XDG_CONFIG_HOME/zsh/.zshrc
+fi
+
 if [ ! -d $XDG_CACHE_HOME/anyenv ]; then
   git clone https://github.com/riywo/anyenv $XDG_CACHE_HOME/anyenv
 fi
@@ -43,12 +47,13 @@ alias vi='nvim'
 ##### options #####
 setopt no_beep
 setopt print_eight_bit
-HISTFILE=~/.zsh_history
+HISTFILE=$XDG_CACHE_HOME/zsh/history
 HISTSIZE=1000
 SAVEHIST=1000
 autoload -Uz compinit
 compinit -u
 setopt auto_menu
+bindkey -v
 
 function do_enter() {
   if [ -n "$BUFFER" ]; then
@@ -57,7 +62,7 @@ function do_enter() {
   fi
   echo
   echo -e "\e[0;33m--- list files ---\e[0m"
-    ll 
+    ls -alG
     if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
       echo
       echo -e "\e[0;33m--- git status ---\e[0m"
