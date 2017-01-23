@@ -53,6 +53,13 @@ on_ft = 'json'
 ################
 
 ##### Slim #####
+[[plugins]]
 repo = 'slim-template/vim-slim'
 on_ft = 'slim'
 ################
+
+##### Dockerfile #####
+[[plugins]]
+repo = 'ekalinin/Dockerfile.vim'
+on_ft = 'dockerfile'
+######################
