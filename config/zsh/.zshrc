@@ -1,3 +1,7 @@
+if [ ! -f $XDG_CONFIG_HOME/zsh/.zshrc.zwc -o $XDG_CONFIG_HOME/zsh/.zshrc -nt $XDG_CONFIG_HOME/zsh/.zshrc.zwc ]; then
+   zcompile $XDG_CONFIG_HOME/zsh/.zshrc
+fi
+
 if [ ! -d $XDG_CACHE_HOME/anyenv ]; then
   git clone https://github.com/riywo/anyenv $XDG_CACHE_HOME/anyenv
 fi
