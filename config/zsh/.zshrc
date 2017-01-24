@@ -2,14 +2,6 @@ if [ ! -f $XDG_CONFIG_HOME/zsh/.zshrc.zwc -o $XDG_CONFIG_HOME/zsh/.zshrc -nt $XD
    zcompile $XDG_CONFIG_HOME/zsh/.zshrc
 fi
 
-if [ ! -d $XDG_CACHE_HOME/anyenv ]; then
-  git clone https://github.com/riywo/anyenv $XDG_CACHE_HOME/anyenv
-fi
-
-if [ ! -d $XDG_CACHE_HOME/tmux/plugins/tpm ]; then
-  git clone https://github.com/tmux-plugins/tpm $XDG_CACHE_HOME/tmux/plugins/tpm
-fi
-
 source $ZPLUG_HOME/init.zsh
 eval "$(anyenv init -)"
 eval "$(direnv hook zsh)"
@@ -49,8 +41,6 @@ setopt print_eight_bit
 HISTFILE=$XDG_CACHE_HOME/zsh/history
 HISTSIZE=1000
 SAVEHIST=1000
-autoload -Uz compinit
-compinit -u
 setopt auto_menu
 bindkey -v
 
@@ -77,6 +67,3 @@ function do_enter() {
 
 zle -N do_enter
 bindkey '^m' do_enter
-
-##### Run tmux with my config #####
-tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf
