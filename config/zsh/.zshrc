@@ -13,6 +13,7 @@ zplug "zsh-users/zsh-completions"
 zplug "mrowa44/emojify", as:command
 zplug "mafredri/zsh-async"
 zplug "sindresorhus/pure", use:pure.zsh, as:theme
+zplug "zsh-users/zsh-autosuggestions"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -44,9 +45,6 @@ SAVEHIST=1000
 setopt auto_menu
 bindkey -v
 
-##### zsh local config #####
-[ -f $ZSH_CONF_DIR/.zshrc.local ] && source $ZSH_CONF_DIR/.zshrc.local
-
 function do_enter() {
   if [ -n "$BUFFER" ]; then
     zle accept-line
@@ -67,3 +65,6 @@ function do_enter() {
 
 zle -N do_enter
 bindkey '^m' do_enter
+
+##### zsh local config #####
+[ -f $ZSH_CONF_DIR/.zshrc.local ] && source $ZSH_CONF_DIR/.zshrc.local
