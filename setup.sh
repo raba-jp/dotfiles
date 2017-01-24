@@ -1,10 +1,10 @@
 #!/bin/sh
 DOTDIR=$HOME/dotfile
-
+XDG_CACHE_HOME=$HOME/.cache
 cd $DOTDIR
 
-if ! type brew >/dev/null 2>&1
-then
+# Homebrew
+if ! type brew > /dev/null 2>&1; then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
@@ -15,12 +15,10 @@ dirs=(
   "~/Development/src"
 )
 
-for dir in ${dirs[@]}
-do
-  if [ ! -e "$dir" ]
-    then
-      echo "Create Directory -> $dir"
-      mkdir $dir
+for dir in ${dirs[@]}; do
+  if [ ! -d "$dir" ]; then
+    echo "Create Directory -> $dir"
+    mkdir $dir
   fi
 done
 
@@ -31,9 +29,8 @@ brew_tap=(
   "neovim/neovim"
 )
 
-for brew in ${brew_tap[@]}
-do
-  brew tap $brew 
+for tap in ${brew_tap[@]}; do
+  brew tap $tap
 done
 
 ## brew install
@@ -56,9 +53,8 @@ brew_install=(
   "zplug"
 )
 
-for brew in ${brew_install[@]}
-do
-  brew install $brew 
+for brew in ${brew_install[@]}; do
+  brew install $brew
 done
 
 ## brew cask install
@@ -79,16 +75,20 @@ brew_cask_install=(
   "docker"
 )
 
-for brew in ${brew_cask_install[@]}
-do
+for brew in ${brew_cask_install[@]}; do
   brew cask install $brew
 done
 
 ## dotfile init
-if [-e '~/.zshenv' ]
-then
-  ln -s $DOTDIR/.zshenv ~/.zshenv
-  ln -s $DOTDIR/config ~/.config
+ln -snvf $DOTDIR/.zshenv $HOME/.zshenv
+ln -snvf $DOTDIR/config $HOME/.config
+
+# anyenv
+if [ ! -d $XDG_CACHE_HOME/anyenv ]; then
+  git clone https://github.com/riywo/anyenv $XDG_CACHE_HOME/anyenv
 fi
 
-git clone https://github.com/riywo/anyenv ~/.anyenv
+# Tmux Plugin Manager
+if [ ! -d $XDG_CACHE_HOME/tmux/plugins/tpm ]; then
+  git clone https://github.com/tmux-plugins/tpm $XDG_CACHE_HOME/tmux/plugins/tpm
+fi
