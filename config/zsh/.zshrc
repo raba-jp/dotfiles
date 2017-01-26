@@ -1,3 +1,9 @@
+fpath=(
+  $ZDOTDIR/functions
+  $ZDOTDIR/completion
+  $fpath
+)
+
 if [ ! -f $XDG_CONFIG_HOME/zsh/.zshrc.zwc -o $XDG_CONFIG_HOME/zsh/.zshrc -nt $XDG_CONFIG_HOME/zsh/.zshrc.zwc ]; then
    zcompile $XDG_CONFIG_HOME/zsh/.zshrc
 fi
@@ -45,26 +51,33 @@ SAVEHIST=1000
 setopt auto_menu
 bindkey -v
 
-function do_enter() {
-  if [ -n "$BUFFER" ]; then
-    zle accept-line
-      return 0
-  fi
-  echo
-  echo -e "\e[0;33m--- list files ---\e[0m"
-    ls -alG
-    if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
-      echo
-      echo -e "\e[0;33m--- git status ---\e[0m"
-      git status --short --branch
-      echo
-    fi
-    zle reset-prompt
-    return 0
-}
-
+autoload -Uz do_enter
+autoload -Uz history_selection
+autoload -Uz path_selection
 zle -N do_enter
+zle -N history_selection
+zle -N path_selection
 bindkey '^m' do_enter
+bindkey '^h' history_selection
+bindkey '^f' path_selection
 
 ##### zsh local config #####
 [ -f $ZSH_CONF_DIR/.zshrc.local ] && source $ZSH_CONF_DIR/.zshrc.local
+
+if [[ ! -n $TMUX && $- == *l* ]]; then
+  # get the IDs
+  ID="`tmux list-sessions`"
+  if [[ -z "$ID" ]]; then
+    tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf new-session
+  fi
+  create_new_session="Create New Session"
+  ID="$ID\n${create_new_session}:"
+  ID="`echo $ID | peco | cut -d: -f1`"
+  if [[ "$ID" = "${create_new_session}" ]]; then
+    tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf new-session
+  elif [[ -n "$ID" ]]; then
+    tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf attach-session -t "$ID"
+  else
+    :  # Start terminal normally
+  fi
+fi

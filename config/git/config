@@ -1,9 +1,11 @@
-[user]
-	name = sakuraba
-	email = sakuraba@ksf.jp
 [core]
 	editor = nvim
 	excludesfile = /Users/sakuraba/.gitignore_global
+	preloadindex = true
+
+[user]
+	name = sakuraba
+	email = sakuraba@ksf.jp
 [ghq]
 	root=~/Development/src
 [alias]

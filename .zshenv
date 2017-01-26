@@ -57,7 +57,3 @@ else
   print '.zshenv load skipped'
 fi
 
-fpath=(
-  $ZDOTDIR/completion
-  $fpath
-)
