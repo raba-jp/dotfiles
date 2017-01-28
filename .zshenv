@@ -1,11 +1,11 @@
 if [ -z $ZSHEMV_LOADED ]; then
-  ##### zplug #####
-  export ZPLUG_HOME=/usr/local/opt/zplug
-
   ##### XDG BASE DIRECTORY #####
   export XDG_CONFIG_HOME=$HOME/.config
   export XDG_CACHE_HOME=$HOME/.cache
   export XDG_DATA_HOME=$HOME/.local/share
+
+  ##### zplug #####
+  export ZPLUG_HOME=$XDG_CACHE_HOME/zsh/zplug
 
   ##### Editor Path #####
   export ATOM_HOME=$XDG_DATA_HOME/atom

@@ -8,18 +8,27 @@ if [ ! -f $XDG_CONFIG_HOME/zsh/.zshrc.zwc -o $XDG_CONFIG_HOME/zsh/.zshrc -nt $XD
    zcompile $XDG_CONFIG_HOME/zsh/.zshrc
 fi
 
-source $ZPLUG_HOME/init.zsh
 eval "$(anyenv init -)"
 eval "$(direnv hook zsh)"
 
 ##### plugins ######
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "b4b4r07/enhancd", use:init.sh
-zplug "zsh-users/zsh-completions"
+if [[ ! -d $ZPLUG_HOME ]]; then
+    git clone https://github.com/b4b4r07/zplug $ZPLUG_HOME
+fi
+source $ZPLUG_HOME/init.zsh
+zplug "b4b4r07/zplug"
+zplug "peco/peco", as:command, from:gh-r
 zplug "mrowa44/emojify", as:command
+zplug "stedolan/jq", from:gh-r, as:command
 zplug "mafredri/zsh-async"
 zplug "sindresorhus/pure", use:pure.zsh, as:theme
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "b4b4r07/enhancd", use:init.sh
 zplug "zsh-users/zsh-autosuggestions"
+zplug "mollifier/anyframe"
+zplug "b4b4r07/emoji-cli"
+zplug "plugins/fasd", from:oh-my-zsh
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -58,8 +67,8 @@ zle -N do_enter
 zle -N history_selection
 zle -N path_selection
 bindkey '^m' do_enter
-bindkey '^h' history_selection
 bindkey '^f' path_selection
+bindkey '^h' anyframe-widget-execute-history
 
 ##### zsh local config #####
 [ -f $ZSH_CONF_DIR/.zshrc.local ] && source $ZSH_CONF_DIR/.zshrc.local
