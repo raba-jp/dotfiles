@@ -4,17 +4,18 @@ fpath=(
   $fpath
 )
 
+source $RBENV_ROOT/completions/rbenv.zsh
+source $PYENV_ROOT/completions/pyenv.zsh
+source $NODENV_ROOT/completions/nodenv.zsh
+
 if [ ! -f $XDG_CONFIG_HOME/zsh/.zshrc.zwc -o $XDG_CONFIG_HOME/zsh/.zshrc -nt $XDG_CONFIG_HOME/zsh/.zshrc.zwc ]; then
    zcompile $XDG_CONFIG_HOME/zsh/.zshrc
 fi
 
-eval "$(anyenv init -)"
+# eval "$(anyenv init -)"
 eval "$(direnv hook zsh)"
 
 ##### plugins ######
-if [[ ! -d $ZPLUG_HOME ]]; then
-    git clone https://github.com/b4b4r07/zplug $ZPLUG_HOME
-fi
 source $ZPLUG_HOME/init.zsh
 zplug "b4b4r07/zplug"
 zplug "peco/peco", as:command, from:gh-r
@@ -24,23 +25,11 @@ zplug "mafredri/zsh-async"
 zplug "sindresorhus/pure", use:pure.zsh, as:theme
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "b4b4r07/enhancd", use:init.sh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "mollifier/anyframe"
 zplug "b4b4r07/emoji-cli"
 zplug "plugins/fasd", from:oh-my-zsh
-
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-zplug load --verbose
-
-##### enhancd #####
-export ENHANCD_FILTER=peco
-export ENHANCD_DIR=$XDG_CACHE_HOME/zsh
+zplug load
 
 ##### alias #####
 alias sudo='sudo '
@@ -50,6 +39,9 @@ alias setlangja='export LANG=ja_JP.UTF-8'
 alias setlangc='export LANG=C'
 alias vim='nvim'
 alias vi='nvim'
+alias kill=anyframe-widget-kill
+alias ghq=anyframe-widget-cd-ghq-repository
+alias tmux=anyframe-widget-tmux-attach
 
 ##### options #####
 setopt no_beep
@@ -90,3 +82,50 @@ if [[ ! -n $TMUX && $- == *l* ]]; then
     :  # Start terminal normally
   fi
 fi
+
+export PATH=$RBENV_ROOT/shims:$PYENV_ROOT/shims:$NODENV_ROOT/shims:$PATH
+
+rbenv() {
+  local command
+  command="$1"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+
+  case "$command" in
+  rehash|shell)
+    eval "$(rbenv "sh-$command" "$@")";;
+  *)
+    command rbenv "$command" "$@";;
+  esac
+}
+
+pyenv() {
+  local command
+  command="$1"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+
+  case "$command" in
+  rehash|shell)
+    eval "$(pyenv "sh-$command" "$@")";;
+  *)
+    command pyenv "$command" "$@";;
+  esac
+}
+
+nodenv() {
+  local command
+  command="$1"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+
+  case "$command" in
+  rehash|shell)
+    eval "$(nodenv "sh-$command" "$@")";;
+  *)
+    command nodenv "$command" "$@";;
+  esac
+}

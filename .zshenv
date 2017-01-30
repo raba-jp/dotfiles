@@ -18,15 +18,20 @@ if [ -z $ZSHEMV_LOADED ]; then
   export HISTFILE=$XDG_CACHE_HOME/zsh/history
   export EDITOR=nvim
 
-  ##### npm Path #####
-  export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-
-  ##### Language Path #####
+  ##### Go #####
   export GOPATH=$HOME/Development
-  export ANYENV=$HOME/.anyenv/bin
-  for D in `ls $XDG_CACHE_HOME/anyenv/envs`; do
-    export PATH="$XDG_CACHE_HOME/anyenv/envs/$D/shims:$PATH"
-  done
+
+  ##### Ruby #####
+  export RBENV_ROOT=$XDG_CACHE_HOME/rbenv
+  export RBENV_SHELL=zsh
+
+  ##### Python #####
+  export PYENV_ROOT=$XDG_CACHE_HOME/pyenv
+  export PYENV_SHELL=zsh
+
+  ##### Node.js #####
+  export NODENV_ROOT=$XDG_CACHE_HOME/nodenv
+  export NODENV_SHELL=zsh
 
   ##### Goolge App Engine SDK #####
   export GAEPATH=$HOME/GoogleAppEngine
@@ -43,7 +48,9 @@ if [ -z $ZSHEMV_LOADED ]; then
   path=(
     $GOPATH(N-/)
     $GOPATH/bin(N-/)
-    $ANYENV(N-/)
+    $RBENV_ROOT/bin(N-/)
+    $PYENV_ROOT/bin(N-/)
+    $NODENV_ROOT/bin(N-/)
     $GAE_GOPATH(N-/)
     $GCPPATH(N-/)
     $ANDROID_SDK_TOOLS(N-/)

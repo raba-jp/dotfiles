@@ -1,0 +1,3 @@
+~/.cache
+~/Development/src
+~/Development/bin

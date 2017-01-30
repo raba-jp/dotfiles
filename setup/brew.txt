@@ -1,0 +1,15 @@
+ctags
+curl
+direnv
+ghq
+git
+glide
+go
+neovim
+peco
+pt
+reattach-to-user-namespace
+tig
+tmux
+wget
+zsh
