@@ -1,0 +1,14 @@
+slack
+appcleaner
+quicklook-csv
+quicklook-json
+betterzipql
+the-unarchiver
+bathyscaphe
+qlmarkdown
+cheatsheet
+google-chrome
+google-drive
+dropbox
+bettertouchtool
+docker

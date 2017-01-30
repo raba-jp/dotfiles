@@ -1,94 +1,63 @@
-#!/bin/sh
+#!/bin/bash
 DOTDIR=$HOME/dotfile
 XDG_CACHE_HOME=$HOME/.cache
-cd $DOTDIR
 
-# Homebrew
-if ! type brew > /dev/null 2>&1; then
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
+DIRECTORIES=$DOTDIR/setup/directories.txt
+BREW_TAP_FILE=$DOTDIR/setup/brew_tap.txt
+BREW_FILE=$DOTDIR/setup/brew.txt
+BREW_CASK_FILE=$DOTDIR/setup/brew_cask.txt
 
-## Create Directory
-dirs=(
-  "~/.cache"
-  "~/Development"
-  "~/Development/src"
-)
+os= echo $OSTYPE | grep "darwin"
+if [ -n $os ]; then
+  echo "OS type: MacOS"
 
-for dir in ${dirs[@]}; do
-  if [ ! -d "$dir" ]; then
-    echo "Create Directory -> $dir"
-    mkdir $dir
+  if ! type brew > /dev/null 2>&1; then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
-done
 
-## brew tap
-brew_tap=(
-  "caskroom/cask"
-  "caskroom/fonts"
-  "neovim/neovim"
-)
+  cat $DIRECTORIES | while read line; do
+    if [ ! -d "$line" ]; then
+      mkdir -p $line
+    fi
+  done
 
-for tap in ${brew_tap[@]}; do
-  brew tap $tap
-done
+  cat $BREW_TAP_FILE | while read line; do
+    brew tap $line
+  done
 
-## brew install
-brew_install=(
-  "ctags"
-  "curl"
-  "direnv"
-  "ghq"
-  "git"
-  "glide"
-  "go"
-  "neovim"
-  "peco"
-  "reattach-to-user-namespace"
-  "tig"
-  "tmux"
-  "the_silver_searcher"
-  "wget"
-  "zsh"
-  "zplug"
-)
+  cat $BREW_FILE | while read line; do
+  　brew_tmp=brew list | grep $line
+    if [ ! -z $brew_tmp ]; then
+      brew install $line
+    fi
+  done
 
-for brew in ${brew_install[@]}; do
-  brew install $brew
-done
-
-## brew cask install
-brew_cask_install=(
-  "slack"
-  "appcleaner"
-  "quicklook-csv"
-  "quicklook-json"
-  "betterzipql"
-  "the-unarchiver"
-  "bathyscaphe"
-  "qlmarkdown"
-  "cheatsheet"
-  "google-chrome"
-  "google-drive"
-  "dropbox"
-  "bettertouchtool"
-  "docker"
-)
-
-for brew in ${brew_cask_install[@]}; do
-  brew cask install $brew
-done
-
-## dotfile init
-ln -snvf $DOTDIR/.zshenv $HOME/.zshenv
-ln -snvf $DOTDIR/config $HOME/.config
-
-# anyenv
-if [ ! -d $XDG_CACHE_HOME/anyenv ]; then
-  git clone https://github.com/riywo/anyenv $XDG_CACHE_HOME/anyenv
+  cat $BREW_CASK_FILE | while read line; do
+    cask_tmp=brew cask list | grep $line
+    if [ ! -z $cask_tmp ]; then
+      brew cask install $line
+    fi
+  done
 fi
 
-# Tmux Plugin Manager
+if [ ! -d $XDG_CACHE_HOME/rbenv ]; then
+  git clone https://github.com/rbenv/rbenv.git $XDG_CACHE_HOME/rbenv
+  git clone https://github.com/rbenv/ruby-build.git $XDG_CACHE_HOME/rbenv/plugins/ruby-build
+fi
+
+if [ ! -d $XDG_CACHE_HOME/pyenv ]; then
+  git clone https://github.com/yyuu/pyenv.git $XDG_CACHE_HOME/pyenv
+fi
+
+if [ ! -d $XDG_CACHE_HOME/nodenv ]; then
+  git clone https://github.com/nodenv/nodenv.git $XDG_CACHE_HOME/nodenv
+  git clone https://github.com/nodenv/node-build.git $XDG_CACHE_HOME/nodenv/plugins/node-build
+fi
+
 if [ ! -d $XDG_CACHE_HOME/tmux/plugins/tpm ]; then
   git clone https://github.com/tmux-plugins/tpm $XDG_CACHE_HOME/tmux/plugins/tpm
+fi
+
+if [ ! -d $XDG_CACHE_HOME/zsh/zplug ]; then
+  git clone https://github.com/b4b4r07/zplug $XDG_CACHE_HOME/zsh/zplug
 fi
