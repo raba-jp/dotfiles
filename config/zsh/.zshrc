@@ -28,6 +28,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-autosuggestions"
 zplug "mollifier/anyframe"
 zplug "b4b4r07/emoji-cli"
+zplug "clvv/fasd", as:command, hook-build:"PREFIX=$HOME make install"
 zplug load
 
 ##### alias #####
