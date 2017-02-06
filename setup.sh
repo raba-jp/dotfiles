@@ -7,8 +7,7 @@ BREW_TAP_FILE=$DOTDIR/setup/brew_tap.txt
 BREW_FILE=$DOTDIR/setup/brew.txt
 BREW_CASK_FILE=$DOTDIR/setup/brew_cask.txt
 
-os= echo $OSTYPE | grep "darwin"
-if [ -n $os ]; then
+if [ -n `echo $OSTYPE | grep "darwin"` ]; then
   echo "OS type: MacOS"
 
   if ! type brew > /dev/null 2>&1; then
@@ -26,15 +25,13 @@ if [ -n $os ]; then
   done
 
   cat $BREW_FILE | while read line; do
-  　brew_tmp=brew list | grep $line
-    if [ ! -z $brew_tmp ]; then
+    if [ -z `brew list | grep $line` ]; then
       brew install $line
     fi
   done
 
   cat $BREW_CASK_FILE | while read line; do
-    cask_tmp=brew cask list | grep $line
-    if [ ! -z $cask_tmp ]; then
+    if [ -z `brew cask list | grep $line` ]; then
       brew cask install $line
     fi
   done

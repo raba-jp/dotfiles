@@ -56,7 +56,7 @@ set matchtime=1
 set wrapscan
 set sh=zsh
 syntax on
-let g:python3_host_prog = expand('$PYENV_ROOT') . '/shims/python3.5'
+let g:python3_host_prog = expand('$PYENV_ROOT') . '/shims/python3.6'
 """"""""""""""""""
 
 """"" Mapping ""'""

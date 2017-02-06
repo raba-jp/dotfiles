@@ -12,8 +12,8 @@ if [ ! -f $XDG_CONFIG_HOME/zsh/.zshrc.zwc -o $XDG_CONFIG_HOME/zsh/.zshrc -nt $XD
    zcompile $XDG_CONFIG_HOME/zsh/.zshrc
 fi
 
-# eval "$(anyenv init -)"
 eval "$(direnv hook zsh)"
+eval "$(fasd --init auto)"
 
 ##### plugins ######
 source $ZPLUG_HOME/init.zsh
@@ -28,7 +28,6 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-autosuggestions"
 zplug "mollifier/anyframe"
 zplug "b4b4r07/emoji-cli"
-zplug "plugins/fasd", from:oh-my-zsh
 zplug load
 
 ##### alias #####
@@ -42,6 +41,15 @@ alias vi='nvim'
 alias kill=anyframe-widget-kill
 alias ghq=anyframe-widget-cd-ghq-repository
 alias tmux=anyframe-widget-tmux-attach
+
+alias a='fasd -a'        # any
+alias s='fasd -si'       # show / search / select
+alias d='fasd -d'        # directory
+alias f='fasd -f'        # file
+alias sd='fasd -sid'     # interactive directory selection
+alias sf='fasd -sif'     # interactive file selection
+alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+alias zz='fasd_cd -d -i' # cd with interactive selection
 
 ##### options #####
 setopt no_beep
