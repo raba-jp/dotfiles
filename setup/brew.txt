@@ -1,3 +1,5 @@
+ag
+boost
 ctags
 curl
 direnv
@@ -7,7 +9,6 @@ glide
 go
 neovim
 peco
-pt
 reattach-to-user-namespace
 tig
 tmux
