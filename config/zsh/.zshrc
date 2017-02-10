@@ -71,6 +71,13 @@ bindkey '^m' do_enter
 bindkey '^f' path_selection
 bindkey '^h' anyframe-widget-execute-history
 
+autoload -Uz docker_images_selection
+autoload -Uz docker_container_selection
+zle -N docker_images_selection
+zle -N docker_container_selection
+alias image_remove=docker_images_selection
+alias container_stop=docker_container_selection
+
 ##### zsh local config #####
 [ -f $ZSH_CONF_DIR/.zshrc.local ] && source $ZSH_CONF_DIR/.zshrc.local
 
