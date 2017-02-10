@@ -56,6 +56,7 @@ set matchtime=1
 set wrapscan
 set sh=zsh
 syntax on
+set tags=./tags;
 let g:python3_host_prog = expand('$PYENV_ROOT') . '/shims/python3.6'
 """"""""""""""""""
 
@@ -97,14 +98,3 @@ augroup Golang
   autocmd FileType go :match goErr /\<err\>/
 augroup END
 """"""""""""""""""
-
-""""" AlpacaTags """""
-augroup AlpacaTags
-  autocmd!
-  if exists(':Tags')
-    autocmd BufWritePost Gemfile TagsBundle
-    autocmd BufEnter * TagsSet
-    autocmd BufWriterPost * TagsUpdate
-  endif
-augroup END
-""""""""""""""""""""""

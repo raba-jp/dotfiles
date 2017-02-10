@@ -41,7 +41,7 @@ alias vim='nvim'
 alias vi='nvim'
 alias kill=anyframe-widget-kill
 alias ghq=anyframe-widget-cd-ghq-repository
-alias tmux=anyframe-widget-tmux-attach
+alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 
 alias a='fasd -a'        # any
 alias s='fasd -si'       # show / search / select
@@ -73,24 +73,6 @@ bindkey '^h' anyframe-widget-execute-history
 
 ##### zsh local config #####
 [ -f $ZSH_CONF_DIR/.zshrc.local ] && source $ZSH_CONF_DIR/.zshrc.local
-
-if [[ ! -n $TMUX && $- == *l* ]]; then
-  # get the IDs
-  ID="`tmux list-sessions`"
-  if [[ -z "$ID" ]]; then
-    tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf new-session
-  fi
-  create_new_session="Create New Session"
-  ID="$ID\n${create_new_session}:"
-  ID="`echo $ID | peco | cut -d: -f1`"
-  if [[ "$ID" = "${create_new_session}" ]]; then
-    tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf new-session
-  elif [[ -n "$ID" ]]; then
-    tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf attach-session -t "$ID"
-  else
-    :  # Start terminal normally
-  fi
-fi
 
 export PATH=$RBENV_ROOT/shims:$PYENV_ROOT/shims:$NODENV_ROOT/shims:$PATH
 
