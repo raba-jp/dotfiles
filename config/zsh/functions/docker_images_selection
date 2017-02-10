@@ -1,0 +1,5 @@
+docker images \
+  | sed -e '1d' \
+  | anyframe-selector-auto \
+  | awk '{print $3}' \
+  | anyframe-action-execute docker rmi
