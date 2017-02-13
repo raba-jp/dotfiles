@@ -7,6 +7,9 @@ BREW_TAP_FILE=$DOTDIR/setup/brew_tap.txt
 BREW_FILE=$DOTDIR/setup/brew.txt
 BREW_CASK_FILE=$DOTDIR/setup/brew_cask.txt
 
+RUBY_VERSION=2.4.0
+PYTHON_VERSION=3.6.0
+
 if [ -n `echo $OSTYPE | grep "darwin"` ]; then
   echo "OS type: MacOS"
 
@@ -40,10 +43,16 @@ fi
 if [ ! -d $XDG_CACHE_HOME/rbenv ]; then
   git clone https://github.com/rbenv/rbenv.git $XDG_CACHE_HOME/rbenv
   git clone https://github.com/rbenv/ruby-build.git $XDG_CACHE_HOME/rbenv/plugins/ruby-build
+  rbenv install $RUBY_VERSION
+  rbenv rehash
+  rbenv global $RUBY_VERSION
 fi
 
 if [ ! -d $XDG_CACHE_HOME/pyenv ]; then
   git clone https://github.com/yyuu/pyenv.git $XDG_CACHE_HOME/pyenv
+  pyenv install $PYTHON_VERSION
+  pyenv rehash
+  pyenv global $PYTHON_VERSION
 fi
 
 if [ ! -d $XDG_CACHE_HOME/nodenv ]; then
