@@ -71,6 +71,13 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap Q <Nop>
+nnoremap H 0
+nnoremap J L
+nnoremap K H
+nnoremap L $
+"nnoremap <Leader>- :split<CR>
+"nnoremap <Leader>| :vsplit<CR>
+
 """""""""""""""""""
 
 """"" File Type Settings """""
