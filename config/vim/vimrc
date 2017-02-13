@@ -1,0 +1,72 @@
+set encoding=utf-8
+scriptencoding utf-8
+
+let s:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
+let s:dein_init_file = s:config_home . '/vim/dein_init.vim'
+execute 'source' s:dein_init_file
+
+let g:mapleader = "\<Space>"
+
+""""" Common """""
+set number
+set fenc=utf-8
+set noswapfile
+set showcmd
+set smartindent
+set visualbell
+set laststatus=2
+filetype plugin indent on
+set list
+set listchars=tab:»-,trail:-,nbsp:%,eol:↲
+set relativenumber number
+set wildmenu
+set clipboard+=unnamedplus
+set showmatch
+set smartcase
+set incsearch
+set hlsearch
+set matchtime=1
+set wrapscan
+set sh=zsh
+syntax on
+set tags=./tags;
+""""""""""""""""""
+
+""""" Mapping ""'""
+inoremap <silent> jj <ESC>
+nnoremap Y y$
+nnoremap + <C-a>
+nnoremap - <C-x>
+nnoremap <ESC><ESC> :nohlsearch<CR>
+
+""危険なキーマップの無効化
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
+nnoremap Q <Nop>
+"""""""""""""""""""
+
+""""" File Type Settings """""
+augroup FileTypeFormat
+  autocmd!
+  autocmd BufNewFile,BufRead *.sh setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.rb setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.erb setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.json setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.js setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+  autocmd BufNewFile,BufRead *.yaml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.yml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.toml set filetype=toml
+  autocmd BufNewFile,BufRead *.toml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.zsh setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead Dockerfile setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
+""""""""""""""""""""""""""""""
+
+""""" Golang """""
+augroup Golang
+  autocmd!
+  autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+  autocmd FileType go :match goErr /\<err\>/
+augroup END
+""""""""""""""""""

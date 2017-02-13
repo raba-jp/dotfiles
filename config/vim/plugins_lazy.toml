@@ -1,4 +1,6 @@
-##### denite.nvim #####
+##############################
+###       Denite.nvim      ###
+##############################
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 on_event = 'BufRead'
