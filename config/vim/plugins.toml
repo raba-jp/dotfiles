@@ -1,4 +1,6 @@
-##### Required ######
+##############################
+###        Required       ####
+##############################
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -21,9 +23,10 @@ hook_source = '''
 \   }
 \ }
 '''
-#####################
 
-##### Color Scheme #####
+##############################
+###      Color Scheme      ###
+##############################
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
 hook_add = '''
@@ -35,9 +38,10 @@ hook_add = '''
     au ColorScheme VimEnter * nested colorscheme solarized
   augroup END
 '''
-########################
 
-##### EasyMotion #####
+##############################
+###        EasyMotion      ###
+##############################
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
@@ -50,17 +54,19 @@ hook_add = '''
   nnoremap <Leader><Leader>h <Plug>(easymotion-linebackward)
   nnoremap <Leader><Leader>s <Plug>(easymotion-overwin-f2)
 '''
-######################
 
-##### Syntax Check #####
+##############################
+###      Syntax Check      ###
+##############################
 [[plugins]]
 repo = 'neomake/neomake'
 hook_add = '''
   autocmd! BufWritePost * Neomake
 '''
-########################
 
-##### Status Line #####
+##############################
+###       Status Line      ###
+##############################
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
@@ -122,14 +128,10 @@ hook_add = '''
     return winwidth(0) > 60 ? lightline#mode() : ''
   endfunction
 '''
-#######################
 
-##### Git #####
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-###############
-
-##### ctags #####
+##############################
+###           Ctags        ###
+##############################
 [[plugins]]
 repo = 'soramugi/auto-ctags.vim'
 hook_add = '''
@@ -137,4 +139,3 @@ let g:auto_ctags = 1
 let g:auto_ctags_directory_list = ['.git', '.svn']
 let g:auto_ctags_filetype_mode = 1
 '''
-#################

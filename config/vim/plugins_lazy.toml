@@ -34,9 +34,10 @@ on_event = 'BufRead'
 [[plugins]]
 repo = 'tsukkee/unite-tag'
 on_event = 'BufRead'
-#######################
 
-##### Auto Complete #####
+##############################
+###      Auto Complete     ###
+##############################
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = "has('nvim')"
@@ -80,15 +81,16 @@ hook_add = '''
 repo = 'fishbullet/deoplete-ruby'
 on_ft = 'ruby'
 depends = 'deoplete.nvim'
-#########################
 
-#### Input support #####
+##############################
+###      Input support     ###
+##############################
 [[plugins]]
 repo = 'cohama/lexima.vim'
 on_i = 1
-########################
 
-##### Matcher #####
+##############################
+###         Matcher        ###
+##############################
 [[plugins]]
 repo = 'nixprime/cpsm'
-###################
