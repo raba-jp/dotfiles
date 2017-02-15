@@ -139,3 +139,14 @@ let g:auto_ctags = 1
 let g:auto_ctags_directory_list = ['.git', '.svn']
 let g:auto_ctags_filetype_mode = 1
 '''
+
+##############################
+###      Fuzzy search      ###
+##############################
+[[plugins]]
+repo = 'haya14busa/incsearch.vim'
+hook_add = '''
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+'''
