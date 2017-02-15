@@ -44,6 +44,8 @@ if [ -z $ZSHEMV_LOADED ]; then
   export ANDROID_SDK_TOOLS=$HOME/Library/Android/sdk/tools
   export ANDROID_SDK_PLATFORM_TOOLS=$HOME/Library/Android/sdk/platform-tools
 
+  export SYS_NOTIFIER=/usr/local/bin/terminal-notifier
+
   ##### Path #####
   path=(
     $GOPATH(N-/)

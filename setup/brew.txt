@@ -11,6 +11,7 @@ less
 neovim
 peco
 reattach-to-user-namespace
+terminal-notifier
 tig
 tmux
 wget

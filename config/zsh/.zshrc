@@ -36,6 +36,7 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "mollifier/anyframe"
 zplug "b4b4r07/emoji-cli"
 zplug "clvv/fasd", as:command, hook-build:"PREFIX=$HOME make install"
+zplug "marzocchi/zsh-notify"
 zplug load
 
 ##############################
