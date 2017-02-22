@@ -1,8 +1,8 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-let s:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
-let s:dein_init_file = s:config_home . '/vim/dein_init.vim'
+let g:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
+let s:dein_init_file = g:config_home . '/vim/dein_init.vim'
 execute 'source' s:dein_init_file
 
 let g:mapleader = "\<Space>"
@@ -68,13 +68,4 @@ augroup FileTypeFormat
   autocmd BufNewFile,BufRead *.toml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.zsh setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead Dockerfile setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-augroup END
-
-""""""""""""""""""""""""""""""
-"""         Golang         """
-""""""""""""""""""""""""""""""
-augroup Golang
-  autocmd!
-  autocmd FileType go :highlight goErr cterm=bold ctermfg=214
-  autocmd FileType go :match goErr /\<err\>/
 augroup END
