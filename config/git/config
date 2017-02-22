@@ -2,10 +2,15 @@
 	editor = nvim
 	excludesfile = /Users/sakuraba/.gitignore_global
 	preloadindex = true
-
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+	grep = auto
 [user]
 	name = sakuraba
-	email = sakuraba@ksf.jp
+	email = sakuraba@tech.gr.jp
 [ghq]
 	root=~/Development/src
 [alias]
