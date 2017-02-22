@@ -5,7 +5,7 @@ let s:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_
 let s:vim_config_file = s:config_home . '/vim/vimrc'
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_install_dir = s:cache_home . '/vim/dein'
-let s:dein_repo_dir = s:dein_install_dir . 'repos/github.com/Shougo/dein.vim'
+let s:dein_repo_dir = s:dein_install_dir . '/repos/github.com/Shougo/dein.vim'
 
 if !isdirectory(s:dein_repo_dir)
 	execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_repo_dir)

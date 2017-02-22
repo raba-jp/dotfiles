@@ -4,26 +4,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-[[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
-
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-hook_source = '''
-  let g:quickrun_config = {
-\   '_': {
-\     'runner': 'vimproc',
-\     'runner/vimproc/updatetime': 40,
-\     'outputter': 'error',
-\     'outputter/error/success': 'buffer',
-\     'outputter/error/error': 'quickfix',
-\     'outputter/buffer/close_on_empty': 1,
-\     'outputter/buffer/split': ':botright 4sp',
-\   }
-\ }
-'''
-
 ##############################
 ###      Color Scheme      ###
 ##############################
@@ -47,7 +27,7 @@ repo = 'easymotion/vim-easymotion'
 hook_add = '''
   let g:EasyMotion_smartcase = 1
   let g:EasyMotion_do_mapping = 0
-  nnoremap <Leader><Leader> <Plug>(easymotion-prefix)
+  nnoremap <Leader> <Plug>(easymotion-prefix)
   nnoremap <Leader><Leader>l <Plug>(easymotion-lineforward)
   nnoremap <Leader><Leader>j <Plug>(easymotion-j)
   nnoremap <Leader><Leader>k <Plug>(easymotion-k)
@@ -63,6 +43,20 @@ repo = 'neomake/neomake'
 hook_add = '''
   autocmd! BufWritePost * Neomake
 '''
+
+##############################
+###      Auto Complete     ###
+##############################
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = "has('nvim')"
+if = 'has("python3")'
+on_i = 1
+hook_source = '''
+  let g:deoplete#enable_at_startup = 1
+  source g:config_home . '/vim/deoplete.rc.vim'
+'''
+
 
 ##############################
 ###       Status Line      ###
