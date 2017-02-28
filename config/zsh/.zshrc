@@ -15,28 +15,9 @@ if [ ! -f $XDG_CONFIG_HOME/zsh/.zshrc.zwc -o $XDG_CONFIG_HOME/zsh/.zshrc -nt $XD
 fi
 
 ##############################
-###          Hooks         ###
-##############################
-eval "$(direnv hook zsh)"
-eval "$(fasd --init auto)"
-
-##############################
 ###         Plugins        ###
 ##############################
 source $ZPLUG_HOME/init.zsh
-zplug "b4b4r07/zplug"
-zplug "peco/peco", as:command, from:gh-r
-zplug "mrowa44/emojify", as:command
-zplug "stedolan/jq", from:gh-r, as:command
-zplug "mafredri/zsh-async"
-zplug "sindresorhus/pure", use:pure.zsh, as:theme
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-autosuggestions"
-zplug "mollifier/anyframe"
-zplug "b4b4r07/emoji-cli"
-zplug "clvv/fasd", as:command, hook-build:"PREFIX=$HOME make install"
-zplug "marzocchi/zsh-notify"
 zplug load
 
 ##############################
