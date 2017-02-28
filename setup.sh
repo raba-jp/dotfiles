@@ -80,5 +80,5 @@ fi
 
 if [ ! -d $XDG_CACHE_HOME/zsh/zplug ]; then
   echo "zplug setup"
-  git clone https://github.com/b4b4r07/zplug $XDG_CACHE_HOME/zsh/zplug 1>/dev/null
+  git clone https://github.com/b4b4r07/zplug $XDG_DATA_HOME/zplug 1>/dev/null
 fi

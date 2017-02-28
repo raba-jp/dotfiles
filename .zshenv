@@ -5,7 +5,10 @@ if [ -z $ZSHEMV_LOADED ]; then
   export XDG_DATA_HOME=$HOME/.local/share
 
   ##### zplug #####
-  export ZPLUG_HOME=$XDG_CACHE_HOME/zsh/zplug
+  export ZPLUG_HOME=$XDG_DATA_HOME/zplug
+  export ZPLUG_LOADFILE=$XDG_CONFIG_HOME/zsh/packages.zsh
+  export ZPLUG_USE_CACHE=true
+  export ZPLUG_CACHE_DIR=$XDG_CACHE_HOME/zplug
 
   ##### Editor Path #####
   export ATOM_HOME=$XDG_DATA_HOME/atom
