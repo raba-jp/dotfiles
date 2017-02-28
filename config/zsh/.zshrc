@@ -102,6 +102,10 @@ alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
 alias image_remove=docker_images_selection
 alias container_stop=docker_container_selection
+alias up='cd ../'
+alias down'cd -d */ \
+	| anyframe-selector-auto \
+	anyframe-action-execute cd'
 
 ##############################
 ###    Settings loading    ###
