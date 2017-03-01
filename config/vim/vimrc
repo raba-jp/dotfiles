@@ -77,6 +77,12 @@ nnoremap s< <C-w><
 nnoremap s+ <C-w>+
 "" 高さを減らす
 nnoremap s- <C-w>-
+"" 新規タブ
+nnoremap st :tabnew<CR>
+"" 次のタブ
+nnoremap sn gt
+"" 前のタブ
+nnoremap sp gT
 """"""""""""""""""""""""""""""
 """       File type        """
 """"""""""""""""""""""""""""""
