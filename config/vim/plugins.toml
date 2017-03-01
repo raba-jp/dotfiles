@@ -39,9 +39,9 @@ hook_add = '''
 ###      Syntax Check      ###
 ##############################
 [[plugins]]
-repo = 'neomake/neomake'
+repo = 'w0rp/ale'
 hook_add = '''
-  autocmd! BufWritePost * Neomake
+  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 '''
 
 ##############################
@@ -58,6 +58,25 @@ hook_source = '''
   execute 'source' s:deoplete_rc_file
 '''
 
+[[plugins]]
+repo = 'zchee/deoplete-go'
+build = 'make'
+on_ft = 'go'
+depends = 'deoplete.nvim'
+hook_add = '''
+  let s:deoplete_go_rc_file = g:config_home . '/vim/deoplete-go.rc.vim'
+  execute 'source' s:deoplete_go_rc_file
+'''
+
+[[plugins]]
+repo = 'fishbullet/deoplete-ruby'
+on_ft = 'ruby'
+depends = 'deoplete.nvim'
+
+[[plugins]]
+repo = 'zchee/deoplete-zsh' 
+on_ft = 'zsh'
+depends = 'deoplete.nvim'
 
 ##############################
 ###       Status Line      ###
@@ -69,7 +88,7 @@ hook_add = '''
 \   'colorscheme': 'solarized',
 \   'mode_map': {'c': 'NORMAL'},
 \   'active': {
-\     'left': [['mode', 'paste'], ['fugitive', 'filename']]
+\     'left': [['mode', 'paste', 'ale'], ['fugitive', 'filename']]
 \   },
 \   'component_function': {
 \     'modified': 'LightLineModified',
@@ -79,7 +98,8 @@ hook_add = '''
 \     'fileformat': 'LightLineFileformat',
 \     'filetype': 'LightLineFiletype',
 \     'fileencoding': 'LightLineFileEncoding',
-\     'mode': 'LightLineMode'
+\     'mode': 'LightLineMode',
+\     'ale': 'ALEStatus'
 \   }
 \ }
   function! LightLineModified()
@@ -121,6 +141,10 @@ hook_add = '''
 
   function! LightLineMode()
     return winwidth(0) > 60 ? lightline#mode() : ''
+  endfunction
+
+  function! ALEstatus()
+    return ALEGetStatusLine()
   endfunction
 '''
 

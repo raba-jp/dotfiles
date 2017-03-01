@@ -72,3 +72,14 @@ on_ft = 'slim'
 [[plugins]]
 repo = 'ekalinin/Dockerfile.vim'
 on_ft = 'dockerfile'
+
+##############################
+###        Markdown        ###
+##############################
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.vim'
+on_ft = 'markdown'
