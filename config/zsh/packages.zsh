@@ -6,12 +6,16 @@ zplug "peco/peco", \
   lazy:true
 
 zplug "mrowa44/emojify", \
-  as:command
+  as:command, \
+  lazy:true
 
 zplug "stedolan/jq", \
   as:command, \
   from:gh-r, \
   lazy:true
+
+zplug "mafredri/zsh-async", \
+  use:async.zsh
 
 zplug "sindresorhus/pure", \
   use:pure.zsh, \
