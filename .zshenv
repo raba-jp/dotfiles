@@ -25,15 +25,15 @@ if [ -z $ZSHEMV_LOADED ]; then
   export GOPATH=$HOME/Development
 
   ##### Ruby #####
-  export RBENV_ROOT=$XDG_CACHE_HOME/rbenv
+  export RBENV_ROOT=$XDG_DATA_HOME/rbenv
   export RBENV_SHELL=zsh
 
   ##### Python #####
-  export PYENV_ROOT=$XDG_CACHE_HOME/pyenv
+  export PYENV_ROOT=$XDG_DATA_HOME/pyenv
   export PYENV_SHELL=zsh
 
   ##### Node.js #####
-  export NODENV_ROOT=$XDG_CACHE_HOME/nodenv
+  export NODENV_ROOT=$XDG_DATA_HOME/nodenv
   export NODENV_SHELL=zsh
 
   ##### Goolge App Engine SDK #####
