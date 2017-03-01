@@ -47,11 +47,13 @@ autoload -Uz history_selection
 autoload -Uz path_selection
 autoload -Uz docker_images_selection
 autoload -Uz docker_container_selection
+autoload -Uz git_cd
 zle -N do_enter
 zle -N history_selection
 zle -N path_selection
 zle -N docker_images_selection
 zle -N docker_container_selection
+zle -N git_cd
 
 ##############################
 ###       Key binding      ###
@@ -87,6 +89,7 @@ alias up='cd ../'
 alias down'cd -d */ \
 	| anyframe-selector-auto \
 	anyframe-action-execute cd'
+alias cd=git_cd
 
 ##############################
 ###    Settings loading    ###
