@@ -1,3 +1,4 @@
+.DS_Store
 config/zsh/.zshrc.local
 config/zsh/.zshrc.zwc
 config/zsh/.zcompdump

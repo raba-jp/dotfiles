@@ -3,8 +3,8 @@
 """"""""""""""""""""""""""""""
 let s:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
 let s:vim_config_file = s:config_home . '/vim/vimrc'
-let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-let s:dein_install_dir = s:cache_home . '/vim/dein'
+let s:data_home = empty($XDG_DATA_HOME) ? expand('~/.local/share') : $XDG_DATA_HOME
+let s:dein_install_dir = s:data_home . '/vim/dein'
 let s:dein_repo_dir = s:dein_install_dir . '/repos/github.com/Shougo/dein.vim'
 
 if !isdirectory(s:dein_repo_dir)
