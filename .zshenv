@@ -18,7 +18,6 @@ if [ -z $ZSHEMV_LOADED ]; then
   export MPLAYER_HOME=$XDG_CONFIG_HOME/mplayer
   export INPUTRC=$XDG_CONFIG_HOME/readline/inputrc
   export ZDOTDIR=$XDG_CONFIG_HOME/zsh
-  export HISTFILE=$XDG_CACHE_HOME/zsh/history
   export EDITOR=nvim
 
   ##### Go #####
