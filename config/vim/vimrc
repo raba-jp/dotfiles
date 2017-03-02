@@ -1,103 +1,16 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-let g:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
-let s:dein_init_file = g:config_home . '/vim/dein_init.vim'
-execute 'source' s:dein_init_file
-
 let g:mapleader = "\<Space>"
 
-""""""""""""""""""""""""""""""
-"""         Common         """
-""""""""""""""""""""""""""""""
-set number
-set fenc=utf-8
-set noswapfile
-set showcmd
-set smartindent
-set visualbell
-set laststatus=2
-filetype plugin indent on
-set list
-set listchars=tab:»-,trail:-,nbsp:%,eol:↲
-set relativenumber number
-set wildmenu
-set clipboard+=unnamedplus
-set showmatch
-set smartcase
-set incsearch
-set hlsearch
-set matchtime=1
-set wrapscan
-set sh=zsh
-syntax on
-set tags=./tags;
+let g:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
 
-""""""""""""""""""""""""""""""
-"""        Mapping         """
-""""""""""""""""""""""""""""""
-inoremap <silent> jj <ESC>
-nnoremap Y y$
-nnoremap + <C-a>
-nnoremap - <C-x>
-nnoremap <ESC><ESC> :nohlsearch<CR>
-nnoremap ZZ <Nop>
-nnoremap ZQ <Nop>
-nnoremap Q <Nop>
-nnoremap H 0
-nnoremap J L
-nnoremap K H
-nnoremap L $
+let s:dein_init_file = g:config_home . '/vim/dein_init.vim'
+let s:mapping_file = g:config_home . '/vim/mapping.vim'
+let s:commons_file = g:config_home . '/vim/commons.vim'
+let s:filetypes_file = g:config_home . '/vim/filetypes.vim'
 
-"" 水平分割
-nnoremap s- :split<CR>
-"" 垂直分割
-nnoremap s\ :vsplit<CR>
-"" 別のウィンドウに移動
-nnoremap sh <C-w>h
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-"" 次に移動
-nnoremap sw <C-w>w
-"" 分割したウィンドウを移動
-nnoremap sH <C-w>H
-nnoremap sJ <C-w>J
-nnoremap sK <C-w>K
-nnoremap sL <C-w>L
-"" 回転
-nnoremap sR <C-w>r
-"" 大きさを揃える
-nnoremap s= <C-w>=
-"" 幅を増やす
-nnoremap s> <C-w>>
-"" 幅を減らす
-nnoremap s< <C-w><
-"" 高さを増やす
-nnoremap s+ <C-w>+
-"" 高さを減らす
-nnoremap s- <C-w>-
-"" 新規タブ
-nnoremap st :tabnew<CR>
-"" 次のタブ
-nnoremap sn gt
-"" 前のタブ
-nnoremap sp gT
-""""""""""""""""""""""""""""""
-"""       File type        """
-""""""""""""""""""""""""""""""
-augroup FileTypeFormat
-  autocmd!
-  autocmd BufNewFile,BufRead *.sh setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.rb setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.erb setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.json setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.js setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
-  autocmd BufNewFile,BufRead *.yaml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.yml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.toml set filetype=toml
-  autocmd BufNewFile,BufRead *.toml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.zsh setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead Dockerfile setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-augroup END
+execute 'source' s:dein_init_file
+execute 'source' s:mapping_file
+execute 'source' s:commons_file
+execute 'source' s:filetypes_file
