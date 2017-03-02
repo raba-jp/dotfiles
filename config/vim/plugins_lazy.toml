@@ -5,12 +5,12 @@
 repo = 'Shougo/denite.nvim'
 if = "has('nvim')"
 if = "has('python3')"
-hook_source = '''
-nnoremap <silent> <Leader>do :<C-u>Denite file_rec<CR>
-nnoremap <silent> <Leader>dm :<C-u>Denite file_mru<CR>
-nnoremap <silent> <Leader>dy :<C-u>Denite neoyank<CR>
-nnoremap <silent> <Leader>dl :<C-u>Denite line<CR>
-nnoremap <silent> <Leader>dg :<C-u>Denite grep<CR>
+hook_add = '''
+  nnoremap <silent> <Leader>do :<C-u>Denite file_rec<CR>
+  nnoremap <silent> <Leader>dm :<C-u>Denite file_mru<CR>
+  nnoremap <silent> <Leader>dy :<C-u>Denite neoyank<CR>
+  nnoremap <silent> <Leader>dl :<C-u>Denite line<CR>
+  nnoremap <silent> <Leader>dg :<C-u>Denite grep<CR>
 '''
 hook_post_source = '''
 call denite#custom#var('grep', 'command', ['ag', '--nogroup', '--nocolor', '--smart-case', '--hidden'])
