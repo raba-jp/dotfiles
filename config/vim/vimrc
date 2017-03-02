@@ -8,9 +8,7 @@ let g:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_
 let s:dein_init_file = g:config_home . '/vim/dein_init.vim'
 let s:mapping_file = g:config_home . '/vim/mapping.vim'
 let s:commons_file = g:config_home . '/vim/commons.vim'
-let s:filetypes_file = g:config_home . '/vim/filetypes.vim'
 
 execute 'source' s:dein_init_file
 execute 'source' s:mapping_file
 execute 'source' s:commons_file
-execute 'source' s:filetypes_file
