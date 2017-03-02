@@ -38,3 +38,7 @@ zplug "clvv/fasd", \
   hook-load:"eval $(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install)"
 
 zplug "marzocchi/zsh-notify"
+
+zplug "direnv/direnv", \
+  as:command, \
+  hook-build:"make install"

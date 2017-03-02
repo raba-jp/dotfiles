@@ -8,6 +8,13 @@ fpath=(
 )
 
 ##############################
+###           load         ###
+##############################
+if type direnv > /dev/null 2>&1; then
+  eval $(direnv hook zsh)
+fi
+
+##############################
 ###      Auto compile      ###
 ##############################
 if [ ! -f $XDG_CONFIG_HOME/zsh/.zshrc.zwc -o $XDG_CONFIG_HOME/zsh/.zshrc -nt $XDG_CONFIG_HOME/zsh/.zshrc.zwc ]; then
@@ -38,6 +45,7 @@ setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt inc_append_history
 setopt share_history
+setopt correct
 
 ##############################
 ###        Auto load       ###
