@@ -27,12 +27,11 @@ repo = 'easymotion/vim-easymotion'
 hook_add = '''
   let g:EasyMotion_smartcase = 1
   let g:EasyMotion_do_mapping = 0
-  nnoremap <Leader> <Plug>(easymotion-prefix)
-  nnoremap <Leader><Leader>l <Plug>(easymotion-lineforward)
-  nnoremap <Leader><Leader>j <Plug>(easymotion-j)
-  nnoremap <Leader><Leader>k <Plug>(easymotion-k)
-  nnoremap <Leader><Leader>h <Plug>(easymotion-linebackward)
-  nnoremap <Leader><Leader>s <Plug>(easymotion-overwin-f2)
+  nmap <Space>l <Plug>(easymotion-lineforward)
+  nmap sj <Plug>(easymotion-j)
+  nmap sk <Plug>(easymotion-k)
+  nmap sh <Plug>(easymotion-linebackward)
+  nmap ss <Plug>(easymotion-overwin-f2)
 '''
 
 ##############################
@@ -43,40 +42,6 @@ repo = 'w0rp/ale'
 hook_add = '''
   let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 '''
-
-##############################
-###      Auto Complete     ###
-##############################
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-if = "has('nvim')"
-if = 'has("python3")'
-on_i = 1
-hook_source = '''
-  let g:deoplete#enable_at_startup = 1
-  let s:deoplete_rc_file = g:config_home . '/vim/deoplete.rc.vim'
-  execute 'source' s:deoplete_rc_file
-'''
-
-[[plugins]]
-repo = 'zchee/deoplete-go'
-build = 'make'
-on_ft = 'go'
-depends = 'deoplete.nvim'
-hook_add = '''
-  let s:deoplete_go_rc_file = g:config_home . '/vim/deoplete-go.rc.vim'
-  execute 'source' s:deoplete_go_rc_file
-'''
-
-[[plugins]]
-repo = 'fishbullet/deoplete-ruby'
-on_ft = 'ruby'
-depends = 'deoplete.nvim'
-
-[[plugins]]
-repo = 'zchee/deoplete-zsh' 
-on_ft = 'zsh'
-depends = 'deoplete.nvim'
 
 ##############################
 ###       Status Line      ###
