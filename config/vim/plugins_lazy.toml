@@ -3,7 +3,8 @@
 ##############################
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-on_event = 'BufRead'
+if = "has('nvim')"
+if = "has('python3')"
 hook_source = '''
 nnoremap <silent> <Leader>do :<C-u>Denite file_rec<CR>
 nnoremap <silent> <Leader>dm :<C-u>Denite file_mru<CR>
@@ -24,21 +25,22 @@ call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
 
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
-on_event = 'BufRead'
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
-on_event = 'BufRead'
 
 [[plugins]]
 repo = 'tsukkee/unite-tag'
-on_event = 'BufRead'
 
 ##############################
 ###        Terminal        ###
 ##############################
 repo ='kassio/neoterm' 
 if = "has('nvim')"
+hook_source = '''
+  let g:neoterm_position = 'horizontal'
+  let g:neoterm_repl_ruby = 'pry'
+'''
 
 ##############################
 ###      Input support     ###
