@@ -1,5 +1,5 @@
 #!/bin/bash
-DOTDIR=$HOME/dotfile
+DOTDIR=$HOME/dotfiles
 XDG_DATA_HOME=$HOME/.local/share
 
 DIRECTORIES=$DOTDIR/setup/directories.txt
@@ -15,22 +15,25 @@ if [ -n `echo $OSTYPE | grep "darwin"` ]; then
   echo "OS type: MacOS"
 
   if ! type brew > /dev/null 2>&1; then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 1>/dev/null
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
   cat $BREW_TAP_FILE | while read line; do
     brew tap $line 1>/dev/null
+    echo "$line tapped"
   done
 
   cat $BREW_FILE | while read line; do
     if [ -z `brew list | grep $line` ]; then
       brew install $line 1>/dev/null
+      echo "$line installed"
     fi
   done
 
   cat $BREW_CASK_FILE | while read line; do
     if [ -z `brew cask list | grep $line` ]; then
-      brew cask install $line 1>/dev/null
+      brew cask install $line
+      echo "$line installed"
     fi
   done
 fi
