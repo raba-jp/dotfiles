@@ -1,8 +1,0 @@
----
-xdg_data_home: "{{ ansible_user_dir }}/.local/share"
-git_repositories:
-  - { repo: "https://github.com/rabafea/dotfiles.git", dest: {{ xdg_data_home }} }
-
-symlinks:
-  - { src: "{{ xdg_data_home }}/dotfiles/config", dest: "{{ ansible_user_dir }}/.config" }
-  - { src: "{{ xdg_data_home }}/dotfiles/config/zsh/.zshebnv", dest: "{{ ansible_user_dir }}/.zshenv" }
