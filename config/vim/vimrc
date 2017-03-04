@@ -6,7 +6,7 @@ let g:mapleader = "\<Space>"
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
 let g:plugins_home = g:config_home . '/vim/plugins'
 
-let &runtimepath = g:config_home .','. &runtimepath
+let &runtimepath = g:config_home . '/vim' .','. &runtimepath
 
 let s:dein_init_file = g:config_home . '/vim/dein_init.vim'
 let s:mapping_file = g:config_home . '/vim/mapping.vim'
