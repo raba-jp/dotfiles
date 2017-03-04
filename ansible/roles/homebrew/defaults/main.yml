@@ -1,0 +1,40 @@
+---
+homebrew_taps:
+  - homebrew/dupes
+  - caskroom/cask
+  - caskroom/fonts
+  - neovim/neovim
+homebrew_packages:
+  - { name: ag }
+  - { name: ansible }
+  - { name: ctags }
+  - { name: curl }
+  - { name: docker }
+  - { name: docker-compose }
+  - { name: git }
+  - { name: gnu-sed, install_options: with-default-names }
+  - { name: go }
+  - { name: nkf }
+  - { name: less }
+  - { name: neovim }
+  - { name: reattach-to-user-namespace }
+  - { name: terminal-notifier }
+  - { name: tig }
+  - { name: tmux }
+  - { name: tree }
+  - { name: wget }
+  - { name: zsh, install_options: disable_etcdir }
+homebrew_cask_packages:
+  - { name: appcleaner }
+  - { name: bettertouchtool }
+  - { name: betterzipql }
+  - { name: cheetsheet }
+  - { name: dash }
+  - { name: docker }
+  - { name: dropbox }
+  - { name: google-chrome }
+  - { name: google-drive }
+  - { name: quicklook-csv }
+  - { name: qlmarkdown }
+  - { name: slack }
+  - { name: the-unarchiver }
