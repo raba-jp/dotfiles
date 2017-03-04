@@ -42,3 +42,8 @@ zplug "marzocchi/zsh-notify"
 zplug "direnv/direnv", \
   as:command, \
   hook-build:"make install"
+
+zplug "motemen/ghq", \
+  as:command, \
+  from:gh-r, \
+  lazy:true
