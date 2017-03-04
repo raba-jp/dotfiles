@@ -5,29 +5,8 @@
 repo = 'Shougo/denite.nvim'
 if = "has('nvim')"
 if = "has('python3')"
-hook_add = '''
-  nnoremap <silent> <Leader>do :<C-u>Denite file_rec<CR>
-  nnoremap <silent> <Leader>dm :<C-u>Denite file_mru<CR>
-  nnoremap <silent> <Leader>dy :<C-u>Denite neoyank<CR>
-  nnoremap <silent> <Leader>dl :<C-u>Denite line<CR>
-  nnoremap <silent> <Leader>dg :<C-u>Denite grep -buffer-name=search-buffer-denite<CR>
-  nnoremap <silent> <Leader>dr :<C-u>Denite -resume -buffer-name=search-buffer-denite<CR>
-  nnoremap <silent> <Leader>dn :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=+1 -immediately<CR>
-  nnoremap <silent> <Leader>dp :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR>
-'''
-hook_post_source = '''
-  call denite#custom#var('grep', 'command', ['ag'])
-  call denite#custom#var('grep', 'default_opts',
-  \ ['-i', '--vimgrep'])
-  call denite#custom#var('grep', 'recursive_opts', [])
-  call denite#custom#var('grep', 'pattern_opt', [])
-  call denite#custom#var('grep', 'separator', ['--'])
-  call denite#custom#var('grep', 'final_opts', [])
-  call denite#custom#source('file_rec, grep', 'matcher', ['matcher_cpsm'])
-  call denite#custom#map('_', '-', '<denite:do_action:split>')
-  call denite#custom#map('_', '|', '<denite:do_action:vsplit>')
-  call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
-'''
+hook_add = ''' execute 'source' g:plugins_home . '/denite/init.rc.vim' '''
+hook_post_source = ''' execute 'source' g:plugins_home . '/denite/loaded.rc.vim' '''
 
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
@@ -65,8 +44,7 @@ if = 'has("python3")'
 on_i = 1
 hook_source = '''
   let g:deoplete#enable_at_startup = 1
-  let s:deoplete_rc_file = g:config_home . '/vim/deoplete.rc.vim'
-  execute 'source' s:deoplete_rc_file
+  execute 'source' g:plugins_home . '/deoplete/init.rc.vim'
 '''
 
 [[plugins]]
@@ -74,10 +52,7 @@ repo = 'zchee/deoplete-go'
 build = 'make'
 on_ft = 'go'
 depends = 'deoplete.nvim'
-hook_add = '''
-  let s:deoplete_go_rc_file = g:config_home . '/vim/deoplete-go.rc.vim'
-  execute 'source' s:deoplete_go_rc_file
-'''
+hook_add = ''' execute 'source' g:plugins_home . '/deoplete/go.rc.vim' '''
 
 [[plugins]]
 repo = 'fishbullet/deoplete-ruby'

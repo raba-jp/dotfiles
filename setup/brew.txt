@@ -2,7 +2,8 @@ ag
 boost
 ctags
 curl
-direnv
+docker
+docker-compose
 ghq
 git
 glide
