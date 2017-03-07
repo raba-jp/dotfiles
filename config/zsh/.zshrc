@@ -10,8 +10,9 @@ fpath=(
 ##############################
 ###           load         ###
 ##############################
-if type direnv > /dev/null 2>&1; then
-  eval $(direnv hook zsh)
+if [ -d $GCPPATH ]; then
+  source $GCPPATH/path.zsh.inc
+  source $GCPPATH/completion.zsh.inc
 fi
 
 ##############################
@@ -166,3 +167,7 @@ nodenv() {
     command nodenv "$command" "$@";;
   esac
 }
+
+if (which zprof > /dev/null 2>&1) ;then
+  zprof
+fi
