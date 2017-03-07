@@ -1,3 +1,4 @@
+zmodload zsh/zprof && zprof
 if [ -z $ZSHEMV_LOADED ]; then
   ##### XDG BASE DIRECTORY #####
   export XDG_CONFIG_HOME=$HOME/.config
@@ -40,7 +41,7 @@ if [ -z $ZSHEMV_LOADED ]; then
   export GAE_GOPATH=$GAEPATH/go_appengine
 
   ##### Google Cloud SDK #####
-  export GCPPATH=$HOME/GoogleCloudSDK/bin
+  export GCPPATH=$HOME/google-cloud-sdk
 
   ##### Android SDK #####
   export ANDROID_SDK_TOOLS=$HOME/Library/Android/sdk/tools
@@ -65,6 +66,6 @@ if [ -z $ZSHEMV_LOADED ]; then
 
   export ZSHENV_LOADED=1
 else
-  print '.zshenv load skipped'
+  echo '.zshenv load skipped'
 fi
 
