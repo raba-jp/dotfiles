@@ -14,6 +14,11 @@ eval "$(rbenv init - --no-rehash)"
 eval "$(nodenv init - --no-rehash)"
 eval "$(pyenv init - --no-rehash)"
 
+if [ -d $GCPPATH ]; then
+  source $GCPPATH/path.zsh.inc
+  source $GCPPATH/completion.zsh.inc
+fi
+
 ##############################
 ###      Auto compile      ###
 ##############################
