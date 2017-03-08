@@ -17,6 +17,7 @@ set incsearch
 set hlsearch
 set matchtime=1
 set wrapscan
+set nowrap
 set sh=zsh
 syntax on
 set tags=./tags;
