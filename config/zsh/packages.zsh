@@ -45,3 +45,6 @@ zplug "mollifier/anyframe"
 
 zplug "marzocchi/zsh-notify", \
   lazy:true
+
+zplug "b4b4r07/zsh-history", \
+  hook-build:"make && sudo make install"
