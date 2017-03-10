@@ -63,6 +63,7 @@ if [ -z $ZSHEMV_LOADED ]; then
     $path
   )
 
+  [ -f $ZSH_CONF_DIR/.zshenv.secure ] && source $ZSH_CONF_DIR/.zshenv.secure
 
   export ZSHENV_LOADED=1
 else
