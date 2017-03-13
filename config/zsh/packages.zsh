@@ -53,6 +53,7 @@ zplug "b4b4r07/zsh-history", \
 
 if zplug check 'b4b4r07/zsh-history'; then
     export ZSH_HISTORY_FILE="$XDG_CACHE_HOME/zsh/history.db"
+    ZSH_HISTORY_BACKUP_DIR="$XDG_CACHE_HOME/zsh/backup"
     ZSH_HISTORY_KEYBIND_GET_BY_DIR="^r"
     ZSH_HISTORY_KEYBIND_GET_ALL="^r^a"
     ZSH_HISTORY_KEYBIND_SCREEN="^r^r"
