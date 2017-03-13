@@ -81,3 +81,9 @@ repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = 'Shougo/context_filetype.vim'
+
+##############################
+###     Editor Config      ###
+##############################
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
