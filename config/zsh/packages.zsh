@@ -1,4 +1,5 @@
-zplug "b4b4r07/zplug"
+zplug "b4b4r07/zplug", \
+  hook-build:'zplug --self-manage'
 
 zplug "peco/peco", \
   as:command, \
@@ -47,4 +48,14 @@ zplug "marzocchi/zsh-notify", \
   lazy:true
 
 zplug "b4b4r07/zsh-history", \
-  hook-build:"make && sudo make install"
+  defer:3, \
+  use:init.zsh
+
+if zplug check 'b4b4r07/zsh-history'; then
+    export ZSH_HISTORY_FILE="$XDG_CACHE_HOME/zsh/history.db"
+    ZSH_HISTORY_KEYBIND_GET_BY_DIR="^r"
+    ZSH_HISTORY_KEYBIND_GET_ALL="^r^a"
+    ZSH_HISTORY_KEYBIND_SCREEN="^r^r"
+    ZSH_HISTORY_KEYBIND_ARROW_UP="^p"
+    ZSH_HISTORY_KEYBIND_ARROW_DOWN="^n"
+fi
