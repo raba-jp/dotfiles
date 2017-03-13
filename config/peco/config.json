@@ -1,3 +1,11 @@
 {
-  "Prompt": ">"
+  "Prompt": ">",
+  "Style": {
+  },
+  "Keymap": {
+    "C-k": "peco.SelectUp",
+    "C-j": "peco.SelectDown",
+    "C-l": "peco.ForwardChar",
+    "C-h": "peco.BackwardChar"
+  }
 }
