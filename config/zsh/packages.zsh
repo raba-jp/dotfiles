@@ -26,6 +26,22 @@ zplug "clvv/fasd", \
   hook-load:"eval $(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install)", \
   lazy:true
 
+zplug "ggreer/the_silver_searcher", \
+  as:command, \
+  from:gh-r, \
+  rename-to:"ag", \
+  lazy:true
+
+zplug "b4b4r07/ltsv.sh", \
+    as:command, \
+    use:"(ltsv).sh", \
+    rename-to:"$1"
+
+zplug "motemen/ghq", \
+    as:command, \
+    from:gh-r, \
+    rename-to:ghq
+
 zplug "mafredri/zsh-async", \
   use:async.zsh
 
@@ -44,19 +60,22 @@ zplug "zsh-users/zsh-autosuggestions", \
 
 zplug "mollifier/anyframe"
 
-zplug "marzocchi/zsh-notify", \
-  lazy:true
+zplug "marzocchi/zsh-notify"
+
+zplug "b4b4r07/zsh-vimode-visual", \
+  use:"*.zsh", \
+  defer:3
 
 zplug "b4b4r07/zsh-history", \
   defer:3, \
   use:init.zsh
 
-if zplug check 'b4b4r07/zsh-history'; then
-    export ZSH_HISTORY_FILE="$XDG_CACHE_HOME/zsh/history.db"
-    ZSH_HISTORY_BACKUP_DIR="$XDG_CACHE_HOME/zsh/backup"
-    ZSH_HISTORY_KEYBIND_GET_BY_DIR="^r"
-    ZSH_HISTORY_KEYBIND_GET_ALL="^r^a"
-    ZSH_HISTORY_KEYBIND_SCREEN="^r^r"
-    ZSH_HISTORY_KEYBIND_ARROW_UP="^p"
-    ZSH_HISTORY_KEYBIND_ARROW_DOWN="^n"
+if zplug check "b4b4r07/zsh-history"; then
+  export ZSH_HISTORY_FILE="$XDG_CACHE_HOME/zsh/history.db"
+  ZSH_HISTORY_BACKUP_DIR="$XDG_CACHE_HOME/zsh/backup"
+  ZSH_HISTORY_KEYBIND_GET_BY_DIR="^r"
+  ZSH_HISTORY_KEYBIND_GET_ALL="^r^a"
+  ZSH_HISTORY_KEYBIND_SCREEN="^r^r"
+  ZSH_HISTORY_KEYBIND_ARROW_UP="^p"
+  ZSH_HISTORY_KEYBIND_ARROW_DOWN="^n"
 fi
