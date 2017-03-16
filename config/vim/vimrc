@@ -1,5 +1,3 @@
-set encoding=utf-8
-
 let g:mapleader = "\<Space>"
 
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
