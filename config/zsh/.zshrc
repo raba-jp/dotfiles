@@ -10,10 +10,6 @@ fpath=(
 ##############################
 ###           ENV          ###
 ##############################
-eval "$(rbenv init - --no-rehash)"
-eval "$(nodenv init - --no-rehash)"
-eval "$(pyenv init - --no-rehash)"
-
 if [ -d $GCPPATH ]; then
   source $GCPPATH/path.zsh.inc
   source $GCPPATH/completion.zsh.inc
@@ -120,6 +116,9 @@ esac
 
 [ -f $ZSH_CONF_DIR/.zshrc.local ] && source $ZSH_CONF_DIR/.zshrc.local
 
+##############################
+###         Profier        ###
+##############################
 if (which zprof > /dev/null 2>&1) ;then
   zprof
 fi
