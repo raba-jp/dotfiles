@@ -1,4 +1,3 @@
-zmodload zsh/zprof && zprof
 if [ -z $ZSHEMV_LOADED ]; then
   ##### XDG BASE DIRECTORY #####
   export XDG_CONFIG_HOME=$HOME/.config
