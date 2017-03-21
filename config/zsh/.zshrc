@@ -115,10 +115,3 @@ case $OSTYPE in
 esac
 
 [ -f $ZSH_CONF_DIR/.zshrc.local ] && source $ZSH_CONF_DIR/.zshrc.local
-
-##############################
-###         Profier        ###
-##############################
-#if (which zprof > /dev/null 2>&1) ;then
-#  zprof
-#fi
