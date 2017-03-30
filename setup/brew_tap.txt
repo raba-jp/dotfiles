@@ -1,4 +1,0 @@
-caskroom/cask
-caskroom/fonts
-neovim/neovim
-homebrew/dupes
