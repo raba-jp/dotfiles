@@ -57,7 +57,7 @@ hook_add = ''' execute 'source' g:plugins_home . '/lightline/init.rc.vim' '''
 repo = 'soramugi/auto-ctags.vim'
 hook_add = '''
 let g:auto_ctags = 1
-let g:auto_ctags_directory_list = ['.git', '.svn']
+let g:auto_ctags_directory_list = ['tmp']
 let g:auto_ctags_filetype_mode = 1
 '''
 
