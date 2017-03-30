@@ -20,4 +20,3 @@ set wrapscan
 set nowrap
 set sh=zsh
 syntax on
-set tags=./tags;
