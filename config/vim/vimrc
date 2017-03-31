@@ -1,5 +1,8 @@
 let g:mapleader = "\<Space>"
 
+let g:false = 0
+let g:true = 1
+
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
 let g:plugins_home = g:config_home . '/vim/plugins'
 

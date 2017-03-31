@@ -24,6 +24,12 @@ on_ft = 'ruby'
 repo = 'tpope/vim-rails'
 on_ft = 'ruby'
 
+[[plugins]]
+repo = 'vim-utils/vim-ruby-fold'
+hook_source = '''
+let g:ruby_fold_lines_limit = 100
+'''
+
 ##############################
 ###        JavaScript      ###
 ##############################
