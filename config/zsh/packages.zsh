@@ -68,6 +68,7 @@ zplug "b4b4r07/zsh-vimode-visual", \
 
 zplug "b4b4r07/zsh-history", \
   defer:3, \
+  hook-build:"make && sudo make install", \
   use:init.zsh
 
 if zplug check "b4b4r07/zsh-history"; then
