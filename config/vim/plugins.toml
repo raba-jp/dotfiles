@@ -101,3 +101,18 @@ hook_add = '''
   let g:crowi#default_create_path = '/user/sakuraba/memo'
   let g:crowi#browser_command = 'open'
 '''
+
+##############################
+###    Syntax Highlight    ###
+##############################
+[[plugins]]
+repo = 'KeitaNakamura/highlighter.nvim'
+hook_add = '''
+  let g:highlighter#auto_update = 2
+'''
+
+##############################
+###         Snippet        ###
+##############################
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
