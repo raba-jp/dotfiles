@@ -5,6 +5,7 @@
 repo = 'Shougo/denite.nvim'
 if = "has('nvim')"
 if = "has('python3')"
+on_i = 1
 hook_add = ''' execute 'source' g:plugins_home . '/denite/init.rc.vim' '''
 hook_post_source = ''' execute 'source' g:plugins_home . '/denite/loaded.rc.vim' '''
 
@@ -16,6 +17,23 @@ repo = 'Shougo/neomru.vim'
 
 [[plugins]]
 repo = 'tsukkee/unite-tag'
+
+##############################
+###         Snippet        ###
+##############################
+[[plugins]]
+repo = 'Shougo/neosnippet'
+on_i  = 1
+on_ft = ['snippet']
+depends = ['neosnippet-snippets']'
+hook_source = '''
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+'''
 
 ##############################
 ###      Input support     ###

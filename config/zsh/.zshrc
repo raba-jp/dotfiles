@@ -72,6 +72,7 @@ zle -N pero
 bindkey '^m' do_enter
 bindkey '^f' path_selection
 bindkey '^h' anyframe-widget-execute-history
+bindkey '^k' anyframe-widget-kill
 
 ##############################
 ###          Alias         ###
@@ -83,7 +84,6 @@ alias setlangja='export LANG=ja_JP.UTF-8'
 alias setlangc='export LANG=C'
 alias vim='nvim'
 alias vi='nvim'
-alias kill=anyframe-widget-kill
 alias ghq=anyframe-widget-cd-ghq-repository
 alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 alias a='fasd -a'        # any
