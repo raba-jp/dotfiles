@@ -84,7 +84,6 @@ alias setlangja='export LANG=ja_JP.UTF-8'
 alias setlangc='export LANG=C'
 alias vim='nvim'
 alias vi='nvim'
-alias ghq=anyframe-widget-cd-ghq-repository
 alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 alias a='fasd -a'        # any
 alias s='fasd -si'       # show / search / select
