@@ -2,9 +2,11 @@ if [ -n "$BUFFER" ]; then
   zle accept-line
   return 0
 fi
+
 if [ "$WIDGET" != "$LASTWIDGET" ]; then
   enter_count=0
 fi
+
 case $[enter_count++] in
   0)
       echo
