@@ -5,4 +5,4 @@ config/zsh/.zshrc.zwc
 config/zsh/.zcompdump
 config/direnv
 config/gcloud
-config/fontforge/prefs
+config/fontforge
