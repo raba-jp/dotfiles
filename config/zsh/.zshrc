@@ -46,6 +46,7 @@ autoload -Uz docker_images_selection
 autoload -Uz docker_container_selection
 autoload -Uz git_cd
 autoload -Uz pero
+autoload -Uz operation_tmux
 zle -N do_enter
 zle -N history_selection
 zle -N path_selection
@@ -53,12 +54,14 @@ zle -N docker_images_selection
 zle -N docker_container_selection
 zle -N git_cd
 zle -N pero
+zle -N operation_tmux
 
 # Key binding
 bindkey '^m' do_enter
 bindkey '^f' path_selection
 bindkey '^h' anyframe-widget-execute-history
 bindkey '^k' anyframe-widget-kill
+bindkey '^g' operation_tmux
 
 # Alias
 alias sudo='sudo '
