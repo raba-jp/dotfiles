@@ -11,6 +11,9 @@ if [ -d $GCPPATH ]; then
   source $GCPPATH/completion.zsh.inc
 fi
 
+# Completion
+source $ZDOTDIR/completion/_gcloud
+
 # Auto compile
 if [ ! -f $XDG_CONFIG_HOME/zsh/.zshrc.zwc -o $XDG_CONFIG_HOME/zsh/.zshrc -nt $XDG_CONFIG_HOME/zsh/.zshrc.zwc ]; then
    zcompile $XDG_CONFIG_HOME/zsh/.zshrc

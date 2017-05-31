@@ -22,10 +22,10 @@ if [ -z $ZSHEMV_LOADED ]; then
 
   ##### Go #####
   export GOPATH=$HOME/Development
+  export GO15VENDOREXPERIMENT=1
 
   ##### Goolge App Engine SDK #####
-  export GAEPATH=$HOME/GoogleAppEngine
-  export GAE_GOPATH=$GAEPATH/go_appengine
+  export GAE_GOPATH=$HOME/go_appengine
 
   ##### Google Cloud SDK #####
   export GCPPATH=$HOME/google-cloud-sdk
