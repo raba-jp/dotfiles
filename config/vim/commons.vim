@@ -21,6 +21,7 @@ set nowrap
 set sh=zsh
 syntax on
 set foldmethod=syntax
+set foldlevel=100
 
 if has('patch-7.4.1778')
   set guicolors
