@@ -5,8 +5,8 @@ execute 'source' s:rcfile
 """"""""""""""""""""""""""""""
 " Python
 """"""""""""""""""""""""""""""
-let g:python_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/local/bin/python2.7'
+let g:python3_host_prog = '/usr/local/bin/python3.6'
 
 """"""""""""""""""""""""""""""
 " Interactive replace
