@@ -46,6 +46,13 @@ on_ft = 'ruby'
 repo = 'pangloss/vim-javascript'
 on_ft = 'javascript'
 
+
+##############################
+###         Python         ###
+##############################
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+on_ft = 'python'
 ##############################
 ###          YAML          ###
 ##############################
