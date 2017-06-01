@@ -1,0 +1,1 @@
+/root/.config/fisherman/pure/installer.fish
