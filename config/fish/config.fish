@@ -23,8 +23,8 @@ set -x GOPATH $HOME/Development
 set -x GO15VENDOREXPERIMENT 1
 
 ## Android SDK
-set -x ANDROID_SDK_TOOLS $HOME/Library/Android/sdk/tools
-set -x ANDROID_SDK_PLATFORM_TOOLS $HOME/Library/Android/sdk/platform-tools
+[ -e $HOME/Library/Android/sdk/tools ]; set -x ANDROID_SDK_TOOLS $HOME/Library/Android/sdk/tools
+[ -e $HOME/Library/Android/sdk/platform-tools ]; set -x ANDROID_SDK_PLATFORM_TOOLS $HOME/Library/Android/sdk/platform-tools
 
 ## Terminal Notifier (OSX)
 set -x SYS_NOTIFIER /usr/local/bin/terminal-notifier
@@ -41,3 +41,27 @@ alias tmux 'tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 alias cp 'cp -i'
 alias mv 'mv -i'
 alias rm 'rm -i'
+
+function done_enter --on-event fish_postexec
+	if [ ! -z "$argv" ]
+		return 0
+	end
+
+	echo
+	echo -e (set_color yellow)"--- list files ---"(set_color normal)
+	ls -alG
+	if [ (git rev-parse --is-inside-work-tree 2> /dev/null) = 'true' ]
+
+		echo
+		echo -e (set_color yellow)"--- git status ---"(set_color normal)
+		git status --short --branch
+		echo
+
+		set -l user_name (git config --get --local user.name)
+		[ -z $user_name ]; and return 0
+		if [ -n (git log -n 1 --oneline --author=$user_name) ]
+			echo -e (set_color yellow)"--- last commit ---"(set_color normal)
+			git log -n 1 --oneline --author=$user_name
+		end
+	end
+end
