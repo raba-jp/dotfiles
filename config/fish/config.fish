@@ -41,6 +41,7 @@ alias tmux 'tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 alias cp 'cp -i'
 alias mv 'mv -i'
 alias rm 'rm -i'
+alias repo 'peco_select_repository'
 
 function done_enter --on-event fish_postexec
 	if [ ! -z "$argv" ]
