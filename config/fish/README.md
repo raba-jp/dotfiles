@@ -3,7 +3,10 @@
 ## KeyBindings
 ```
 Ctrl + r => Select command history intaractively.
-Crtl + k => Back to command history.
+Ctrl + k => Back to command history.
+Ctrl + j => Next to command history.
+Ctrl + k => Backward charactor.
+Ctrl + l => Forward charactor.
 ```
 
 ## Alias

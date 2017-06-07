@@ -30,6 +30,9 @@ alias repo 'peco_select_repository'
 function fish_user_key_bindings
 	bind \cr peco_select_history
 	bind \ck up-or-search
+	bind \cj down-or-search
+	bind \ch backward-char
+	bind \cl forward-char
 end
 
 function done_enter --on-event fish_postexec
