@@ -24,6 +24,7 @@ alias tmux 'tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 alias cp 'cp -i'
 alias mv 'mv -i'
 alias rm 'rm -i'
+alias repo 'peco_select_repository'
 
 # Keybind
 function fish_user_key_bindings
