@@ -28,9 +28,8 @@ alias repo 'peco_select_repository'
 
 # Keybind
 function fish_user_key_bindings
-	bind \ch peco_select_history
-	bind \cr peco_select_repository
-	bind \ck peco_peocess_kill
+	bind \cr peco_select_history
+	bind \ck up-or-search
 end
 
 function done_enter --on-event fish_postexec
