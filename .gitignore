@@ -9,3 +9,5 @@ config/fontforge
 config/fish/functions
 config/fish/completions
 config/fisherman
+config/fish/conf.d
+config/fish/fishd.*
