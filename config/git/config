@@ -1,6 +1,5 @@
 [core]
 	editor = nvim
-	excludesfile = /Users/sakuraba/.gitignore_global
 	preloadindex = true
 [user]
 	useConfigOnly = true
