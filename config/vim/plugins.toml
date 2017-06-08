@@ -110,3 +110,13 @@ hook_add = '''
 ##############################
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+
+##############################
+###       Visual Mode      ###
+##############################
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+hook_add = '''
+vmap v (expand_region_expand)
+vmap <C-v> (expand_region_shrink)
+'''
