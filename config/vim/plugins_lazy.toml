@@ -3,7 +3,7 @@
 repo = 'Shougo/denite.nvim'
 if = "has('nvim')"
 if = "has('python3')"
-hook_source = ''' execute 'source' g:plugins_home . '/denite/init.rc.vim' '''
+hook_add = ''' execute 'source' g:plugins_home . '/denite/init.rc.vim' '''
 hook_post_source = ''' execute 'source' g:plugins_home . '/denite/loaded.rc.vim' '''
 
 [[plugins]]
@@ -45,7 +45,3 @@ repo = 'zchee/deoplete-zsh'
 on_ft = 'zsh'
 depends = 'deoplete.nvim'
 
-### Terminal (NeoVim only)
-[[plugins]]
-repo = 'kassio/neoterm'
-if = "has('nvim')"
