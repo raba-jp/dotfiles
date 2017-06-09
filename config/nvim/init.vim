@@ -9,13 +9,11 @@ execute 'source' s:rcfile
 let s:nvim_mapping = g:config_home . '/nvim/mapping.nvim'
 execute 'source' s:nvim_mapping
 
-""" Python
-let g:python_host_prog = '/usr/local/bin/python2.7'
-let g:python3_host_prog = '/usr/local/bin/python3.6'
+if has('nvim')
+  let g:python_host_prog = '/usr/local/bin/python2.7'
+  let g:python3_host_prog = '/usr/local/bin/python3.6'
 
-""" Interactive replace
-set inccommand=split
-set hlsearch
-
-""" Shell
-set sh=fish
+  set shell=fish
+  set inccommand=split
+  set hlsearch
+endif
