@@ -1,12 +1,9 @@
-##############################
-###       Denite.nvim      ###
-##############################
+### Denite.nvim
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 if = "has('nvim')"
 if = "has('python3')"
-on_i = 1
-hook_add = ''' execute 'source' g:plugins_home . '/denite/init.rc.vim' '''
+hook_source = ''' execute 'source' g:plugins_home . '/denite/init.rc.vim' '''
 hook_post_source = ''' execute 'source' g:plugins_home . '/denite/loaded.rc.vim' '''
 
 [[plugins]]
@@ -15,36 +12,12 @@ repo = 'Shougo/neoyank.vim'
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 
-[[plugins]]
-repo = 'tsukkee/unite-tag'
-
-##############################
-###         Snippet        ###
-##############################
-[[plugins]]
-repo = 'Shougo/neosnippet'
-on_i  = 1
-on_ft = ['snippet']
-depends = ['neosnippet-snippets']'
-hook_source = '''
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
-'''
-
-##############################
-###      Input support     ###
-##############################
+### Input support
 [[plugins]]
 repo = 'cohama/lexima.vim'
 on_i = 1
 
-##############################
-###      Auto Complete     ###
-##############################
+### Auto Complete
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = "has('nvim')"
@@ -52,15 +25,15 @@ if = 'has("python3")'
 on_i = 1
 hook_source = '''
   let g:deoplete#enable_at_startup = 1
-  execute 'source' g:plugins_home . '/deoplete/init.rc.vim'
+  execute 'source' g:nvim_plugins_home . '/deoplete.nvim/init.rc.nvim'
 '''
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
-build = 'make'
+build = 'go get -u github.com/nsf/gocode && make'
 on_ft = 'go'
 depends = 'deoplete.nvim'
-hook_add = ''' execute 'source' g:plugins_home . '/deoplete/go.rc.vim' '''
+hook_add = ''' execute 'source' g:nvim_plugins_home . '/deoplete.nvim/go.rc.nvim' '''
 
 [[plugins]]
 repo = 'fishbullet/deoplete-ruby'
@@ -68,12 +41,11 @@ on_ft = 'ruby'
 depends = 'deoplete.nvim'
 
 [[plugins]]
-repo = 'zchee/deoplete-zsh' 
+repo = 'zchee/deoplete-zsh'
 on_ft = 'zsh'
 depends = 'deoplete.nvim'
 
-##############################
-###         Matcher        ###
-##############################
+### Terminal (NeoVim only)
 [[plugins]]
-repo = 'nixprime/cpsm'
+repo = 'kassio/neoterm'
+if = "has('nvim')"
