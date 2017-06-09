@@ -1,12 +1,8 @@
-##############################
-###     Plugin Manager    ####
-##############################
+### Plugin Manager
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-##############################
-###      Color Scheme      ###
-##############################
+### Color Scheme
 [[plugins]]
 repo = 'lifepillar/vim-solarized8'
 if = "$TERM == 'xterm-256color:Tc'"
@@ -27,40 +23,25 @@ augroup ColorScheme
 augroup END
 '''
 
-##############################
-###        EasyMotion      ###
-##############################
-[[plugins]]
-repo = 'easymotion/vim-easymotion'
-hook_add = '''
-  let g:EasyMotion_smartcase = 1
-  let g:EasyMotion_do_mapping = 0
-  nmap <Space>l <Plug>(easymotion-lineforward)
-  nmap sj <Plug>(easymotion-j)
-  nmap sk <Plug>(easymotion-k)
-  nmap sh <Plug>(easymotion-linebackward)
-  nmap ss <Plug>(easymotion-overwin-f2)
-'''
-
-##############################
-###      Syntax Check      ###
-##############################
+### Syntax
 [[plugins]]
 repo = 'w0rp/ale'
 hook_add = '''
   let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 '''
 
-##############################
-###       Status Line      ###
-##############################
+[[plugins]]
+repo = 'KeitaNakamura/highlighter.nvim'
+hook_add = '''
+  let g:highlighter#auto_update = 2
+'''
+
+### Status Line
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = ''' execute 'source' g:plugins_home . '/lightline/init.rc.vim' '''
 
-##############################
-###           Ctags        ###
-##############################
+### Ctags
 [[plugins]]
 repo = 'soramugi/auto-ctags.vim'
 hook_add = '''
@@ -69,9 +50,7 @@ let g:auto_ctags_directory_list = ['tmp']
 let g:auto_ctags_filetype_mode = 1
 '''
 
-##############################
-###      Fuzzy search      ###
-##############################
+### Incremental search
 [[plugins]]
 repo = 'haya14busa/incsearch.vim'
 hook_add = '''
@@ -80,43 +59,39 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 '''
 
-##############################
-###    Context FileType    ###
-##############################
+### Change filetype from context
 [[plugins]]
-repo = 'Shougo/context_filetype.vim' 
+repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = 'Shougo/context_filetype.vim'
 
-##############################
-###     Editor Config      ###
-##############################
-[[plugins]]
-repo = 'editorconfig/editorconfig-vim'
-
-##############################
-###    Syntax Highlight    ###
-##############################
-[[plugins]]
-repo = 'KeitaNakamura/highlighter.nvim'
-hook_add = '''
-  let g:highlighter#auto_update = 2
-'''
-
-##############################
-###         Snippet        ###
-##############################
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-##############################
-###       Visual Mode      ###
-##############################
+### Visual Mode
 [[plugins]]
 repo = 'terryma/vim-expand-region'
 hook_add = '''
 vmap v (expand_region_expand)
 vmap <C-v> (expand_region_shrink)
 '''
+
+### Snippet
+[[plugins]]
+repo = 'Shougo/neosnippet'
+on_i  = 1
+on_ft = ['snippet']
+depends = ['neosnippet-snippets']'
+hook_source = '''
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'

@@ -1,4 +1,5 @@
 inoremap <silent> jj <ESC>
+nnoremap <silent> <Leader><Leader> za
 
 nnoremap Y y$
 nnoremap <ESC><ESC> :nohlsearch<CR>
@@ -16,22 +17,3 @@ inoremap <Right> <Nop>
 
 nnoremap H 0
 nnoremap L $
-
-nnoremap sh <C-w>h
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-nnoremap s- :split<CR>
-nnoremap s\ :vsplit<CR>
-nnoremap sw <C-w>w
-nnoremap sR <C-w>r
-nnoremap s= <C-w>=
-nnoremap sL <C-w>>
-nnoremap sH <C-w><
-nnoremap sJ <C-w>+
-nnoremap sK <C-w>-
-nnoremap st :tabnew<CR>
-nnoremap sn gt
-nnoremap sp gT
-
-nnoremap <silent> <Leader><Leader> za
