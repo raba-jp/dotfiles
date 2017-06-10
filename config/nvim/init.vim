@@ -21,13 +21,11 @@ function s:initialize_dein()
   let install_dir = g:data_home . '/vim/dein'
   let config_file = g:config_home . '/nvim/init.nvim'
   let plugins_file = g:config_home . '/nvim/plugins.toml'
-  let filetype_file = g:config_home . '/nvim/filetype.toml'
   let lazy_load_file = g:config_home . '/nvim/plugins_lazy.toml'
 
   if dein#load_state(install_dir)
-    call dein#begin(install_dir, [config_file, plugins_file, filetype_file, lazy_load_file])
+    call dein#begin(install_dir, [config_file, plugins_file, lazy_load_file])
     call dein#load_toml(plugins_file, {'lazy': 0})
-    call dein#load_toml(filetype_file, {'lazy': 0})
     call dein#load_toml(lazy_load_file, {'lazy': 1})
     call dein#end()
     call dein#save_state()

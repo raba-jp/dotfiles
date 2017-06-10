@@ -3,8 +3,8 @@
 repo = 'Shougo/denite.nvim'
 if = "has('nvim')"
 if = "has('python3')"
-hook_add = ''' execute 'source' g:plugins_home . '/denite/init.rc.vim' '''
-hook_post_source = ''' execute 'source' g:plugins_home . '/denite/loaded.rc.vim' '''
+hook_add = ''' execute 'source' g:config_home . '/nvim/plugins/denite/init.rc.vim' '''
+hook_post_source = ''' execute 'source' g:config_home . '/nvim/plugins/denite/loaded.rc.vim' '''
 
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
@@ -25,7 +25,7 @@ if = 'has("python3")'
 on_i = 1
 hook_source = '''
   let g:deoplete#enable_at_startup = 1
-  execute 'source' g:nvim_plugins_home . '/deoplete.nvim/init.rc.nvim'
+  execute 'source' g:config_home . '/nvim/plugins/deoplete.nvim/init.rc.nvim'
 '''
 
 [[plugins]]
@@ -33,7 +33,7 @@ repo = 'zchee/deoplete-go'
 build = 'go get -u github.com/nsf/gocode && make'
 on_ft = 'go'
 depends = 'deoplete.nvim'
-hook_add = ''' execute 'source' g:nvim_plugins_home . '/deoplete.nvim/go.rc.nvim' '''
+hook_add = ''' execute 'source' g:config_home . '/nvim/plugins/deoplete.nvim/go.rc.nvim' '''
 
 [[plugins]]
 repo = 'fishbullet/deoplete-ruby'
@@ -44,4 +44,3 @@ depends = 'deoplete.nvim'
 repo = 'zchee/deoplete-zsh'
 on_ft = 'zsh'
 depends = 'deoplete.nvim'
-
