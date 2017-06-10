@@ -89,9 +89,6 @@ if has('patch-7.4.1778')
 endif
 
 if has('nvim')
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-if has('nvim')
   """ Mapping
   tnoremap <silent> <ESC> <C-\><C-n>
 
@@ -101,4 +98,5 @@ if has('nvim')
   set shell=fish
   set inccommand=split
   set hlsearch
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
