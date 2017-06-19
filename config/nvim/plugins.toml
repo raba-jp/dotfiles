@@ -65,8 +65,8 @@ depends = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'terryma/vim-expand-region'
 hook_add = '''
-  vmap v (expand_region_expand)
-  vmap <C-v> (expand_region_shrink)
+  vmap v <Plug>(expand_region_expand)
+  vmap <C-v> <Plug>(expand_region_shrink)
 '''
 
 ### Snippet

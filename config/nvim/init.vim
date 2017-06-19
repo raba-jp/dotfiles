@@ -40,7 +40,7 @@ call s:install_dein()
 call s:initialize_dein()
 
 set number
-set fenc=utf-8
+set fileencoding=utf-8
 set noswapfile
 set showcmd
 set smartindent
