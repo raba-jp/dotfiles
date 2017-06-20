@@ -69,6 +69,9 @@ hook_add = '''
   vmap <C-v> <Plug>(expand_region_shrink)
 '''
 
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
+
 ### Snippet
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
