@@ -1,5 +1,6 @@
 {
   "Prompt": ">",
+  "InitialFilter": "Fuzzy",
   "Style": {
   },
   "Keymap": {
