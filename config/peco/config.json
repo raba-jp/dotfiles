@@ -1,6 +1,9 @@
 {
   "Prompt": ">",
+  "InitialFilter": "Fuzzy",
   "Style": {
+    "Selected": ["on_blue"],
+    "Matched": ["blue", "underline"]
   },
   "Keymap": {
     "C-k": "peco.SelectUp",
