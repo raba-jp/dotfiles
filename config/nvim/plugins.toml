@@ -120,3 +120,6 @@ hook_source = ''' let g:ruby_fold_lines_limit = 100 '''
 [[plugins]]
 repo = 'todesking/ruby_hl_lvar.vim'
 on_ft = 'ruby'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'

@@ -1,32 +1,32 @@
+set encoding=utf-8
+scriptencoding utf-8
+
 """ Leader key mapping
 let g:mapleader = "\<Space>"
 
-""" Variables
+""" XDG Base Direcotries
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
 let g:data_home = empty($XDG_DATE_HOME) ? expand('~/.local/share') : $XDG_DATA_HOME
 
-""" runtimepath
-let &runtimepath = g:config_home . '/nvim' .','. &runtimepath
-
 function s:install_dein()
-  let repo_dir = g:data_home . '/vim/dein/repos/github.com/Shougo/dein.vim'
-  let &runtimepath = repo_dir .','. &runtimepath
+  let l:repo_dir = g:data_home . '/vim/dein/repos/github.com/Shougo/dein.vim'
+  let &runtimepath = l:repo_dir .','. &runtimepath
 
-  if !isdirectory(repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' shellescape(repo_dir)
+  if !isdirectory(l:repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' shellescape(l:repo_dir)
   endif
 endfunction
 
 function s:initialize_dein()
-  let install_dir = g:data_home . '/vim/dein'
-  let config_file = g:config_home . '/nvim/init.nvim'
-  let plugins_file = g:config_home . '/nvim/plugins.toml'
-  let lazy_load_file = g:config_home . '/nvim/plugins_lazy.toml'
+  let l:install_dir = g:data_home . '/vim/dein'
+  let l:config_file = g:config_home . '/nvim/init.nvim'
+  let l:plugins_file = g:config_home . '/nvim/plugins.toml'
+  let l:lazy_load_file = g:config_home . '/nvim/plugins_lazy.toml'
 
-  if dein#load_state(install_dir)
-    call dein#begin(install_dir, [config_file, plugins_file, lazy_load_file])
-    call dein#load_toml(plugins_file, {'lazy': 0})
-    call dein#load_toml(lazy_load_file, {'lazy': 1})
+  if dein#load_state(l:install_dir)
+    call dein#begin(l:install_dir, [l:config_file, l:plugins_file, l:lazy_load_file])
+    call dein#load_toml(l:plugins_file, {'lazy': 0})
+    call dein#load_toml(l:lazy_load_file, {'lazy': 1})
     call dein#end()
     call dein#save_state()
   endif
@@ -65,13 +65,7 @@ set foldlevel=100
 set hidden
 
 inoremap <silent> jj <ESC>
-nnoremap <silent> <Leader><Leader> za
-
-nnoremap Y y$
 nnoremap <ESC><ESC> :nohlsearch<CR>
-nnoremap ZZ <Nop>
-nnoremap ZQ <Nop>
-nnoremap Q <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 map <Left> <Nop>
@@ -80,9 +74,35 @@ inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
+nnoremap Y y$
 
-nnoremap H 0
-nnoremap L $
+""" Disable danger mapping
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
+nnoremap Q <Nop>
+
+""" Disable `s` mapping
+nnoremap s <Nop>
+
+""" Move window mapping
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+
+""" Split window mapping
+nnoremap sh :split<CR>
+nnoremap sv :vsplit<CR>
+
+""" Change window size mapping
+nnoremap s= <C-w>=
+nnoremap sL <C-w>>
+nnoremap sH <C-w><
+nnoremap sJ <C-w>+
+nnoremap sK <C-w>-
+
+"""nnoremap H 0
+"""nnoremap L $
 
 if has('patch-7.4.1778')
   set guicolors
