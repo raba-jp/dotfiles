@@ -65,9 +65,12 @@ depends = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'terryma/vim-expand-region'
 hook_add = '''
-  vmap v (expand_region_expand)
-  vmap <C-v> (expand_region_shrink)
+  vmap v <Plug>(expand_region_expand)
+  vmap <C-v> <Plug>(expand_region_shrink)
 '''
+
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
 
 ### Snippet
 [[plugins]]
@@ -117,3 +120,6 @@ hook_source = ''' let g:ruby_fold_lines_limit = 100 '''
 [[plugins]]
 repo = 'todesking/ruby_hl_lvar.vim'
 on_ft = 'ruby'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
