@@ -36,6 +36,7 @@ if dein#load_state(s:dein_dir)
   call dein#load_toml(s:visual,           {'lazy': 0})
   call dein#load_toml(s:syntax_highlight, {'lazy': 0})
   call dein#load_toml(s:search,           {'lazy': 0})
+  call dein#load_toml(s:language,         {'lazy': 0})
   call dein#load_toml(s:fuzzy_finder,     {'lazy': 1})
   call dein#load_toml(s:auto_complete,    {'lazy': 1})
 
