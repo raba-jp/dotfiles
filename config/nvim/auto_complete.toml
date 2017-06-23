@@ -21,6 +21,7 @@ repo = 'zchee/deoplete-go'
 build = 'go get -u github.com/nsf/gocode && make'
 on_ft = 'go'
 depends = 'deoplete.nvim'
+hook_add = '''
 let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
 let g:deoplete#sources#go#package_dot = 1
 let g:deoplete#sources#go#sort_class = ['package', 'const', 'var', 'type', 'func']
