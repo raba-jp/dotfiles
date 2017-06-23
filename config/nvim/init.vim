@@ -21,26 +21,16 @@ endif
 
 " Load plugins
 if dein#load_state(s:dein_dir)
-  let s:visual = g:config_home . '/nvim/visual.toml'
-  let s:syntax_highlight = g:config_home . '/nvim/syntax_highlight.toml'
-  let s:statusline = g:config_home . '/nvim/statusline.toml'
-  let s:search = g:config_home . '/nvim/search.toml'
-  let s:language = g:config_home . '/nvim/language.toml'
-  let s:fuzzy_finder = g:config_home . '/nvim/fuzzy_finder.toml'
-  let s:auto_complete = g:config_home . '/nvim/auto_complete.toml'
-
-  let s:plugins_file = g:config_home . '/nvim/plugins.toml'
-
   call dein#begin(s:dein_dir)
   call dein#add('Shougo/dein.vim')
-  call dein#load_toml(s:visual,           {'lazy': 0})
-  call dein#load_toml(s:syntax_highlight, {'lazy': 0})
-  call dein#load_toml(s:search,           {'lazy': 0})
-  call dein#load_toml(s:language,         {'lazy': 0})
-  call dein#load_toml(s:fuzzy_finder,     {'lazy': 1})
-  call dein#load_toml(s:auto_complete,    {'lazy': 1})
+  call dein#load_toml((g:config_home . '/nvim/visual.toml'),           {'lazy': 0})
+  call dein#load_toml((g:config_home . '/nvim/syntax_highlight.toml'), {'lazy': 0})
+  call dein#load_toml((g:config_home . '/nvim/search.toml'),           {'lazy': 0})
+  call dein#load_toml((g:config_home . '/nvim/language.toml'),         {'lazy': 0})
+  call dein#load_toml((g:config_home . '/nvim/fuzzy_finder.toml'),     {'lazy': 1})
+  call dein#load_toml((g:config_home . '/nvim/auto_complete.toml'),    {'lazy': 1})
 
-  call dein#load_toml(s:plugins_file, {'lazy': 0})
+  call dein#load_toml((g:config_home . '/nvim/plugins.toml'), {'lazy': 0})
   call dein#end()
   call dein#save_state()
 endif
@@ -50,7 +40,6 @@ if dein#check_install()
   call dein#install()
 endif
 
-set number
 set fileencoding=utf-8
 set noswapfile
 set showcmd
@@ -60,7 +49,6 @@ set laststatus=2
 filetype plugin indent on
 set list
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲
-set relativenumber number
 set wildmenu
 set clipboard+=unnamedplus
 set showmatch
