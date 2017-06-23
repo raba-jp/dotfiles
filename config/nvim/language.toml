@@ -1,0 +1,31 @@
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+hook_add = '''
+  let g:go_fmt_command = "goimports"
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_structs = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_build_constraints = 1
+
+  let g:ruby_indent_access_modifier_style = 'normal'
+  let g:ruby_indent_block_style = 'do'
+  let g:ruby_indent_assignment_style = 'hanging'
+'''
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'vim-utils/vim-ruby-fold'
+on_ft = 'ruby'
+hook_source = ''' let g:ruby_fold_lines_limit = 100 '''
+
+[[plugins]]
+repo = 'todesking/ruby_hl_lvar.vim'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'jodosha/vim-godebug'
+on_ft = 'go'

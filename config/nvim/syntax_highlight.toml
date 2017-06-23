@@ -1,0 +1,14 @@
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = ''' let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok'] '''
+
+[[plugins]]
+repo = 'KeitaNakamura/highlighter.nvim'
+hook_add = ''' let g:highlighter#auto_update = 2 '''
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = 'Shougo/context_filetype.vim'

@@ -6,38 +6,48 @@ let g:mapleader = "\<Space>"
 
 """ XDG Base Direcotries
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
+let g:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let g:data_home = empty($XDG_DATE_HOME) ? expand('~/.local/share') : $XDG_DATA_HOME
 
-function s:install_dein()
-  let l:repo_dir = g:data_home . '/vim/dein/repos/github.com/Shougo/dein.vim'
-  let &runtimepath = l:repo_dir .','. &runtimepath
-
-  if !isdirectory(l:repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' shellescape(l:repo_dir)
+" Install dein.vim
+let s:dein_dir = g:cache_home . '/dein'
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
   endif
-endfunction
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
 
-function s:initialize_dein()
-  let l:install_dir = g:data_home . '/vim/dein'
-  let l:config_file = g:config_home . '/nvim/init.nvim'
-  let l:plugins_file = g:config_home . '/nvim/plugins.toml'
-  let l:lazy_load_file = g:config_home . '/nvim/plugins_lazy.toml'
+" Load plugins
+if dein#load_state(s:dein_dir)
+  let s:visual = g:config_home . '/nvim/visual.toml'
+  let s:syntax_highlight = g:config_home . '/nvim/syntax_highlight.toml'
+  let s:statusline = g:config_home . '/nvim/statusline.toml'
+  let s:search = g:config_home . '/nvim/search.toml'
+  let s:language = g:config_home . '/nvim/language.toml'
+  let s:fuzzy_finder = g:config_home . '/nvim/fuzzy_finder.toml'
+  let s:auto_complete = g:config_home . '/nvim/auto_complete.toml'
 
-  if dein#load_state(l:install_dir)
-    call dein#begin(l:install_dir, [l:config_file, l:plugins_file, l:lazy_load_file])
-    call dein#load_toml(l:plugins_file, {'lazy': 0})
-    call dein#load_toml(l:lazy_load_file, {'lazy': 1})
-    call dein#end()
-    call dein#save_state()
-  endif
+  let s:plugins_file = g:config_home . '/nvim/plugins.toml'
 
-  if dein#check_install()
-    call dein#install()
-  endif
-endfunction
+  call dein#begin(s:dein_dir)
+  call dein#add('Shougo/dein.vim')
+  call dein#load_toml(s:visual,           {'lazy': 0})
+  call dein#load_toml(s:syntax_highlight, {'lazy': 0})
+  call dein#load_toml(s:search,           {'lazy': 0})
+  call dein#load_toml(s:fuzzy_finder,     {'lazy': 1})
+  call dein#load_toml(s:auto_complete,    {'lazy': 1})
 
-call s:install_dein()
-call s:initialize_dein()
+  call dein#load_toml(s:plugins_file, {'lazy': 0})
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Install plugins
+if dein#check_install()
+  call dein#install()
+endif
 
 set number
 set fileencoding=utf-8

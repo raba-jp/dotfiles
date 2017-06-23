@@ -1,0 +1,38 @@
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = "has('nvim')"
+if = 'has("python3")'
+on_i = 1
+hook_source = '''
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 0
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#enable_smart_case = 1
+inoremap <silent><expr> <TAB> 
+\  pumvisible() ? "\<C-n>" :
+\  neosnippet#expandable_or_jumpable() ?
+\  "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
+'''
+
+[[plugins]]
+repo = 'zchee/deoplete-go'
+build = 'go get -u github.com/nsf/gocode && make'
+on_ft = 'go'
+depends = 'deoplete.nvim'
+let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
+let g:deoplete#sources#go#package_dot = 1
+let g:deoplete#sources#go#sort_class = ['package', 'const', 'var', 'type', 'func']
+let g:deoplete#sources#go#use_cache = 1
+let g:deoplete#sources#go#json_directory = $XDG_CACHE_HOME.'/go'
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#omni#input_patterns.ruby = ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::']
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
+'''
+
+[[plugins]]
+repo = 'fishbullet/deoplete-ruby'
+on_ft = 'ruby'
+depends = 'deoplete.nvim'
