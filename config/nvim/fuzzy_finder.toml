@@ -1,0 +1,34 @@
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+if = "has('nvim')"
+if = "has('python3')"
+hook_add = '''
+nnoremap <silent> <Leader>o :<C-u>Denite file_rec<CR>
+nnoremap <silent> <Leader>b :<C-u>Denite buffer<CR>
+nnoremap <silent> <Leader>dg :<C-u>Denite grep -buffer-name=search-buffer-denite<CR>
+nnoremap <silent> <Leader>dr :<C-u>Denite -resume -buffer-name=search-buffer-denite<CR>
+nnoremap <silent> <Leader>dn :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=+1 -immediately<CR>
+nnoremap <silent> <Leader>dp :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR>
+'''
+hook_post_source = '''
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+call denite#custom#map('_', "-", '<denite:do_action:split>')
+call denite#custom#map('_', "|", '<denite:do_action:vsplit>')
+call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
+'''
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+### Input support
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_i = 1
