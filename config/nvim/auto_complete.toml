@@ -18,7 +18,7 @@ inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
-build = 'go get -u github.com/nsf/gocode && make'
+build = 'make'
 on_ft = 'go'
 depends = 'deoplete.nvim'
 hook_add = '''
@@ -36,4 +36,19 @@ let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 [[plugins]]
 repo = 'fishbullet/deoplete-ruby'
 on_ft = 'ruby'
+depends = 'deoplete.nvim'
+
+[[plugins]]
+repo = 'Shougo/neco-vim'
+on_ft = 'vim'
+depends = 'deoplete.nvim'
+
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+on_ft = 'python'
+depends = 'deoplete.nvim'
+
+[[plugins]]
+repo = 'ponko2/deoplete-fish'
+on_ft = 'fish'
 depends = 'deoplete.nvim'
