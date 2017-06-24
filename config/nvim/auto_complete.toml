@@ -20,6 +20,7 @@ inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
 repo = 'zchee/deoplete-go'
 build = 'make'
 on_ft = 'go'
+on_i = 1
 depends = 'deoplete.nvim'
 hook_add = '''
 let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
@@ -36,19 +37,42 @@ let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 [[plugins]]
 repo = 'fishbullet/deoplete-ruby'
 on_ft = 'ruby'
+on_i = 1
 depends = 'deoplete.nvim'
 
 [[plugins]]
 repo = 'Shougo/neco-vim'
 on_ft = 'vim'
+on_i = 1
 depends = 'deoplete.nvim'
 
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
 on_ft = 'python'
+on_i = 1
 depends = 'deoplete.nvim'
 
 [[plugins]]
 repo = 'ponko2/deoplete-fish'
 on_ft = 'fish'
+on_i = 1
 depends = 'deoplete.nvim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+on_i  = 1
+on_ft = 'snippet'
+depends = ['neosnippet-snippets']'
+hook_source = '''
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
+  if has('conceal')
+    set conceallevel=2 concealcursor=niv
+  endif
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_i = 1
+
