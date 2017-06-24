@@ -75,6 +75,11 @@ inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 nnoremap Y y$
 
+inoremap <C-h> <C-g>U<Left>
+inoremap <C-j> <C-g>U<Down>
+inoremap <C-k> <C-g>U<Up>
+inoremap <C-l> <C-g>U<Right>
+
 """ Disable danger mapping
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
