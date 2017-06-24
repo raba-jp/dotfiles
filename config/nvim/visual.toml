@@ -28,65 +28,42 @@ repo = 'itchyny/lightline.vim'
 hook_add = '''
 let g:lightline = {
       \ 'colorscheme': 'solarized',
-      \ 'mode_map': {'c': 'NORMAL'},
       \ 'active': {
       \   'left': [
       \     ['mode', 'paste'],
-      \     ['filename', 'denite_source'],
+      \     ['readonly', 'filename', 'fugitive', 'denite_source'],
       \     ['linter']
       \   ],
       \   'right': [
-      \     ['lineinfo']
+      \     ['lineinfo'],
+      \     ['filetype']
       \   ]
       \ },
       \ 'component_function': {
-""\   'modified': 'LightLineModified',
-""\   'readonly': 'LightLineReadOnly',
-""\   'fugitive': 'LightLineFugitive',
-""\   'filename': 'LightLineFileName',
-""\   'fileformat': 'LightLineFileformat',
-""\   'filetype': 'LightLineFiletype',
-""\   'fileencoding': 'LightLineFileEncoding',
+      \ 'readonly': 'LightLineReadOnly',
+      \ 'fugitive': 'LightLineFugitive',
+      \ 'filename': 'LightLineFileName',
       \   'mode': 'LightLineMode',
       \   'linter': 'LightLineLinterStatus',
       \   'denite_source': 'LightLineDeniteSource'
       \   }
       \ }
 
-""function! LightLineModified()
-""  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-""endfunction
-""
-""function! LightLineReadOnly()
-""  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
-""endfunction
-""
-function! LightLineFilename()
-  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-        \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+function! LightLineReadOnly()
+  return &ft !~? 'help' && &readonly ? 'RO' : ''
 endfunction
-""
-""function! LightLineFugitive()
-""  if &ft !~? 'vimfiler\|gundo' && exists('fugitive#head')
-""    return fugitive#head()
-""  else
-""    return ''
-""  endif
-""endfunction
-""
-""function! LightLineFileFormat()
-""  return winwidth(0) > 70 ? &fileformat : ''
-""endfunction
-""
-""function! LightLineFiletype()
-""  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-""endfunction
-""
-""function! LightLineFileencoding()
-""  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-""endfunction
-""
+
+function! LightLineFileName()
+  if &ft == 'denite'
+    return ''
+  endif
+  return '' != expand('%:t')   ? expand('%:t') : '[No Name]'
+endfunction
+
+function! LightLineFugitive()
+  return '' != fugitive#head() ? fugitive#head() : ''
+endfunction
+
 function! LightLineMode()
   if &ft == 'denite'
     let mode_str = substitute(denite#get_status_mode(), "-\\| ", "", "g")
@@ -108,8 +85,5 @@ endfunction
 
 function! LightLineDeniteSource()
   return &ft == 'denite' ? denite#get_status_sources() : ''
-endfunction
-
-function! LightLineLineInfo()
 endfunction
 '''
