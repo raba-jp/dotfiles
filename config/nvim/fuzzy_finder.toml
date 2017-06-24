@@ -17,8 +17,10 @@ call denite#custom#option('default', 'statusline', v:false)
 
 call denite#custom#map('_', "-", '<denite:do_action:split>')
 call denite#custom#map('_', "|", '<denite:do_action:vsplit>')
+call denite#custom#map('insert', '<C-h>', '<denite:move_caret_to_left>')
+call denite#custom#map('insert', '<C-l>', '<denite:move_caret_to_right>')
 call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
-call denite#custom#map('normal', 'jj', '<denite:quit>')
+call denite#custom#map('normal', '<C-j>', '<denite:quit>')
 
 call denite#custom#option('grep', 'matcher', ['matcher_cpsm'])
 call denite#custom#option('grep', 'sorter', ['sorter_sublime'])
