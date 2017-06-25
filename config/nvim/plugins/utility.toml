@@ -1,0 +1,23 @@
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
+hook_source = '''
+let g:clever_f_smart_case = 1
+let g:clever_f_use_migemo = 1
+'''
+
+[[plugins]]
+repo = 'soramugi/auto-ctags.vim'
+hook_add = '''
+  let g:auto_ctags = 1
+  let g:auto_ctags_directory_list = ['tmp']
+  let g:auto_ctags_filetype_mode = 1
+'''
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'

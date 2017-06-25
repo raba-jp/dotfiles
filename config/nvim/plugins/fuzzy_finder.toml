@@ -2,15 +2,17 @@
 repo = 'Shougo/denite.nvim'
 if = "has('nvim')"
 if = "has('python3')"
+rev = '12ec47'
+on_cmd = 'Denite'
 hook_add = '''
-nnoremap <silent> / :<C-u>Denite line<CR>
-nnoremap <silent> <Leader>f :<C-u>Denite file<CR>
-nnoremap <silent> <Leader>o :<C-u>Denite file_rec<CR>
-nnoremap <silent> <Leader>b :<C-u>Denite buffer<CR>
-nnoremap <silent> <Leader>dg :<C-u>Denite grep -buffer-name=search-buffer-denite<CR>
-nnoremap <silent> <Leader>dr :<C-u>Denite -resume -buffer-name=search-buffer-denite<CR>
-nnoremap <silent> <Leader>dn :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=+1 -immediately<CR>
-nnoremap <silent> <Leader>dp :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR>
+  nnoremap <silent> / :<C-u>Denite line<CR>
+  nnoremap <silent> <Leader>f :<C-u>Denite file<CR>
+  nnoremap <silent> <Leader>o :<C-u>Denite file_rec<CR>
+  nnoremap <silent> <Leader>b :<C-u>Denite buffer<CR>
+  nnoremap <silent> <Leader>dg :<C-u>Denite grep -buffer-name=search-buffer-denite<CR>
+  nnoremap <silent> <Leader>dr :<C-u>Denite -resume -buffer-name=search-buffer-denite<CR>
+  nnoremap <silent> <Leader>dn :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=+1 -immediately<CR>
+  nnoremap <silent> <Leader>dp :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR>
 '''
 hook_post_source = '''
 call denite#custom#option('default', 'statusline', v:false)
@@ -37,9 +39,11 @@ call denite#custom#option('line', 'sorter', ['sorter_sublime'])
 
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
+on_source = ['denite.nvim']
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
+on_source = ['denite.nvim']
 
 [[plugins]]
 repo = 'nixprime/cpsm'

@@ -1,70 +1,43 @@
 set encoding=utf-8
 scriptencoding utf-8
+set fileencoding=utf-8
 
-""" Leader key mapping
+if has('patch-7.4.1778')
+  set guicolors
+endif
+
+if has('nvim')
+  set inccommand=split
+  set shell=fish
+
+  " TrueColor
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+  " Terminal
+  tnoremap <silent> <ESC> <C-\><C-n>
+
+  " Python
+  if has('mac')
+    let g:python_host_prog = '/usr/local/bin/python2.7'
+    let g:python3_host_prog = '/usr/local/bin/python3.6'
+  elseif has('unix')
+    " TODO
+  endif
+endif
+
 let g:mapleader = "\<Space>"
 
-""" XDG Base Direcotries
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
 let g:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-let g:data_home = empty($XDG_DATE_HOME) ? expand('~/.local/share') : $XDG_DATA_HOME
+let g:data_home = empty($XDG_DATA_HOME) ? expand('~/.local/share') : $XDG_DATA_HOME
 
-" Install dein.vim
-let s:dein_dir = g:cache_home . '/dein'
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
-endif
+" Disable search highlight
+nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
 
-" Load plugins
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-  call dein#add('Shougo/dein.vim')
-  call dein#load_toml((g:config_home . '/nvim/visual.toml'),           {'lazy': 0})
-  call dein#load_toml((g:config_home . '/nvim/syntax_highlight.toml'), {'lazy': 0})
-  call dein#load_toml((g:config_home . '/nvim/search.toml'),           {'lazy': 0})
-  call dein#load_toml((g:config_home . '/nvim/language.toml'),         {'lazy': 0})
-  call dein#load_toml((g:config_home . '/nvim/fuzzy_finder.toml'),     {'lazy': 1})
-  call dein#load_toml((g:config_home . '/nvim/auto_complete.toml'),    {'lazy': 1})
-
-  call dein#load_toml((g:config_home . '/nvim/plugins.toml'), {'lazy': 0})
-  call dein#end()
-  call dein#save_state()
-endif
-
-" Install plugins
-if dein#check_install()
-  call dein#install()
-endif
-
-set fileencoding=utf-8
-set noswapfile
-set showcmd
-set smartindent
-set visualbell
-set laststatus=2
-filetype plugin indent on
-set list
-set listchars=tab:»-,trail:-,nbsp:%,eol:↲
-set wildmenu
-set clipboard+=unnamedplus
-set showmatch
-set smartcase
-set incsearch
-set hlsearch
-set matchtime=1
-set wrapscan
-set nowrap
-syntax on
-set foldmethod=syntax
-set foldlevel=100
-set hidden
-
+" Change normal mode
 inoremap <silent> jj <ESC>
-nnoremap <ESC><ESC> :nohlsearch<CR>
+
+" Disable Cursor key
 map <Up> <Nop>
 map <Down> <Nop>
 map <Left> <Nop>
@@ -73,54 +46,89 @@ inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
-nnoremap Y y$
 
-inoremap <C-h> <C-g>U<Left>
-inoremap <C-j> <C-g>U<Down>
+" Cursor move for insert mode
 inoremap <C-k> <C-g>U<Up>
+inoremap <C-j> <C-g>U<Down>
+inoremap <C-h> <C-g>U<Left>
 inoremap <C-l> <C-g>U<Right>
 
-""" Disable danger mapping
+" Yank line tail
+nnoremap Y y$
+
+" Disable danger mapping
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap Q <Nop>
 
-""" Disable `s` mapping
+" Disable 's' key
 nnoremap s <Nop>
 
-""" Move window mapping
-nnoremap sh <C-w>h
-nnoremap sj <C-w>j
+" Move window mapping
 nnoremap sk <C-w>k
+nnoremap sj <C-w>j
+nnoremap sh <C-w>h
 nnoremap sl <C-w>l
 
-""" Split window mapping
+" Split window mapping
 nnoremap sh :split<CR>
 nnoremap sv :vsplit<CR>
 
-""" Change window size mapping
+" Change window size mapping
 nnoremap s= <C-w>=
+nnoremap sK <C-w>-
+nnoremap sJ <C-w>+
 nnoremap sL <C-w>>
 nnoremap sH <C-w><
-nnoremap sJ <C-w>+
-nnoremap sK <C-w>-
 
-"""nnoremap H 0
-"""nnoremap L $
+if filereadable(g:config_home . '/nvim/utility.toml')
+  let s:dein_dir = g:cache_home . '/dein'
+  let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+  if &runtimepath !~# '/dein.vim'
+    if !isdirectory(s:dein_repo_dir)
+      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+    endif
+    execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+  endif
 
-if has('patch-7.4.1778')
-  set guicolors
+  let s:plugins = g:config_home . '/nvim/plugins'
+  if dein#load_state(s:dein_dir)
+    call dein#begin(s:dein_dir)
+    call dein#add('Shougo/dein.vim')
+    call dein#load_toml((s:plugins . '/visual.toml'),           {})
+    call dein#load_toml((s:plugins . '/syntax_highlight.toml'), {})
+    call dein#load_toml((s:plugins . '/search.toml'),           {})
+    call dein#load_toml((s:plugins . '/language.toml'),         {})
+    call dein#load_toml((s:plugins . '/fuzzy_finder.toml'),     {'lazy': 1})
+    call dein#load_toml((s:plugins . '/auto_complete.toml'),    {'lazy': 1})
+    call dein#load_toml((s:plugins . '/utility.toml'),          {})
+
+    call dein#end()
+    call dein#save_state()
+  endif
+
+  if dein#check_install()
+    call dein#install()
+  endif
 endif
 
-if has('nvim')
-  """ Mapping
-  tnoremap <silent> <ESC> <C-\><C-n>
-
-  let g:python_host_prog = '/usr/local/bin/python2.7'
-  let g:python3_host_prog = '/usr/local/bin/python3.6'
-
-  set shell=fish
-  set inccommand=split
-  set hlsearch
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
+set noswapfile
+set showcmd
+set smartindent
+set visualbell
+set laststatus=2
+set list
+set clipboard+=unnamedplus
+set listchars=tab:»-,trail:-,nbsp:%,eol:↲
+set wildmode=longest,full
+set showmatch
+set smartcase
+set incsearch
+set hlsearch
+set matchtime=1
+set wrapscan
+set nowrap
+set foldmethod=syntax
+set foldlevel=100
+set hidden
+filetype plugin indent on
