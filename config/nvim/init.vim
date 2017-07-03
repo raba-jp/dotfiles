@@ -9,6 +9,8 @@ endif
 if has('nvim')
   set inccommand=split
   set shell=fish
+  set ttimeout
+  set ttimeoutlen=100
 
   " TrueColor
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -81,7 +83,8 @@ nnoremap sJ <C-w>+
 nnoremap sL <C-w>>
 nnoremap sH <C-w><
 
-if filereadable(g:config_home . '/nvim/utility.toml')
+let s:plugins = g:config_home . '/nvim/plugins'
+if filereadable(s:plugins . '/utility.toml')
   let s:dein_dir = g:cache_home . '/dein'
   let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
   if &runtimepath !~# '/dein.vim'
@@ -91,7 +94,6 @@ if filereadable(g:config_home . '/nvim/utility.toml')
     execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
   endif
 
-  let s:plugins = g:config_home . '/nvim/plugins'
   if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
     call dein#add('Shougo/dein.vim')
