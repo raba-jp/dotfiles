@@ -5,7 +5,7 @@ if = "has('python3')"
 rev = '12ec47'
 on_cmd = 'Denite'
 hook_add = '''
-  nnoremap <silent> / :<C-u>Denite line<CR>
+  nnoremap <silent> <Leader>l :<C-u>Denite line<CR>
   nnoremap <silent> <Leader>f :<C-u>Denite file<CR>
   nnoremap <silent> <Leader>o :<C-u>Denite file_rec<CR>
   nnoremap <silent> <Leader>b :<C-u>Denite buffer<CR>
