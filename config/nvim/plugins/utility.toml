@@ -21,3 +21,16 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'Shougo/neoinclude.vim'
+
+[[plugins]]
+repo = 'thinca/vim-submode'
+hook_source = '''
+  let g:submode_keep_leaving_key = 1
+  function! s:my_x()
+    undojoin
+    normal! "_x
+  endfunction
+  nnoremap <silent> <Plug>(my-x) :<C-u>call <SID>my_x()<CR>
+  call submode#enter_with('my_x', 'n', '', 'x', '"_x')
+  call submode#map('my_x', 'n', 'r', 'x', '<Plug>(my-x)')
+'''
