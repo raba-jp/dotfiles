@@ -34,3 +34,10 @@ hook_source = '''
   call submode#enter_with('my_x', 'n', '', 'x', '"_x')
   call submode#map('my_x', 'n', 'r', 'x', '<Plug>(my-x)')
 '''
+
+[[plugins]]
+repo = 'tyru/caw.vim'
+hook_source = '''
+  nmap <Leader>/ <Plug>(caw:zeropos:toggle)
+  vmap <Leader>/ <Plug>(caw:zeropos:toggle)
+'''
