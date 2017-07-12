@@ -2,7 +2,6 @@
 repo = 'Shougo/denite.nvim'
 if = "has('nvim')"
 if = "has('python3')"
-rev = '12ec47'
 on_cmd = 'Denite'
 hook_add = '''
   nnoremap <silent> <Leader>l :<C-u>Denite line<CR>
