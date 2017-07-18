@@ -133,4 +133,5 @@ set nowrap
 set foldmethod=syntax
 set foldlevel=100
 set hidden
+set ambiwidth=double
 filetype plugin indent on
