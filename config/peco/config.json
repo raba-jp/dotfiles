@@ -1,6 +1,6 @@
 {
   "Prompt": ">",
-  "InitialFilter": "Fuzzy",
+  "InitialFilter": "SmartCase",
   "Style": {
     "Selected": ["on_blue"],
     "Matched": ["blue", "underline"]
