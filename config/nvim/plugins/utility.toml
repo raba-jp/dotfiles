@@ -34,3 +34,13 @@ hook_source = '''
   call submode#enter_with('my_x', 'n', '', 'x', '"_x')
   call submode#map('my_x', 'n', 'r', 'x', '<Plug>(my-x)')
 '''
+
+[[plugins]]
+repo = 'kassio/neoterm'
+hook_source = '''
+  let g:neoterm_position = 'horizontal'
+  let g:neoterm_automap_keys = ',tt'
+  nnoremap <silent> ,th :call neoterm#close()<cr>
+  nnoremap <silent> ,tl :call neoterm#clear()<cr>
+  nnoremap <silent> ,tc :call neoterm#kill()<cr>
+'''
