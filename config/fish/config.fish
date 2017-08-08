@@ -18,7 +18,8 @@ set -x PATH $GOPATH/bin $ANDROID_SDK_TOOLS/bin $ANDROID_SDK_PLATFORM_TOOLS $PATH
 alias vi 'nvim'
 alias vim 'nvim'
 alias sudo 'sudo '
-alias ll 'ls -alG'
+alias ls 'exa'
+alias ll 'exa -alhG'
 alias untar 'tar -xzvf'
 alias tmux 'tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 alias cp 'cp -i'
@@ -40,3 +41,6 @@ function done_enter --on-event fish_postexec
 end
 
 eval (direnv hook fish)
+
+set -g fish_user_paths "/usr/local/opt/redis@2.6/bin" $fish_user_paths
+set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
