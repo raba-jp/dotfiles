@@ -1,5 +1,5 @@
 {
-  "Prompt": ">",
+  "Prompt": "❯",
   "InitialFilter": "SmartCase",
   "Style": {
     "Selected": ["on_blue"],
