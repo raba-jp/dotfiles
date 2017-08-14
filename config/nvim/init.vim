@@ -73,7 +73,7 @@ nnoremap sh <C-w>h
 nnoremap sl <C-w>l
 
 " Split window mapping
-nnoremap sh :split<CR>
+nnoremap ss :split<CR>
 nnoremap sv :vsplit<CR>
 
 " Change window size mapping
