@@ -83,6 +83,13 @@ nnoremap sJ <C-w>+
 nnoremap sL <C-w>>
 nnoremap sH <C-w><
 
+" Create new tab
+nnoremap st :tabnew<CR>
+
+" Move tab
+nnoremap sn gt
+nnoremap sp gT
+
 let s:plugins = g:config_home . '/nvim/plugins'
 if filereadable(s:plugins . '/utility.toml')
   let s:dein_dir = g:cache_home . '/dein'
