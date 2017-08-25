@@ -35,8 +35,6 @@ hook_post_source = '''
   call denite#custom#source('line', 'sorters', ['sorter_sublime'])
   call denite#custom#source('file', 'sorters', ['sorter_sublime'])
   call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
-
-  call denite#custom#source('file', 'matchers', ['matcher_fuzzy'])
 '''
 
 [[plugins]]

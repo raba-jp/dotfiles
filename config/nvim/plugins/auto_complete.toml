@@ -35,12 +35,6 @@ let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 '''
 
 [[plugins]]
-repo = 'fishbullet/deoplete-ruby'
-on_ft = 'ruby'
-on_i = 1
-depends = 'deoplete.nvim'
-
-[[plugins]]
 repo = 'Shougo/neco-vim'
 on_ft = 'vim'
 on_i = 1

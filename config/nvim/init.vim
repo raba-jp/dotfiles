@@ -142,4 +142,6 @@ set foldmethod=syntax
 set foldlevel=100
 set hidden
 set ambiwidth=double
+set nocursorline
+set norelativenumber
 filetype plugin indent on
