@@ -17,7 +17,7 @@ hook_add = '''
 [[plugins]]
 repo = 'KeitaNakamura/highlighter.nvim'
 hook_add = '''
-  let g:highlighter#auto_update = 2
+  let g:highlighter#auto_update = 1
 '''
 
 [[plugins]]
