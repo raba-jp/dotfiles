@@ -91,6 +91,9 @@ nnoremap st :tabnew<CR>
 nnoremap sn gt
 nnoremap sp gT
 
+nnoremap <TAB> $
+nnoremap <S-TAB> 0
+
 let s:plugins = g:config_home . '/nvim/plugins'
 if filereadable(s:plugins . '/utility.toml')
   let s:dein_dir = g:cache_home . '/dein'
