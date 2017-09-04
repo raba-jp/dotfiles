@@ -42,5 +42,4 @@ end
 
 eval (direnv hook fish)
 
-set -g fish_user_paths "/usr/local/opt/redis@2.6/bin" $fish_user_paths
 set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
