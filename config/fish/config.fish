@@ -1,19 +1,3 @@
-set -x XDG_CONFIG_HOME $HOME/.config
-set -x XDG_CACHE_HOME $HOME/.cache
-set -x XDG_DATA_HOME $HOME/.local/share
-set -x ATOM_HOME $XDG_DATA_HOME/atom
-set -x LESSHISTFILE $XDG_CACHE_HOME/less/history
-set -x MPLAYER_HOME $XDG_CONFIG_HOME/mplayer
-set -x INPUTRC $XDG_CONFIG_HOME/readline/inputrc
-set -x EDITOR nvim
-set -x GO15VENDOREXPERIMENT 1
-set -x GOPATH $HOME/Development
-[ -e $HOME/Library/Android/sdk/tools ]; and set -x ANDROID_SDK_TOOLS $HOME/Library/Android/sdk/tools
-[ -e $HOME/Library/Android/sdk/platform-tools ]; and set -x ANDROID_SDK_PLATFORM_TOOLS $HOME/Library/Android/sdk/platform-tools
-set -x SYS_NOTIFIER /usr/local/bin/terminal-notifier
-
-set -x PATH $GOPATH/bin $ANDROID_SDK_TOOLS/bin $ANDROID_SDK_PLATFORM_TOOLS $PATH
-
 ## Alias
 alias vi 'nvim'
 alias vim 'nvim'
@@ -41,6 +25,3 @@ function done_enter --on-event fish_postexec
 end
 
 eval (direnv hook fish)
-
-set -g fish_user_paths "/usr/local/opt/redis@2.6/bin" $fish_user_paths
-set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
