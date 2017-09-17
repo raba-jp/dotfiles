@@ -6,7 +6,7 @@ on_cmd = 'Denite'
 hook_add = '''
   nnoremap <silent> <Leader>l :<C-u>Denite line<CR>
   nnoremap <silent> <Leader>f :<C-u>Denite file<CR>
-  nnoremap <silent> <Leader>r :<C-u>Denite file_rec<CR>
+  nnoremap <silent> <Leader>r :<C-u>Denite file_mru<CR>
   nnoremap <silent> <Leader>b :<C-u>Denite buffer<CR>
   nnoremap <silent> <Leader>dg :<C-u>Denite grep -buffer-name=search-buffer-denite<CR>
   nnoremap <silent> <Leader>dr :<C-u>Denite -resume -buffer-name=search-buffer-denite<CR>
@@ -34,7 +34,7 @@ hook_post_source = '''
   call denite#custom#source('grep', 'sorters', ['sorter_sublime'])
   call denite#custom#source('line', 'sorters', ['sorter_sublime'])
   call denite#custom#source('file', 'sorters', ['sorter_sublime'])
-  call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
+  call denite#custom#source('file_mru', 'sorters', ['sorter_sublime'])
 '''
 
 [[plugins]]

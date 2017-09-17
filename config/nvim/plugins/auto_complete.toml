@@ -14,6 +14,10 @@ inoremap <silent><expr> <TAB>
 \  "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#omni#input_patterns.ruby = ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::']
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 '''
 
 [[plugins]]
@@ -70,3 +74,7 @@ hook_source = '''
 repo = 'Shougo/neosnippet-snippets'
 on_i = 1
 
+[[plugins]]
+repo = 'Shougo/deoplete-rct'
+on_i = 1
+on_ft = 'ruby'
