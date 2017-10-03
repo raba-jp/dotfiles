@@ -10,6 +10,8 @@ alias cp 'cp -i'
 alias mv 'mv -i'
 alias rm 'rm -i'
 alias repo 'peco_select_repository'
+alias reload 'source $XDG_CONFIG_HOME/fish/config.fish'
+alias reload-tmux 'tmux source $XDG_CONFIG_HOME/tmux/tmux.conf'
 
 # Keybind
 function fish_user_key_bindings
