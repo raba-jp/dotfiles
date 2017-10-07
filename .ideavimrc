@@ -1,0 +1,10 @@
+set clipboard=unnamed
+set smartcase
+set surround
+inoremap jj <ESC>
+nnoremap / :<C-u>action Find<CR>
+nnoremap <C-o> :<C-u>action Back<CR>
+nnoremap <C-i> :<C-u>action Forward<CR>
+nnoremap <C-S-o> <C-o>
+nnoremap <C-S-i> <C-i>
+
