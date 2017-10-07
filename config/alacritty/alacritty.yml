@@ -16,8 +16,8 @@ env:
 # Window dimensions in character columns and lines
 # (changes require restart)
 dimensions:
-  columns: 80
-  lines: 24
+  columns: 200
+  lines: 60
 
 # Adds this many blank pixels of padding around the window
 # Units are physical pixels; this is not DPI aware.
@@ -42,24 +42,21 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Menlo
-    # Style can be specified to pick a specific face.
+    family: Myrica M
     # style: Regular
 
   # The bold font face
   bold:
-    family: Menlo
-    # Style can be specified to pick a specific face.
+    family: Myrica M
     # style: Bold
 
   # The italic font face
   italic:
-    family: Menlo
-    # Style can be specified to pick a specific face.
+    family: Myrica M
     # style: Italic
 
   # Point size of the font
-  size: 12.0
+  size: 14.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -177,7 +174,7 @@ key_bindings:
   - { key: V,        mods: Command, action: Paste                        }
   - { key: C,        mods: Command, action: Copy                         }
   - { key: Q,        mods: Command, action: Quit                         }
-  - { key: W,        mods: Command, action: Quit                         }
+#  - { key: W,        mods: Command, action: Quit                         }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[1~",  mode: ~AppCursor  }
   - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
@@ -225,6 +222,7 @@ key_bindings:
   - { key: Back,     mods: Alt,     chars: "\x1b\x7f"                    }
   - { key: Insert,                  chars: "\x1b[2~"                     }
   - { key: Delete,                  chars: "\x1b[3~"                     }
+  - { key: Space,    mods: Control, chars: "\x00"                        }
 
 # Mouse bindings
 #
