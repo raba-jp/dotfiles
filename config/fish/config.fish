@@ -15,18 +15,19 @@ alias reload-tmux 'tmux source $XDG_CONFIG_HOME/tmux/tmux.conf'
 alias kill '__process_kill'
 alias force-kill '__force_process_kill'
 alias search-source '__search_source_code'
+alias tree 'exa --tree'
 
 # Keybind
 function fish_user_key_bindings
-	bind \cr __select_history
-	bind \ck up-or-search
-	bind \cj down-or-search
-	bind \ch backward-char
-	bind \cl forward-char
+  bind \cr __select_history
+  bind \ck up-or-search
+  bind \cj down-or-search
+  bind \ch backward-char
+  bind \cl forward-char
 end
 
 function done_enter --on-event fish_postexec
-	__do_enter_action $argv
+  __do_enter_action $argv
 end
 
 eval (direnv hook fish)
