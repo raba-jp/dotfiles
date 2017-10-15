@@ -44,3 +44,6 @@ hook_source = '''
   nnoremap <silent> ,tl :call neoterm#clear()<cr>
   nnoremap <silent> ,tc :call neoterm#kill()<cr>
 '''
+
+[[plugins]]
+repo = 'lambdalisue/gina.vim'
