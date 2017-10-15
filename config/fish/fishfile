@@ -1,6 +1,8 @@
-raba-jp/fish-plugin-enter-action
-raba-jp/fish-plugin-extend-history
+raba-jp/do_enter_action
 fisherman/nodenv
-raba-jp/fish-plugin-peco
+raba-jp/process_kill
 rafaelrinaldi/pure
 fisherman/rbenv
+raba-jp/search_source_code
+raba-jp/select_history
+raba-jp/select_repository

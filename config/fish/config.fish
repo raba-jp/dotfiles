@@ -9,13 +9,16 @@ alias tmux 'tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 alias cp 'cp -i'
 alias mv 'mv -i'
 alias rm 'rm -i'
-alias repo 'peco_select_repository'
+alias repo '__select_repository'
 alias reload 'source $XDG_CONFIG_HOME/fish/config.fish'
 alias reload-tmux 'tmux source $XDG_CONFIG_HOME/tmux/tmux.conf'
+alias kill '__process_kill'
+alias force-kill '__force_process_kill'
+alias search-source '__search_source_code'
 
 # Keybind
 function fish_user_key_bindings
-	bind \cr peco_select_history
+	bind \cr __select_history
 	bind \ck up-or-search
 	bind \cj down-or-search
 	bind \ch backward-char
@@ -23,7 +26,7 @@ function fish_user_key_bindings
 end
 
 function done_enter --on-event fish_postexec
-	enter_action $argv
+	__do_enter_action $argv
 end
 
 eval (direnv hook fish)
