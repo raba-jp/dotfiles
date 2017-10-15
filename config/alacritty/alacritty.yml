@@ -42,18 +42,18 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Myrica M
-    # style: Regular
+    family: Cica
+    style: Regular
 
   # The bold font face
   bold:
-    family: Myrica M
-    # style: Bold
+    family: Cica
+    style: Bold
 
   # The italic font face
   italic:
-    family: Myrica M
-    # style: Italic
+    family: Cica
+    style: Italic
 
   # Point size of the font
   size: 14.0
@@ -81,7 +81,7 @@ render_timer: false
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
-custom_cursor_colors: false
+custom_cursor_colors: true
 
 # Colors (Solarized Dark)
 colors:
@@ -249,7 +249,7 @@ mouse:
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
-hide_cursor_when_typing: false
+hide_cursor_when_typing: true
 
 # Shell
 #
