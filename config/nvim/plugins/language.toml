@@ -33,5 +33,5 @@ repo = 'jodosha/vim-godebug'
 on_ft = 'go'
 
 [[plugins]]
-repo = 'zchee/nvim-go'
-build = 'make'
+repo = 'fatih/vim-go'
+on_ft = 'go'
