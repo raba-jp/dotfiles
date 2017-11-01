@@ -32,10 +32,6 @@ let g:deoplete#sources#go#package_dot = 1
 let g:deoplete#sources#go#sort_class = ['package', 'const', 'var', 'type', 'func']
 let g:deoplete#sources#go#use_cache = 1
 let g:deoplete#sources#go#json_directory = $XDG_CACHE_HOME.'/go'
-let g:deoplete#omni#input_patterns = {}
-let g:deoplete#omni#input_patterns.ruby = ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::']
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 '''
 
 [[plugins]]
