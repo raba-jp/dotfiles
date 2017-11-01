@@ -148,3 +148,8 @@ set ambiwidth=double
 set nocursorline
 set norelativenumber
 filetype plugin indent on
+
+function! _FormatJSON()
+  %!jq '.'
+endfunction
+command! FormatJSON call _FormatJSON()
