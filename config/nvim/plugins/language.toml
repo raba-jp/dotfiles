@@ -1,5 +1,15 @@
 [[plugins]]
-repo = 'pocke/iro.vim'
+repo = 'stephpy/vim-yaml'
+on_ft = 'yaml'
+
+[[plugins]]
+repo = 'vim-ruby/vim-ruby'
+on_ft = 'ruby'
+hook_source = '''
+  let g:ruby_indent_access_modifier_style = 'normal'
+  let g:ruby_indent_block_style = 'do'
+  let g:ruby_indent_assignment_style = 'hanging'
+'''
 
 [[plugins]]
 repo = 'tpope/vim-rails'
