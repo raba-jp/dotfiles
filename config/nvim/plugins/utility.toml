@@ -17,9 +17,6 @@ hook_add = '''
 repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
 repo = 'Shougo/neoinclude.vim'
 
 [[plugins]]
