@@ -2,10 +2,6 @@ set encoding=utf-8
 scriptencoding utf-8
 set fileencoding=utf-8
 
-if has('patch-7.4.1778')
-  set guicolors
-endif
-
 if has('nvim')
   set inccommand=split
   set shell=fish
