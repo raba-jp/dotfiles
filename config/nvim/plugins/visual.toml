@@ -71,6 +71,7 @@ hook_add = '''
       \ 'php': ' PHP',
       \ 'html': ' HTML',
       \ 'javascript': ' JavaScript',
+      \ 'swift': ' Swift'
     \ }
     return &ft == '' ? 'no ft' : get(l:types, &ft, &ft)
   endfunction
