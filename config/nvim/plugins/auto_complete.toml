@@ -74,3 +74,10 @@ on_i = 1
 repo = 'Shougo/deoplete-rct'
 on_i = 1
 on_ft = 'ruby'
+depends = 'deoplete.nvim'
+
+[[plugins]]
+repo = 'landaire/deoplete-swift'
+on_i = 1
+on_ft = 'swift'
+depends = 'deoplete.nvim'
