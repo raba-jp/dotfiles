@@ -144,7 +144,7 @@ set foldlevel=100
 set hidden
 set ambiwidth=double
 set nocursorline
-set norelativenumber
+set number
 filetype plugin indent on
 
 function! _FormatJSON()

@@ -21,7 +21,7 @@ hook_add = '''
     \     ['filename', 'denite_source']
     \   ],
     \   'right': [
-    \     ['lineinfo'],
+    \     [],
     \     [],
     \     ['filetype_emoji', 'ale_error', 'ale_warning', 'ale_ok'],
     \   ]
@@ -29,7 +29,6 @@ hook_add = '''
     \ 'component_function': {
     \   'filename': 'LightLineFileName',
     \   'mode': 'LightLineMode',
-    \   'linter': 'LightLineLinterStatus',
     \   'denite_source': 'LightLineDeniteSource',
     \   'filetype_emoji': 'LightLineFileTypeEmoji'
     \  },
