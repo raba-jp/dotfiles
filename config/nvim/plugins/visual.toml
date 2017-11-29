@@ -13,6 +13,11 @@ hook_add = '''
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
+  augroup LightLineOnALE
+    autocmd!
+    autocmd User ALELint call lightline#update()
+  augroup END
+
   let g:lightline = {
     \ 'colorscheme': 'solarized',
     \ 'active': {
@@ -22,88 +27,28 @@ hook_add = '''
     \   ],
     \   'right': [
     \     [],
-    \     [],
-    \     ['filetype_emoji', 'ale_error', 'ale_warning', 'ale_ok'],
+    \     ['ale_error', 'ale_warning', 'ale_ok'],
+    \     ['filetype_emoji'],
     \   ]
     \ },
+    \ 'component_function_visible_condition': {
+    \   'mode': 1,
+    \ },
     \ 'component_function': {
-    \   'filename': 'LightLineFileName',
-    \   'mode': 'LightLineMode',
-    \   'denite_source': 'LightLineDeniteSource',
-    \   'filetype_emoji': 'LightLineFileTypeEmoji'
+    \   'filename':       'lightline#raba_jp#components#filename',
+    \   'mode':           'lightline#raba_jp#components#mode',
+    \   'denite_source':  'lightline#raba_jp#components#denite_source',
+    \   'filetype_emoji': 'lightline#raba_jp#components#filetype',
     \  },
     \ 'component_expand': {
-    \   'ale_error': 'LightLineAleError',
-    \   'ale_warning': 'LightLineAleWarning',
-    \   'ale_ok': 'LightLineAleOk'
+    \   'ale_error':   'lightline#raba_jp#components#ale_error',
+    \   'ale_warning': 'lightline#raba_jp#components#ale_warning',
+    \   'ale_ok':      'lightline#raba_jp#components#ale_ok',
+    \ },
+    \ 'component_type': {
+    \   'ale_error':   'error',
+    \   'ale_warning': 'warning',
+    \   'ale_ok':      'ok',
     \ },
     \ }
-
-  function! LightLineFileName()
-    if &ft == 'denite'
-      return ''
-    endif
-    return '' != expand('%:t') ? expand('%:t') : '[No Name]'
-  endfunction
-
-  function! LightLineMode()
-    if &ft == 'denite'
-      let l:mode_str = substitute(denite#get_status_mode(), "-\\| ", "", "g")
-      call lightline#link(tolower(l:mode_str[0]))
-      return l:mode_str
-    endif
-
-    return winwidth(0) > 60 ? lightline#mode() : ''
-  endfunction
-
-  function! LightLineDeniteSource()
-    return &ft == 'denite' ? denite#get_status_sources() : ''
-  endfunction
-
-  function! LightLineFileTypeEmoji()
-    let l:types = {
-      \ 'go': ' Go',
-      \ 'ruby': ' Ruby',
-      \ 'python': ' Python',
-      \ 'java': ' Java',
-      \ 'scala': ' Scala',
-      \ 'php': ' PHP',
-      \ 'html': ' HTML',
-      \ 'javascript': ' JavaScript',
-      \ 'swift': ' Swift'
-    \ }
-    return &ft == '' ? 'no ft' : get(l:types, &ft, &ft)
-  endfunction
-
-  function! LightLineAleError() abort
-    return s:ale_string(0)
-  endfunction
-
-  function! LightLineAleWarning() abort
-    return s:ale_string(1)
-  endfunction
-
-  function! LightLineAleOk() abort
-    return s:ale_string(2)
-  endfunction
-
-  function! s:ale_string(mode)
-    if !exists('g:ale_buffer_info')
-      return ''
-    endif
-
-    let l:buffer = bufnr('%')
-    let l:counts = ale#statusline#Count(l:buffer)
-    let [l:error_format, l:warning_format, l:no_errors] = g:ale_statusline_format
-
-    if a:mode == 0 " Error
-      let l:errors = l:counts.error + l:counts.style_error
-      return l:errors ? printf(l:error_format, l:errors) : ''
-    elseif a:mode == 1 " Warning
-      let l:warnings = l:counts.warning + l:counts.style_warning
-      return l:warnings ? printf(l:warning_format, l:warnings) : ''
-    endif
-
-    return l:counts.total == 0? l:no_errors: ''
-  endfunction
 '''
