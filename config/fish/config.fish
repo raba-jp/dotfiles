@@ -32,4 +32,5 @@ end
 
 [ (uname) = 'Darwin' ]; and source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
 [ -n (type gcloud) ]; and complete --command gcloud --arguments="($XDG_CONFIG_HOME/fish/gcloud_completion.py (commandline -cp))"
-eval (direnv hook fish)
+[ -n (type direnv) ]; and eval (direnv hook fish)
+[ -n (type rbenv) ]; and rbenv init - | source
