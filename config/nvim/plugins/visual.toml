@@ -4,10 +4,7 @@ hook_add = '''
   set background=dark
   let g:solarized_termtrans = 1
   let g:solarized_termcolors = 256
-  augroup ColorScheme
-    autocmd!
-    au ColorScheme VimEnter * nested colorscheme solarized
-  augroup END
+  colorscheme solarized
 '''
 
 [[plugins]]
