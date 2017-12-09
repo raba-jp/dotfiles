@@ -4,6 +4,7 @@ hook_add = '''
   set background=dark
   let g:solarized_termtrans = 1
   let g:solarized_termcolors = 256
+  syntax on
   colorscheme solarized
 '''
 
