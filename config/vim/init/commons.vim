@@ -32,12 +32,6 @@ set backspace=2
 set wildmode=longest,full
 filetype plugin indent on
 
-augroup vimrc-incsearch-highlight
-  autocmd!
-  autocmd CmdlineEnter [/\?] :set hlsearch
-  autocmd CmdlineLeave [/\?] :set nohlsearch
-augroup END
-
 if has('nvim')
   set inccommand=split
   set shell=fish
