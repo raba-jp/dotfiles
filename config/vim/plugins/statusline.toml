@@ -1,14 +1,4 @@
 [[plugins]]
-repo = 'altercation/vim-colors-solarized'
-hook_add = '''
-  set background=dark
-  let g:solarized_termtrans = 1
-  let g:solarized_termcolors = 256
-  syntax on
-  colorscheme solarized
-'''
-
-[[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
   augroup LightLineOnALE
@@ -24,8 +14,8 @@ hook_add = '''
     \     ['filename', 'denite_source']
     \   ],
     \   'right': [
-    \     [],
     \     ['ale_error', 'ale_warning', 'ale_ok'],
+    \     ['lineinfo'],
     \     ['filetype_emoji'],
     \   ]
     \ },
