@@ -26,6 +26,7 @@ hook_source = '''
 
 [[plugins]]
 repo = 'kassio/neoterm'
+if = "has('nvim')"
 hook_source = '''
   let g:neoterm_position = 'horizontal'
   let g:neoterm_automap_keys = ',tt'
@@ -36,3 +37,14 @@ hook_source = '''
 
 [[plugins]]
 repo = 'lambdalisue/gina.vim'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_i = 1
+
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+hook_source = '''
+  vmap v <Plug>(expand_region_expand)
+  vmap <C-v> <Plug>(expand_region_shrink)
+'''
