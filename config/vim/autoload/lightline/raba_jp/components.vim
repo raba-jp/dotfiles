@@ -23,15 +23,15 @@ endfunction
 
 function! lightline#raba_jp#components#filetype() abort
   let l:types = {
-    \ 'go': ' Go',
-    \ 'ruby': ' Ruby',
-    \ 'python': ' Python',
-    \ 'java': ' Java',
-    \ 'scala': ' Scala',
-    \ 'php': ' PHP',
-    \ 'html': ' HTML',
-    \ 'javascript': ' JavaScript',
-    \ 'swift': ' Swift'
+    \ 'go': 'Go',
+    \ 'ruby': 'Ruby',
+    \ 'python': 'Python',
+    \ 'java': 'Java',
+    \ 'scala': 'Scala',
+    \ 'php': 'PHP',
+    \ 'html': 'HTML',
+    \ 'javascript': 'JavaScript',
+    \ 'swift': 'Swift'
   \ }
   return &ft == '' ? 'no ft' : get(l:types, &ft, &ft)
 endfunction
