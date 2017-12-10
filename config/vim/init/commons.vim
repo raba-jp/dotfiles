@@ -10,6 +10,7 @@ endif
 
 set noswapfile
 set showcmd
+set noshowmode
 set smartindent
 set visualbell
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲
@@ -27,6 +28,7 @@ set ambiwidth=double
 set nocursorline
 set laststatus=2
 set list
+set backspace=2
 set wildmode=longest,full
 filetype plugin indent on
 
