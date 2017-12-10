@@ -13,6 +13,10 @@ hook_source = '''
     \  "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
   inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
   inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function() abort
+    return deoplete#close_popup() . "\<CR>"
+  endfunction
   let g:deoplete#omni#input_patterns = {}
   let g:deoplete#omni#input_patterns.ruby = ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::']
   let g:deoplete#omni#functions = {}
@@ -23,7 +27,8 @@ hook_source = '''
 repo = 'w0rp/ale'
 hook_add = '''
   let g:ale_max_signs = -1
-  let g:ale_sign_column_always = 0
+  let g:ale_sign_column_always = 1
+  let g:ale_fix_on_save = 1
   let g:ale_echo_msg_error_str = ''
   let g:ale_echo_msg_warning_str = ''
   let g:ale_echo_msg_format = '[%linter%] %s'
@@ -35,7 +40,7 @@ hook_add = '''
   let g:ale_keep_list_window_open = 0
   nmap <silent> <C-k> <Plug>(ale_previous_wrap)
   nmap <silent> <C-j> <Plug>(ale_next_wrap)
-  let g:ale_lint_on_text_changed = 'never'
+  let g:ale_lint_on_text_changed = 'always'
   let g:ale_lint_on_enter = 0
   let g:ale_statusline_format = [ "> %s","> %s", ""]
 '''
