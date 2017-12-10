@@ -14,9 +14,9 @@ hook_add = '''
     \     ['filename', 'denite_source']
     \   ],
     \   'right': [
-    \     ['ale_error', 'ale_warning', 'ale_ok'],
     \     ['lineinfo'],
-    \     ['filetype_emoji'],
+    \     [],
+    \     ['ale_error', 'ale_warning', 'ale_ok', 'filetype_emoji'],
     \   ]
     \ },
     \ 'component_function_visible_condition': {
@@ -32,11 +32,6 @@ hook_add = '''
     \   'ale_error':   'lightline#raba_jp#components#ale_error',
     \   'ale_warning': 'lightline#raba_jp#components#ale_warning',
     \   'ale_ok':      'lightline#raba_jp#components#ale_ok',
-    \ },
-    \ 'component_type': {
-    \   'ale_error':   'error',
-    \   'ale_warning': 'warning',
-    \   'ale_ok':      'ok',
     \ },
     \ }
 '''
