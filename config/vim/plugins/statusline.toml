@@ -11,10 +11,11 @@ hook_add = '''
     \ 'active': {
     \   'left': [
     \     ['mode', 'paste'],
-    \     ['filename', 'denite_source']
+    \     ['filename', 'denite_source'],
+    \     ['lineinfo']
     \   ],
     \   'right': [
-    \     ['lineinfo'],
+    \     [],
     \     [],
     \     ['ale_error', 'ale_warning', 'ale_ok', 'filetype_emoji'],
     \   ]
