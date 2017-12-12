@@ -1,15 +1,15 @@
 scriptencoding utf-8
 
 function! lightline#raba_jp#components#filename() abort
-  if &ft == 'denite'
+  if &filetype ==# 'denite'
     return ''
   endif
-  return '' != expand('%:t') ? expand('%:t') : '[No Name]'
+  return '' !=# expand('%:t') ? expand('%:t') : '[No Name]'
 endfunction
 
 function! lightline#raba_jp#components#mode() abort
-  if &ft == 'denite'
-    let l:mode_str = substitute(denite#get_status_mode(), "-\\| ", "", "g")
+  if &filetype ==# 'denite'
+    let l:mode_str = substitute(denite#get_status_mode(), '-\\| ', '', 'g')
     call lightline#link(tolower(l:mode_str[0]))
     return l:mode_str
   endif
@@ -18,7 +18,7 @@ function! lightline#raba_jp#components#mode() abort
 endfunction
 
 function! lightline#raba_jp#components#denite_source() abort
-  return &ft == 'denite' ? denite#get_status_sources() : ''
+  return &filetype ==# 'denite' ? denite#get_status_sources() : ''
 endfunction
 
 function! lightline#raba_jp#components#filetype() abort
@@ -34,7 +34,7 @@ function! lightline#raba_jp#components#filetype() abort
     \ 'swift': 'Swift',
     \ 'vim': 'vim'
   \ }
-  return &ft == '' ? 'no ft' : get(l:types, &ft, &ft)
+  return &filetype ==# '' ? 'no ft' : get(l:types, &filetype, &filetype)
 endfunction
 
 function! lightline#raba_jp#components#ale_error() abort
@@ -63,5 +63,5 @@ function! s:ale_string(mode)
     return l:counts.1 ? printf(l:warning_format, l:counts.1) : ''
   endif
 
-  return l:counts.total == 0? l:no_errors: ''
+  return l:counts.total == 0 ? l:no_errors : ''
 endfunction
