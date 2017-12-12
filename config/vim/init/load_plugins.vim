@@ -2,10 +2,6 @@ set encoding=utf-8
 scriptencoding utf-8
 set fileencoding=utf-8
 
-if &compatible
-  set nocompatible
-endif
-
 let s:plugins = g:config_home . '/vim/plugins'
 let s:dein_dir = g:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
