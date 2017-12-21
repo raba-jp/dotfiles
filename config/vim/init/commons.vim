@@ -53,4 +53,3 @@ if has('nvim')
     " TODO
   endif
 endif
-

@@ -161,15 +161,6 @@ on_ft = 'fish'
 on_i = 1
 depends = 'deoplete.nvim'
 
-## Terraform
-[[plugins]]
-repo = 'hashivim/vim-terraform'
-on_ft = 'terraform'
-hook_source = '''
-  let g:terraform_align=1
-  let g:terraform_fmt_on_save = 1
-'''
-
 ## YAML
 [[plugins]]
 repo = 'stephpy/vim-yaml'
@@ -179,3 +170,15 @@ on_ft = 'yaml'
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
+
+## Terraform
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+hook_source = '''
+  let g:terraform_align=1
+  let g:terraform_fmt_on_save = 1
+'''
+
+## Ansible
+[[plugins]]
+repo = 'pearofducks/ansible-vim'
