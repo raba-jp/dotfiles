@@ -75,7 +75,7 @@ repo = 'sbdchd/neoformat'
 hook_add = '''
   let g:neoformat_javascript_prettiereslint = {
     \ 'exe': './node_modules/.bin/prettier-eslint',
-    \ 'args': ['--stdin'],
+    \ 'args': ['--stdin', '--no-semi', '--no-bracket-spacing', '--single-quote'],
     \ 'stdin': 1,
     \ }
   augroup fmt
