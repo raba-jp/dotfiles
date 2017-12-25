@@ -4,7 +4,7 @@ if = "has('python3')"
 on_cmd = 'Denite'
 hook_add = '''
   nnoremap <silent> <Leader>l :<C-u>Denite line<CR>
-  nnoremap <silent> <Leader>f :<C-u>Denite file<CR>
+  nnoremap <silent> <Leader>f :<C-u>Denite file_rec<CR>
   nnoremap <silent> <Leader>r :<C-u>Denite file_mru<CR>
   nnoremap <silent> <Leader>b :<C-u>Denite buffer<CR>
   nnoremap <silent> <Leader>dg :<C-u>Denite grep -buffer-name=search-buffer-denite<CR>

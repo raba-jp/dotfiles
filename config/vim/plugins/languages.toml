@@ -143,6 +143,15 @@ on_i = 1
 on_ft = 'swift'
 depends = 'deoplete.nvim'
 
+## JavaScript
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = "javascript"
+
+[[plugins]]
+repo = 'carlitux/deoplete-ternjs'
+on_ft = 'javascript'
+
 ## Vim
 [[plugins]]
 repo = 'Shougo/neco-vim'
