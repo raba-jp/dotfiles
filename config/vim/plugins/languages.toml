@@ -70,6 +70,21 @@ repo = 'Shougo/context_filetype.vim'
 repo = 'osyo-manga/vim-precious'
 depends = 'Shougo/context_filetype.vim'
 
+[[plugins]]
+repo = 'sbdchd/neoformat'
+hook_add = '''
+  let g:neoformat_javascript_prettiereslint = {
+    \ 'exe': './node_modules/.bin/prettier-eslint',
+    \ 'args': ['--stdin'],
+    \ 'stdin': 1,
+    \ }
+  augroup fmt
+    autocmd!
+    autocmd BufWritePre * Neoformat
+  augroup END
+  let g:neoformat_enabled_javascript = ['prettiereslint']
+'''
+
 ## Ruby
 [[plugins]]
 repo = 'vim-ruby/vim-ruby'
