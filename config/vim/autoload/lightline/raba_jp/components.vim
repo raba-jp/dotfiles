@@ -21,22 +21,6 @@ function! lightline#raba_jp#components#denite_source() abort
   return &filetype ==# 'denite' ? denite#get_status_sources() : ''
 endfunction
 
-function! lightline#raba_jp#components#filetype() abort
-  let l:types = {
-    \ 'go': 'Go',
-    \ 'ruby': 'Ruby',
-    \ 'python': 'Python',
-    \ 'java': 'Java',
-    \ 'scala': 'Scala',
-    \ 'php': 'PHP',
-    \ 'html': 'HTML',
-    \ 'javascript': 'JavaScript',
-    \ 'swift': 'Swift',
-    \ 'vim': 'vim'
-  \ }
-  return &filetype ==# '' ? 'no ft' : get(l:types, &filetype, &filetype)
-endfunction
-
 function! lightline#raba_jp#components#ale_error() abort
   return s:ale_string(0)
 endfunction
