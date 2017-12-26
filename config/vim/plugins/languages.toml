@@ -84,6 +84,18 @@ hook_add = '''
   let g:neoformat_enabled_javascript = ['prettiereslint']
 '''
 
+## Language Server Protocol
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'master'
+hook_source = '''
+set hidden
+let g:LanguageClient_serverCommands = {
+  \ 'javascript': ['javascript-typescript-stdio'],
+  \ 'typescript': ['javascript-typescript-stdio']
+  \ }
+'''
+
 ## Ruby
 [[plugins]]
 repo = 'vim-ruby/vim-ruby'
