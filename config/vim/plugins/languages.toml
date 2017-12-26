@@ -1,7 +1,6 @@
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = 'has("python3")'
-on_i = 1
 hook_source = '''
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#auto_complete_delay = 0
@@ -166,6 +165,10 @@ on_ft = "javascript"
 [[plugins]]
 repo = 'carlitux/deoplete-ternjs'
 on_ft = 'javascript'
+
+## TypeScript
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
 
 ## Vim
 [[plugins]]
