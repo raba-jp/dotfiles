@@ -24,6 +24,8 @@ function fish_user_key_bindings
     bind \cj down-or-search
     bind \ch backward-char
     bind \cl forward-char
+    bind \cs beginning-of-line
+    bind \ce end-of-line
 end
 
 function done_enter --on-event fish_postexec
