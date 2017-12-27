@@ -43,7 +43,7 @@ on_i = 1
 ## Language Server Protocol
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
-rev = 'master'
+build = 'make release'
 hook_add = '''
   set hidden
   let g:LanguageClient_serverCommands = {
