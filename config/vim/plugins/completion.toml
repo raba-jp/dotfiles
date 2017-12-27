@@ -86,10 +86,6 @@ on_ft = 'swift'
 depends = 'deoplete.nvim'
 
 [[plugins]]
-repo = 'carlitux/deoplete-ternjs'
-on_ft = 'javascript'
-
-[[plugins]]
 repo = 'ponko2/deoplete-fish'
 on_ft = 'fish'
 on_i = 1
