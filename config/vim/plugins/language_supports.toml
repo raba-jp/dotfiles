@@ -1,0 +1,63 @@
+## Lint Engine
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = '''
+  let g:ale_max_signs = -1
+  let g:ale_sign_column_always = 1
+  let g:ale_fix_on_save = 1
+  let g:ale_echo_msg_error_str = ''
+  let g:ale_echo_msg_warning_str = ''
+  let g:ale_echo_msg_format = '[%linter%] %s'
+  let g:ale_sign_error = '>>'
+  let g:ale_sign_warning = '--'
+  let g:ale_set_loclist = 0
+  let g:ale_set_quickfix = 0
+  let g:ale_open_list = 0
+  let g:ale_keep_list_window_open = 0
+  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+  nmap <silent> <C-j> <Plug>(ale_next_wrap)
+  let g:ale_lint_on_text_changed = 'always'
+  let g:ale_lint_on_enter = 0
+  let g:ale_statusline_format = ["E > %s","W > %s", "OK"]
+'''
+
+## Formetter
+[[plugins]]
+repo = 'sbdchd/neoformat'
+hook_add = '''
+  let g:neoformat_javascript_prettiereslint = {
+    \ 'exe': './node_modules/.bin/prettier-eslint',
+    \ 'args': ['--stdin', '--no-semi', '--no-bracket-spacing', '--single-quote'],
+    \ 'stdin': 1,
+    \ }
+  augroup fmt
+    autocmd!
+    autocmd BufWritePre * Neoformat
+  augroup END
+  let g:neoformat_enabled_javascript = ['prettiereslint']
+'''
+
+## Filetype auto change from context
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = 'Shougo/context_filetype.vim'
+
+## Ruby
+[[plugins]]
+repo = 'vim-utils/vim-ruby-fold'
+on_ft = 'ruby'
+hook_add = '''
+  let g:ruby_fold_lines_limit = 100
+'''
+
+[[plugins]]
+repo = 'todesking/ruby_hl_lvar.vim'
+on_ft = 'ruby'
+
+## Ruby on Rails
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = 'ruby'
