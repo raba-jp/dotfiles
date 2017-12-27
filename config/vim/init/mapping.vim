@@ -20,12 +20,6 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
-" Cursor move for insert mode
-inoremap <C-k> <C-g>U<Up>
-inoremap <C-j> <C-g>U<Down>
-inoremap <C-h> <C-g>U<Left>
-inoremap <C-l> <C-g>U<Right>
-
 " Yank line tail
 nnoremap Y y$
 
