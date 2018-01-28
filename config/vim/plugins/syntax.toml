@@ -31,6 +31,10 @@ repo = 'posva/vim-vue'
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
 
+# CoffeeScript
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+
 ## fish shell
 [[plugins]]
 repo = 'dag/vim-fish'
@@ -54,3 +58,7 @@ hook_source = '''
 ## Ansible
 [[plugins]]
 repo = 'pearofducks/ansible-vim'
+
+## Slim
+[[plugins]]
+repo = 'slim-template/vim-slim'
