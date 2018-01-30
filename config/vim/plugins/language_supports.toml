@@ -31,10 +31,6 @@ hook_add = '''
     \ 'args': ['--stdin', '--no-semi', '--single-quote'],
     \ 'stdin': 1,
     \ }
-  augroup fmt
-    autocmd!
-    autocmd BufWritePre * Neoformat
-  augroup END
   let g:neoformat_enabled_javascript = ['prettiereslint']
 '''
 
