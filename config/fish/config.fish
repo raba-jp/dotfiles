@@ -32,6 +32,22 @@ function done_enter --on-event fish_postexec
     __do_enter_action $argv
 end
 
+function peco_ssh
+  awk '
+    tolower($1)=="host" {
+      for(i=2;i<=NF; i++) {
+        if ($i !~ "[*?]") {
+          print $i
+        }
+      }
+    }
+  ' ~/.ssh/config | sort | peco | read -l hostname
+  if test -n "$hostname"
+    command ssh $hostname
+  end
+end
+alias ssh "peco_ssh"
+
 [ (uname) = 'Darwin' ]
 and source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
 [ -n (type gcloud) ]
