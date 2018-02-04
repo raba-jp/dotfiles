@@ -45,7 +45,8 @@ on_i = 1
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 build = 'bash install.sh'
-hook_add = '''
+on_ft = ['javascript', 'typescript']
+hook_source = '''
   set hidden
   let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
@@ -78,12 +79,6 @@ hook_add = '''
 repo = 'zchee/deoplete-jedi'
 on_ft = 'python'
 on_i = 1
-depends = 'deoplete.nvim'
-
-[[plugins]]
-repo = 'landaire/deoplete-swift'
-on_i = 1
-on_ft = 'swift'
 depends = 'deoplete.nvim'
 
 [[plugins]]

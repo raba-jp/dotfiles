@@ -50,10 +50,6 @@ hook_add = '''
   let g:ruby_fold_lines_limit = 100
 '''
 
-[[plugins]]
-repo = 'todesking/ruby_hl_lvar.vim'
-on_ft = 'ruby'
-
 ## Ruby on Rails
 [[plugins]]
 repo = 'tpope/vim-rails'
