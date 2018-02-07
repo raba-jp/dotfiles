@@ -48,6 +48,11 @@ function peco_ssh
 end
 alias ssh "peco_ssh"
 
+function setup_solargraph
+  yard gems
+  yard config --gem-install-yri
+end
+
 [ (uname) = 'Darwin' ]
 and source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
 [ -n (type gcloud) ]
