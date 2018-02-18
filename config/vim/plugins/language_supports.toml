@@ -20,6 +20,7 @@ hook_add = '''
   let g:ale_lint_on_enter = 0
   let g:ale_fix_on_save = 1
   let g:ale_statusline_format = ["E > %s","W > %s", "OK"]
+  let g:ale_go_gometalinter_options = '--fast --enable=goimports'
 '''
 
 ## Formetter
