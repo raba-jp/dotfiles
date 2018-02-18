@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = 'has("python3")'
-hook_source = '''
+hook_add = '''
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#complete_method = "omnifunc"
   let g:deoplete#auto_complete_delay = 0
