@@ -10,6 +10,10 @@ nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
 " Change normal mode
 inoremap <silent> jj <ESC>
 
+" for US kyeboard
+nnoremap ; :
+nnoremap : ;
+
 " Disable Cursor key
 map <Up> <Nop>
 map <Down> <Nop>
