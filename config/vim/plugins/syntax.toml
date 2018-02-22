@@ -5,8 +5,7 @@ hook_source = '''
   let g:ruby_indent_access_modifier_style = 'normal'
   let g:ruby_indent_block_style = 'do'
   let g:ruby_indent_assignment_style = 'hanging'
-'''
-
+''' 
 ## Go
 [[plugins]]
 repo = 'fatih/vim-go'
@@ -62,3 +61,13 @@ repo = 'pearofducks/ansible-vim'
 ## Slim
 [[plugins]]
 repo = 'slim-template/vim-slim'
+
+## Jade
+[[plugins]]
+repo = 'digitaltoad/vim-pug'
+hook_source = '''
+  augroup vimrc_loading
+    autocmd!
+    au BufRead,BufNewFile,BufReadPre *.jade set filetype=pug
+  augroup END
+'''
