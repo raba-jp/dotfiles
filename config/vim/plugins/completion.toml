@@ -7,7 +7,7 @@ hook_add = '''
   let g:deoplete#auto_complete_delay = 0
   let g:deoplete#auto_complete_start_length = 1
   let g:deoplete#enable_smart_case = 1
-  inoremap <expr><TAB>
+  inoremap <expr><tab>
       \ pumvisible() ? "\<C-n>" :
       \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
       \ "\<tab>"
@@ -27,7 +27,7 @@ hook_add = '''
 repo = 'Shougo/neosnippet'
 on_i  = 1
 on_ft = 'snippet'
-depends = ['neosnippet-snippets']'
+depends = ['neosnippet-snippets']
 hook_source = '''
   imap <C-k> <Plug>(neosnippet_expand_or_jump)
   smap <C-k> <Plug>(neosnippet_expand_or_jump)
