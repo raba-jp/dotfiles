@@ -1,0 +1,14 @@
+---
+go_version: 1.9
+gopath: "{{ ansible_user_dir }}/Development"
+
+go_packages:
+  - name: gocode
+    uri: github.com/nsf/gocode
+  - name: gb
+    uri: github.com/constabulary/gb/...
+  - name: direnv
+    uri: github.com/direnv/direnv
+  - name: gometalinter
+    uri: github.com/alecthomas/gometalinter
+    command: gometalinter --install --update

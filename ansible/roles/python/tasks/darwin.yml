@@ -1,0 +1,12 @@
+---
+- name: Update homebrew
+  homebrew:
+    update_homebrew: yes
+
+- name: Install Python
+  homebrew:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - python
+    - python3

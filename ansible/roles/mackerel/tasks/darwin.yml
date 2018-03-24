@@ -1,0 +1,41 @@
+---
+- name: Update homebrew
+  homebrew:
+    update_homebrew: yes
+
+- name: Add mackerel tap
+  homebrew_tap:
+    tap: "{{ item }}"
+    state: present
+  with_items:
+    - mackerelio/mackerel-agent
+    - aereal/mackerelappactivity
+
+- name: Install mackerel-agent
+  homebrew:
+    name: mackerel-agent
+    state: latest
+
+- name: Install mackerel app activity
+  homebrew_cask:
+    name: mackerelappactivity
+    state: present
+  ignore_errors: yes
+
+- name: Check config file
+  stat:
+    path: "{{ darwin_agent_config_path }}"
+  register: config
+
+- name: Initialize config file
+  shell: "mackerel-agent init -apikey='{{ mackerel_api_key }}' -conf {{ agent_config_path }}"
+  when: (mackerel_api_key | string) and (not config.stat.exists)
+
+- name: copy MackerelAppActivity config file
+  template:
+    src: ../templates/.mackerel-app-activity.json.j2
+    dest: "{{ ansible_user_dir }}/.mackerel-app-activity.json"
+  when: mackerel_api_key | string
+
+- name: Start mackerel-agent service
+  shell: brew services restart mackerel-agent

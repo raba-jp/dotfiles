@@ -1,0 +1,10 @@
+---
+ruby_version: 2.4.2
+ruby_packages:
+  - neovim
+  - rake
+  - rubocop
+  - reek
+  - rails_best_practices
+  - rufo
+  - solargraph

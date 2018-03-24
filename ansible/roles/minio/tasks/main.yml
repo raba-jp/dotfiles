@@ -1,0 +1,48 @@
+---
+- name: Stop Minio
+  shell: |
+    if [[ -n $(/bin/launchctl list | /usr/bin/grep {{ domain }}.minio) ]]; then \
+      /bin/launchctl unload ~/Library/LaunchAgents/{{ domain }}.minio.plist && \
+      /bin/echo "STOPPING MINIO"; \
+    fi
+  register: launchctl_minio_unload_result
+  changed_when: "launchctl_minio_unload_result.stdout != ''"
+
+- name: Create Concourse Directory
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ ansible_ssh_user }}"
+    group: staff
+    mode: "u+rwx,go+rx"
+  with_items:
+    - ~/.local/share/minio
+    - /usr/local/var/log/minio
+
+- name: Prune Outdated Minio Darwin Binary
+  shell: |
+    if [[ -e /usr/local/bin/minio && \
+      $(/usr/local/bin/minio version | sed -n "1p") != "{{ minio_version }}" ]]; then \
+      rm -v /usr/local/bin/minio; \
+    fi
+  register: minio_binary_rm_result
+  changed_when: "minio_binary_rm_result.stdout != ''"
+
+- name: Install Minio Darwin Binary
+  get_url:
+    url: https://dl.minio.io/server/minio/release/darwin-amd64/minio
+    dest: /usr/local/bin/minio
+    mode: ugo+x,u+rw,g+r
+    validate_certs: False
+
+- name: Install Launchd Service
+  template:
+    src: ../templates/minio.plist.j2
+    dest: ~/Library/LaunchAgents/{{ domain }}.minio.web.plist
+
+- name: Start Minio
+  shell: |
+    /bin/launchctl load ~/Library/LaunchAgents/{{ domain }}.minio.plist && \
+    /bin/echo "STARTING MINIO"
+  register: launchctl_minio_load_result
+  changed_when: "launchctl_minio_load_result.stdout != ''"

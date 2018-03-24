@@ -1,0 +1,31 @@
+---
+- name: Update cache
+  apt:
+    update_cache: yes
+
+- name: Install software-properties-common
+  apt:
+    name: software-properties-common
+    state: present
+    autoclean: yes
+    autoremove: yes
+
+- name: Add repository
+  apt_repository:
+    repo: ppa:gophers/archive
+
+- name: Install Go
+  apt:
+    name: golang-{{ go_version }}-go
+    state: present
+    autoclean: yes
+    autoremove: yes
+
+- name: Create Symlink
+  file:
+    src: /usr/lib/go-{{ go_version }}/bin/{{ item }}
+    dest: /usr/local/bin/{{ item }}
+    state: link
+  with_items:
+    - go
+    - gofmt

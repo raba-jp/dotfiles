@@ -1,0 +1,55 @@
+---
+- name: Setup
+  hosts: all
+  connection: local
+  vars_files:
+    - vars/main.yml
+
+  vars_prompt:
+    - name: env
+      prompt: private or work
+      default: private
+      private: no
+    - name: mackerel_api_key
+      prompt: Mackerel API key
+      private: yes
+  roles:
+    - role: mac
+      tags:
+        - mac
+        - os
+      when: ansible_os_family == 'Darwin'
+    - role: ubuntu
+      tags:
+        - ubuntu
+        - os
+      when: ansible_os_family == 'Debian'
+    - role: commons
+      tags:
+        - commons
+    - role: ruby
+      tags:
+        - ruby
+        - language
+    - role: go
+      tags:
+        - go
+        - language
+    - role: python
+      tags:
+        - python
+        - language
+    - role: rust
+      tags:
+        - rust
+        - language
+    - role: node
+      tags:
+        - node
+        - language
+    - role: fish
+      tags:
+        - fish
+    - role: mackerel
+      tags:
+        - mackerel

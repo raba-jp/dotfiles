@@ -1,0 +1,2 @@
+---
+xdg_data_home: "{{ ansible_user_dir }}/.local/share"
