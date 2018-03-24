@@ -41,6 +41,7 @@ on_i = 1
 repo = 'autozimu/LanguageClient-neovim'
 build = 'bash install.sh'
 on_ft = ['javascript', 'typescript']
+on_i = 1
 hook_source = '''
   set hidden
   let g:LanguageClient_serverCommands = {
@@ -48,6 +49,12 @@ hook_source = '''
     \ 'typescript': ['javascript-typescript-stdio']
     \ }
 '''
+
+[[plugins]]
+repo = 'mhartington/nvim-typescript'
+on_i = 1
+on_ft = 'typescript'
+depends = 'deoplete.nvim'
 
 [[plugins]]
 repo = 'uplus/deoplete-solargraph'

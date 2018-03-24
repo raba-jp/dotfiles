@@ -53,3 +53,7 @@ if has('nvim')
     " TODO
   endif
 endif
+
+autocmd FileType *.py syntax keyword Special self
+" fallback
+" autocmd VimEnter,WinEnter *.py syntax keyword Special self

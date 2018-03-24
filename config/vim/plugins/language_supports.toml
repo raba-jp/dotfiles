@@ -33,6 +33,10 @@ hook_add = '''
     \ 'stdin': 1,
     \ }
   let g:neoformat_enabled_javascript = ['prettiereslint']
+  augroup fmt
+    autocmd!
+    autocmd BufWritePre *.js undojoin | Neoformat
+  augroup END
 '''
 
 ## Filetype auto change from context
