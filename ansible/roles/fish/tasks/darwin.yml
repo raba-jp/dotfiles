@@ -1,0 +1,6 @@
+---
+- name: Install fish shell
+  homebrew:
+    name: go
+    state: present
+    update_homebrew: yes

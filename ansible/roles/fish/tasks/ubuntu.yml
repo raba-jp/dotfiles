@@ -1,0 +1,15 @@
+---
+- name: Update cache
+  apt:
+    update_cache: yes
+
+- name: Add repository
+  apt_repository:
+    repo: ppa:fish-shell/release-2
+
+- name: Install fish shell
+  apt:
+    name: fish
+    state: present
+    autoclean: yes
+    autoremove: yes

@@ -1,0 +1,22 @@
+---
+resources:
+  - name: repository
+    type: git
+    source:
+      uri: https://github.com/raba-jp/OS_Setup
+  - name: dockerhub
+    type: docker-image
+    source:
+      repository: rabajp/os_setup
+      username: {{dockerhub_username}}
+      password: {{dockerhub_password}}
+
+jobs:
+  - name: build
+    plan:
+      - get: repository
+      - task: build
+        file: repository/ci/tasks/ubuntu_xenial.yml
+      - put: dockerhub
+        params:
+          build: workspace

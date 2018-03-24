@@ -1,0 +1,11 @@
+---
+python2_packages:
+  - neovim
+
+python3_packages:
+  - jupyterlab
+  - widgetsnbextension
+  - neovim
+  - pygments
+  - name: solargraph-utils.py
+    extra_args: --user

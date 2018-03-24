@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>{{ domain }}.minio</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/minio</string>
+        <string>server</string>
+        <string>{{ minio_storage_dir }}</string>
+    </array>
+    <key>StandardOutPath</key>
+    <string>{{ minio_stdout_log }}</string>
+    <key>StandardErrorPath</key>
+    <string>{{ minio_stderr_log }}</string>
+    <key>KeepAlive</key>
+    <true/>
+  </dict>
+</plist>

@@ -1,0 +1,9 @@
+{
+  "ApiKey": "",
+  "ServiceName": "Work",
+  "MetricPrefix": "work.activity.types",
+  "NameMapping": {
+    "slackmacapp": "Slack"
+  },
+  "PostIntervalMinutes": 1
+}

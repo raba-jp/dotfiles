@@ -1,0 +1,20 @@
+---
+- name: Clone dotfiles
+  git:
+    repo: https://github.com/raba-jp/dotfiles.git
+    dest: "{{ xdg_data_home }}/dotfiles"
+    update: no
+    accept_hostkey: yes
+
+- name: Clone git repository
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    accept_hostkey: yes
+  with_items: "{{ git_repositories }}"
+
+- name: Create Symlink
+  shell: |
+    rm -rf {{ item.dest }}; \
+    ln -s {{ item.src }} {{ item.dest }}
+  with_items: "{{ symlinks }}"

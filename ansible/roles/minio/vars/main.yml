@@ -1,0 +1,6 @@
+---
+domain: net.raba-jp
+minio_version: "Version: 2017-10-27T18:59:02Z"
+minio_storage_dir: /Users/sakuraba/.local/share/minio
+minio_stdout_log: /usr/local/var/log/minio/minio-stdout.log
+minio_stderr_log: /usr/local/var/log/minio/minio-stderr.log

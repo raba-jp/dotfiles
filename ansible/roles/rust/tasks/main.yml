@@ -1,0 +1,33 @@
+---
+- name: Already exist rust
+  shell: type rustc
+  register: is_exist_rust
+  changed_when: False
+  ignore_errors: True
+
+- name: Install rust by rustup
+  shell: |
+    CARGO_HOME=~/.local/share/cargo \
+    RUSTUP_HOME=~/.local/share/rustup \
+    bash -c 'curl https://sh.rustup.rs -sSf | sh -s -- -y'
+  when: is_exist_rust.rc != 0
+
+- name: Create Symlink
+  shell: |
+    rm -rf {{ item.dest }}; \
+    ln -s {{ item.src }} {{ item.dest }}
+  with_items:
+    - src: ~/.local/share/cargo/bin/cargo
+      dest: /usr/local/bin/cargo
+    - src: ~/.local/share/cargo/bin/rust-gdb
+      dest: /usr/local/bin/rust-gdb
+    - src: ~/.local/share/cargo/rustup
+      dest: /usr/local/bin/rustup
+    - src: ~/.local/share/cargo/bin/rls
+      dest: /usr/local/bin/rls
+    - src: ~/.local/share/cargo/bin/rust-lldb
+      dest: /usr/local/bin/rust-lldb
+    - src: ~/.local/share/cargo/bin/rustc
+      dest: /usr/local/bin/rustc
+    - src: ~/.local/share/cargo/bin/rustdoc
+      dest: /usr/local/bin/rustdoc

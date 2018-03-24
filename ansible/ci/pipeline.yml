@@ -1,0 +1,437 @@
+---
+resource_types:
+  - name: slack-notification
+    type: docker-image
+    source:
+      repository: cfcommunity/slack-notification-resource
+      tag: latest
+
+resources:
+  - name: repository
+    type: git
+    source:
+      uri: https://github.com/raba-jp/OS_Setup
+  - name: slack
+    type: slack-notification
+    source:
+      url: {{slack_webhook_url}}
+  - name: timer
+    type: time
+    source:
+      interval: 6h
+
+jobs:
+  - name: Ubuntu
+    plan:
+      - get: repository
+        trigger: true
+      - task: run
+        file: repository/ci/tasks/role.yml
+        params:
+          ROLE_NAME: ubuntu
+        on_failure:
+          put: slack
+          params:
+            channel: '#notification'
+            username: Concourse CI
+            icon_emoji: ":concourse:"
+            attachments:
+              - color: "#ff0000"
+                title: " $BUILD_TEAM_NAME/$BUILD_PIPELINE_NAME/$BUILD_JOB_NAME #$BUILD_NAME FAILED"
+                title_link: http://localhost:8080/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME
+                fields:
+                  - title: Team
+                    value: $BUILD_TEAM_NAME
+                    short: true
+                  - title: Pipeline
+                    value: $BUILD_PIPELINE_NAME
+                    short: true
+                  - title: Job Name
+                    value: $BUILD_JOB_NAME
+                    short: true
+                  - title: ID
+                    value: $BUILD_NAME
+                    short: true
+
+  - name: macOS
+    serial_groups: [ homebrew ]
+    plan:
+      - get: repository
+        trigger: true
+      - task: run
+        file: repository/ci/tasks/role_mac.yml
+        params:
+          ROLE_NAME: mac
+        on_failure:
+          put: slack
+          params:
+            channel: '#notification'
+            username: Concourse CI
+            icon_emoji: ":concourse:"
+            attachments:
+              - color: "#ff0000"
+                title: " $BUILD_TEAM_NAME/$BUILD_PIPELINE_NAME/$BUILD_JOB_NAME #$BUILD_NAME FAILED"
+                title_link: http://localhost:8080/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME
+                fields:
+                  - title: Team
+                    value: $BUILD_TEAM_NAME
+                    short: true
+                  - title: Pipeline
+                    value: $BUILD_PIPELINE_NAME
+                    short: true
+                  - title: Job Name
+                    value: $BUILD_JOB_NAME
+                    short: true
+                  - title: ID
+                    value: $BUILD_NAME
+                    short: true
+
+  - name: Go
+    serial_groups: [ homebrew ]
+    plan:
+      - get: repository
+        trigger: true
+      - aggregate:
+        - task: Mac
+          file: repository/ci/tasks/role_mac.yml
+          params:
+            ROLE_NAME: go
+        - task: Ubuntu 16.04
+          file: repository/ci/tasks/role.yml
+          params:
+            ROLE_NAME: go
+        on_failure:
+          put: slack
+          params:
+            channel: '#notification'
+            username: Concourse CI
+            icon_emoji: ":concourse:"
+            attachments:
+              - color: "#ff0000"
+                title: " $BUILD_TEAM_NAME/$BUILD_PIPELINE_NAME/$BUILD_JOB_NAME #$BUILD_NAME FAILED"
+                title_link: http://localhost:8080/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME
+                fields:
+                  - title: Team
+                    value: $BUILD_TEAM_NAME
+                    short: true
+                  - title: Pipeline
+                    value: $BUILD_PIPELINE_NAME
+                    short: true
+                  - title: Job Name
+                    value: $BUILD_JOB_NAME
+                    short: true
+                  - title: ID
+                    value: $BUILD_NAME
+                    short: true
+
+  - name: Python
+    serial_groups: [ homebrew ]
+    plan:
+      - get: repository
+        trigger: true
+      - aggregate:
+        - task: Mac
+          file: repository/ci/tasks/role_mac.yml
+          params:
+            ROLE_NAME: python
+        - task: Ubuntu 16.04
+          file: repository/ci/tasks/role.yml
+          params:
+            ROLE_NAME: python
+        on_failure:
+          put: slack
+          params:
+            channel: '#notification'
+            username: Concourse CI
+            icon_emoji: ":concourse:"
+            attachments:
+              - color: "#ff0000"
+                title: " $BUILD_TEAM_NAME/$BUILD_PIPELINE_NAME/$BUILD_JOB_NAME #$BUILD_NAME FAILED"
+                title_link: http://localhost:8080/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME
+                fields:
+                  - title: Team
+                    value: $BUILD_TEAM_NAME
+                    short: true
+                  - title: Pipeline
+                    value: $BUILD_PIPELINE_NAME
+                    short: true
+                  - title: Job Name
+                    value: $BUILD_JOB_NAME
+                    short: true
+                  - title: ID
+                    value: $BUILD_NAME
+                    short: true
+
+  - name: Ruby
+    plan:
+      - get: repository
+        trigger: true
+      - aggregate:
+        - task: Mac
+          file: repository/ci/tasks/role_mac.yml
+          params:
+            ROLE_NAME: ruby
+        - task: Ubuntu 16.04
+          file: repository/ci/tasks/role.yml
+          params:
+            ROLE_NAME: ruby
+        on_failure:
+          put: slack
+          params:
+            channel: '#notification'
+            username: Concourse CI
+            icon_emoji: ":concourse:"
+            attachments:
+              - color: "#ff0000"
+                title: " $BUILD_TEAM_NAME/$BUILD_PIPELINE_NAME/$BUILD_JOB_NAME #$BUILD_NAME FAILED"
+                title_link: http://localhost:8080/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME
+                fields:
+                  - title: Team
+                    value: $BUILD_TEAM_NAME
+                    short: true
+                  - title: Pipeline
+                    value: $BUILD_PIPELINE_NAME
+                    short: true
+                  - title: Job Name
+                    value: $BUILD_JOB_NAME
+                    short: true
+                  - title: ID
+                    value: $BUILD_NAME
+                    short: true
+
+  - name: Rust
+    plan:
+      - get: repository
+        trigger: true
+      - aggregate:
+        - task: Mac
+          file: repository/ci/tasks/role_mac.yml
+          params:
+            ROLE_NAME: rust
+        - task: Ubuntu 16.04
+          file: repository/ci/tasks/role.yml
+          params:
+            ROLE_NAME: rust
+        on_failure:
+          put: slack
+          params:
+            channel: '#notification'
+            username: Concourse CI
+            icon_emoji: ":concourse:"
+            attachments:
+              - color: "#ff0000"
+                title: " $BUILD_TEAM_NAME/$BUILD_PIPELINE_NAME/$BUILD_JOB_NAME #$BUILD_NAME FAILED"
+                title_link: http://localhost:8080/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME
+                fields:
+                  - title: Team
+                    value: $BUILD_TEAM_NAME
+                    short: true
+                  - title: Pipeline
+                    value: $BUILD_PIPELINE_NAME
+                    short: true
+                  - title: Job Name
+                    value: $BUILD_JOB_NAME
+                    short: true
+                  - title: ID
+                    value: $BUILD_NAME
+                    short: true
+
+  - name: Node.js
+    plan:
+      - get: repository
+        trigger: true
+      - aggregate:
+        - task: Mac
+          file: repository/ci/tasks/role_mac.yml
+          params:
+            ROLE_NAME: node
+        - task: Ubuntu 16.04
+          file: repository/ci/tasks/role.yml
+          params:
+            ROLE_NAME: node
+        on_failure:
+          put: slack
+          params:
+            channel: '#notification'
+            username: Concourse CI
+            icon_emoji: ":concourse:"
+            attachments:
+              - color: "#ff0000"
+                title: " $BUILD_TEAM_NAME/$BUILD_PIPELINE_NAME/$BUILD_JOB_NAME #$BUILD_NAME FAILED"
+                title_link: http://localhost:8080/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME
+                fields:
+                  - title: Team
+                    value: $BUILD_TEAM_NAME
+                    short: true
+                  - title: Pipeline
+                    value: $BUILD_PIPELINE_NAME
+                    short: true
+                  - title: Job Name
+                    value: $BUILD_JOB_NAME
+                    short: true
+                  - title: ID
+                    value: $BUILD_NAME
+                    short: true
+
+  - name: fish
+    serial_groups: [ homebrew ]
+    plan:
+      - get: repository
+        trigger: true
+      - aggregate:
+        - task: Mac
+          file: repository/ci/tasks/role_mac.yml
+          params:
+            ROLE_NAME: fish
+        - task: Ubuntu 16.04
+          file: repository/ci/tasks/role.yml
+          params:
+            ROLE_NAME: fish
+        on_failure:
+          put: slack
+          params:
+            channel: '#notification'
+            username: Concourse CI
+            icon_emoji: ":concourse:"
+            attachments:
+              - color: "#ff0000"
+                title: " $BUILD_TEAM_NAME/$BUILD_PIPELINE_NAME/$BUILD_JOB_NAME #$BUILD_NAME FAILED"
+                title_link: http://localhost:8080/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME
+                fields:
+                  - title: Team
+                    value: $BUILD_TEAM_NAME
+                    short: true
+                  - title: Pipeline
+                    value: $BUILD_PIPELINE_NAME
+                    short: true
+                  - title: Job Name
+                    value: $BUILD_JOB_NAME
+                    short: true
+                  - title: ID
+                    value: $BUILD_NAME
+                    short: true
+
+  - name: Minio
+    plan:
+      - get: repository
+        trigger: true
+      - task: Mac
+        file: repository/ci/tasks/role_mac.yml
+        params:
+          ROLE_NAME: minio
+        on_failure:
+          put: slack
+          params:
+            channel: '#notification'
+            username: Concourse CI
+            icon_emoji: ":concourse:"
+            attachments:
+              - color: "#ff0000"
+                title: " $BUILD_TEAM_NAME/$BUILD_PIPELINE_NAME/$BUILD_JOB_NAME #$BUILD_NAME FAILED"
+                title_link: http://localhost:8080/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME
+                fields:
+                  - title: Team
+                    value: $BUILD_TEAM_NAME
+                    short: true
+                  - title: Pipeline
+                    value: $BUILD_PIPELINE_NAME
+                    short: true
+                  - title: Job Name
+                    value: $BUILD_JOB_NAME
+                    short: true
+                  - title: ID
+                    value: $BUILD_NAME
+                    short: true
+
+  - name: commons
+    plan:
+      - get: repository
+        trigger: true
+      - task: run
+        file: repository/ci/tasks/role.yml
+        params:
+          ROLE_NAME: commons
+        on_failure:
+          put: slack
+          params:
+            channel: '#notification'
+            username: Concourse CI
+            icon_emoji: ":concourse:"
+            attachments:
+              - color: "#ff0000"
+                title: " $BUILD_TEAM_NAME/$BUILD_PIPELINE_NAME/$BUILD_JOB_NAME #$BUILD_NAME FAILED"
+                title_link: http://localhost:8080/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME
+                fields:
+                  - title: Team
+                    value: $BUILD_TEAM_NAME
+                    short: true
+                  - title: Pipeline
+                    value: $BUILD_PIPELINE_NAME
+                    short: true
+                  - title: Job Name
+                    value: $BUILD_JOB_NAME
+                    short: true
+                  - title: ID
+                    value: $BUILD_NAME
+                    short: true
+  - name: All
+    serial_groups: [ homebrew ]
+    plan:
+      - get: repository
+        passed:
+          - Ubuntu
+          - macOS
+          - Go
+          - Python
+          - Rust
+          - Ruby
+          - Node.js
+          - fish
+          - Minio
+          - commons
+      - get: timer
+        trigger: true
+      - aggregate:
+        - task: darwin
+          file: repository/ci/tasks/main_darwin.yml
+        - task: ubuntu
+          file: repository/ci/tasks/main_ubuntu.yml
+      - put: slack
+        params:
+          channel: '#notification'
+          username: Concourse CI
+          icon_emoji: ":concourse:"
+          attachments:
+            - color: "#00ff00"
+              title: " $BUILD_TEAM_NAME/$BUILD_PIPELINE_NAME/$BUILD_JOB_NAME #$BUILD_NAME COMPLETE"
+              title_link: http://localhost:8080/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME
+              fields:
+                - title: Team
+                  value: $BUILD_TEAM_NAME
+                  short: true
+                - title: Pipeline
+                  value: $BUILD_PIPELINE_NAME
+                  short: true
+        on_failure:
+          put: slack
+          params:
+            channel: '#notification'
+            username: Concourse CI
+            icon_emoji: ":concourse:"
+            attachments:
+              - color: "#ff0000"
+                title: " $BUILD_TEAM_NAME/$BUILD_PIPELINE_NAME/$BUILD_JOB_NAME #$BUILD_NAME FAILED"
+                title_link: http://localhost:8080/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME
+                fields:
+                  - title: Team
+                    value: $BUILD_TEAM_NAME
+                    short: true
+                  - title: Pipeline
+                    value: $BUILD_PIPELINE_NAME
+                    short: true
+                  - title: Job Name
+                    value: $BUILD_JOB_NAME
+                    short: true
+                  - title: ID
+                    value: $BUILD_NAME
+                    short: true

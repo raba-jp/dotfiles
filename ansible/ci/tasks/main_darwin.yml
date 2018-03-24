@@ -1,0 +1,12 @@
+---
+platform: darwin
+inputs:
+  - name: repository
+run:
+  path: /bin/bash
+  dir: repository
+  args:
+    - -c
+    - |
+      export PATH=/usr/local/bin:$PATH
+      ansible-playbook -i inventory main.yml
