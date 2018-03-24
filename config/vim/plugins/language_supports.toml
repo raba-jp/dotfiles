@@ -40,12 +40,25 @@ hook_add = '''
 '''
 
 ## Filetype auto change from context
-[[plugins]]
-repo = 'Shougo/context_filetype.vim'
-
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = 'Shougo/context_filetype.vim'
+#[[plugins]]
+#repo = 'Shougo/context_filetype.vim'
+#
+#[[plugins]]
+#repo = 'osyo-manga/vim-precious'
+#depends = 'Shougo/context_filetype.vim'
+#hook_source = '''
+#let g:precious_enable_switch_CursorMoved = {
+#  \ '*' : 0
+#  \ }
+#let g:precious_enable_switch_CursorMoved_i = {
+#  \ '*' : 0
+#  \ }
+#augroup ContextFileType
+#  autocmd!
+#  autocmd ContextFileType InsertEnter * :PreciousSwitch
+#  autocmd ContextFileType InsertLeave * :PreciousReset
+#augroup END
+#'''
 
 ## Ruby
 [[plugins]]
