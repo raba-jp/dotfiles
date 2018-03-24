@@ -40,13 +40,12 @@ on_i = 1
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 build = 'bash install.sh'
-on_ft = ['javascript', 'typescript']
 on_i = 1
+on_ft = 'vue'
 hook_source = '''
   set hidden
   let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio']
+    \ 'vue': ['vls']
     \ }
 '''
 
