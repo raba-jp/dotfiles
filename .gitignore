@@ -12,3 +12,4 @@ config/fisherman
 config/fish/conf.d
 config/fish/fishd.*
 config/yarn
+config/configstore
