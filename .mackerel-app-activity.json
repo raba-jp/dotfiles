@@ -1,0 +1,25 @@
+{
+  "ApiKey": "",
+  "ServiceName": "client",
+  "MetricPrefix": "work.",
+  "NameMapping": {
+    "slackmacgap": "Slack",
+    "HyperSwitch": "",
+    "Java-Updater": "",
+    "alacritty": "Terminal",
+    "iterm2": "Terminal",
+    "finder": "Finder",
+    "trello": "Trello",
+    "inkdrop": "Inkdrop",
+    "dashdoc": "Dash",
+    "firefox": "FireFox",
+    "kitty": "Terminal",
+    "onepassword-osx": "1Password",
+    "onepassword-osx-helper": "1Password",
+    "loginwindow": "",
+    "mac": "",
+    "systempreferences": "",
+    "cmd": ""
+  },
+  "PostIntervalMinutes": 1
+}

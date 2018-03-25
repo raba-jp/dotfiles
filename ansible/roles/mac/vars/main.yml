@@ -7,6 +7,8 @@ homebrew_taps:
   - go-delve/delve
   - c-bata/kube-prompt
   - wata727/tflint
+  - mackerelio/mackerel-agent
+  - aereal/mackerelappactivity
 
 homebrew_packages:
   - bash-completion
@@ -27,6 +29,7 @@ homebrew_packages:
   - jq
   - kube-prompt
   - kubernetes-helm
+  - mackerel-agent
   - nkf
   - less
   - neovim
@@ -61,6 +64,7 @@ homebrew_cask_packages:
   - hyperswitch
   - inkdrop
   - kitty
+  - mackerelappactivity
   - mplayerx
   - music-manager
   - quicklook-csv
