@@ -1,9 +1,0 @@
----
-- name: Run role
-  hosts: all
-  connection: local
-  vars_files:
-    - ../../vars/main.yml
-    - ../../roles/{{ role_name }}/vars/main.yml
-  tasks:
-    - include_tasks: ../../roles/{{ role_name }}/tasks/main.yml
