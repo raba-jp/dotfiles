@@ -10,9 +10,6 @@
       prompt: private or work
       default: private
       private: no
-    - name: mackerel_api_key
-      prompt: Mackerel API key
-      private: yes
   roles:
     - role: mac
       tags:
@@ -50,6 +47,3 @@
     - role: fish
       tags:
         - fish
-    - role: mackerel
-      tags:
-        - mackerel
