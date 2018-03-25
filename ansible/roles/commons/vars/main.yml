@@ -18,3 +18,5 @@ symlinks:
     dest: "{{ ansible_user_dir }}/.sshrc.d"
   - src:  "{{ xdg_data_home }}/dotfiles/hammerspoon"
     dest: "{{ ansible_user_dir }}/.hammerspoon"
+  - src:  "{{ xdg_data_home }}/dotfiles/.mackerel-app-activity.json"
+    dest: "{{ ansible_user_dir }}/.mackerel-app-activity.json"
