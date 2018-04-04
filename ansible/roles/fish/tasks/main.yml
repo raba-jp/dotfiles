@@ -18,3 +18,12 @@
   shell: fish --command 'set --universal fish_user_paths {{ item }} $fish_user_paths'
   changed_when: False
   with_items: "{{ paths }}"
+
+- name: Check install fisherman
+  shell: type fisher
+  register: exist_fisherman
+  failed_when: False
+
+- name: Install fisherman
+  shell: curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+  when: exist_fisherman.rc != 0
