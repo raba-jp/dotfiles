@@ -12,7 +12,7 @@ setup() {
 		git clone https://github.com/raba-jp/dotfiles $dotfiles_dir
 	fi
 	cd $dotfiles_dir
-	ansible-playbook ansible/inventory ansible/main.yml
+	ansible-playbook -i ansible/inventory ansible/main.yml
 }
 
 setup
