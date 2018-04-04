@@ -10,6 +10,8 @@ alias cp 'cp -i'
 alias mv 'mv -i'
 alias rm 'rm -i'
 alias repo '__select_repository'
+alias code '__search_source_code'
+alias ccode '__continuous_search_source_code'
 alias reload 'source $XDG_CONFIG_HOME/fish/config.fish'
 alias reload-tmux 'tmux source $XDG_CONFIG_HOME/tmux/tmux.conf'
 alias kill '__process_kill'
@@ -20,6 +22,8 @@ alias tree 'exa --tree'
 # Keybind
 function fish_user_key_bindings
     bind \cr __select_history
+    bind \cg __select_repository
+    bind \cf __search_from_filename
     bind \ck up-or-search
     bind \cj down-or-search
     bind \ch backward-char
