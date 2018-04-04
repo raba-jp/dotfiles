@@ -1,11 +1,4 @@
 ---
-- name: Clone dotfiles
-  git:
-    repo: https://github.com/raba-jp/dotfiles.git
-    dest: "{{ xdg_data_home }}/dotfiles"
-    update: no
-    accept_hostkey: yes
-
 - name: Clone git repository
   git:
     repo: "{{ item.repo }}"
