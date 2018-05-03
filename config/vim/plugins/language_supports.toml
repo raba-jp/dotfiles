@@ -35,7 +35,7 @@ hook_add = '''
   let g:neoformat_enabled_javascript = ['prettiereslint']
   augroup fmt
     autocmd!
-    autocmd BufWritePre *.js undojoin | Neoformat
+    autocmd BufWritePre * undojoin | Neoformat
   augroup END
 '''
 
@@ -59,6 +59,22 @@ hook_add = '''
 #  autocmd ContextFileType InsertLeave * :PreciousReset
 #augroup END
 #'''
+
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+hook_source = '''
+  let g:ruby_indent_access_modifier_style = 'normal'
+  let g:ruby_indent_block_style = 'do'
+  let g:ruby_indent_assignment_style = 'hanging'
+
+  let g:terraform_align = 1
+  let g:terraform_fmt_on_save = 1
+
+  augroup vimrc_loading
+    autocmd!
+    au BufRead,BufNewFile,BufReadPre *.jade set filetype=pug
+  augroup END
+'''
 
 ## Ruby
 [[plugins]]
