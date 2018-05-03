@@ -9,6 +9,7 @@ homebrew_taps:
   - wata727/tflint
   - mackerelio/mackerel-agent
   - aereal/mackerelappactivity
+  - drone/drone
 
 homebrew_packages:
   - bash-completion
@@ -18,6 +19,7 @@ homebrew_packages:
   - cargo-completion
   - ctags
   - docker-compose-completion
+  - drone
   - exa
   - fd
   - fish
