@@ -63,3 +63,4 @@ nnoremap <TAB> $
 nnoremap <S-TAB> 0
 
 nnoremap x "_x
+vnoremap p "_dP
