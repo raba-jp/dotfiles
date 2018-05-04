@@ -39,6 +39,7 @@ homebrew_packages:
   - pip-completion
   - rails-completion
   - rake-completion
+  - rg
   - ruby-completion
   - reattach-to-user-namespace
   - rustc-completion
