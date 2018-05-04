@@ -21,6 +21,7 @@ alias tree 'exa --tree'
 alias dot 'cd $HOME/.local/share/dotfiles'
 alias grep 'rg'
 alias find 'fd'
+alias branch '__select_git_branch'
 
 # Keybind
 function fish_user_key_bindings
