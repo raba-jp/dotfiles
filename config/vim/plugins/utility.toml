@@ -28,7 +28,6 @@ hook_source = '''
 repo = 'kassio/neoterm'
 if = "has('nvim')"
 hook_source = '''
-  let g:neoterm_position = 'horizontal'
   let g:neoterm_automap_keys = ',tt'
   nnoremap <silent> ,th :call neoterm#close()<cr>
   nnoremap <silent> ,tl :call neoterm#clear()<cr>
