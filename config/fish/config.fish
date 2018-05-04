@@ -18,6 +18,7 @@ alias kill '__process_kill'
 alias force-kill '__force_process_kill'
 alias search-source '__search_source_code'
 alias tree 'exa --tree'
+alias dot 'cd $HOME/.local/share/dotfiles'
 
 # Keybind
 function fish_user_key_bindings
@@ -37,7 +38,7 @@ function done_enter --on-event fish_postexec
 end
 
 function peco_ssh
-  awk '
+    awk '
     tolower($1)=="host" {
       for(i=2;i<=NF; i++) {
         if ($i !~ "[*?]") {
@@ -46,15 +47,15 @@ function peco_ssh
       }
     }
   ' ~/.ssh/config | sort | peco | read -l hostname
-  if test -n "$hostname"
-    command ssh $hostname
-  end
+    if test -n "$hostname"
+        command ssh $hostname
+    end
 end
 alias ssh "peco_ssh"
 
 function setup_solargraph
-  yard gems
-  yard config --gem-install-yri
+    yard gems
+    yard config --gem-install-yri
 end
 
 [ (uname) = 'Darwin' ]

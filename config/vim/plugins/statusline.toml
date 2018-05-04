@@ -12,12 +12,12 @@ hook_add = '''
     \   'left': [
     \     ['mode', 'paste'],
     \     ['filename', 'denite_source'],
-    \     ['lineinfo']
+    \     []
     \   ],
     \   'right': [
-    \     [],
-    \     [],
-    \     ['ale_error', 'ale_warning', 'ale_ok', 'filetype'],
+    \     ['filetype'],
+    \     ['lineinfo'],
+    \     ['ale_error', 'ale_warning', 'ale_ok'],
     \   ]
     \ },
     \ 'component_function_visible_condition': {
