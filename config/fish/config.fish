@@ -19,6 +19,8 @@ alias force-kill '__force_process_kill'
 alias search-source '__search_source_code'
 alias tree 'exa --tree'
 alias dot 'cd $HOME/.local/share/dotfiles'
+alias grep 'rg'
+alias find 'fd'
 
 # Keybind
 function fish_user_key_bindings
