@@ -1,0 +1,19 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "Use Right Command as Kana, Left Command as English.",
+    "doc": "Use Right Command as Kana, Left Command as English.",
+    "items": [],
+    "name": "CMDKanaEng",
+    "stripped_doc": "",
+    "submodules": [],
+    "type": "Module"
+  }
+]
