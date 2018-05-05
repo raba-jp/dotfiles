@@ -22,33 +22,33 @@ local eisuu = 0x66
 local kana = 0x68
 
 local function jp()
-	hs.eventtap.keyStroke({}, kana)
+    hs.eventtap.keyStroke({}, kana)
 end
 
 local function eng()
-	hs.eventtap.keyStroke({}, eisuu)
+    hs.eventtap.keyStroke({}, eisuu)
 end
 
 local function handleEvent(e)
-	local keyCode = e:getKeyCode()
-	if keyCode == escape then
-		eng()
-	end
+    local keyCode = e:getKeyCode()
+    if keyCode == escape then
+        eng()
+    end
 
 
-	local isCmdKeyUp = not(e:getFlags()['cmd']) and e:getType() == hs.eventtap.event.types.flagsChanged
-	if isCmdKeyUp and prevKeyCode == leftCommand then
-		eng()
-	elseif isCmdKeyUp and prevKeyCode == rightCommand then
-		jp()
-	end
+    local isCmdKeyUp = not(e:getFlags()['cmd']) and e:getType() == hs.eventtap.event.types.flagsChanged
+    if isCmdKeyUp and prevKeyCode == leftCommand then
+        eng()
+    elseif isCmdKeyUp and prevKeyCode == rightCommand then
+        jp()
+    end
 
-	prevKeyCode = keyCode
+    prevKeyCode = keyCode
 end
 
 function obj:init()
-	eventtap = hs.eventtap.new({hs.eventtap.event.types.flagsChanged, hs.eventtap.event.types.keyDown, hs.eventtap.event.types.keyUp}, handleEvent)
-	eventtap:start()
+    eventtap = hs.eventtap.new({hs.eventtap.event.types.flagsChanged, hs.eventtap.event.types.keyDown, hs.eventtap.event.types.keyUp}, handleEvent)
+    eventtap:start()
 end
 
 return obj
