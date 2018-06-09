@@ -35,7 +35,7 @@ hook_add = '''
   let g:neoformat_enabled_javascript = ['prettiereslint']
   augroup fmt
     autocmd!
-    autocmd BufWritePre * undojoin | Neoformat
+    autocmd BufWritePre *.go undojoin | Neoformat
   augroup END
 '''
 
@@ -62,7 +62,10 @@ hook_add = '''
 
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
-hook_source = '''
+hook_add = '''
+  let g:jsx_ext_required = 1
+  let g:polyglot_disabled = ['jsx', 'cjsx']
+
   let g:ruby_indent_access_modifier_style = 'normal'
   let g:ruby_indent_block_style = 'do'
   let g:ruby_indent_assignment_style = 'hanging'
