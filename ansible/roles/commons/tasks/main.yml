@@ -6,8 +6,9 @@
     accept_hostkey: yes
   with_items: "{{ git_repositories }}"
 
-- name: Create Symlink
-  shell: |
-    rm -rf {{ item.dest }}; \
-    ln -s {{ item.src }} {{ item.dest }}
+- name: Create symbolic link
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
   with_items: "{{ symlinks }}"
