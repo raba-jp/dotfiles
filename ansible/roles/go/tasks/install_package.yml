@@ -5,7 +5,6 @@
   register: installed
   ignore_errors: True
 
-  
 - name: Install package
   shell: "go get -u {{ item.uri }}"
   environment:
@@ -13,5 +12,5 @@
   when: not installed.stat.exists
 
 - name: After command
-  shell: "{{ item.command | default(":") }}"
+  shell: "{{ item.command | default(':') }}"
   when: not installed.stat.exists
