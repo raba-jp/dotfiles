@@ -18,6 +18,7 @@ homebrew_packages:
   - bundler-completion
   - cargo-completion
   - ctags
+  - docker-completion
   - docker-compose-completion
   - drone
   - exa
@@ -51,7 +52,9 @@ homebrew_packages:
   - tig
   - tmux
   - tree
+  - vagrant-completion
   - wget
+  - zsh-completion
 
 homebrew_cask_packages:
   - alfred
