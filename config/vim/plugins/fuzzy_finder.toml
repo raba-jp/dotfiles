@@ -13,7 +13,7 @@ hook_add = '''
   nnoremap <silent> <Leader>d :<C-u>Denite file_mru
     \ -no-statusline
     \ -smartcase<CR>
-  nnoremap <silent> <Leader>j :<C-u>Denite buffer
+  nnoremap <silent> <Leader>h :<C-u>Denite buffer
     \ -no-statusline
     \ -smartcase<CR>
   nnoremap <silent> <Leader>g :<C-u>Denite grep
