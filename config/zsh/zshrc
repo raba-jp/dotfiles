@@ -1,27 +1,16 @@
-# FPATH
-fpath=(
-  $ZDOTDIR/functions
-  $ZDOTDIR/completion
-  $fpath
-)
-
 # ENV
-if [ -d $GCPPATH ]; then
-  source $GCPPATH/path.zsh.inc
+[ -d $GCPPATH ] && \
+  source $GCPPATH/path.zsh.inc && \
   source $GCPPATH/completion.zsh.inc
-fi
 
 # Completion
 source $ZDOTDIR/completion/_gcloud
 
 # Auto compile
-if [ ! -f $XDG_CONFIG_HOME/zsh/.zshrc.zwc -o $XDG_CONFIG_HOME/zsh/.zshrc -nt $XDG_CONFIG_HOME/zsh/.zshrc.zwc ]; then
-   zcompile $XDG_CONFIG_HOME/zsh/.zshrc
-fi
+[ ! -f $HOME/.zshrc.zwc -o $HOME/.zshrc -nt $HOME/.zshrc.zwc ] && zcompile $HOME/.zshrc
 
 # Plugins
-source $ZPLUG_HOME/init.zsh
-zplug load
+source $ZPLUG_HOME/init.zsh && zplug load
 
 # Options
 setopt auto_menu
@@ -30,7 +19,7 @@ setopt no_beep
 setopt print_eight_bit
 
 # History options
-HISTFILE=$XDG_CACHE_HOME/zsh/history
+HISTFILE=$XDG_CACHE_HOME/zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 setopt correct
