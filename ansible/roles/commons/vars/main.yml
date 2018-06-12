@@ -20,3 +20,7 @@ symlinks:
     dest: "{{ ansible_user_dir }}/.hammerspoon"
   - src:  "{{ xdg_data_home }}/dotfiles/.mackerel-app-activity.json"
     dest: "{{ ansible_user_dir }}/.mackerel-app-activity.json"
+  - src:  "{{ xdg_data_home }}/dotfiles/config/zsh/zshrc"
+    dest: "{{ ansible_user_dir }}/.zshrc"
+  - src:  "{{ xdg_data_home }}/dotfiles/config/zsh/zshenv"
+    dest: "{{ ansible_user_dir }}/.zshenv"

@@ -5,11 +5,6 @@
   vars_files:
     - vars/main.yml
 
-  vars_prompt:
-    - name: env
-      prompt: private or work
-      default: private
-      private: no
   roles:
     - role: mac
       tags:
@@ -47,3 +42,6 @@
     - role: fish
       tags:
         - fish
+    - role: zsh
+      tags:
+        - zsh
