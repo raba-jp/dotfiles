@@ -1,8 +1,8 @@
 ---
 homebrew_taps:
   - homebrew/services
-  - caskroom/cask
-  - caskroom/fonts
+  - homebrew/cask
+  - homebrew/cask-fonts
   - neovim/neovim
   - go-delve/delve
   - c-bata/kube-prompt
