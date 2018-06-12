@@ -1,10 +1,9 @@
 #!/bin/bash
 
 set -e
-set -u
 
 
-setup_mac() {
+init_mac() {
 	if [ "$(uname)" == 'Darwin' ]; then
 		## Mac
 		echo "Setup for Mac"
@@ -14,7 +13,7 @@ setup_mac() {
 	fi
 }
 
-setup_debian() {
+init_debian() {
 	if   [ -e /etc/debian_version ] || [ -e /etc/debian_release ]; then
 		# Check Ubuntu or Debian
 		if [ -e /etc/lsb-release ]; then
@@ -31,7 +30,7 @@ setup_debian() {
 	fi
 }
 
-setup_redhat() {
+init_redhat() {
 	if [ -e /etc/fedora-release ]; then
 		# Fedra
 		echo "Setup for Fedora"
@@ -49,7 +48,7 @@ setup_redhat() {
 	fi
 }
 
-setup_arch() {
+init_arch() {
 	if [ -e /etc/arch-release ]; then
 		# Arch Linux
 		echo "Setup for Arch Linux"
@@ -57,7 +56,7 @@ setup_arch() {
 	fi
 }
 
-setup_suse() {
+init_suse() {
 	if [ -e /etc/SuSE-release ]; then
 		# OpenSUSE
 		echo "Setup for OpenSUSE"
@@ -65,7 +64,7 @@ setup_suse() {
 	fi
 }
 
-setup_mandriva() {
+init_mandriva() {
 	if [ -e /etc/mandriva-release ]; then
 		# Mandriva Linux
 		echo "Setup for Mandriva Linux"
@@ -73,7 +72,7 @@ setup_mandriva() {
 	fi
 }
 
-setup_gentoo() {
+init_gentoo() {
 	if [ -e /etc/gentoo-release ]; then
 		# Gentoo Linux
 		echo "Setup for Gentoo Linux"
@@ -81,25 +80,29 @@ setup_gentoo() {
 	fi
 }
 
-setup_common() {
+setup() {
 	local dotfiles_dir=$HOME/.local/share/dotfiles
 	if [ ! -e $dotfiles_dir ]; then
 		git clone https://github.com/raba-jp/dotfiles $dotfiles_dir
 	fi
 	cd $dotfiles_dir
-	ansible-playbook -i ansible/inventory ansible/main.yml
+	if [ $# -eq 1 ]; then
+		ansible-playbook -i ansible/inventory ansible/main.yml --tags $1
+	else
+		ansible-playbook -i ansible/inventory ansible/main.yml
+	fi
 }
 
-setup() {
-	setup_mac
-	setup_debian
-	setup_redhat
-	setup_arch
-	setup_arch
-	setup_suse
-	setup_mandriva
-	setup_gentoo
-	setup_common
+init() {
+	init_mac
+	init_debian
+	init_redhat
+	init_arch
+	init_arch
+	init_suse
+	init_mandriva
+	init_gentoo
 }
 
-setup
+init
+setup $1
