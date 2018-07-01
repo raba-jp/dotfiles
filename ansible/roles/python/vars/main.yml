@@ -9,3 +9,4 @@ python3_packages:
   - pygments
   - name: solargraph-utils.py
     extra_args: --user
+  - python-language-server

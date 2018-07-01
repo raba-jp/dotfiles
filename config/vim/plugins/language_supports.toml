@@ -1,3 +1,71 @@
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = 'has("python3")'
+hook_add = '''
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_complete_delay = 0
+  let g:deoplete#auto_complete_start_length = 1
+  let g:deoplete#enable_smart_case = 1
+  inoremap <expr><tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
+      \ "\<tab>"
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+  inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function() abort
+    return deoplete#close_popup() . "\<CR>"
+  endfunction
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+on_i  = 1
+on_ft = 'snippet'
+depends = ['neosnippet-snippets']
+hook_add = '''
+  imap <C-n> <Plug>(neosnippet_expand_or_jump)
+  smap <C-n> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-n> <Plug>(neosnippet_expand_target)
+  if has('conceal')
+    set conceallevel=2 concealcursor=niv
+  endif
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_i = 1
+
+## Language Server Protocol
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+build = 'bash install.sh'
+on_ft = ['javascript', 'typescript', 'ruby', 'go', 'python']
+hook_add = '''
+  set hidden
+  let g:LanguageClient_serverCommands = {
+    \ 'vue': ['vls'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
+    \ 'ruby': ['tcp://127.0.0.1:7658'],
+    \ 'go': ['go-langserver', '-gocodecompletion'],
+    \ 'python': ['pyls'],
+    \ }
+'''
+
+[[plugins]]
+repo = 'ponko2/deoplete-fish'
+on_ft = 'fish'
+on_i = 1
+depends = 'deoplete.nvim'
+
+[[plugins]]
+repo = 'Shougo/neco-vim'
+on_ft = 'vim'
+on_i = 1
+depends = 'deoplete.nvim'
+
 ## Lint Engine
 [[plugins]]
 repo = 'w0rp/ale'
@@ -27,16 +95,12 @@ hook_add = '''
 [[plugins]]
 repo = 'sbdchd/neoformat'
 hook_add = '''
-  let g:neoformat_javascript_prettiereslint = {
-    \ 'exe': './node_modules/.bin/prettier-eslint',
-    \ 'args': ['--stdin', '--no-semi', '--single-quote'],
-    \ 'stdin': 1,
-    \ }
-  let g:neoformat_enabled_javascript = ['prettiereslint']
-  augroup fmt
-    autocmd!
-    autocmd BufWritePre *.go undojoin | Neoformat
-  augroup END
+  let g:neoformat_enabled_ruby = ['rufo', 'rubocop']
+  let g:neoformat_enabled_go = ['gofmt', 'goimports']
+  let g:neoformat_enabled_javascript = ['prettier']
+  let g:neoformat_enabled_python = ['yapf', 'isort']
+
+  nnoremap <Space><Space> :Neoformat<CR>
 '''
 
 ## Filetype auto change from context
