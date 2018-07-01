@@ -18,3 +18,5 @@ go_packages:
     uri: github.com/k0kubun/pp
   - name: godoc
     uri: golang.org/x/tools/cmd/godoc
+  - name: go-langserver
+    uri: github.com/sourcegraph/go-langserver
