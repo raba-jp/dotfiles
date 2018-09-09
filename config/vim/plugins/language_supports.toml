@@ -99,6 +99,7 @@ hook_add = '''
   let g:neoformat_enabled_go = ['gofmt', 'goimports']
   let g:neoformat_enabled_javascript = ['prettier']
   let g:neoformat_enabled_python = ['yapf', 'isort']
+  let g:neoformat_enabled_yaml = ['pyaml']
 
   nnoremap <Space><Space> :Neoformat<CR>
 '''
