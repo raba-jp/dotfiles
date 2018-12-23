@@ -1,0 +1,125 @@
+{
+  "sync.gist": "e7dbc19881bc32428d6b5c1a7edb6d93",
+  "sync.quietSync": false,
+  "sync.askGistName": false,
+  "sync.removeExtensions": true,
+  "sync.syncExtensions": true,
+  "sync.autoDownload": false,
+  "sync.autoUpload": false,
+  "sync.lastUpload": "2018-07-29T15:34:55.751Z",
+  "sync.lastDownload": "",
+  "sync.forceDownload": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.folders.color": "#90a4ae",
+  "material-icon-theme.hidesExplorerArrows": false,
+  "editor.formatOnSave": true,
+  "workbench.colorTheme": "Solarized Dark",
+  "editor.fontFamily": "Cica",
+  "editor.fontSize": 14,
+  "editor.autoClosingBrackets": true,
+  "editor.autoIndent": true,
+  "editor.foldingStrategy": "auto",
+  "editor.folding": true,
+  "editor.wordWrap": "on",
+  "editor.detectIndentation": true,
+  "editor.lineNumbers": "off",
+  "editor.minimap.enabled": false,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/vendor/bundle": true,
+    "**/node_modules/**": true
+  },
+  "go.gopath": "/Users/sakuraba/Development",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.autoImportSuggestions.enabled": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.showUnused": true,
+  "typescript.validate.enable": true,
+  "typescript.extension.sortImports.enableJavascript": true,
+  "typescript.extension.sortImports.quoteStyle": "double",
+  "typescript.extension.sortImports.sortOnSave": true,
+  "typescript.extension.sortImports.omitSemicolon": false,
+  "ruby.codeCompletion": "rcodetools",
+  "ruby.useBundler": true,
+  "ruby.lint": {
+    "rubocop": true,
+    "ruby": true,
+    "fasterer": true,
+    "reek": true
+  },
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.pep8Enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.lintOnSave": true,
+  "python.jediEnabled": true,
+  "vim.useSystemClipboard": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<Up>"],
+      "after": []
+    },
+    {
+      "before": ["<Down>"],
+      "after": []
+    },
+    {
+      "before": ["<Left>"],
+      "after": []
+    },
+    {
+      "before": ["<Right>"],
+      "after": []
+    },
+    {
+      "before": [":"],
+      "after": [";"]
+    },
+    {
+      "before": [";"],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.showCommands",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": ["<tab>"],
+      "after": ["$"]
+    }
+  ],
+  "gitlens.defaultDateFormat": "YYYY/M/D hh:mm",
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "workbench.startupEditor": "newUntitledFile",
+  "go.inferGopath": true,
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontFamily": "Cica",
+  "gitlens.blame.highlight.enabled": false,
+  "typescript.locale": "ja",
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "files.autoSave": "onFocusChange",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "python.formatting.provider": "black",
+  "editor.tabSize": 2,
+  "go.useLanguageServer": true
+}
