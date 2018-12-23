@@ -29,7 +29,9 @@ homebrew_packages:
   - ghq
   - name: gnu-sed
     install_options: with-default-names
+  - hugo
   - jq
+  - kubectx
   - kube-prompt
   - kubernetes-helm
   - mackerel-agent
@@ -48,6 +50,7 @@ homebrew_packages:
   - terraform
   - tflint
   - sshrc
+  - stern
   - the_silver_searcher
   - tig
   - tmux
