@@ -45,3 +45,6 @@
     - role: zsh
       tags:
         - zsh
+    - role: vscode
+      tags:
+        - vscode
