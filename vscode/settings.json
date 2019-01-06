@@ -1,12 +1,18 @@
 {
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Solarized Dark",
+  "workbench.startupEditor": "newUntitledFile",
   "material-icon-theme.folders.color": "#90a4ae",
   "material-icon-theme.hidesExplorerArrows": false,
-  "editor.formatOnSave": true,
-  "workbench.colorTheme": "Solarized Dark",
+  "gitlens.blame.highlight.enabled": false,
+  "gitlens.defaultDateFormat": "YYYY/M/D hh:mm",
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
   "editor.fontFamily": "Cica",
   "editor.fontSize": 14,
-  "editor.autoClosingBrackets": true,
+  "editor.formatOnSave": true,
+  "editor.autoClosingBrackets": "always",
   "editor.autoIndent": true,
   "editor.foldingStrategy": "auto",
   "editor.folding": true,
@@ -19,21 +25,37 @@
     "comments": true,
     "strings": true
   },
+  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.autoClosingQuotes": "always",
+  "editor.codeLens": true,
+  "editor.insertSpaces": true,
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontFamily": "Cica",
+  "files.autoSave": "onFocusChange",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
     "**/CVS": true,
     "**/.DS_Store": true,
-    "**/vendor/bundle": true,
+    "**/vendor": true,
     "**/node_modules/**": true
   },
   "go.gopath": "/Users/sakuraba/Development",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.autoImportSuggestions.enabled": true,
-  "typescript.preferences.importModuleSpecifier": "relative",
-  "typescript.showUnused": true,
+  "go.inferGopath": true,
+  "go.useLanguageServer": true,
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "typescript.locale": "ja",
+  "typescript.format.enable": true,
   "typescript.validate.enable": true,
+  "typescript.suggest.enabled": true,
+  "typescript.suggest.autoImports": true,
+  "typescript.suggestionActions.enabled": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.extension.sortImports.enableJavascript": true,
   "typescript.extension.sortImports.quoteStyle": "double",
   "typescript.extension.sortImports.sortOnSave": true,
@@ -46,12 +68,15 @@
     "fasterer": true,
     "reek": true
   },
+  "python.formatting.provider": "black",
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
   "python.linting.pep8Enabled": true,
   "python.linting.pylintEnabled": true,
   "python.linting.lintOnSave": true,
   "python.jediEnabled": true,
+  "python.autoUpdateLanguageServer": true,
+  "vim.foldfix": true,
   "vim.useSystemClipboard": true,
   "vim.insertModeKeyBindings": [
     {
@@ -59,7 +84,25 @@
       "after": ["<Esc>"]
     }
   ],
-  "vim.normalModeKeyBindings": [
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": ["p"],
+      "after": ["p", "g", "v", "y"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["s"],
+      "after": []
+    },
     {
       "before": ["<Up>"],
       "after": []
@@ -77,39 +120,16 @@
       "after": []
     },
     {
-      "before": [":"],
-      "after": [";"]
+      "before": ["y", "y"],
+      "after": ["y", "$"]
     },
     {
       "before": [";"],
-      "after": [],
-      "commands": [
-        {
-          "command": "workbench.action.showCommands",
-          "args": []
-        }
-      ]
+      "commands": ["workbench.action.showCommands"]
     },
     {
       "before": ["<tab>"],
       "after": ["$"]
     }
-  ],
-  "gitlens.defaultDateFormat": "YYYY/M/D hh:mm",
-  "gitlens.advanced.messages": {
-    "suppressShowKeyBindingsNotice": true
-  },
-  "workbench.startupEditor": "newUntitledFile",
-  "go.inferGopath": true,
-  "terminal.integrated.fontSize": 14,
-  "terminal.integrated.fontFamily": "Cica",
-  "gitlens.blame.highlight.enabled": false,
-  "typescript.locale": "ja",
-  "javascript.preferences.importModuleSpecifier": "relative",
-  "files.autoSave": "onFocusChange",
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true,
-  "python.formatting.provider": "black",
-  "editor.tabSize": 2,
-  "go.useLanguageServer": true
+  ]
 }
