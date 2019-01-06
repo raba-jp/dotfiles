@@ -80,6 +80,7 @@
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true,
   "vim.incsearch": true,
+  "vim.leader": "<space>",
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
