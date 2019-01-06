@@ -123,11 +123,11 @@
     },
     {
       "before": ["<Left>"],
-      "after": []
+      "commands": ["workbench.action.previousEditor"]
     },
     {
       "before": ["<Right>"],
-      "after": []
+      "commands": ["workbench.action.nextEditor"]
     },
     {
       "before": ["y", "y"],
