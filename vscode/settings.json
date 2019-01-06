@@ -78,6 +78,8 @@
   "python.autoUpdateLanguageServer": true,
   "vim.foldfix": true,
   "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
@@ -99,6 +101,14 @@
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [";"],
+      "after": [":"]
+    },
+    {
+      "before": [":"],
+      "after": [";"]
+    },
     {
       "before": ["s"],
       "after": []
@@ -122,10 +132,6 @@
     {
       "before": ["y", "y"],
       "after": ["y", "$"]
-    },
-    {
-      "before": [";"],
-      "commands": ["workbench.action.showCommands"]
     },
     {
       "before": ["<tab>"],
