@@ -24,18 +24,6 @@
     "group": "vivit,inc."
   },
   {
-    "name": "export-docbase",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/export-docbase",
-    "paths": [],
-    "group": ""
-  },
-  {
-    "name": "gas",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/gas",
-    "paths": [],
-    "group": ""
-  },
-  {
     "name": "salmon",
     "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/salmon",
     "paths": [],
