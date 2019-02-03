@@ -4,7 +4,7 @@ gopath: "{{ ansible_user_dir }}/Development"
 
 go_packages:
   - name: gocode
-    uri: github.com/nsf/gocode
+    uri: github.com/stamblerre/gocode
   - name: gb
     uri: github.com/constabulary/gb/...
   - name: direnv
@@ -14,9 +14,7 @@ go_packages:
     command: gometalinter --install --update
   - name: gore
     uri: github.com/motemen/gore
-  - name: gocode
+  - name: pp
     uri: github.com/k0kubun/pp
-  - name: godoc
-    uri: golang.org/x/tools/cmd/godoc
-  - name: go-langserver
-    uri: github.com/sourcegraph/go-langserver
+  - name: golsp
+    uri: golang.org/x/tools/cmd/golsp
