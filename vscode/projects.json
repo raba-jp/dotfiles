@@ -58,5 +58,17 @@
     "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/NovPS",
     "paths": [],
     "group": ""
+  },
+  {
+    "name": "fermi",
+    "rootPath": "/Users/sakuraba/Development/src/github.com/Toshiki-Sasaki/fermi",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "microservice-template",
+    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/microservice-template",
+    "paths": [],
+    "group": ""
   }
 ]
