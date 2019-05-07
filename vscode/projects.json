@@ -6,6 +6,12 @@
     "group": "vivit,inc."
   },
   {
+    "name": "credentials",
+    "rootPath": "/Users/sakuraba/Development/src/github.com/vivitInc/credentials",
+    "paths": [],
+    "group": "vivit,inc."
+  },
+  {
     "name": "hinata-samsara",
     "rootPath": "/Users/sakuraba/Development/src/github.com/vivitInc/hinata-samsara",
     "paths": [],
@@ -22,12 +28,6 @@
     "rootPath": "/Users/sakuraba/Development/src/github.com/vivitInc/maguro-bot",
     "paths": [],
     "group": "vivit,inc."
-  },
-  {
-    "name": "salmon",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/salmon",
-    "paths": [],
-    "group": ""
   },
   {
     "name": "gh-label-sync",
@@ -68,6 +68,24 @@
   {
     "name": "microservice-template",
     "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/microservice-template",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "dotfiles",
+    "rootPath": "/Users/sakuraba/dotfiles",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "hinata-rental-native",
+    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/hinata-rental-native",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "infrastructure",
+    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/infrastructure",
     "paths": [],
     "group": ""
   }
