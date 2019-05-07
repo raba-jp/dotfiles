@@ -46,7 +46,6 @@
   },
   "go.gopath": "/Users/sakuraba/Development",
   "go.inferGopath": true,
-  "go.useLanguageServer": true,
   "javascript.preferences.importModuleSpecifier": "relative",
   "typescript.locale": "ja",
   "typescript.format.enable": true,
@@ -138,5 +137,11 @@
       "before": ["<tab>"],
       "after": ["$"]
     }
-  ]
+  ],
+  "[jinja-yaml]": {
+    "editor.tabSize": 2
+  },
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "liveshare.featureSet": "stable"
 }

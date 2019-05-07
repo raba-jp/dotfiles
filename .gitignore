@@ -8,6 +8,7 @@ config/zsh/.zcompdump
 config/direnv
 config/gcloud
 config/fontforge
+config/fish/fish_variables
 config/fish/functions
 config/fish/completions
 config/fisherman
