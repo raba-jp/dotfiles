@@ -2,7 +2,7 @@
 
 GO_VERSION = '1.13'
 
-if platform[:platform] == 'darwin'
+if node[:platform] == 'darwin'
   execute 'download tar' do
     command "wget https://dl.google.com/go/go#{GO_VERSION}.darwin-amd64.tar.gz"
     not_if 'type go'
