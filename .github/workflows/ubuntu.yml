@@ -16,7 +16,7 @@ jobs:
           wget -O mitamae https://github.com/itamae-kitchen/mitamae/releases/download/v1.9.0/mitamae-x86_64-linux
           chmod +x ./mitamae
       - name: Run MItamae
-        run: ./mitamae local roles/local.rb
+        run: sudo ./mitamae local roles/local.rb
       - name: Install serverspec
         run: gem install serverspec
       - name: Run Serverspec
