@@ -1,9 +1,11 @@
 require 'spec_helper'
 
-describe command('rbenv -v') do
-  its(:exit_status) { should eq 0 }
+describe file('/usr/local/rbenv/bin/rbenv') do
+  it { should be_file }
+  it { should be_executable }
 end
 
-describe command('ruby -v') do
-  its(:exit_status) { should eq 0 }
+describe command('/usr/local/rbenv/shims/ruby') do
+  it { should be_file }
+  it { should be_executable }
 end
