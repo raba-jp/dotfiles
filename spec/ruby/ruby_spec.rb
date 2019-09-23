@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe package('rbenv') do
-  it { should be_installed }
+describe command('rbenv -v') do
+  its(:exit_status) { should eq 0 }
 end
 
 describe command('ruby -v') do
