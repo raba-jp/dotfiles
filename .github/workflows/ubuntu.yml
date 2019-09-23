@@ -17,6 +17,8 @@ jobs:
           chmod +x ./mitamae
       - name: Run MItamae
         run: sudo ./mitamae local roles/local.rb
+      - name: Debug log
+        run: ls -al /usr/local/go
       - name: Install serverspec
         run: gem install serverspec
       - name: Run Serverspec
