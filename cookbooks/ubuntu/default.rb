@@ -8,11 +8,10 @@
    openssl
    python
    python3
-   clojure
-].each do |pkg|
+   clojure].each do |pkg|
   package(pkg)
 end
 
-%w[code].each do |pkg|
-  execute("snap install #{pkg}")
+[{ pkg: 'code', opt: '--classic' }].each do |input|
+  execute("snap install #{input[:opt]} #{input[:pkg]}")
 end
