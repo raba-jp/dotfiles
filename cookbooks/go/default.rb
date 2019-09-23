@@ -2,6 +2,8 @@
 
 GO_VERSION = '1.13'
 
+package 'git'
+
 if node[:platform] == 'darwin'
   execute 'download tar' do
     command "wget -O go#{GO_VERSION}.tar.gz https://dl.google.com/go/go#{GO_VERSION}.darwin-amd64.tar.gz"

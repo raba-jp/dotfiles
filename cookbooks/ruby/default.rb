@@ -10,4 +10,6 @@ node.reverse_merge!(
   }
 )
 
+package 'git'
+
 include_recipe 'rbenv::user'
