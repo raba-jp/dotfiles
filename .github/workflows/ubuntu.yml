@@ -35,12 +35,16 @@ jobs:
         run: |
           wget -O mitamae https://github.com/itamae-kitchen/mitamae/releases/download/v1.9.0/mitamae-x86_64-linux
           chmod +x ./mitamae
+      - name: Check
+        run: echo $GOROOT
+        env:
+          GOPATH: /home/runner/dev
+          GOROOT: /usr/local/go
       - name: Run MItamae
         run: sudo ./mitamae local cookbooks/go/default.rb
         env:
           GOPATH: /home/runner/dev
-      - name: debug
-        run: ls -al /home/runner/dev/bin
+          GOROOT: /usr/local/go
       - name: Install serverspec
         run: |
           sudo apt-get install ruby
@@ -49,6 +53,7 @@ jobs:
         run: rake spec:go
         env:
           GOPATH: /home/runner/dev
+          GOROOT: /usr/local/go
   python:
     runs-on: ubuntu-latest
     steps:
