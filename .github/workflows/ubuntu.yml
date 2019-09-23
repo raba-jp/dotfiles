@@ -37,12 +37,18 @@ jobs:
           chmod +x ./mitamae
       - name: Run MItamae
         run: sudo ./mitamae local cookbooks/go/default.rb
+        env:
+          - GOPATH: $HOME/dev
+          - PATH: $PATH:$GOPATH
       - name: Install serverspec
         run: |
           sudo apt-get install ruby
           sudo gem install serverspec
       - name: Run Serverspec
         run: rake spec:go
+        env:
+          - GOPATH: $HOME/dev
+          - PATH: $PATH:$GOPATH
   python:
     runs-on: ubuntu-latest
     steps:
