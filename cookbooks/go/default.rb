@@ -21,9 +21,9 @@ execute 'untar' do
   not_if 'type go'
 end
 
-['go', 'gofmt'].each do |cmd|
-  link "/usr/local/go/bin/#{cmd}" do
-    to "/usr/local/bin/#{cmd}"
+%w[go gofmt].each do |cmd|
+  link "/usr/local/bin/#{cmd}" do
+    to "/usr/local/go/bin/#{cmd}"
     not_if "type #{cmd}"
   end
 end
@@ -35,7 +35,7 @@ end
 # Install Go tools
 ## gore
 execute 'go get gore' do
-  command 'GO111MODULE=off go get -u github.com/motemen/gore/cmd/gore'
+  command 'GO111MODULE=off go get -u github.com/motemen/gore'
   not_if 'type gore'
 end
 
