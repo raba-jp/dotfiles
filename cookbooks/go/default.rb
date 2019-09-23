@@ -19,7 +19,7 @@ execute 'untar' do
   not_if 'type go'
 end
 
-['go' 'gofmt'].each do |cmd|
+['go', 'gofmt'].each do |cmd|
   link "/usr/local/go/bin/#{cmd}" do
     to "/usr/local/bin/#{cmd}"
     not_if "type #{cmd}"
