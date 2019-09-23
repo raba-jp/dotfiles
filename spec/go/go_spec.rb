@@ -3,27 +3,19 @@
 require 'spec_helper'
 
 describe 'go' do
-  describe file('/usr/local/go/bin/go') do
+  describe file("#{ENV['HOME']}/.local/share/go/bin/go") do
     it { should be_file }
     it { should be_executable }
-  end
-
-  describe file('/usr/local/bin/go') do
-    it { should be_symlink }
   end
 end
 
 describe 'gofmt' do
-  describe file('/usr/local/go/bin/gofmt') do
+  describe file("#{ENV['HOME']}/.local/share/go/bin/gofmt") do
     it { should be_file }
     it { should be_executable }
   end
 
-  describe file('/usr/local/bin/gofmt') do
-    it { should be_symlink }
-  end
-
-  describe command('go version') do
+  describe command("#{ENV['HOME']}/.local/share/go/bin/go version") do
     its(:exit_status) { should eq 0 }
   end
 end
@@ -44,8 +36,10 @@ end
 
 describe file("#{ENV['GOPATH']}/src/github.com/mdempsky/gocode") do
   it { should be_directory }
+  it { should be_owned_by ENV['USER'] }
 end
 
 describe file("#{ENV['GOPATH']}/src/github.com/k0kubun/pp") do
   it { should be_directory }
+  it { should be_owned_by ENV['USER'] }
 end

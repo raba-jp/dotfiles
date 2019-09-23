@@ -1,42 +1,22 @@
 # frozen_string_literal: true
 
-GO_VERSION = '1.13'
+node.reverse_merge!(
+  go: {
+    version: '1.13',
+    root_path: "#{ENV['HOME']}/.local/share",
+    user: ENV['USER'],
+    install_dependency: true,
+    create_symlink: false
+  }
+)
 
-package 'git'
+CMD = "#{ENV['HOME']}/.local/share/go/bin/go"
 
-execute 'check $GOROOT' do
-  command 'echo $GOROOT'
-end
-if node[:platform] == 'darwin'
-  execute 'download tar' do
-    command "wget -O go#{GO_VERSION}.tar.gz https://dl.google.com/go/go#{GO_VERSION}.darwin-amd64.tar.gz"
-    not_if 'test -d /usr/local/go'
-  end
-else
-  execute 'download tar' do
-    command "wget -O go#{GO_VERSION}.tar.gz https://dl.google.com/go/go#{GO_VERSION}.linux-amd64.tar.gz"
-    not_if 'test -d /usr/local/go'
-  end
-end
-
-execute 'untar' do
-  command "tar -C /usr/local -xzf go#{GO_VERSION}.tar.gz"
-  not_if 'test -d /usr/local/go'
-end
-
-%w[go gofmt].each do |cmd|
-  link "/usr/local/bin/#{cmd}" do
-    to "/usr/local/go/bin/#{cmd}"
-    not_if "test -x /usr/local/bin/#{cmd}"
-  end
-end
+include_recipe './install'
 
 directory "#{ENV['HOME']}/dev/src" do
   action :create
-end
-
-execute 'check $GOROOT' do
-  command 'echo $GOROOT'
+  user ENV['USER']
 end
 
 [
@@ -52,11 +32,13 @@ end
   }
 ].each do |c|
   execute "go get #{c[:name]}" do
-    command "GO111MODULE=off go get -u #{c[:pkg]}"
+    command "#{CMD} get -u #{c[:pkg]}"
+    user ENV['USER']
     not_if "type #{c[:name]}"
   end
   execute "go install #{c[:name]}" do
-    command "GO111MODULE=off go install #{c[:cmd]}"
+    command "#{CMD} install #{c[:cmd]}"
+    user ENV['USER']
     not_if "type #{c[:name]}"
   end
 end
@@ -66,7 +48,8 @@ end
   'github.com/k0kubun/pp'
 ].each do |pkg|
   execute "go get #{pkg}" do
-    command "GO111MODULE=off go get -u #{pkg}"
+    command "#{CMD} get -u #{pkg}"
+    user ENV['USER']
     not_if "test -d #{ENV['GOPATH']}/src/#{pkg}"
   end
 end
