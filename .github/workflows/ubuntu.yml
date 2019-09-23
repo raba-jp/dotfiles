@@ -1,0 +1,21 @@
+name: Ubuntu
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Download MItamea binary
+        run: |
+          wget -O mitamae https://github.com/itamae-kitchen/mitamae/releases/download/v1.9.0/mitamae-x86_64-linux
+          chmod +x ./mitamae
+      - name: Debug log
+        run: ls -al
+      - name: Run MItamae
+        run: ./mitamae local roles/local.rb
+      - name: Install serverspec
+        run: gem install serverspec
+      - name: Run Serverspec
+        run: rake spec
