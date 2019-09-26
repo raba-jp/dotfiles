@@ -1,5 +1,5 @@
 ---
-- include_tasks: ubuntu.yml
+- import_tasks: ubuntu.yml
   when: ansible_os_family == "Debian"
 
 - name: Install rbenv and plugins

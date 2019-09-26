@@ -2,6 +2,7 @@
 - name: Update cache
   apt:
     update_cache: yes
+  become: yes
 
 - name: Install Python
   apt:
@@ -9,6 +10,7 @@
     state: present
     autoclean: yes
     autoremove: yes
+  become: yes
   with_items:
     - python-dev
     - python-pip
