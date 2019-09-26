@@ -2,3 +2,4 @@
   snap:
     name: code
     classic: yes
+  become: yes
