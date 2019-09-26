@@ -5,20 +5,32 @@ require 'spec_helper'
 describe command('code -v') do
   its(:exit_status) { should eq 0 }
 
-  describe file("#{ENV['HOME']}/Library/Application\ Support/Code/User/settings.json") do
-    it { should be_file }
+  context 'darwin', if: os[:family] == 'darwin' do
+    [
+      "#{ENV['HOME']}/Library/Application\ Support/Code/User/settings.json",
+      "#{ENV['HOME']}/Library/Application\ Support/Code/User/keybindings.json",
+      "#{ENV['HOME']}/Library/Application\ Support/Code/User/locale.json",
+      "#{ENV['HOME']}/Library/Application\ Support/Code/User/projects.json"
+    ].each do |f|
+      describe file(f) do
+        it { should be_file }
+        it { should be_owned_by ENV['USER'] }
+      end
+    end
   end
 
-  describe file("#{ENV['HOME']}/Library/Application\ Support/Code/User/keybindings.json") do
-    it { should be_file }
-  end
-
-  describe file("#{ENV['HOME']}/Library/Application\ Support/Code/User/locale.json") do
-    it { should be_file }
-  end
-
-  describe file("#{ENV['HOME']}/Library/Application\ Support/Code/User/projects.json") do
-    it { should be_file }
+  context 'ubuntu', if: os[:family] == 'ubuntu' do
+    [
+      "#{ENV['HOME']}/.config/Code/User/settings.json",
+      "#{ENV['HOME']}/.config/Code/User/keybindings.json",
+      "#{ENV['HOME']}/.config/Code/User/locale.json",
+      "#{ENV['HOME']}/.config/Code/User/projects.json"
+    ].each do |f|
+      describe file(f) do
+        it { should be_file }
+        it { should be_owned_by ENV['USER'] }
+      end
+    end
   end
 
   describe 'extensions' do

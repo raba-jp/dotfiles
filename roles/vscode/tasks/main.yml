@@ -1,0 +1,11 @@
+---
+- name: for macOS
+  import_tasks: darwin.yml
+  when: ansible_os_family == "Darwin"
+
+- name: for Ubuntu
+  import_tasks: ubuntu.yml
+  when: ansible_os_family == "Debian"
+
+- import_tasks: extension.yml
+  with_items: "{{ vscode_extensions }}"

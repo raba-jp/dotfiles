@@ -1,9 +1,0 @@
----
-- include_tasks: darwin.yml
-  when: ansible_os_family == "Darwin"
-
-- include_tasks: file.yml
-  with_items: "{{ darwin_vscode_config_files }}"
-
-- include_tasks: extension.yml
-  with_items: "{{ vscode_extensions }}"

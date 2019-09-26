@@ -1,12 +1,12 @@
 ---
 darwin_vscode_config_files:
-  - src: "{{ xdg_data_home }}/dotfiles/vscode/settings.json"
+  - src: "{{ xdg_data_home }}/dotfiles/config/Code/User/settings.json"
     dest: "{{ ansible_user_dir }}/Library/Application\ Support/Code/User/settings.json"
-  - src: "{{ xdg_data_home }}/dotfiles/vscode/keybindings.json"
+  - src: "{{ xdg_data_home }}/dotfiles/config/Code/User/keybindings.json"
     dest: "{{ ansible_user_dir }}/Library/Application\ Support/Code/User/keybindings.json"
-  - src: "{{ xdg_data_home }}/dotfiles/vscode/locale.json"
+  - src: "{{ xdg_data_home }}/dotfiles/config/Code/User/locale.json"
     dest: "{{ ansible_user_dir }}/Library/Application\ Support/Code/User/locale.json"
-  - src: "{{ xdg_data_home }}/dotfiles/vscode/projects.json"
+  - src: "{{ xdg_data_home }}/dotfiles/config/Code/User/projects.json"
     dest: "{{ ansible_user_dir }}/Library/Application\ Support/Code/User/projects.json"
 
 vscode_extensions:
