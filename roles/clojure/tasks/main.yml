@@ -1,0 +1,20 @@
+---
+- name: for macOS
+  import_tasks: darwin.yml
+  when: ansible_os_family == "Darwin"
+
+- name: for Ubuntu
+  import_tasks: ubuntu.yml
+  when: ansible_os_family == "Debian"
+
+- name: Create config dir
+  file:
+    path: "{{ ansible_user_dir }}/.config/clojure"
+    state: directory
+    recurse: yes
+    mode: "0544"
+
+- name: Create symlink
+  copy:
+    src: deps.edn
+    dest: "{{ ansible_user_dir }}/.config/clojure/deps.edn"

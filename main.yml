@@ -24,6 +24,8 @@
       tags: [rust, language]
     - role: node
       tags: [node, language]
+    - role: clojure
+      tags: [clojure, language]
     - role: fish
       tags: [fish]
     - role: vscode
