@@ -1,0 +1,9 @@
+---
+- name: Update homebrew
+  homebrew:
+    update_homebrew: yes
+
+- name: Install clojure
+  homebrew:
+    name: clojure
+    state: latest
