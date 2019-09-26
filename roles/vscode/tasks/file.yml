@@ -2,13 +2,14 @@
   stat:
     path: "{{ item.dest }}"
   register: check
-  changed_when: False
+  changed_when: no
+  ignore_errors: yes
 
 - name: Remove config file
   file:
     path: "{{ item.dest }}"
     state: absent
-  when: not check.stat.islnk
+  when: check.stat.islnk is defined and check.stat.islnk
 
 - name: Create symlink
   file:

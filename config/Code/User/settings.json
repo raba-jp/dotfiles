@@ -11,7 +11,6 @@
   },
   "editor.fontFamily": "Cica",
   "editor.fontSize": 14,
-  "editor.formatOnSave": true,
   "editor.autoClosingBrackets": "always",
   "editor.autoIndent": true,
   "editor.foldingStrategy": "auto",
@@ -73,7 +72,7 @@
   "python.linting.pep8Enabled": true,
   "python.linting.pylintEnabled": true,
   "python.linting.lintOnSave": true,
-  "python.jediEnabled": true,
+  "python.jediEnabled": false,
   "python.autoUpdateLanguageServer": true,
   "vim.foldfix": true,
   "vim.useSystemClipboard": true,
@@ -143,5 +142,16 @@
   },
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "liveshare.featureSet": "stable"
+  "liveshare.featureSet": "stable",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "never"
 }

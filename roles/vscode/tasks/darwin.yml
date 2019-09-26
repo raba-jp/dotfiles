@@ -7,3 +7,6 @@
   homebrew_cask:
     name: visual-studio-code
     state: latest
+
+- import_tasks: file.yml
+  with_items: "{{ darwin_vscode_config_files }}"

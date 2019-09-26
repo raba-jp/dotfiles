@@ -12,6 +12,12 @@
     "group": "vivit,inc."
   },
   {
+    "name": "tool-downloader",
+    "rootPath": "/Users/sakuraba/Development/src/github.com/vivitInc/tool-downloader",
+    "paths": [],
+    "group": "vivit,inc."
+  },
+  {
     "name": "hinata-samsara",
     "rootPath": "/Users/sakuraba/Development/src/github.com/vivitInc/hinata-samsara",
     "paths": [],
@@ -84,8 +90,32 @@
     "group": ""
   },
   {
+    "name": "hinata-spot-native",
+    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/hinata-spot-native",
+    "paths": [],
+    "group": ""
+  },
+  {
     "name": "infrastructure",
     "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/infrastructure",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "photo-diary",
+    "rootPath": "/Users/sakuraba/Development/src/github.com/sakadachikids/photo-diary",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "admingen",
+    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/admingen",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "qr_free",
+    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/qr_free",
     "paths": [],
     "group": ""
   }
