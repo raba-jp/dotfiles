@@ -1,0 +1,15 @@
+---
+- name: Install git for Ubuntu
+  apt:
+    name: git
+    state: present
+    autoclean: yes
+    autoremove: yes
+    update_cache: yes
+  become: yes
+  when: ansible_os_family == "Debian"
+
+- name: Install git for macOS
+  homebrew:
+    name: git
+    state: present
