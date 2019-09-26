@@ -2,7 +2,7 @@
 - name: Already exist rust
   stat:
     path: "{{ xdg_data_home }}/cargo/bin/cargo"
-  register: exist
+  register: check
   changed_when: no
   ignore_errors: yes
 
@@ -11,4 +11,4 @@
     CARGO_HOME={{ xdg_data_home }}/cargo \
     RUSTUP_HOME={{ xdg_data_home }}/rustup \
     bash -c 'curl https://sh.rustup.rs -sSf | sh -s -- -y'
-  when: not exist.stat.isreg
+  when: not check.stat.exists
