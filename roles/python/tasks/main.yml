@@ -1,8 +1,8 @@
 ---
-- include_tasks: ubuntu.yml
+- import_tasks: ubuntu.yml
   when: ansible_os_family == "Debian"
 
-- include_tasks: darwin.yml
+- import_tasks: darwin.yml
   when: ansible_os_family == "Darwin"
 
 - name: Install Python2 package

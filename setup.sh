@@ -32,7 +32,7 @@ if   [ -e /etc/debian_version ] || [ -e /etc/debian_release ]; then
 fi
 
 if [ $# -eq 1 ]; then
-  ansible-playbook -i inventory main.yml --tags $1
+  ansible-playbook -i inventory main.yml --ask-become-pass --tags $1
 else
-  ansible-playbook -i inventory main.yml
+  ansible-playbook -i inventory main.yml --ask-become-pass
 fi
