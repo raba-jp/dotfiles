@@ -1,9 +1,11 @@
 require 'spec_helper'
 
-describe package('nodenv') do
-  it { should be_installed }
+describe file("#{ENV['HOME']}/.local/share/nodenv/bin/nodenv") do
+  it { should be_file }
+  it { should be_executable }
+end
 
-  describe command('node -v') do
-    its(:exit_status) { should eq 0 }
-  end
+describe file("#{ENV['HOME']}/.local/share/nodenv/shims/node") do
+  it { should be_file }
+  it { should be_executable }
 end
