@@ -2,6 +2,9 @@
 - import_tasks: ubuntu.yml
   when: ansible_os_family == "Debian"
 
+- name: Install dependencies
+  import_tasks: dependencies.yml
+
 - name: Install rbenv and plugins
   git:
     repo: "{{ item.repo }}"

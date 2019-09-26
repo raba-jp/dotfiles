@@ -1,4 +1,7 @@
 ---
+- name: Install dependencies
+  import_tasks: dependencies.yml
+
 - name: Install nodenv and plugins
   git:
     repo: "{{ item.repo }}"
@@ -47,7 +50,7 @@
 - name: Install Node.js package
   npm:
     name: "{{ item.name | default(item) }}"
-    state: "{{ item.state | default('latest') }}"
+    state: latest
     global: yes
     executable: "{{ xdg_data_home }}/nodenv/shims/npm"
   with_items: "{{ node_packages }}"
