@@ -12,11 +12,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Provisioning
         run: ./setup.sh go
-        env:
-          GOPATH: /home/runner/dev
       - name: Install serverspec
         run: ./setup_test.sh
       - name: Run Serverspec
         run: rake spec:go
-        env:
-          GOPATH: /home/runner/dev

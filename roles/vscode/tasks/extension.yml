@@ -5,5 +5,5 @@
   ignore_errors: yes
 
 - name: Install extension
-  shell: "code --install-extension {{ item }}"
+  shell: "code --install-extension '{{ item }}'"
   when: check.rc != 0

@@ -1,9 +1,17 @@
 ---
-- import_tasks: darwin.yml
+- name: for macOS
+  import_tasks: darwin.yml
   when: ansible_os_family == "Darwin"
 
-- import_tasks: ubuntu.yml
+- name: for Ubuntu
+  import_tasks: ubuntu.yml
   when: ansible_os_family == "Debian"
+
+- name: Create directory
+  file:
+    path: "{{ gopath }}"
+    state: directory
+    recurse: yes
 
 - include_tasks: install_package.yml
   with_items: "{{ go_packages }}"
