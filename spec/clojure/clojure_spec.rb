@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'spec_helper'
+
 describe package('clojure') do
   it { should be_installed }
 end
