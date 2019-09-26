@@ -2,14 +2,21 @@
 go_version: 1.9
 gopath: "{{ ansible_user_dir }}/dev"
 
-go_packages:
+gosrc:
+  - github.com/direnv/direnv
+  - github.com/motemen/gore
+  - github.com/k0kubun/pp
+  - github.com/mdempsky/gocode
+  - golang.org/x/tools/cmd/gopls
+  - github.com/motemen/ghq
+gobin:
   - name: direnv
     uri: github.com/direnv/direnv
   - name: gore
     uri: github.com/motemen/gore
-  - name: pp
-    uri: github.com/k0kubun/pp
   - name: gocode
     uri: github.com/mdempsky/gocode
-  - name: golsp
+  - name: gopls
     uri: golang.org/x/tools/cmd/gopls
+  - name: ghq
+    uri: github.com/motemen/ghq

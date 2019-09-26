@@ -13,5 +13,8 @@
     state: directory
     recurse: yes
 
+- include_tasks: checkout_package.yml
+  with_items: "{{ gosrc }}"
+
 - include_tasks: install_package.yml
-  with_items: "{{ go_packages }}"
+  with_items: "{{ gobin }}"
