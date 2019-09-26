@@ -10,7 +10,3 @@
   environment:
     GOPATH: "{{ gopath }}"
   when: not installed.stat.exists
-
-- name: After command
-  shell: "{{ item.command | default(':') }}"
-  when: not installed.stat.exists
