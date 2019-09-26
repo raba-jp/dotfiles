@@ -1,7 +1,8 @@
 - name: Check extensions
   shell: "code --list-extensions | grep '{{ item }}'"
   register: is_installed
-  changed_when: False
+  changed_when: no
+  ignore_errors: yes
 
 - name: Install extension
   shell: "code --install-extension {{ item }}"
