@@ -9,7 +9,7 @@
 
 - name: Create config dir
   file:
-    path: "{{ ansible_user_dir }}/.config/clojure"
+    path: "{{ ansible_user_dir }}/.config"
     state: directory
     recurse: yes
 
