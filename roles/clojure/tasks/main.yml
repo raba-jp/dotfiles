@@ -12,7 +12,6 @@
     path: "{{ ansible_user_dir }}/.config/clojure"
     state: directory
     recurse: yes
-    mode: "0544"
 
 - name: Create symlink
   copy:

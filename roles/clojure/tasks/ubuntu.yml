@@ -2,6 +2,7 @@
 - name: Update packages
   apt:
     update_cache: yes
+  become: yes
 
 - name: Install clojure
   apt:
@@ -9,3 +10,4 @@
     state: present
     autoclean: yes
     autoremove: yes
+  become: yes
