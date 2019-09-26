@@ -1,6 +1,6 @@
 ---
 go_version: 1.9
-gopath: "{{ ansible_user_dir }}/Development"
+gopath: "{{ ansible_user_dir }}/dev"
 
 go_packages:
   - name: direnv
