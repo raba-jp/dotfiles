@@ -7,29 +7,29 @@ directory node[:go][:root_path] do
 end
 
 if node[:platform] == 'darwin'
-  execute 'download tar' do
-    command "wget -O go#{node[:go][:version]}.tar.gz https://dl.google.com/go/go#{node[:go][:version]}.darwin-amd64.tar.gz"
-    user node[:go][:user]
-    not_if "test -x #{node[:go][:root_path]}/bin/go"
+  http_request 'go' do
+    path "/tmp/go#{node[:go][:version]}.tar.gz"
+    url "https://dl.google.com/go/go#{node[:go][:version]}.darwin-amd64.tar.gz"
+    not_if "test -e /tmp/go#{node[:go][:version]}.tar.gz"
   end
 else
-  execute 'download tar' do
-    command "wget -O go#{node[:go][:version]}.tar.gz https://dl.google.com/go/go#{node[:go][:version]}.linux-amd64.tar.gz"
-    user node[:go][:user]
-    not_if "test -x #{node[:go][:root_path]}/bin/go"
+  http_request 'go' do
+    path "/tmp/go#{node[:go][:version]}.tar.gz"
+    url "https://dl.google.com/go/go#{node[:go][:version]}.linux-amd64.tar.gz"
+    not_if "test -e /tmp/go#{node[:go][:version]}.tar.gz"
   end
 end
 
-execute 'untar' do
-  command "tar -C #{node[:go][:root_path]} -xzf go#{node[:go][:version]}.tar.gz"
+execute "tar -C #{node[:go][:root_path]} -xzf go#{node[:go][:version]}.tar.gz" do
+  cwd '/tmp'
   user node[:go][:user]
-  not_if "test -x #{node[:go][:root_path]}/bin/go"
+  not_if "test -e /tmp/go#{node[:go][:version]}.tar.gz"
 end
 
 execute 'delete tar' do
   command "rm -f go#{node[:go][:version]}.tar.gz"
   user node[:go][:user]
-  only_if "test -f go#{node[:go][:version]}.tar.gz"
+  not_if "test -f /tmp/go#{node[:go][:version]}.tar.gz"
 end
 
 if node[:go][:create_symlink]
