@@ -2,6 +2,7 @@
 - name: Update cache
   apt:
     update_cache: yes
+  become: yes
 
 - name: Install software-properties-common
   apt:
@@ -9,10 +10,12 @@
     state: present
     autoclean: yes
     autoremove: yes
+  become: yes
 
 - name: Add repository
   apt_repository:
     repo: ppa:gophers/archive
+  become: yes
 
 - name: Install Go
   apt:
@@ -20,6 +23,7 @@
     state: present
     autoclean: yes
     autoremove: yes
+  become: yes
 
 - name: Create Symlink
   file:
