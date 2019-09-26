@@ -10,15 +10,13 @@ jobs:
         os: [ubuntu-18.04, macOS-10.14]
     steps:
       - uses: actions/checkout@v1
-      - name: Run MItamae
-        run: ./run.sh cookbooks/go/default.rb
+      - name: Provisioning
+        run: ./setup.sh ruby
         env:
           GOPATH: /home/runner/dev
-          GOROOT: /home/runner/.local/share/go
       - name: Install serverspec
         run: ./setup_test.sh
       - name: Run Serverspec
         run: rake spec:go
         env:
           GOPATH: /home/runner/dev
-          GOROOT: /home/runner/.local/share/go
