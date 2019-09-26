@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Provisioning
-        run: ./setup.sh ruby
+        run: ./setup.sh go
         env:
           GOPATH: /home/runner/dev
       - name: Install serverspec

@@ -1,10 +1,5 @@
 ---
-ruby_version: 2.5.3
+ruby_version: 2.6.4
 ruby_packages:
   - neovim
-  - rake
-  - rubocop
-  - reek
-  - rails_best_practices
   - rufo
-  - solargraph

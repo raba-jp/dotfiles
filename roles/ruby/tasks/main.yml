@@ -50,7 +50,7 @@
 - name: Install Ruby package
   gem:
     name: "{{ item.name | default(item) }}"
-    state: "{{ item.state | default('latest') }}"
+    state: latest
     executable: "{{ xdg_data_home }}/rbenv/shims/gem"
     user_install: no
   with_items: "{{ ruby_packages }}"
