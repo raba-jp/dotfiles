@@ -1,13 +1,14 @@
 ---
 - name: Already exist rust
-  shell: type rustc
-  register: is_exist_rust
-  changed_when: False
-  ignore_errors: True
+  stat:
+    path: "{{ xdg_data_home }}/cargo/bin/cargo"
+  register: exist
+  changed_when: no
+  ignore_errors: yes
 
 - name: Install rust by rustup
   shell: |
-    CARGO_HOME=~/.local/share/cargo \
-    RUSTUP_HOME=~/.local/share/rustup \
+    CARGO_HOME={{ xdg_data_home }}/cargo \
+    RUSTUP_HOME={{ xdg_data_home }}/rustup \
     bash -c 'curl https://sh.rustup.rs -sSf | sh -s -- -y'
-  when: is_exist_rust.rc != 0
+  when: not exist.stat.isreg
