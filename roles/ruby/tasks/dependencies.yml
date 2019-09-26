@@ -13,3 +13,4 @@
   homebrew:
     name: git
     state: present
+  when: ansible_os_family == "Darwin"
