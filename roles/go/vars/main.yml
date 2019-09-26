@@ -12,4 +12,4 @@ go_packages:
   - name: gocode
     uri: github.com/mdempsky/gocode
   - name: golsp
-    uri: golang.org/x/tools/cmd/golsp
+    uri: golang.org/x/tools/cmd/gopls
