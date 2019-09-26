@@ -13,9 +13,7 @@
   when: is_exist_rust.rc != 0
 
 - name: Create Symlink
-  shell: |
-    rm -rf {{ item.dest }}; \
-    ln -s {{ item.src }} {{ item.dest }}
+  include_tasks: file.yml
   with_items:
     - src: ~/.local/share/cargo/bin/cargo
       dest: /usr/local/bin/cargo
