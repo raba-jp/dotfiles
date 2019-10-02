@@ -14,24 +14,14 @@ variables:
     value: $XDG_CONFIG_HOME/readline/inputrc
   - name: EDITOR
     value: nvim
-  - name: GO15VENDOREXPERIMENT
-    value: 1
   - name: GOPATH
-    value: $HOME/Development
-  - name: ANDROID_SDK_TOOLS
-    value: $HOME/Library/Android/sdk/tools
-  - name: ANDROID_SDK_PLATFORM_TOOLS
-    value: $HOME/Library/Android/sdk/platform-tools
+    value: $HOME/dev
   - name: SYS_NOTIFIER
     value: /usr/local/bin/terminal-notifier
   - name: CARGO_HOME
     value: $XDG_DATA_HOME/cargo
   - name: RUSTUP_HOME
     value: $XDG_DATA_HOME/rustup
-  - name: RBENV_ROOT
-    value: $XDG_DATA_HOME/rbenv
-  - name: NODENV_ROOT
-    value: $XDG_DATA_HOME/nodenv
 
 paths:
   - $GOPATH/bin
@@ -40,3 +30,9 @@ paths:
   - $CARGO_HOME/bin
   - $RBENV_ROOT/bin
   - $NODENV_ROOT/bin
+
+darwin_variables:
+  - name: ANDROID_SDK_TOOLS
+    value: $HOME/Library/Android/sdk/tools
+  - name: ANDROID_SDK_PLATFORM_TOOLS
+    value: $HOME/Library/Android/sdk/platform-tools

@@ -1,9 +1,12 @@
 ---
-- include_tasks: ubuntu.yml
+- import_tasks: ubuntu.yml
   when: ansible_os_family == "Debian"
 
-- include_tasks: darwin.yml
+- import_tasks: darwin.yml
   when: ansible_os_family == "Darwin"
+
+- import_tasks: arch.yml
+  when: ansible_os_family == "Archlinux"
 
 - include_tasks: variables.yml
   with_items: "{{ variables }}"

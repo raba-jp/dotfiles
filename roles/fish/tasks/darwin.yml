@@ -1,5 +1,5 @@
 ---
-- name: Install fish shell
+- name: Install fish for macOS
   homebrew:
     name: fish
     state: present
