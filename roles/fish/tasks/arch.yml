@@ -1,0 +1,6 @@
+---
+- name: Install fish for Arch Linux
+  pacman:
+    name: fish
+    update_cache: yes
+  become: yes
