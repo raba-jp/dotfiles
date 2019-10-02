@@ -1,0 +1,24 @@
+---
+- git:
+    repo: https://github.com/k0kubun/xremap
+    dest: "{{ xdg_data_home }}/xremap"
+    accept_hostkey: yes
+
+- name: Install check
+  shell: type xremap
+  register: check
+  changed_when: no
+  ignore_errors: no
+
+- name: Build
+  command: make
+  args:
+    chdir: "{{ xdg_data_home }}/xremap"
+  when: check.rc != 0
+
+- name: Install
+  command: make install
+  args:
+    chdir: "{{ xdg_data_home }}/xremap"
+  become: yes
+  when: check.rc != 0

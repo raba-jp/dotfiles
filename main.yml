@@ -36,3 +36,6 @@
       tags: [direnv]
     - role: docker
       tags: [docker]
+    - role: xremap
+      tags: [xremap]
+      when: ansible_os_family == "Archlinux"
