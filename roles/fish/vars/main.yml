@@ -22,6 +22,10 @@ variables:
     value: $XDG_DATA_HOME/cargo
   - name: RUSTUP_HOME
     value: $XDG_DATA_HOME/rustup
+  - name: RBENV_ROOT
+    value: $HOME/.rbenv
+  - name: NODENV_ROOT
+    value: $HOME/.nodenv
 
 paths:
   - $GOPATH/bin
