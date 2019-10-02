@@ -34,3 +34,5 @@
       tags: [inkdrop]
     - role: direnv
       tags: [direnv]
+    - role: docker
+      tags: [docker]
