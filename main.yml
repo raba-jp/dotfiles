@@ -30,3 +30,5 @@
       tags: [fish]
     - role: vscode
       tags: [vscode]
+    - role: inkdrop
+      tags: [inkdrop]

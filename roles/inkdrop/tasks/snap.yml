@@ -1,0 +1,5 @@
+---
+- name: Install Inkdrop
+  snap:
+    name: inkdrop
+  become: yes
