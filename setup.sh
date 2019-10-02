@@ -2,107 +2,40 @@
 
 set -e
 
+cd `dirname $0`
 
-init_mac() {
-	if [ "$(uname)" == 'Darwin' ]; then
-		## Mac
-		echo "Setup for Mac"
-		which brew >/dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-		which ansible >/dev/null 2>&1 || brew install ansible
-		which git >/dev/null 2>&1 || brew install git
-	fi
-}
+type ansible > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+  if [ "$(uname)" == 'Darwin' ]; then
+    # Mac
+    echo "Setup for Mac"
+    echo "Install homebrew"
+    which brew >/dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" > /dev/null 2>&1
+    echo "brew install ansible"
+    which ansible >/dev/null 2>&1 || brew install ansible > /dev/null 2>&1
+    echo "Setup done"
+  fi
 
-init_debian() {
-	if   [ -e /etc/debian_version ] || [ -e /etc/debian_release ]; then
-		# Check Ubuntu or Debian
-		if [ -e /etc/lsb-release ]; then
-			# Ubuntu
-			# Not implemented yet
-			echo "Setup for Ubuntu"
-			echo "Not implemented yet"
-		else
-			# Debian
-			# Not implemented yet
-			echo "Setup for Debian"
-			echo "Not implemented yet"
-		fi
-	fi
-}
+  if   [ -e /etc/debian_version ] || [ -e /etc/debian_release ]; then
+    # Ubuntu
+    # Not implemented yet
+    echo "Setup for Ubuntu"
+    echo "sudo apt update"
+    sudo apt update > /dev/null 2>&1
+    echo "sudo apt install software-properties-common"
+    sudo apt install software-properties-common > /dev/null 2>&1
+    echo "sudo apt-add-repository ppa:ansible/ansible"
+    sudo apt-add-repository ppa:ansible/ansible > /dev/null 2>&1
+    echo "sudo apt update"
+    sudo apt update > /dev/null 2>&1
+    echo "sudo apt install ansible"
+    sudo apt install ansible > /dev/null 2>&1
+    echo "Setup done"
+  fi
+fi
 
-init_redhat() {
-	if [ -e /etc/fedora-release ]; then
-		# Fedra
-		echo "Setup for Fedora"
-		echo "Not implemented yet"
-	elif [ -e /etc/redhat-release ]; then
-		if [ -e /etc/oracle-release ]; then
-			# Oracle Linux
-			echo "Setup for Oracle Linux"
-			echo "Not implemented yet"
-		else
-			# Red Hat Enterprise Linux
-			echo "Setup for Red Hat Enterprise Linux"
-			echo "Not implemented yet"
-		fi
-	fi
-}
-
-init_arch() {
-	if [ -e /etc/arch-release ]; then
-		# Arch Linux
-		echo "Setup for Arch Linux"
-		echo "Not implemented yet"
-	fi
-}
-
-init_suse() {
-	if [ -e /etc/SuSE-release ]; then
-		# OpenSUSE
-		echo "Setup for OpenSUSE"
-		echo "Not implemented yet"
-	fi
-}
-
-init_mandriva() {
-	if [ -e /etc/mandriva-release ]; then
-		# Mandriva Linux
-		echo "Setup for Mandriva Linux"
-		echo "Not implemented yet"
-	fi
-}
-
-init_gentoo() {
-	if [ -e /etc/gentoo-release ]; then
-		# Gentoo Linux
-		echo "Setup for Gentoo Linux"
-		echo "Not implemented yet"
-	fi
-}
-
-setup() {
-	local dotfiles_dir=$HOME/.local/share/dotfiles
-	if [ ! -e $dotfiles_dir ]; then
-		git clone https://github.com/raba-jp/dotfiles $dotfiles_dir
-	fi
-	cd $dotfiles_dir
-	if [ $# -eq 1 ]; then
-		ansible-playbook -i ansible/inventory ansible/main.yml --tags $1
-	else
-		ansible-playbook -i ansible/inventory ansible/main.yml
-	fi
-}
-
-init() {
-	init_mac
-	init_debian
-	init_redhat
-	init_arch
-	init_arch
-	init_suse
-	init_mandriva
-	init_gentoo
-}
-
-init
-setup $1
+if [ $# -eq 1 ]; then
+  ansible-playbook -i inventory main.yml --ask-become-pass --tags $1
+else
+  ansible-playbook -i inventory main.yml --ask-become-pass
+fi

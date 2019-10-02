@@ -1,0 +1,21 @@
+---
+- name: Update homebrew
+  homebrew:
+    update_homebrew: yes
+
+- name: Install Visual Studio Code
+  homebrew_cask:
+    name: visual-studio-code
+    state: latest
+
+- name: Create symlinks
+  include_tasks: file.yml
+  with_items:
+    - src: "{{ xdg_data_home }}/dotfiles/config/Code/User/settings.json"
+      dest: "{{ ansible_user_dir }}/Library/Application\ Support/Code/User/settings.json"
+    - src: "{{ xdg_data_home }}/dotfiles/config/Code/User/keybindings.json"
+      dest: "{{ ansible_user_dir }}/Library/Application\ Support/Code/User/keybindings.json"
+    - src: "{{ xdg_data_home }}/dotfiles/config/Code/User/locale.json"
+      dest: "{{ ansible_user_dir }}/Library/Application\ Support/Code/User/locale.json"
+    - src: "{{ xdg_data_home }}/dotfiles/config/Code/User/projects.json"
+      dest: "{{ ansible_user_dir }}/Library/Application\ Support/Code/User/projects.json"

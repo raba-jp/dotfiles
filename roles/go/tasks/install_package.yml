@@ -1,0 +1,12 @@
+---
+- name: Checkout src
+  stat:
+    path: "{{ gopath }}/bin/{{ item.name }}"
+  register: check
+  ignore_errors: True
+
+- name: Install package
+  shell: "go install {{ item.uri }}"
+  environment:
+    GOPATH: "{{ gopath }}"
+  when: not check.stat.exists

@@ -1,0 +1,42 @@
+---
+variables:
+  - name: XDG_CONFIG_HOME
+    value: $HOME/.config
+  - name: XDG_CACHE_HOME
+    value: $HOME/.cache
+  - name: XDG_DATA_HOME
+    value: $HOME/.local/share
+  - name: LESSHISTFILE
+    value: $XDG_CACHE_HOME/less/history
+  - name: MPLAYER_HOME
+    value: $XDG_CONFIG_HOME/mplayer
+  - name: INPUTRC
+    value: $XDG_CONFIG_HOME/readline/inputrc
+  - name: EDITOR
+    value: nvim
+  - name: GOPATH
+    value: $HOME/dev
+  - name: SYS_NOTIFIER
+    value: /usr/local/bin/terminal-notifier
+  - name: CARGO_HOME
+    value: $XDG_DATA_HOME/cargo
+  - name: RUSTUP_HOME
+    value: $XDG_DATA_HOME/rustup
+  - name: RBENV_ROOT
+    value: $HOME/.rbenv
+  - name: NODENV_ROOT
+    value: $HOME/.nodenv
+
+paths:
+  - $GOPATH/bin
+  - $ANDROID_SDK_TOOLS/bin
+  - $ANDROID_SDK_PLATFORM_TOOLS
+  - $CARGO_HOME/bin
+  - $RBENV_ROOT/bin
+  - $NODENV_ROOT/bin
+
+darwin_variables:
+  - name: ANDROID_SDK_TOOLS
+    value: $HOME/Library/Android/sdk/tools
+  - name: ANDROID_SDK_PLATFORM_TOOLS
+    value: $HOME/Library/Android/sdk/platform-tools

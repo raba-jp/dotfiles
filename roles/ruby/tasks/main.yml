@@ -1,0 +1,45 @@
+---
+- import_tasks: ubuntu.yml
+  when: ansible_os_family == "Debian"
+
+- name: Install dependencies
+  import_tasks: dependencies.yml
+
+- name: Install rbenv and plugins
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - repo: https://github.com/rbenv/rbenv
+      dest: "{{ ansible_user_dir }}/.rbenv"
+    - repo: https://github.com/rbenv/ruby-build
+      dest: "{{ ansible_user_dir }}/.rbenv/plugins/ruby-build"
+
+- name: Check Ruby
+  stat:
+    path: "{{ ansible_user_dir }}/.rbenv/shims/ruby"
+  register: ruby
+
+- name: Install Ruby
+  shell: "{{ ansible_user_dir }}/.rbenv/bin/rbenv install {{ ruby_version }}"
+  when: not ruby.stat.exists
+
+- name: rbenv rehash
+  shell: "{{ ansible_user_dir }}/.rbenv/bin/rbenv rehash"
+  when: not ruby.stat.exists
+
+- name: rbenv global
+  shell: "{{ ansible_user_dir }}/.rbenv/bin/rbenv global {{ ruby_version }}"
+  when: not ruby.stat.exists
+
+- name: rbenv rehash
+  shell: "{{ ansible_user_dir }}/.rbenv/bin/rbenv rehash"
+  when: not ruby.stat.exists
+
+- name: Install Ruby package
+  gem:
+    name: "{{ item.name | default(item) }}"
+    state: latest
+    executable: "{{ ansible_user_dir }}/.rbenv/shims/gem"
+    user_install: no
+  with_items: "{{ ruby_packages }}"

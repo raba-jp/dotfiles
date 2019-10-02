@@ -1,6 +1,0 @@
----
-- name: Install fish shell
-  homebrew:
-    name: fish
-    state: present
-    update_homebrew: yes

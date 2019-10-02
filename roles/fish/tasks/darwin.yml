@@ -1,0 +1,6 @@
+---
+- name: Install fish for macOS
+  homebrew:
+    name: fish
+    state: present
+    update_homebrew: yes

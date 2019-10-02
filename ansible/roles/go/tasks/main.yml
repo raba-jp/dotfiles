@@ -1,9 +1,0 @@
----
-- include_tasks: ubuntu.yml
-  when: ansible_os_family == "Debian"
-
-- include_tasks: darwin.yml
-  when: ansible_os_family == "Darwin"
-
-- include_tasks: install_package.yml
-  with_items: "{{ go_packages }}"

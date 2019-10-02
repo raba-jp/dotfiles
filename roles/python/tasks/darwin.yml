@@ -1,0 +1,11 @@
+---
+- name: Update homebrew
+  homebrew:
+    update_homebrew: yes
+
+- name: Install Python
+  homebrew:
+    name:
+      - python
+      - python3
+    state: present

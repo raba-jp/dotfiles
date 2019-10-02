@@ -1,0 +1,157 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Solarized Dark",
+  "workbench.startupEditor": "newUntitledFile",
+  "material-icon-theme.folders.color": "#90a4ae",
+  "material-icon-theme.hidesExplorerArrows": false,
+  "gitlens.blame.highlight.enabled": false,
+  "gitlens.defaultDateFormat": "YYYY/M/D hh:mm",
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "editor.fontFamily": "Cica",
+  "editor.fontSize": 14,
+  "editor.autoClosingBrackets": "always",
+  "editor.autoIndent": true,
+  "editor.foldingStrategy": "auto",
+  "editor.folding": true,
+  "editor.wordWrap": "on",
+  "editor.detectIndentation": true,
+  "editor.lineNumbers": "off",
+  "editor.minimap.enabled": false,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.autoClosingQuotes": "always",
+  "editor.codeLens": true,
+  "editor.insertSpaces": true,
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontFamily": "Cica",
+  "files.autoSave": "onFocusChange",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/vendor": true,
+    "**/node_modules/**": true
+  },
+  "go.gopath": "/Users/sakuraba/Development",
+  "go.inferGopath": true,
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "typescript.locale": "ja",
+  "typescript.format.enable": true,
+  "typescript.validate.enable": true,
+  "typescript.suggest.enabled": true,
+  "typescript.suggest.autoImports": true,
+  "typescript.suggestionActions.enabled": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.extension.sortImports.enableJavascript": true,
+  "typescript.extension.sortImports.quoteStyle": "double",
+  "typescript.extension.sortImports.sortOnSave": true,
+  "typescript.extension.sortImports.omitSemicolon": false,
+  "ruby.codeCompletion": "rcodetools",
+  "ruby.useBundler": true,
+  "ruby.lint": {
+    "rubocop": true,
+    "ruby": true,
+    "fasterer": true,
+    "reek": true
+  },
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.pep8Enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.lintOnSave": true,
+  "python.jediEnabled": false,
+  "python.autoUpdateLanguageServer": true,
+  "vim.foldfix": true,
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "vim.leader": "<space>",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": ["p"],
+      "after": ["p", "g", "v", "y"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [";"],
+      "after": [":"]
+    },
+    {
+      "before": [":"],
+      "after": [";"]
+    },
+    {
+      "before": ["s"],
+      "after": []
+    },
+    {
+      "before": ["<Up>"],
+      "after": []
+    },
+    {
+      "before": ["<Down>"],
+      "after": []
+    },
+    {
+      "before": ["<Left>"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["<Right>"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["y", "y"],
+      "after": ["y", "$"]
+    },
+    {
+      "before": ["<tab>"],
+      "after": ["$"]
+    }
+  ],
+  "[jinja-yaml]": {
+    "editor.tabSize": 2
+  },
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "liveshare.featureSet": "stable",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "never"
+}

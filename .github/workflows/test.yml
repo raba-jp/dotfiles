@@ -1,0 +1,96 @@
+name: Test
+
+on: [push]
+
+jobs:
+  clojure:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macOS-10.14]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Provisioning
+        run: ./setup.sh clojure
+      - name: Install serverspec
+        run: ./setup_test.sh
+      - name: Run Serverspec
+        run: rake spec:clojure
+  go:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macOS-10.14]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Provisioning
+        run: ./setup.sh go
+      - name: Install serverspec
+        run: ./setup_test.sh
+      - name: Run Serverspec
+        run: rake spec:go
+  python:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macOS-10.14]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Provisioning
+        run: ./setup.sh python
+      - name: Install serverspec
+        run: ./setup_test.sh
+      - name: Run Serverspec
+        run: rake spec:python
+  ruby:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macOS-10.14]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Provisioning
+        run: ./setup.sh ruby
+      - name: Install serverspec
+        run: ./setup_test.sh
+      - name: Run Serverspec
+        run: rake spec:ruby
+  rust:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macOS-10.14]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Provisioning
+        run: ./setup.sh rust
+      - name: Install serverspec
+        run: ./setup_test.sh
+      - name: Run Serverspec
+        run: rake spec:rust
+  vscode:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macOS-10.14]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Provisioning
+        run: ./setup.sh vscode
+      - name: Install serverspec
+        run: ./setup_test.sh
+      - name: Run Serverspec
+        run: rake spec:vscode
+  node:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macOS-10.14]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Provisioning
+        run: ./setup.sh node
+      - name: Install serverspec
+        run: ./setup_test.sh
+      - name: Run Serverspec
+        run: rake spec:node

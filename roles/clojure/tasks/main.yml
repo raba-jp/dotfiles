@@ -1,0 +1,24 @@
+---
+- name: for macOS
+  import_tasks: darwin.yml
+  when: ansible_os_family == "Darwin"
+
+- name: for Ubuntu
+  import_tasks: ubuntu.yml
+  when: ansible_os_family == "Debian"
+
+- name: for Arch Linux
+  import_tasks: arch.yml
+  when: ansible_os_family == "Archlinux"
+
+- name: Create config dir
+  file:
+    path: "{{ ansible_user_dir }}/.config"
+    state: directory
+    recurse: yes
+
+- name: Create symlink
+  file:
+    src: "{{ ansible_env.PWD }}/config/clojure"
+    dest: "{{ ansible_user_dir }}/.config/clojure"
+    state: link

@@ -1,0 +1,14 @@
+---
+- name: Already exist rust
+  stat:
+    path: "{{ xdg_data_home }}/cargo/bin/cargo"
+  register: check
+  changed_when: no
+  ignore_errors: yes
+
+- name: Install rust by rustup
+  shell: |
+    CARGO_HOME={{ xdg_data_home }}/cargo \
+    RUSTUP_HOME={{ xdg_data_home }}/rustup \
+    bash -c 'curl https://sh.rustup.rs -sSf | sh -s -- -y'
+  when: not check.stat.exists

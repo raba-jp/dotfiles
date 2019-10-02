@@ -1,0 +1,36 @@
+---
+- name: Setup
+  hosts: all
+  connection: local
+  vars_files:
+    - vars/main.yml
+
+  roles:
+    - role: mac
+      tags: [mac, os]
+      when: ansible_os_family == 'Darwin'
+    - role: ubuntu
+      tags: [ubuntu, os]
+      when: ansible_os_family == 'Debian'
+    - role: commons
+      tags: [commons]
+    - role: ruby
+      tags: [ruby, language]
+    - role: go
+      tags: [go, language]
+    - role: python
+      tags: [python, language]
+    - role: rust
+      tags: [rust, language]
+    - role: node
+      tags: [node, language]
+    - role: clojure
+      tags: [clojure, language]
+    - role: fish
+      tags: [fish]
+    - role: vscode
+      tags: [vscode]
+    - role: inkdrop
+      tags: [inkdrop]
+    - role: direnv
+      tags: [direnv]

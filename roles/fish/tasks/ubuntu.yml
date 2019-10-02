@@ -1,0 +1,12 @@
+---
+- name: Add repository
+  apt_repository:
+    repo: ppa:fish-shell/release-2
+
+- name: Install fish for Ubuntu
+  apt:
+    name: fish
+    state: present
+    autoclean: yes
+    autoremove: yes
+    update_cache: yes

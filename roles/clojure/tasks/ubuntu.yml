@@ -1,0 +1,13 @@
+---
+- name: Update packages
+  apt:
+    update_cache: yes
+  become: yes
+
+- name: Install clojure
+  apt:
+    name: clojure
+    state: present
+    autoclean: yes
+    autoremove: yes
+  become: yes

@@ -1,0 +1,6 @@
+---
+- name: Install Golang
+  snap:
+    name: go
+    classic: yes
+  become: yes

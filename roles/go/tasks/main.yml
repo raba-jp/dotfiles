@@ -1,0 +1,24 @@
+---
+- name: for macOS
+  import_tasks: darwin.yml
+  when: ansible_os_family == "Darwin"
+
+- name: for Ubuntu
+  import_tasks: ubuntu.yml
+  when: ansible_os_family == "Debian"
+
+- name: for Arch Linux
+  import_tasks: arch.yml
+  when: ansible_os_family == "Archlinux"
+
+- name: Create directory
+  file:
+    path: "{{ gopath }}"
+    state: directory
+    recurse: yes
+
+- include_tasks: checkout_source.yml
+  with_items: "{{ gosrc }}"
+
+- include_tasks: install_package.yml
+  with_items: "{{ gobin }}"

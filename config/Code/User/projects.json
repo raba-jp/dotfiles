@@ -1,0 +1,14 @@
+[
+  {
+    "name": "truckers",
+    "rootPath": "/home/sakuraba/dev/src/github.com/azoop/truckers",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "dotfiles",
+    "rootPath": "/home/sakuraba/dotfiles",
+    "paths": [],
+    "group": ""
+  }
+]

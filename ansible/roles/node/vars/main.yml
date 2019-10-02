@@ -1,7 +1,0 @@
----
-node_version: 9.2.0
-node_packages:
-  - javascript-typescript-langserver
-  - vue-language-server
-  - eslint
-  - prettier
