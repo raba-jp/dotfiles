@@ -1,11 +1,9 @@
 ---
-- name: for macOS
-  import_tasks: darwin.yml
+- import_tasks: darwin.yml
   when: ansible_os_family == "Darwin"
 
-- name: for Ubuntu
-  import_tasks: ubuntu.yml
-  when: ansible_os_family == "Debian"
+- import_tasks: snap.yml
+  when: ansible_os_family == "Debian" or ansible_os_family == "Archlinux"
 
 - include_tasks: extension.yml
   with_items: "{{ vscode_extensions }}"
