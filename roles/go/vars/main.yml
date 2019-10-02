@@ -10,7 +10,7 @@ gosrc:
   - github.com/motemen/ghq
 gobin:
   - name: gore
-    uri: github.com/motemen/gore
+    uri: github.com/motemen/gore/cmd/gore
   - name: gocode
     uri: github.com/mdempsky/gocode
   - name: gopls

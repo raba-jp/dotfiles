@@ -9,4 +9,4 @@
   shell: "go install {{ item.uri }}"
   environment:
     GOPATH: "{{ gopath }}"
-  when: not installed.stat.exists
+  when: not check.stat.exists
