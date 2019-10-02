@@ -1,0 +1,6 @@
+---
+- name: Install go for Arch Linux
+  pacman:
+    name: go
+    update_cache: yes
+  become: yes
