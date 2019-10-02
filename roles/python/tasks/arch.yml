@@ -1,0 +1,12 @@
+---
+- name: Install Python for Arch Linux
+  pacman:
+    name: python
+    update_cache: yes
+  become: yes
+
+- name: Install Python2 for Arch Linux
+  pacman:
+    name: python2
+    update_cache: yes
+  become: yes
