@@ -1,0 +1,23 @@
+---
+- name: Install Visual Studio Code
+  snap:
+    name: code
+    classic: yes
+  become: yes
+
+- name: Create directory
+  file:
+    path: "{{ ansible_user_dir }}/.config/Code/User"
+    state: directory
+
+- name: Create symlinks
+  include_tasks: file.yml
+  with_items:
+    - src: "{{ ansible_env.PWD }}/config/Code/User/settings.json"
+      dest: "{{ ansible_user_dir }}/.config/Code/User/settings.json"
+    - src: "{{ ansible_env.PWD }}/config/Code/User/keybindings.json"
+      dest: "{{ ansible_user_dir }}/.config/Code/User/keybindings.json"
+    - src: "{{ ansible_env.PWD }}/config/Code/User/locale.json"
+      dest: "{{ ansible_user_dir }}/.config/Code/User/locale.json"
+    - src: "{{ ansible_env.PWD }}/config/Code/User/projects.json"
+      dest: "{{ ansible_user_dir }}/.config/Code/User/projects.json"

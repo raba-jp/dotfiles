@@ -1,121 +1,13 @@
 [
   {
-    "name": "hinata",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/vivitInc/hinata",
-    "paths": [],
-    "group": "vivit,inc."
-  },
-  {
-    "name": "credentials",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/vivitInc/credentials",
-    "paths": [],
-    "group": "vivit,inc."
-  },
-  {
-    "name": "tool-downloader",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/vivitInc/tool-downloader",
-    "paths": [],
-    "group": "vivit,inc."
-  },
-  {
-    "name": "hinata-samsara",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/vivitInc/hinata-samsara",
-    "paths": [],
-    "group": "vivit,inc."
-  },
-  {
-    "name": "hinata-env",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/vivitInc/hinata-env",
-    "paths": [],
-    "group": "vivit,inc."
-  },
-  {
-    "name": "maguro-bot",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/vivitInc/maguro-bot",
-    "paths": [],
-    "group": "vivit,inc."
-  },
-  {
-    "name": "gh-label-sync",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/gh-label-sync",
-    "paths": [],
-    "group": ""
-  },
-  {
-    "name": "TypeMetricsLogger",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/TypeMetricsLogger",
-    "paths": [],
-    "group": ""
-  },
-  {
-    "name": "blog",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/blog",
-    "paths": [],
-    "group": ""
-  },
-  {
-    "name": "ml_novels_app",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/ml_novels_app",
-    "paths": [],
-    "group": ""
-  },
-  {
-    "name": "NovPS",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/NovPS",
-    "paths": [],
-    "group": ""
-  },
-  {
-    "name": "fermi",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/Toshiki-Sasaki/fermi",
-    "paths": [],
-    "group": ""
-  },
-  {
-    "name": "microservice-template",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/microservice-template",
+    "name": "truckers",
+    "rootPath": "/home/sakuraba/dev/src/github.com/azoop/truckers",
     "paths": [],
     "group": ""
   },
   {
     "name": "dotfiles",
-    "rootPath": "/Users/sakuraba/dotfiles",
-    "paths": [],
-    "group": ""
-  },
-  {
-    "name": "hinata-rental-native",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/hinata-rental-native",
-    "paths": [],
-    "group": ""
-  },
-  {
-    "name": "hinata-spot-native",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/hinata-spot-native",
-    "paths": [],
-    "group": ""
-  },
-  {
-    "name": "infrastructure",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/infrastructure",
-    "paths": [],
-    "group": ""
-  },
-  {
-    "name": "photo-diary",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/sakadachikids/photo-diary",
-    "paths": [],
-    "group": ""
-  },
-  {
-    "name": "admingen",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/admingen",
-    "paths": [],
-    "group": ""
-  },
-  {
-    "name": "qr_free",
-    "rootPath": "/Users/sakuraba/Development/src/github.com/raba-jp/qr_free",
+    "rootPath": "/home/sakuraba/dotfiles",
     "paths": [],
     "group": ""
   }
