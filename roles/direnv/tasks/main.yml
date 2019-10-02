@@ -1,0 +1,12 @@
+---
+- name: for macOS
+  homebrew:
+    name: direnv
+    update_homebrew: yes
+  when: ansible_os_family == "Darwin"
+
+- name: for Arch Linux
+  pacman:
+    name: direnv
+  become: yes
+  when: ansible_os_family == "Archlinux"

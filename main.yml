@@ -32,3 +32,5 @@
       tags: [vscode]
     - role: inkdrop
       tags: [inkdrop]
+    - role: direnv
+      tags: [direnv]
