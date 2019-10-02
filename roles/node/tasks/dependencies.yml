@@ -14,3 +14,10 @@
     name: git
     state: present
   when: ansible_os_family == "Darwin"
+
+- name: Install git for Arch Linux
+  pacman:
+    name: git
+    update_cache: yes
+  become: yes
+  when: ansible_os_family == "Archlinux"
