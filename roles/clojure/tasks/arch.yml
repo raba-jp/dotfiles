@@ -1,0 +1,6 @@
+---
+- name: Install Clojure for Arch Linux
+  pacman:
+    name: clojure
+    update_cache: yes
+  become: yes
