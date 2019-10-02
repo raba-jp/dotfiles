@@ -11,49 +11,35 @@
     dest: "{{ item.dest }}"
   with_items:
     - repo: https://github.com/rbenv/rbenv
-      dest: "{{ xdg_data_home }}/rbenv"
+      dest: "{{ ansible_user_dir }}/.rbenv"
     - repo: https://github.com/rbenv/ruby-build
-      dest: "{{ xdg_data_home }}/rbenv/plugins/ruby-build"
-
-- name: Setup rbenv
-  shell: |
-    cd {{ xdg_data_home }}/rbenv && \
-    src/configure && \
-    make -C src
+      dest: "{{ ansible_user_dir }}/.rbenv/plugins/ruby-build"
 
 - name: Check Ruby
   stat:
-    path: "{{ xdg_data_home }}/rbenv/shims/ruby"
+    path: "{{ ansible_user_dir }}/.rbenv/shims/ruby"
   register: ruby
 
 - name: Install Ruby
-  shell: |
-    RBENV_ROOT={{ xdg_data_home }}/rbenv \
-    {{ xdg_data_home }}/rbenv/bin/rbenv install {{ ruby_version }}
+  shell: "{{ ansible_user_dir }}/.rbenv/bin/rbenv install {{ ruby_version }}"
   when: not ruby.stat.exists
 
 - name: rbenv rehash
-  shell: |
-    RBENV_ROOT={{ xdg_data_home }}/rbenv \
-    {{ xdg_data_home }}/rbenv/bin/rbenv rehash
+  shell: "{{ ansible_user_dir }}/.rbenv/bin/rbenv rehash"
   when: not ruby.stat.exists
 
 - name: rbenv global
-  shell: |
-    RBENV_ROOT={{ xdg_data_home }}/rbenv \
-    {{ xdg_data_home }}/rbenv/bin/rbenv global {{ ruby_version }}
+  shell: "{{ ansible_user_dir }}/.rbenv/bin/rbenv global {{ ruby_version }}"
   when: not ruby.stat.exists
 
 - name: rbenv rehash
-  shell: |
-    RBENV_ROOT={{ xdg_data_home }}/rbenv \
-    {{ xdg_data_home }}/rbenv/bin/rbenv rehash
+  shell: "{{ ansible_user_dir }}/.rbenv/bin/rbenv rehash"
   when: not ruby.stat.exists
 
 - name: Install Ruby package
   gem:
     name: "{{ item.name | default(item) }}"
     state: latest
-    executable: "{{ xdg_data_home }}/rbenv/shims/gem"
+    executable: "{{ ansible_user_dir }}/.rbenv/shims/gem"
     user_install: no
   with_items: "{{ ruby_packages }}"
