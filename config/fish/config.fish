@@ -1,6 +1,4 @@
 ## Alias
-alias vi 'nvim'
-alias vim 'nvim'
 alias sudo 'sudo '
 alias ls 'exa'
 alias ll 'exa -alhG'
