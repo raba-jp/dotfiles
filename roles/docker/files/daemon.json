@@ -1,0 +1,4 @@
+{
+  "data-root": "/home/sakuraba/.local/share/docker",
+  "userns-remap": "sakuraba"
+}

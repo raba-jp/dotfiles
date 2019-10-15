@@ -14,6 +14,22 @@
     groups:
       - docker
 
+- name: Copy config file
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: 644
+  with_items:
+    - src: daemon.json
+      dest: /etc/docker/daemon.json
+    - src: subuid
+      dest: /etc/subuid
+    - src: subgid
+      dest: /etc/subgid
+  become: yes
+
 - name: Start docker daemon
   systemd:
     name: docker.service
