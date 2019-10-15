@@ -8,11 +8,10 @@
   roles:
     - role: mac
       tags: [mac, os]
+      when: ansible_os_family == 'Darwin'
     - role: arch
       tags: [arch]
-      when: ansible_os_family == 'Darwin'
-    - role: commons
-      tags: [commons]
+      when: ansible_os_family == "Archlinux"
     - role: ruby
       tags: [ruby, language]
     - role: go
@@ -35,9 +34,6 @@
       tags: [direnv]
     - role: docker
       tags: [docker]
-    - role: xremap
-      tags: [xremap]
-      when: ansible_os_family == "Archlinux"
     - role: tmux
       tags: [tmux]
     - role: vim
