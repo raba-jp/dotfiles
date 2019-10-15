@@ -1,4 +1,13 @@
 ---
+- name: Install VSCode runtime dependencies
+  pacman:
+    name: "{{ item.src }}"
+  with_items:
+    - glibc
+    - libcanberra
+    - gvfs
+  become: yes
+
 - name: Install Visual Studio Code by Snap
   snap:
     name: code
