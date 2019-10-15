@@ -1,45 +1,51 @@
 ---
-- name: Setup
+- name: Device
   hosts: all
   connection: local
   vars_files:
     - vars/main.yml
-
+  tags: [never]
   roles:
-    - role: mac
-      tags: [mac, os]
-      when: ansible_os_family == 'Darwin'
-    - role: arch
-      tags: [arch]
-      when: ansible_os_family == "Archlinux"
-    - role: ruby
-      tags: [ruby, language]
-    - role: go
-      tags: [go, language]
-    - role: python
-      tags: [python, language]
-    - role: rust
-      tags: [rust, language]
-    - role: node
-      tags: [node, language]
-    - role: clojure
-      tags: [clojure, language]
-    - role: fish
-      tags: [fish]
-    - role: vscode
-      tags: [vscode]
-    - role: inkdrop
-      tags: [inkdrop]
-    - role: direnv
-      tags: [direnv]
-    - role: docker
-      tags: [docker]
-    - role: tmux
-      tags: [tmux]
-    - role: vim
-      tags: [vim]
-    - role: xps
-      tags: [xps]
-      when: ansible_os_family == "Archlinux"
-    - role: alacritty
-      tags: [alacritty]
+    - { role: xps, tags: [xps], when: ansible_os_family == "Archlinux" }
+
+- name: OS
+  hosts: all
+  connection: local
+  vars_files:
+    - vars/main.yml
+  tags:
+    - os
+  roles:
+    - { role: "mac", tags: [mac], when: ansible_os_family == 'Darwin' }
+    - { role: arch, tags: [arch], when: ansible_os_family == "Archlinux" }
+
+- name: Language
+  hosts: all
+  connection: local
+  vars_files:
+    - vars/main.yml
+  tags:
+    - languages
+  roles:
+    - { role: "clojure", tags: [clojure] }
+    - { role: "go", tags: [go] }
+    - { role: "ruby", tags: [ruby] }
+    - { role: "python", tags: [python] }
+    - { role: "rust", tags: [rust] }
+    - { role: "node", tags: [node] }
+
+- name: Tools
+  hosts: all
+  connection: local
+  vars_files:
+    - vars/main.yml
+  tags:
+    - tools
+  roles:
+    - { role: fish, tags: [fish] }
+    - { role: vscode, tags: [vscode] }
+    - { role: inkdrop, tags: [inkdrop] }
+    - { role: docker, tags: [docker] }
+    - { role: tmux, tags: [tmux] }
+    - { role: vim, tags: [vim] }
+    - { role: alacritty, tags: [alacritty] }

@@ -28,14 +28,5 @@
     - peco
     - tig
     - tmux
+    - yay
   become: yes
-
-- name: git clone yay
-  git:
-    repo: https://aur.archlinux.org/yay.git
-    dest: "{{ ansible_user_dir }}/.local/share/yay"
-
-- name: makepkg
-  shell: makepkg -si
-  args:
-    chdir: "{{ ansible_user_dir }}/.local/share/yay"
