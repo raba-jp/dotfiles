@@ -39,3 +39,10 @@
     - role: xremap
       tags: [xremap]
       when: ansible_os_family == "Archlinux"
+    - role: tmux
+      tags: [tmux]
+    - role: vim
+      tags: [vim]
+    - role: xps
+      tags: [xps]
+      when: ansible_os_family == "Archlinux"

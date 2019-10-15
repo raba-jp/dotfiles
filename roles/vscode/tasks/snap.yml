@@ -1,5 +1,5 @@
 ---
-- name: Install Visual Studio Code
+- name: Install Visual Studio Code by Snap
   snap:
     name: code
     classic: yes
