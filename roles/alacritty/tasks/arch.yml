@@ -1,0 +1,6 @@
+---
+- name: Install for Arch Linux
+  pacman:
+    name: alacritty
+    update_cache: yes
+  become: yes

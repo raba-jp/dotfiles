@@ -43,3 +43,5 @@
     - role: xps
       tags: [xps]
       when: ansible_os_family == "Archlinux"
+    - role: alacritty
+      tags: [alacritty]
