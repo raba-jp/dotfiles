@@ -30,3 +30,9 @@
     - tmux
     - yay
   become: yes
+
+- name: Create config dir
+  file:
+    path: "{{ ansible_user_dir }}/.config"
+    state: directory
+    recurse: yes
