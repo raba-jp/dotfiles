@@ -13,7 +13,7 @@ variables:
   - name: INPUTRC
     value: $XDG_CONFIG_HOME/readline/inputrc
   - name: EDITOR
-    value: nvim
+    value: vim
   - name: GOPATH
     value: $HOME/dev
   - name: SYS_NOTIFIER

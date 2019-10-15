@@ -1,0 +1,5 @@
+---
+- name: Install
+  homebrew:
+    name: tmux
+    update_homebrew: yes

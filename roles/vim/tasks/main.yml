@@ -1,0 +1,19 @@
+---
+- name: for macOS
+  homebrew:
+    name: vim
+    update_homebrew: yes
+  when: ansible_os_family == "Darwin"
+
+- name: for Arch Linux
+  pacman:
+    name: vim
+    update_cache: yes
+  become: yes
+  when: ansible_os_family == "Archlinux"
+
+- name: Create symlink
+  file:
+    src: "{{ ansible_env.PWD }}/config/vim/minimal.vim"
+    dest: "{{ ansible_user_dir }}/.vimrc"
+    state: link
