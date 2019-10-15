@@ -1,0 +1,41 @@
+---
+- name: Install
+  pacman:
+    name: "{{ item }}"
+  with_items:
+    - autoconf
+    - automake
+    - base-devel
+    - binutils
+    # IME
+    - fcitx
+    - fcitx-configtool
+    - fcitx-mozc
+    - fcitx-gtk3
+    # Gnome3 Theme
+    - materia-gtk-theme
+    - gnome-themes-extra
+    - gtk-engine-murrine
+    # Tools
+    - git
+    - direnv
+    - exa
+    - fd
+    - ripgrep
+    - fish
+    - kubectl
+    - kubectx
+    - peco
+    - tig
+    - tmux
+  become: yes
+
+- name: git clone yay
+  git:
+    repo: https://aur.archlinux.org/yay.git
+    dest: "{{ ansible_user_dir }}/.local/share/yay"
+
+- name: makepkg
+  shell: makepkg -si
+  args:
+    chdir: "{{ ansible_user_dir }}/.local/share/yay"

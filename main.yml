@@ -8,6 +8,8 @@
   roles:
     - role: mac
       tags: [mac, os]
+    - role: arch
+      tags: [arch]
       when: ansible_os_family == 'Darwin'
     - role: commons
       tags: [commons]
