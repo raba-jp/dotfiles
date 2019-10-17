@@ -1,0 +1,12 @@
+---
+- name: Install Dart SDK
+  pacman:
+    name: dart
+    update_cache: yes
+  become: yes
+
+- name: Install Flutter SDK
+  aur:
+    name: flutter
+  become: yes
+  become_user: aur_builder

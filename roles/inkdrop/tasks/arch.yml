@@ -1,5 +1,6 @@
 ---
 - name: Install Inkdrop
-  snap:
+  aur:
     name: inkdrop
   become: yes
+  become_user: aur_builder

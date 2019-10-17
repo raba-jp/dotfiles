@@ -1,38 +1,75 @@
 ---
 - name: Install
   pacman:
-    name: "{{ item }}"
-  with_items:
-    - autoconf
-    - automake
-    - base-devel
-    - binutils
-    # IME
-    - fcitx
-    - fcitx-configtool
-    - fcitx-mozc
-    - fcitx-gtk3
-    # Gnome3 Theme
-    - materia-gtk-theme
-    - gnome-themes-extra
-    - gtk-engine-murrine
-    # Tools
-    - git
-    - direnv
-    - exa
-    - fd
-    - ripgrep
-    - fish
-    - kubectl
-    - kubectx
-    - peco
-    - tig
-    - tmux
-    - yay
+    name:
+      - autoconf
+      - automake
+      - base-devel
+      - binutils
+      # IME
+      - fcitx
+      - fcitx-configtool
+      - fcitx-mozc
+      - fcitx-gtk3
+      # Gnome3 Theme
+      - materia-gtk-theme
+      - gnome-themes-extra
+      - gtk-engine-murrine
+      # Tools
+      - git
+      - exa
+      - fd
+      - ripgrep
+      - fish
+      - kubectl
+      - kubectx
+      - tig
+      - tmux
+      - yay
+      - vim
+      - caprine
+      - noto-fonts
+      - noto-fonts-cjk
+      - noto-fonts-emoji
+      - noto-fonts-extra
+    update_cache: yes
   become: yes
+
+# direnv peco
 
 - name: Create config dir
   file:
     path: "{{ ansible_user_dir }}/.config"
     state: directory
     recurse: yes
+
+- name: Create directory
+  file:
+    path: "{{ ansible_user_dir }}/.ansible/plugins/modules"
+    state: directory
+    recurse: yes
+
+- name: Create AUR build user
+  user:
+    name: aur_builder
+    group: wheel
+  become: yes
+
+- name: Modify sudoers
+  lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: "aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman"
+    create: yes
+    validate: "visudo -cf %s"
+  become: yes
+
+- name: Install from AUR
+  aur:
+    name:
+      - peco
+      - direnv
+      - google-chrome
+      - ttf-cica
+      - slack-desktop
+  become: yes
+  become_user: aur_builder

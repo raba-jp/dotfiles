@@ -43,7 +43,7 @@
     "**/vendor": true,
     "**/node_modules/**": true
   },
-  "go.gopath": "/Users/sakuraba/Development",
+  "go.gopath": "~/dev",
   "go.inferGopath": true,
   "javascript.preferences.importModuleSpecifier": "relative",
   "typescript.locale": "ja",

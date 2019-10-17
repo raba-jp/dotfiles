@@ -13,6 +13,13 @@
     append: yes
     groups:
       - docker
+  become: yes
+
+- name: Create directory
+  file:
+    path: /etc/docker
+    state: directory
+  become: yes
 
 - name: Copy config file
   copy:
@@ -42,6 +49,7 @@
     name: microk8s
     classic: yes
     channel: edge
+  become: yes
 
 - name: Add user to microk8s group
   user:
@@ -49,3 +57,4 @@
     append: yes
     groups:
       - microk8s
+  become: yes

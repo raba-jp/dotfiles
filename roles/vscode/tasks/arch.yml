@@ -1,18 +1,18 @@
 ---
 - name: Install VSCode runtime dependencies
   pacman:
-    name: "{{ item.src }}"
-  with_items:
-    - glibc
-    - libcanberra
-    - gvfs
+    name:
+      - glibc
+      - libcanberra
+      - gvfs
+    update_cache: yes
   become: yes
 
-- name: Install Visual Studio Code by Snap
-  snap:
-    name: code
-    classic: yes
+- name: Install Visual Studio Code from AUR
+  aur:
+    name: visual-studio-code-bin
   become: yes
+  become_user: aur_builder
 
 - name: Create directory
   file:
