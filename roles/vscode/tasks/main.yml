@@ -3,7 +3,7 @@
   when: ansible_os_family == "Darwin"
 
 - import_tasks: arch.yml
-  when: or ansible_os_family == "Archlinux"
+  when: ansible_os_family == "Archlinux"
 
 - include_tasks: extension.yml
   with_items: "{{ vscode_extensions }}"
