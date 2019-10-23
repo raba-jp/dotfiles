@@ -1,0 +1,64 @@
+---
+- name: Create group
+  group:
+    name: uinput
+  become: yes
+
+- name: Create user
+  user:
+    name: xkeysnail
+    groups:
+      - input
+      - uinput
+    create_home: no
+    shell: /sbin/nologin
+    append: yes
+  become: yes
+
+- name: Modify sudoers
+  lineinfile:
+    path: /etc/sudoers.d/12-install-xkeysnail
+    line: '{{ lookup("env", "USER") }} ALL=(ALL) ALL, (xkeysnail) NOPASSWD: /usr/bin/xkeysnail'
+    create: yes
+    validate: "visudo -cf %s"
+  become: yes
+
+- name: Allow 'xkeysnail' user to access /dev/input/*
+  copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - src: 40-udev-xkeysnail.rules
+      dest: /etc/udev/rules.d/40-udev-xkeysnail.rules
+    - src: uinput.conf
+      dest: /etc/modules-load.d/uinput.conf
+  become: yes
+
+- name: Create directory
+  file:
+    path: /opt/xkeysnail
+    owner: xkeysnail
+    group: xkeysnail
+    state: directory
+  become: yes
+
+- name: Create config file
+  copy:
+    src: config.py
+    dest: /opt/xkeysnail/config.py
+    owner: xkeysnail
+    group: xkeysnail
+    mode: 0644
+  become: yes
+
+- name: Create service file
+  copy:
+    src: xkeysnail.service
+    dest: /etc/systemd/system/xkeysnail.service
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
