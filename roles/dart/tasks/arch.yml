@@ -1,12 +1,23 @@
 ---
+- name: Download Dart SDK
+  get_url:
+    url: https://storage.googleapis.com/dart-archive/channels/stable/release/2.5.2/sdk/dartsdk-linux-x64-release.zip
+    sha256sum: afdda5e7b2a357fed2fec9511f12b4c4317d04b5a87e439a27d107104e98095e
+    dest: /tmp/dart.zip
+
 - name: Install Dart SDK
-  pacman:
-    name: dart
-    update_cache: yes
-  become: yes
+  unarchive:
+    src: /tmp/dart.zip
+    dest: "{{ ansible_user_dir }}/.local/share"
+    remote_src: yes
+
+- name: Download Flutter SDK
+  get_url:
+    url: https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.9.1+hotfix.5-stable.tar.xz
+    dest: /tmp/flutter.tar.xz 
 
 - name: Install Flutter SDK
-  aur:
-    name: flutter
-  become: yes
-  become_user: aur_builder
+  unarchive:
+    src: /tmp/flutter.tar.xz
+    dest: "{{ ansible_user_dir }}/.local/share"
+    remote_src: yes
