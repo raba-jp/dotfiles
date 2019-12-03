@@ -18,10 +18,6 @@ variables:
     value: $HOME/dev
   - name: SYS_NOTIFIER
     value: /usr/local/bin/terminal-notifier
-  - name: CARGO_HOME
-    value: $XDG_DATA_HOME/cargo
-  - name: RUSTUP_HOME
-    value: $XDG_DATA_HOME/rustup
   - name: RBENV_ROOT
     value: $HOME/.rbenv
   - name: NODENV_ROOT
@@ -31,7 +27,6 @@ paths:
   - $GOPATH/bin
   - $ANDROID_SDK_TOOLS/bin
   - $ANDROID_SDK_PLATFORM_TOOLS
-  - $CARGO_HOME/bin
   - $RBENV_ROOT/bin
   - $NODENV_ROOT/bin
   - $XDG_DATA_HOME/flutter/bin
