@@ -30,6 +30,7 @@ paths:
   - $RBENV_ROOT/bin
   - $NODENV_ROOT/bin
   - $XDG_DATA_HOME/flutter/bin
+  - $XDG_DATA_HOME/dart-sdk/bin
 
 darwin_variables:
   - name: ANDROID_SDK_TOOLS
