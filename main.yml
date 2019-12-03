@@ -1,32 +1,12 @@
 ---
-- name: Device
+- name: Setup
   hosts: all
   connection: local
   vars_files:
     - vars/main.yml
-  tags: [never]
-  roles:
-    - { role: xps, tags: [xps], when: ansible_os_family == "Archlinux" }
-
-- name: OS
-  hosts: all
-  connection: local
-  vars_files:
-    - vars/main.yml
-  tags:
-    - os
   roles:
     - { role: mac, tags: [mac], when: ansible_os_family == "Darwin" }
     - { role: arch, tags: [arch], when: ansible_os_family == "Archlinux" }
-
-- name: Language
-  hosts: all
-  connection: local
-  vars_files:
-    - vars/main.yml
-  tags:
-    - languages
-  roles:
     - { role: clojure, tags: [clojure] }
     - { role: go, tags: [go] }
     - { role: ruby, tags: [ruby] }
@@ -34,15 +14,6 @@
     - { role: rust, tags: [rust] }
     - { role: node, tags: [node] }
     - { role: dart, tags: [dart] }
-
-- name: Tools
-  hosts: all
-  connection: local
-  vars_files:
-    - vars/main.yml
-  tags:
-    - tools
-  roles:
     - { role: git, tags: [git] }
     - { role: fish, tags: [fish] }
     - { role: vscode, tags: [vscode] }
@@ -51,3 +22,4 @@
     - { role: tmux, tags: [tmux] }
     - { role: vim, tags: [vim] }
     - { role: alacritty, tags: [alacritty] }
+    - { role: xkeysnail, tags: [xkeysnail] }
