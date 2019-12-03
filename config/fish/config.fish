@@ -19,6 +19,7 @@ alias branch '__select_git_branch'
 alias kubens 'command kubens (command kubens | peco)'
 alias kubectx 'command kubectx (command kubectx | peco)'
 alias update_skaffold 'curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-darwin-amd64; and chmod +x skaffold; and sudo mv skaffold /usr/local/bin'
+alias fit_display 'xrandr --fb 7680x2160 --output DP3 --panning 3840x2160+0+0 --scale 2x2 --output eDP1 --panning 3840x2160+3840+0 --scale 1x1'
 
 # Keybind
 bind \cr __select_history
@@ -38,7 +39,7 @@ end
 alias ssh "__peco_ssh"
 
 [ (uname) = 'Darwin' ] && source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
-[ -n (type gcloud) ] && complete --command gcloud --arguments="($XDG_CONFIG_HOME/fish/gcloud_completion.py (commandline -cp))"
+# [ -n (type gcloud) ] && complete --command gcloud --arguments="($XDG_CONFIG_HOME/fish/gcloud_completion.py (commandline -cp))"
 [ -n (type direnv) ] && eval (direnv hook fish)
-[ -n (type nodenv) ] && status --is-interactive; and source (nodenv init - | psub)
-[ -n (type rbenv) ] && rbenv init - | source 
+status --is-interactive; and source (nodenv init -|psub)
+status --is-interactive; and source (rbenv init -|psub)
