@@ -4,8 +4,19 @@
     name:
       - docker
       - docker-compose
+      - docker-machine
+      - libvirt
+      - qemu
+      - ebtables
+      - dnsmasq
     update_cache: yes
   become: yes
+
+- name: Install KVM2 dirver for Arch Linux
+  aur:
+    name: docker-machine-driver-kvm2
+  become: yes
+  become_user: aur_builder
 
 - name: Add user to docker group
   user:
@@ -13,6 +24,7 @@
     append: yes
     groups:
       - docker
+      - libvirt
   become: yes
 
 - name: Create directory
@@ -37,24 +49,14 @@
       dest: /etc/subgid
   become: yes
 
-- name: Start docker daemon
+- name: Start daemon
   systemd:
-    name: docker.service
+    name: "{{ item }}"
     state: started
     enabled: yes
-  become: yes
-
-- name: microk8s
-  snap:
-    name: microk8s
-    classic: yes
-    channel: edge
-  become: yes
-
-- name: Add user to microk8s group
-  user:
-    name: "{{ ansible_env.USER }}"
-    append: yes
-    groups:
-      - microk8s
+    daemon_reload: yes
+  with_items:
+    - docker.service
+    - libvirtd.service
+    - virtlogd.service
   become: yes
