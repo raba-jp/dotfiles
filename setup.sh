@@ -6,7 +6,7 @@ cd `dirname $0`
 
 type ansible > /dev/null 2>&1
 if [ $? -ne 0 ]; then
-  if [ "$(uname)" == 'Darwin' ]; then
+  if [ "$(uname)" = 'Darwin' ]; then
     # Mac
     echo "Setup for Mac"
     echo "Install homebrew"
@@ -32,7 +32,14 @@ if [ $? -ne 0 ]; then
     sudo apt install ansible > /dev/null 2>&1
     echo "Setup done"
   fi
+
 fi
+## べき等にする
+## if [ -e /etc/arch-release ]; then
+##   # Arch Linux
+##   mkdir -p ~/.ansible/plugins/modules
+##   git clone https://github.com/kewlfft/ansible-aur.git ~/.ansible/plugins/modules/aur
+## fi
 
 if [ $# -eq 1 ]; then
   ansible-playbook -i inventory main.yml --ask-become-pass --tags $1
