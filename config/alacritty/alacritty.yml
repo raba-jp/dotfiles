@@ -72,9 +72,8 @@ mouse_bindings:
 
 key_bindings:
   - { key: Q,        mods: Control, chars: "\x11" }
-  - { key: Add, mods: Control, action: IncreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
-  - { key: Equals, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
   # Linux only
   - { key: V, mods: Control|Shift, action: Paste }
   - { key: C, mods: Control|Shift, action: Copy }
