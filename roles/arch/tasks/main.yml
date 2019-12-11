@@ -1,4 +1,10 @@
 ---
+- name: Remove
+  pacman:
+    name: firefox
+    state: absent
+  become: yes
+
 - name: Install
   pacman:
     name:
@@ -70,6 +76,14 @@
       - direnv
       - google-chrome
       - ttf-cica
-      - slack-desktop
+      - ttf-hackgen
+      - station
+      - starship
   become: yes
   become_user: aur_builder
+
+- name: Copy file
+  file:
+    src: "{{ ansible_env.PWD }}/xprofile"
+    dest: "{{ ansible_user_dir }}/.xprofile"
+    state: link

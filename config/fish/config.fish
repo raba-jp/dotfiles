@@ -2,6 +2,7 @@
 alias sudo 'sudo '
 alias ls 'exa'
 alias ll 'exa -alhG'
+alias cat 'bat'
 alias untar 'tar -xzvf'
 alias tmux 'tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 alias cp 'cp -i'
@@ -43,3 +44,4 @@ alias ssh "__peco_ssh"
 [ -n (type direnv) ] && eval (direnv hook fish)
 status --is-interactive; and source (nodenv init -|psub)
 status --is-interactive; and source (rbenv init -|psub)
+[ -n (type starship) ] && starship init fish | source
