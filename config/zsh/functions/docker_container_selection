@@ -1,5 +1,0 @@
-docker ps \
-  | sed -e '1d' \
-  | anyframe-selector-auto \
-  | awk '{print $1}' \
-  | anyframe-action-execute docker stop
