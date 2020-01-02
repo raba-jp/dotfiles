@@ -20,10 +20,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
-on_i  = 1
-on_ft = 'snippet'
-depends = ['neosnippet-snippets']
-hook_add = '''
+on_i  = 1 on_ft = 'snippet' depends = ['neosnippet-snippets'] hook_add = '''
   imap <C-n> <Plug>(neosnippet_expand_or_jump)
   smap <C-n> <Plug>(neosnippet_expand_or_jump)
   xmap <C-n> <Plug>(neosnippet_expand_target)
@@ -65,31 +62,6 @@ repo = 'Shougo/neco-vim'
 on_ft = 'vim'
 on_i = 1
 depends = 'deoplete.nvim'
-
-## Lint Engine
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-  let g:ale_max_signs = -1
-  let g:ale_sign_column_always = 1
-  let g:ale_fix_on_save = 1
-  let g:ale_echo_msg_error_str = ''
-  let g:ale_echo_msg_warning_str = ''
-  let g:ale_echo_msg_format = '[%linter%] %s'
-  let g:ale_sign_error = '>>'
-  let g:ale_sign_warning = '--'
-  let g:ale_set_loclist = 0
-  let g:ale_set_quickfix = 0
-  let g:ale_open_list = 0
-  let g:ale_keep_list_window_open = 0
-  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-  nmap <silent> <C-j> <Plug>(ale_next_wrap)
-  let g:ale_lint_on_text_changed = 'never'
-  let g:ale_lint_on_enter = 0
-  let g:ale_fix_on_save = 1
-  let g:ale_statusline_format = ["E > %s","W > %s", "OK"]
-  let g:ale_go_gometalinter_options = '--fast --enable=goimports'
-'''
 
 ## Formetter
 [[plugins]]

@@ -6,8 +6,44 @@
     "group": ""
   },
   {
+    "name": "truckers_manager",
+    "rootPath": "/home/sakuraba/dev/src/github.com/azoop/truckers_manager",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "truckers_infra",
+    "rootPath": "/home/sakuraba/dev/src/github.com/azoop/truckers_infra",
+    "paths": [],
+    "group": ""
+  },
+  {
     "name": "dotfiles",
     "rootPath": "/home/sakuraba/dotfiles",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "fluten",
+    "rootPath": "/home/sakuraba/dev/src/github.com/raba-jp/fluten",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "rskmod",
+    "rootPath": "/home/sakuraba/dev/src/github.com/raba-jp/rskmod",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "microservices_template",
+    "rootPath": "/home/sakuraba/dev/src/github.com/raba-jp/microservices_template",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "mitsuri-2",
+    "rootPath": "/home/sakuraba/dev/src/github.com/catallaxy-dev/mitsuri-2",
     "paths": [],
     "group": ""
   }

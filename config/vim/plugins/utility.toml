@@ -48,9 +48,3 @@ hook_source = '''
   vmap <C-v> <Plug>(expand_region_shrink)
 '''
 
-[[plugins]]
-repo = 'haya14busa/vim-edgemotion'
-hook_add = '''
-  map <Down> <Plug>(edgemotion-j)
-  map <Up> <Plug>(edgemotion-k)
-'''
