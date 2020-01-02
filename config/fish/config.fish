@@ -1,14 +1,5 @@
 ## Alias
 alias sudo 'sudo '
-alias ls 'exa'
-alias ll 'exa -alhG'
-alias cp 'cp -i'
-alias mv 'mv -i'
-alias rm 'rm -i'
-alias cat 'bat'
-alias grep 'rg'
-alias find 'fd'
-alias tree 'exa --tree'
 
 alias untar 'tar -xzvf'
 alias tmux 'tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
@@ -20,8 +11,17 @@ alias dot 'cd $HOME/dotfiles'
 alias branch '__select_git_branch'
 alias kubens 'command kubens (command kubens | peco)'
 alias kubectx 'command kubectx (command kubectx | peco)'
-alias update_skaffold 'curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-darwin-amd64; and chmod +x skaffold; and sudo mv skaffold /usr/local/bin'
-alias fit_display 'xrandr --fb 7680x2160 --output DP3 --panning 3840x2160+0+0 --scale 2x2 --output eDP1 --panning 3840x2160+3840+0 --scale 1x1'
+
+if status --is-interactive
+  abbr --add --global ls 'exa'
+  abbr --add --global ll 'exa -alhG'
+  abbr --add --global cat 'bat'
+  abbr --add --global grep 'rg'
+  abbr --add --global find 'fd'
+  abbr --add --global tree 'exa --tree'
+  abbr --add --global update_skaffold 'curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-darwin-amd64; and chmod +x skaffold; and sudo mv skaffold /usr/local/bin'
+  abbr --add --global  fit_display 'xrandr --fb 7680x2160 --output DP3 --panning 3840x2160+0+0 --scale 2x2 --output eDP1 --panning 3840x2160+3840+0 --scale 1x1'
+end
 
 # Keybind
 bind \cr __select_history
