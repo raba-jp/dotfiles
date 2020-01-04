@@ -8,6 +8,6 @@ if [ "$(uname)" = 'Darwin' ]; then
 	./bin/mitamae local -j darwin.json ./bootstrap.rb
 fi
 
-if [ "$(cat /etc/arch-release)" = 'Manjaro Linux' ]; then
-	sudo ./bin/mitamae local -j manjaro.json ./bootstrap.rb
+if [ -e /etc/arch-release ]; then
+	sudo ./bin/mitamae local -j arch.json ./bootstrap.rb
 fi

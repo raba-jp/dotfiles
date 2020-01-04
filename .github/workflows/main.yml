@@ -5,7 +5,7 @@ on: [push]
 jobs:
   arch:
     runs-on: ubuntu-latest
-    container: manjarolinux/build:latest
+    container: archlinux/base:latest
     steps:
       - uses: actions/checkout@v1
       - name: Update packages

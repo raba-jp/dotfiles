@@ -1,6 +1,6 @@
 directory "/etc/docker"
 
-if manjaro_linux?
+if arch_linux?
   remote_file "/etc/docker/daemon.json" do
     user "root"
     owner "root"

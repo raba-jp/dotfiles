@@ -10,21 +10,14 @@ MItamae::RecipeContext.class_eval do
     include_recipe File.join(root_dir, 'roles', "#{name}.rb")
   end
 
-  def manjaro_linux?
+  def arch_linux?
     executable = true
     result = false
     lambda do
       return result if executable
-      executable = false
 
-      begin
-        File.open("/etc/arch-release", "r") do |f|
-          release = f.readline
-          result = release.include? "Manjaro Linux"
-        end
-      rescue
-        result = false
-      end
+      executable = false
+      result = true if File.exists? "/etc/arch-release"
 
       return result
     end
@@ -37,7 +30,7 @@ end
 
 define :pkg do
   name = params[:name].shellescape
-  if manjaro_linux?
+  if arch_linux?
     execute "yay -S --noconfirm #{name}" do
       not_if "yay -Q #{name} || yay -Qg #{name}"
       user "aur_builder"
@@ -55,5 +48,5 @@ define :pkg do
   end
 end
 
-# Manjaro Linux
-include_role "manjaro"
+# Arch Linux
+include_role "arch"

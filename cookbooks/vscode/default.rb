@@ -1,5 +1,4 @@
-
-if manjaro_linux?
+if arch_linux?
   pkg "glibc"
   pkg "libcanberra"
   pkg "gvfs"
