@@ -2,9 +2,14 @@ include_cookbook :symlink
 
 execute "yay -Sy"
 
+group node["user"] do
+  user "root"
+  gid 1000
+end
+
 user node["user"] do
   user "root"
-  uid 1000
+  uid node["user"]
   gid 1000
   create_home true
 end
