@@ -1,0 +1,16 @@
+name: CI
+
+on: [push]
+
+jobs:
+  arch:
+    runs-on: ubuntu-latest
+    container: manjarolinux/build:latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Update packages
+        run: pacman -Syu --noconfirm
+      - name: Install required packages
+        run: pacman -S --noconfirm git
+      - name: Install dotfiles
+        run: ./install.sh
