@@ -6,8 +6,23 @@ if [ "$(uname)" = 'Darwin' ]; then
 	which brew >/dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-dotfiles=$HOME/dotfiles
+if [ -e /etc/arch-release ]; then
+	if [ "$(cat /etc/arch-release)" = 'Manjaro Linux' ]; then
+		# Manjaro Linux
+		pacman -Sy --noconfirm yay
+	else
+		# Arch Linux
+		git clone https://aur.archlinux.org/yay.git
+		cd yay
+		makepkg -si
+		cd ../
+		rm -rf yay
+	fi
 
+fi
+
+
+dotfiles=$HOME/dotfiles
 if [ "$1" != '' ]; then
 	dotfiles=$1
 fi

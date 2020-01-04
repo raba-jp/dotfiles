@@ -1,6 +1,5 @@
 include_cookbook :symlink
 
-package "yay"
 execute "yay -Sy"
 
 package "firefox" { action :remove }
