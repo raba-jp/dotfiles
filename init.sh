@@ -14,7 +14,7 @@ if [ -e /etc/arch-release ]; then
 		# Arch Linux
 		git clone https://aur.archlinux.org/yay.git
 		cd yay
-		makepkg -si
+		sudo makepkg -si
 		cd ../
 		rm -rf yay
 	fi
