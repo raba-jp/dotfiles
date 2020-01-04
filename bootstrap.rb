@@ -33,7 +33,7 @@ define :pkg do
   if arch_linux?
     execute "yay -S --noconfirm #{name}" do
       not_if "yay -Q #{name} || yay -Qg #{name}"
-      user "root"
+      user node["user"]
     end
   elsif darwin? 
     execute "brew #{name}"

@@ -2,6 +2,13 @@ include_cookbook :symlink
 
 execute "yay -Sy"
 
+user node["user"] do
+  user "root"
+  uid 1000
+  gid 1000
+  create_home true
+end
+
 package "firefox" { action :remove }
 
 # development
