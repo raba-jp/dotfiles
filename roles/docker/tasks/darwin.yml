@@ -1,8 +1,0 @@
----
-- name: Update homebrew
-  homebrew:
-    update_homebrew: yes
-
-- name: Install docker for macOS
-  homebrew_cask:
-    name: docker

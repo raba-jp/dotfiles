@@ -1,0 +1,2 @@
+pkg "clojure"
+ln "clojure"

@@ -1,9 +1,0 @@
----
-- import_tasks: ubuntu.yml
-  when: ansible_os_family == "Debian"
-
-- import_tasks: darwin.yml
-  when: ansible_os_family == "Darwin"
-
-- import_tasks: arch.yml
-  when: ansible_os_family == "Archlinux"

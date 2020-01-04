@@ -1,6 +1,0 @@
----
-- name: Install
-  pacman:
-    name: tmux
-    update_cache: yes
-  become: yes

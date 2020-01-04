@@ -1,6 +1,0 @@
----
-- name: Install Inkdrop
-  aur:
-    name: inkdrop
-  become: yes
-  become_user: aur_builder

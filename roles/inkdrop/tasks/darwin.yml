@@ -1,9 +1,0 @@
----
-- name: Update homebrew
-  homebrew:
-    update_homebrew: yes
-
-- name: Install Inkdrop
-  homebrew_cask:
-    name: inkdrop
-    state: latest

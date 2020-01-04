@@ -1,8 +1,0 @@
----
-- name: Update homebrew
-  homebrew:
-    update_homebrew: yes
-
-- name: Install for MacOS
-  homebrew_cask:
-    name: alacritty

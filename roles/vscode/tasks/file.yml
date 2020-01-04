@@ -1,6 +1,0 @@
----
-- name: Create symlink
-  file:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    state: link
