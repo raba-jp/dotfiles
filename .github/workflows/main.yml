@@ -13,4 +13,4 @@ jobs:
       - name: Install required packages
         run: pacman -S --noconfirm git tar sudo
       - name: Install dotfiles
-        run: ./init.sh /home/runner/work/dotfiles/dotfiles
+        run: ./init.sh $PWD
