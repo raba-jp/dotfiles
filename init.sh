@@ -15,7 +15,7 @@ if [ -e /etc/arch-release ]; then
 		yay_version=9.4.2
 		curl -Lo yay.tar.gz https://github.com/Jguer/yay/releases/download/v${yay_version}/yay_${yay_version}_x86_64.tar.gz
 		tar xvf yay.tar.gz
-		sudo mv yay/yay /usr/bin/yay
+		sudo mv yay_${yay_version}_x86_64/yay /usr/local/bin/yay
 		rm -rf yay yay.tar.gz
 	fi
 
