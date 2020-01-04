@@ -9,8 +9,8 @@ end
 
 user node["user"] do
   user "root"
-  uid node["user"]
-  gid 1000
+  uid 1000
+  gid node["user"]
   create_home true
 end
 
