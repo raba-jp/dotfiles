@@ -6,8 +6,14 @@ if [ "$(uname)" = 'Darwin' ]; then
 	which brew >/dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-if [ ! -d $HOME/dotfiles ]; then
-	git clone https://github.com/raba-jp/dotfiles.git $HOME/dotfiles
+dotfiles=$HOME/dotfiles
+
+if [ "$1" != '' ]; then
+	dotfiles=$1
 fi
 
-$HOME/dotfiles/install.sh
+if [ ! -d $dotfiles ]; then
+	git clone https://github.com/raba-jp/dotfiles.git $dotfiles
+fi
+
+$dotfiles/install.sh
