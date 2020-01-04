@@ -11,6 +11,6 @@ jobs:
       - name: Update packages
         run: pacman -Syu --noconfirm
       - name: Install required packages
-        run: pacman -S --noconfirm git
+        run: pacman -S --noconfirm git tar
       - name: Install dotfiles
         run: ./install.sh
