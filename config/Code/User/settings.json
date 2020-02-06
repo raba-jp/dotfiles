@@ -1,22 +1,31 @@
 {
+  "window.zoomLevel": 0,
+  "liveshare.featureSet": "stable",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "Solarized Dark",
   "workbench.startupEditor": "newUntitledFile",
   "material-icon-theme.folders.color": "#90a4ae",
   "material-icon-theme.hidesExplorerArrows": false,
+  "material-icon-theme.activeIconPack": "react",
   "gitlens.blame.highlight.enabled": false,
   "gitlens.defaultDateFormat": "YYYY/M/D hh:mm",
   "gitlens.advanced.messages": {
     "suppressShowKeyBindingsNotice": true
   },
+  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.autoClosingBrackets": "always",
+  "editor.autoClosingQuotes": "always",
+  "editor.autoIndent": "advanced",
+  "editor.codeLens": true,
   "editor.fontFamily": "Cica",
   "editor.fontSize": 14,
-  "editor.autoClosingBrackets": "always",
-  "editor.autoIndent": true,
+  "editor.copyWithSyntaxHighlighting": false,
+  "editor.detectIndentation": true,
   "editor.foldingStrategy": "auto",
   "editor.folding": true,
-  "editor.wordWrap": "on",
-  "editor.detectIndentation": true,
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
   "editor.lineNumbers": "off",
   "editor.minimap.enabled": false,
   "editor.quickSuggestions": {
@@ -24,14 +33,14 @@
     "comments": true,
     "strings": true
   },
-  "editor.acceptSuggestionOnCommitCharacter": true,
-  "editor.acceptSuggestionOnEnter": "smart",
-  "editor.autoClosingQuotes": "always",
-  "editor.codeLens": true,
-  "editor.insertSpaces": true,
+  "editor.suggestSelection": "first",
+  "editor.wordWrap": "on",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontFamily": "Cica",
+  "terminal.explorerKind": "external",
+  "terminal.external.linuxExec": "alacritty",
   "files.autoSave": "onFocusChange",
+  "files.enableTrash": true,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.exclude": {
@@ -46,6 +55,7 @@
   "go.gopath": "~/dev",
   "go.inferGopath": true,
   "javascript.preferences.importModuleSpecifier": "relative",
+  "javascript.updateImportsOnFileMove.enabled": "never",
   "typescript.locale": "ja",
   "typescript.format.enable": true,
   "typescript.validate.enable": true,
@@ -54,18 +64,6 @@
   "typescript.suggestionActions.enabled": true,
   "typescript.preferences.importModuleSpecifier": "relative",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.extension.sortImports.enableJavascript": true,
-  "typescript.extension.sortImports.quoteStyle": "double",
-  "typescript.extension.sortImports.sortOnSave": true,
-  "typescript.extension.sortImports.omitSemicolon": false,
-  "ruby.codeCompletion": "rcodetools",
-  "ruby.useBundler": true,
-  "ruby.lint": {
-    "rubocop": true,
-    "ruby": true,
-    "fasterer": true,
-    "reek": true
-  },
   "python.formatting.provider": "black",
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
@@ -74,6 +72,23 @@
   "python.linting.lintOnSave": true,
   "python.jediEnabled": false,
   "python.autoUpdateLanguageServer": true,
+  "terraform.indexing": {
+    "enabled": false,
+    "liveIndexing": false,
+    "delay": 500,
+    "exclude": [
+      ".terraform/**/*",
+      "**/.terraform/**/*"
+    ]
+  },
+  "terraform.languageServer": {
+    "enabled": true,
+    "args": []
+  },
+  "rust.build_on_save": true,
+  "rust.all_features": true,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "vsintellicode.typescript.completionsEnabled": true,
   "vim.foldfix": true,
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true,
@@ -189,16 +204,9 @@
       ]
     }
   ],
-  "[jinja-yaml]": {
-    "editor.tabSize": 2
-  },
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "liveshare.featureSet": "stable",
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.formatOnSave": true,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -209,20 +217,7 @@
     "editor.tabSize": 2,
     "files.eol": "\n"
   },
-  "javascript.updateImportsOnFileMove.enabled": "never",
-  "terraform.indexing": {
-    "enabled": false,
-    "liveIndexing": false,
-    "delay": 500,
-    "exclude": [
-      ".terraform/**/*",
-      "**/.terraform/**/*"
-    ]
+  "[jinja-yaml]": {
+    "editor.tabSize": 2
   },
-  "terraform.languageServer": {
-    "enabled": true,
-    "args": []
-  },
-  "rust.build_on_save": true,
-  "rust.all_features": true
 }
