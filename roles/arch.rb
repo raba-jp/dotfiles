@@ -76,3 +76,10 @@ include_cookbook :fish
 include_cookbook :vscode
 
 pkg "ghq"
+
+link "#{node["home"}/.xprofile" do
+  user node[:user]
+  cwd params[:cwd]
+  to File.expand_path("../config/xprofile", __FILE__)
+end
+
