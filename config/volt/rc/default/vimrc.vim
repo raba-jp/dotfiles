@@ -28,6 +28,3 @@ set backspace=2
 
 filetype plugin indent on
 syntax enable
-
-set background=dark
-colorscheme solarized

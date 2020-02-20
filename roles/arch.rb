@@ -48,6 +48,9 @@ pkg "ttf-cica"
 pkg "ttf-hackgen"
 pkg "station"
 pkg "starship-bin"
+pkg "ghq"
+pkg "gnome-tweak-tool"
+pkg "python-pynvim"
 
 # IME
 pkg "fcitx"
@@ -74,12 +77,11 @@ include_cookbook :docker
 include_cookbook :rust
 include_cookbook :fish
 include_cookbook :vscode
+include_cookbook :vim
 
-pkg "ghq"
 
-link "#{node["home"}/.xprofile" do
+link "#{node["home"]}/.xprofile" do
   user node[:user]
-  cwd params[:cwd]
   to File.expand_path("../config/xprofile", __FILE__)
 end
 

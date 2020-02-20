@@ -1,0 +1,132 @@
+{
+  "version": 2,
+  "current_profile_name": "truecolor",
+  "repos": [
+    {
+      "type": "git",
+      "path": "github.com/Shougo/defx.nvim",
+      "version": "17c86251515e18a2791552d88d6142495fa78a69"
+    },
+    {
+      "type": "git",
+      "path": "github.com/Shougo/denite.nvim",
+      "version": "a22e597a2950510b5bef4f9cc972ae7f1d66b269"
+    },
+    {
+      "type": "git",
+      "path": "github.com/altercation/vim-colors-solarized",
+      "version": "528a59f26d12278698bb946f8fb82a63711eec21"
+    },
+    {
+      "type": "git",
+      "path": "github.com/easymotion/vim-easymotion",
+      "version": "dd7b4b526775bc8553e16bc402020573b04a948c"
+    },
+    {
+      "type": "git",
+      "path": "github.com/editorconfig/editorconfig-vim",
+      "version": "21fbc2afe8f30e98b890fb42fc6bc18fc0c0380e"
+    },
+    {
+      "type": "git",
+      "path": "github.com/haya14busa/vim-edgemotion",
+      "version": "8d16bd92f6203dfe44157d43be7880f34fd5c060"
+    },
+    {
+      "type": "git",
+      "path": "github.com/itchyny/lightline.vim",
+      "version": "e8577f3654cac97ee18faae28c80a2200aaaad5a"
+    },
+    {
+      "type": "git",
+      "path": "github.com/kristijanhusak/defx-git",
+      "version": "b5d0b842064ddb7a7af0e790f4648cb1909ed43f"
+    },
+    {
+      "type": "git",
+      "path": "github.com/kristijanhusak/defx-icons",
+      "version": "2e4df3b6302da537ac7df28fbc0e0991c6c1aa0e"
+    },
+    {
+      "type": "git",
+      "path": "github.com/lifepillar/vim-solarized8",
+      "version": "5df7666374ead07a482605b53a0f36c27dc17e8d"
+    },
+    {
+      "type": "git",
+      "path": "github.com/mattn/vim-lsp-settings",
+      "version": "2c1fe5782270140855749eb14f6ac5e9edde425c"
+    },
+    {
+      "type": "git",
+      "path": "github.com/prabirshrestha/async.vim",
+      "version": "f67ecb5a1120d0d0fb9312afcf262c829b218ca2"
+    },
+    {
+      "type": "git",
+      "path": "github.com/prabirshrestha/asyncomplete-lsp.vim",
+      "version": "5c470ae8e58c8762dc4c669b38fa5649b57f53e3"
+    },
+    {
+      "type": "git",
+      "path": "github.com/prabirshrestha/asyncomplete.vim",
+      "version": "312861e9f9725a551ed2223c1d391b5585ad7362"
+    },
+    {
+      "type": "git",
+      "path": "github.com/prabirshrestha/vim-lsp",
+      "version": "b399cde35f0dff4cb56ca7795126b97076c32fda"
+    },
+    {
+      "type": "git",
+      "path": "github.com/roxma/nvim-yarp",
+      "version": "83c6f4e61aa73e2a53796ea6690fb7e5e64db50a"
+    },
+    {
+      "type": "git",
+      "path": "github.com/roxma/vim-hug-neovim-rpc",
+      "version": "701ecbb0a1f904c0b44c6beaafef35e1de998a94"
+    },
+    {
+      "type": "git",
+      "path": "github.com/sheerun/vim-polyglot",
+      "version": "35ea4d2b9072594b6c0ccf87bde7978ed9f94755"
+    },
+    {
+      "type": "git",
+      "path": "github.com/vim-jp/vimdoc-ja",
+      "version": "5d97158bb34e0ecfeefc19181ff85200d28dff2d"
+    }
+  ],
+  "profiles": [
+    {
+      "name": "default",
+      "repos_path": [
+        "github.com/altercation/vim-colors-solarized",
+        "github.com/sheerun/vim-polyglot"
+      ]
+    },
+    {
+      "name": "truecolor",
+      "repos_path": [
+        "github.com/Shougo/defx.nvim",
+        "github.com/Shougo/denite.nvim",
+        "github.com/easymotion/vim-easymotion",
+        "github.com/editorconfig/editorconfig-vim",
+        "github.com/haya14busa/vim-edgemotion",
+        "github.com/itchyny/lightline.vim",
+        "github.com/kristijanhusak/defx-git",
+        "github.com/kristijanhusak/defx-icons",
+        "github.com/lifepillar/vim-solarized8",
+        "github.com/mattn/vim-lsp-settings",
+        "github.com/prabirshrestha/async.vim",
+        "github.com/prabirshrestha/asyncomplete-lsp.vim",
+        "github.com/prabirshrestha/asyncomplete.vim",
+        "github.com/prabirshrestha/vim-lsp",
+        "github.com/roxma/nvim-yarp",
+        "github.com/roxma/vim-hug-neovim-rpc",
+        "github.com/vim-jp/vimdoc-ja"
+      ]
+    }
+  ]
+}

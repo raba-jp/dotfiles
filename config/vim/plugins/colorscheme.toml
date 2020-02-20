@@ -1,8 +1,0 @@
-[[plugins]]
-repo = 'altercation/vim-colors-solarized'
-hook_add = '''
-  set background=dark
-  let g:solarized_termtrans = 1
-  syntax on
-  colorscheme solarized
-'''
