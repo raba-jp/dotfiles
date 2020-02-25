@@ -15,8 +15,6 @@ user node["user"] do
   create_home true
 end
 
-package "firefox" { action :remove }
-
 # development
 pkg "autoconf"
 pkg "automake"
@@ -24,43 +22,54 @@ pkg "base-devel"
 pkg "binutils"
 pkg "base-devel"
 pkg "fakeroot"
-pkg "make"
-pkg "gcc"
-pkg "git"
-pkg "exa"
-pkg "fd"
-pkg "bat"
-pkg "ghq"
-pkg "tig"
-pkg "fish"
-pkg "ripgrep"
-pkg "kubectl"
-pkg "kubectx"
-pkg "tmux"
-pkg "vim"
+pkg "python-pynvim"
+
+# GUI applications
+pkg "google-chrome"
+pkg "station"
+pkg "gnome-tweak-tool"
+
+# Fonts
 pkg "noto-fonts"
 pkg "noto-fonts-cjk"
 pkg "noto-fonts-extra"
-pkg "direnv"
-pkg "google-chrome"
 pkg "ttf-cica"
 pkg "ttf-hackgen"
-pkg "station"
+
+# Shell
+pkg "fish"
 pkg "starship-bin"
-pkg "ghq"
-pkg "gnome-tweak-tool"
-pkg "python-pynvim"
+
+# CLI tools
+pkg "bat"
+pkg "direnv"
+pkg "dive"
+pkg "exa"
+pkg "fd"
+pkg "fzf"
+pkg "gcc"
+pkg "ghq-bin"
+pkg "git"
+pkg "make"
+pkg "kubectl"
+pkg "kubectx"
 pkg "procs-bin"
+pkg "ripgrep"
+pkg "tig"
+pkg "tmux"
+pkg "vim"
 
 # IME
 pkg "fcitx"
 pkg "fcitx-configtool"
 pkg "fcitx-mozc"
 pkg "fcitx-gtk3"
+
 # GNOME 3 theme
 pkg "materia-gtk-theme"
 pkg "gnome-themes-extra"
 pkg "gtk-engine-murrine"
+pkg "arc-gtk-theme"
 
 directory "#{node["home"]}/.config"
 
