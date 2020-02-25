@@ -41,7 +41,6 @@ pkg "vim"
 pkg "noto-fonts"
 pkg "noto-fonts-cjk"
 pkg "noto-fonts-extra"
-pkg "peco"
 pkg "direnv"
 pkg "google-chrome"
 pkg "ttf-cica"
@@ -51,6 +50,7 @@ pkg "starship-bin"
 pkg "ghq"
 pkg "gnome-tweak-tool"
 pkg "python-pynvim"
+pkg "procs-bin"
 
 # IME
 pkg "fcitx"
@@ -78,6 +78,7 @@ include_cookbook :rust
 include_cookbook :fish
 include_cookbook :vscode
 include_cookbook :vim
+include_cookbook :peco
 
 
 link "#{node["home"]}/.xprofile" do

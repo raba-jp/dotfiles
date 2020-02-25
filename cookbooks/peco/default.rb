@@ -1,0 +1,2 @@
+pkg "peco"
+ln "peco"
