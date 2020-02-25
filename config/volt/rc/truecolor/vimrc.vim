@@ -25,6 +25,7 @@ set visualbell
 set smartcase
 set hlsearch
 set backspace=2
+set signcolumn=yes
 
 filetype plugin indent on
 syntax enable

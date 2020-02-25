@@ -125,6 +125,7 @@
         "github.com/prabirshrestha/vim-lsp",
         "github.com/roxma/nvim-yarp",
         "github.com/roxma/vim-hug-neovim-rpc",
+        "github.com/sheerun/vim-polyglot",
         "github.com/vim-jp/vimdoc-ja"
       ]
     }
