@@ -1,12 +1,6 @@
 ## Alias
 alias sudo 'sudo '
 
-alias repo '__select_repository'
-alias search-source '__search_source_code'
-alias branch '__select_git_branch'
-alias kubens 'command kubens (command kubens | peco)'
-alias kubectx 'command kubectx (command kubectx | peco)'
-
 if status --is-interactive
   abbr --add --global ls 'exa'
   abbr --add --global ll 'exa -alhG'
@@ -20,6 +14,10 @@ if status --is-interactive
   abbr --add --global dot 'cd $HOME/dotfiles'
   abbr --add --global gc 'git commit'
   abbr --add --global untar 'tar -xzvf'
+  abbr --add --global pacinstall 'yay -Slq | fzf -m --preview \'yay -Si {1}\' | xargs -ro yay -S'
+  abbr --add --global pacremove 'yay -Qeq | fzf -m --preview \'yay -Qi {1}\' | xargs -ro yay -Rs'
+  abbr --add --global repo 'cd (ghq list | fzf --select-1 | xargs echo $GOPATH/src/ | sed "s/ //")'
+  abbr --add --global ssh 'awk \'tolower($1)=="host" { for(i=2;i<=NF;i++) { if($i !~ "[*?]") { print $i } } }\' ~/.ssh/config | sort | fzf --select-1 | read -l __ssh_hostname && ssh $__ssh_hostname'
 end
 
 # Keybind
@@ -36,8 +34,6 @@ bind \ce end-of-line
 function done_enter --on-event fish_postexec
     __do_enter_action $argv
 end
-
-alias ssh "__peco_ssh"
 
 [ (uname) = 'Darwin' ] && source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
 # [ -n (type gcloud) ] && complete --command gcloud --arguments="($XDG_CONFIG_HOME/fish/gcloud_completion.py (commandline -cp))"
