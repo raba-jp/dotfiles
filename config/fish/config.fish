@@ -17,7 +17,7 @@ if status --is-interactive
   abbr --add --global pacinstall 'yay -Slq | fzf -m --preview \'yay -Si {1}\' | xargs -ro yay -S'
   abbr --add --global pacremove 'yay -Qeq | fzf -m --preview \'yay -Qi {1}\' | xargs -ro yay -Rs'
   abbr --add --global repo 'cd (ghq list | fzf --select-1 | xargs echo $GOPATH/src/ | sed "s/ //")'
-  abbr --add --global ssh 'awk \'tolower($1)=="host" { for(i=2;i<=NF;i++) { if($i !~ "[*?]") { print $i } } }\' ~/.ssh/config | sort | fzf --select-1 | read -l __ssh_hostname && ssh $__ssh_hostname'
+  abbr --add --global ssh 'rg --ignore-case \'^host [^*]\' ~/.ssh/config | cut -d \' \' -f 2 | fzf --select-1 | read -l __ssh_hostname && ssh $__ssh_hostname'
 end
 
 # Keybind
