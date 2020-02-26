@@ -42,6 +42,7 @@ pkg "starship-bin"
 
 # CLI tools
 pkg "bat"
+pkg "bitwarden-cli-bin"
 pkg "direnv"
 pkg "dive"
 pkg "exa"
