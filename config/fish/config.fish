@@ -20,10 +20,12 @@ if status --is-interactive
   abbr --add --global ssh 'rg --ignore-case \'^host [^*]\' ~/.ssh/config | cut -d \' \' -f 2 | fzf --select-1 | read -l __ssh_hostname && ssh $__ssh_hostname'
 end
 
+function __select_history
+  history | fzf --select-1 | read -l history_result && commandline $history_result
+end
+
 # Keybind
 bind \cr __select_history
-bind \cg __select_repository
-bind \cf __search_from_filename
 bind \ck up-or-search
 bind \cj down-or-search
 bind \ch backward-char
