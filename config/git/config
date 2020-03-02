@@ -3,6 +3,7 @@
 	preloadindex = true
 [user]
 	useConfigOnly = true
+	name = Hiroki Sakuraba
 [color]
 	status = auto
 	diff = auto
