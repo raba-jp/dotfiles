@@ -14,6 +14,10 @@ execute "mv /tmp/volt /usr/local/bin/volt" do
   not_if "test -e /usr/local/bin/volt"
 end
 
+direcoty "#{node["home"]}/.config/volt" do
+  user node["user"]
+end
+
 ln "volt/lock.json"
 ln "volt/plugconf"
 ln "volt/rc"
