@@ -91,8 +91,9 @@ include_cookbook :vim
 include_cookbook :peco
 
 
-link "#{node["home"]}/.xprofile" do
-  user node[:user]
-  to File.expand_path("../config/xprofile", __FILE__)
+remote_file "#{node["home"]}/.xprofile" do
+  source File.expand_path("../config/xprofile", __FILE__)
+  user node["user"]
+  owner node["user"]
+  group node["user"]
 end
-
