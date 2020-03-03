@@ -25,6 +25,7 @@ pkg "fakeroot"
 pkg "python-pynvim"
 pkg "make"
 pkg "gcc"
+pkg "lm_sensors"
 
 # GUI applications
 pkg "google-chrome"
