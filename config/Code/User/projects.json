@@ -1,23 +1,5 @@
 [
   {
-    "name": "truckers",
-    "rootPath": "/home/sakuraba/dev/src/github.com/azoop/truckers",
-    "paths": [],
-    "group": ""
-  },
-  {
-    "name": "truckers_manager",
-    "rootPath": "/home/sakuraba/dev/src/github.com/azoop/truckers_manager",
-    "paths": [],
-    "group": ""
-  },
-  {
-    "name": "truckers_infra",
-    "rootPath": "/home/sakuraba/dev/src/github.com/azoop/truckers_infra",
-    "paths": [],
-    "group": ""
-  },
-  {
     "name": "dotfiles",
     "rootPath": "/home/sakuraba/dotfiles",
     "paths": [],
