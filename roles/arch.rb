@@ -1,6 +1,6 @@
 include_cookbook :symlink
 
-pkg "yay"
+package "yay"
 execute "yay -Sy"
 
 group node["user"] do
