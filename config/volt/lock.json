@@ -10,7 +10,7 @@
     {
       "type": "git",
       "path": "github.com/Shougo/denite.nvim",
-      "version": "e435b78c3fa878dba7bbb03ee7cd95df6ce7a836"
+      "version": "d76382fc78764bb5ab482f82284d7032f97be530"
     },
     {
       "type": "git",
@@ -55,7 +55,7 @@
     {
       "type": "git",
       "path": "github.com/mattn/vim-lsp-settings",
-      "version": "8a22aa70381b25da6ef3e4938343c4cc0659bfec"
+      "version": "fa3975425e71cc2cd14152fdb435c85a100cf272"
     },
     {
       "type": "git",
@@ -75,7 +75,7 @@
     {
       "type": "git",
       "path": "github.com/prabirshrestha/vim-lsp",
-      "version": "85a03f2b0104309c95b0c13642b052a29fc2bf9b"
+      "version": "2de8f4d479229eedcb9bf41a878b94fb7e2662ed"
     },
     {
       "type": "git",
@@ -90,12 +90,12 @@
     {
       "type": "git",
       "path": "github.com/sheerun/vim-polyglot",
-      "version": "45ab4d80dd52f6ea40d8e9b7fa5cedd31d9ad9ec"
+      "version": "e86e0ad36ef9501acbc3e8c63a1d4fab104e47cb"
     },
     {
       "type": "git",
       "path": "github.com/vim-jp/vimdoc-ja",
-      "version": "4342442872494744b604519fd66dac69996506d1"
+      "version": "f12743ecfe53c2ba6c95be6ab08a5a579d6b6123"
     }
   ],
   "profiles": [
