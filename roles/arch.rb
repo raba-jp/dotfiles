@@ -1,7 +1,10 @@
 include_cookbook :symlink
 
+execute "LANG=C xdg-user-dirs-gtk-update"
+execute "pacman-mirrors --fasttrack"
+execute "yay -Syuu"
+
 package "yay"
-execute "yay -Sy"
 
 group node["user"] do
   user "root"
