@@ -15,6 +15,10 @@ user node["user"] do
   create_home true
 end
 
+execute "usermod -aG input #{node["user"]}" do
+  user "root"
+end
+
 # development
 pkg "autoconf"
 pkg "automake"
@@ -26,6 +30,7 @@ pkg "python-pynvim"
 pkg "make"
 pkg "gcc"
 pkg "lm_sensors"
+pkg "libinput-gestures"
 
 # GUI applications
 pkg "google-chrome"
