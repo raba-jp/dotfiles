@@ -102,8 +102,12 @@ include_cookbook :peco
 
 
 remote_file "#{node["home"]}/.xprofile" do
-  source File.expand_path("../config/xprofile", __FILE__)
-  user node["user"]
+  source File.expand_path("../../config/xprofile", __FILE__)
+  owner node["user"]
+  group node["user"]
+end
+
+file "#{node["home"]}/.xprofile" do
   owner node["user"]
   group node["user"]
 end
