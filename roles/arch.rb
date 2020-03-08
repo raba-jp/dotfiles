@@ -39,6 +39,7 @@ pkg "libinput-gestures"
 pkg "google-chrome"
 pkg "station"
 pkg "gnome-tweak-tool"
+pkg "dbeaver"
 
 # Fonts
 pkg "noto-fonts"
