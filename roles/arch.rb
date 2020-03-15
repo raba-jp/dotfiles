@@ -61,12 +61,10 @@ pkg "exa"
 pkg "fd"
 pkg "fzf"
 pkg "ghq-bin"
-pkg "git"
 pkg "kubectl"
 pkg "kubectx"
 pkg "procs-bin"
 pkg "ripgrep"
-pkg "tig"
 pkg "tmux"
 pkg "vim"
 
@@ -84,7 +82,6 @@ pkg "arc-gtk-theme"
 
 directory "#{node["home"]}/.config"
 
-include_cookbook :git
 include_cookbook :alacritty
 include_cookbook :clojure
 include_cookbook :go

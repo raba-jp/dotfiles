@@ -1,2 +1,0 @@
-pkg "git"
-ln "git"
