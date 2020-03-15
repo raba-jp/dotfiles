@@ -100,7 +100,7 @@ include_cookbook :vscode
 include_cookbook :vim
 include_cookbook :peco
 include_cookbook :gnome3
-
+include_cookbook :configurations
 
 remote_file "#{node["home"]}/.xprofile" do
   source File.expand_path("../../config/xprofile", __FILE__)
