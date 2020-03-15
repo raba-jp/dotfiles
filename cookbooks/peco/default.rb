@@ -1,2 +1,0 @@
-pkg "peco"
-ln "peco"

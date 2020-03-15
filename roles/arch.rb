@@ -89,13 +89,11 @@ include_cookbook :node
 include_cookbook :tmux
 include_cookbook :inkdrop
 include_cookbook :ruby
-include_cookbook :packages
 include_cookbook :docker
 include_cookbook :rust
 include_cookbook :fish
 include_cookbook :vscode
 include_cookbook :vim
-include_cookbook :peco
 # include_cookbook :gnome3
 include_cookbook :cli
 
