@@ -8,6 +8,7 @@ if status --is-interactive
   abbr --add --global grep 'rg'
   abbr --add --global find 'fd'
   abbr --add --global tree 'exa --tree'
+  abbr --add --global ps 'procs'
   abbr --add --global tmux 'tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
   abbr --add --global update_skaffold 'curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64; and chmod +x skaffold; and sudo mv skaffold /usr/local/bin'
   abbr --add --global fit_display 'xrandr --fb 7680x2160 --output DP-3 --panning 3840x2160+0+0 --scale 2x2 --output eDP-1 --panning 3840x2160+3840+0 --scale 1x1'
