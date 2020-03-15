@@ -99,6 +99,7 @@ include_cookbook :fish
 include_cookbook :vscode
 include_cookbook :vim
 include_cookbook :peco
+include_cookbook :gnome3
 
 
 remote_file "#{node["home"]}/.xprofile" do
