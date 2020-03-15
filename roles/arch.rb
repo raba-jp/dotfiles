@@ -87,7 +87,6 @@ include_cookbook :clojure
 include_cookbook :go
 include_cookbook :node
 include_cookbook :tmux
-include_cookbook :inkdrop
 include_cookbook :ruby
 include_cookbook :docker
 include_cookbook :rust
