@@ -1,1 +1,4 @@
 bin/mitamae*
+config/albert/*
+!config/albert/albert.conf
+!config/albert/last_used_version
