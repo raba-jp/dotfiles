@@ -22,6 +22,13 @@ execute "usermod -aG input #{node["user"]}" do
   user "root"
 end
 
+rmpkg "gnome-terminal"
+rmpkg "firefox"
+rmpkg "gtkhash"
+rmpkg "gtkhash-nautilus"
+rmpkg "hexchat"
+rmpkg "gnome-calculator"
+
 # development
 pkg "autoconf"
 pkg "automake"

@@ -43,8 +43,19 @@ define :pkg do
       user params[:user]
       cwd params[:cwd]
       version params[:version]
-      option params[:option]
+      options params[:options]
     end
+  end
+end
+
+define :rmpkg do
+  name = params[:name]
+  package name do
+    action :remove
+    user params[:user]
+    cwd params[:cwd]
+    version params[:version]
+    options params[:options]
   end
 end
 
