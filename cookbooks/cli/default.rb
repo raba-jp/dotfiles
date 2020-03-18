@@ -1,5 +1,6 @@
 pkg "git"
-pkg "tig"
 ln "git"
+
+pkg "tig"
 ln "tig"
 
