@@ -2,11 +2,8 @@ set encoding=utf-8
 scriptencoding utf-8
 set fileencoding=utf-8
 
-if has('nvim')
-  set clipboard+=unnamedplus
-else
-  set clipboard+=unnamed
-endif
+set clipboard&
+set clipboard+=unnamedplus
 
 inoremap <silent> jj <ESC>
 nnoremap ; :
