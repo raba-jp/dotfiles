@@ -1,3 +1,10 @@
+if arch_linux?
+  # +clipboardのためにgvimを入れる
+  pkg "gvim"
+elsif darwin?
+  pkg "vim"
+end
+
 # Install volt
 execute "curl -Lo /tmp/volt https://github.com/vim-volt/volt/releases/download/v0.3.7/volt-v0.3.7-linux-amd64" do
   user node["user"]
