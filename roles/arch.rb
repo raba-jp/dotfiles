@@ -56,7 +56,6 @@ pkg "ttf-cica"
 pkg "ttf-hackgen"
 
 # Shell
-pkg "fish"
 pkg "starship-bin"
 
 # CLI tools
@@ -73,7 +72,6 @@ pkg "kubectx"
 pkg "procs-bin"
 pkg "ripgrep"
 pkg "tmux"
-pkg "vim"
 
 # IME
 pkg "fcitx"
@@ -100,7 +98,7 @@ include_cookbook :rust
 include_cookbook :fish
 include_cookbook :vscode
 include_cookbook :vim
-# include_cookbook :gnome3
+# # include_cookbook :gnome3
 include_cookbook :cli
 
 remote_file "#{node["home"]}/.xprofile" do
