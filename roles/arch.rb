@@ -47,6 +47,7 @@ pkg "google-chrome"
 pkg "station"
 pkg "gnome-tweak-tool"
 pkg "dbeaver"
+pkg "bitwarden"
 
 # Fonts
 pkg "noto-fonts"
@@ -71,7 +72,6 @@ pkg "kubectl"
 pkg "kubectx"
 pkg "procs-bin"
 pkg "ripgrep"
-pkg "tmux"
 
 # IME
 pkg "fcitx"

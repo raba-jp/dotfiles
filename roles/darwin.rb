@@ -4,7 +4,6 @@ pkg "ctags"
 pkg "exa"
 pkg "fd"
 pkg "fish"
-pkg "git"
 pkg "ghq"
 pkg "jq"
 pkg "nkf"
@@ -14,8 +13,6 @@ pkg "peco"
 pkg "rg"
 pkg "reattach-to-user-namespace"
 pkg "stern"
-pkg "tig"
-pkg "tmux"
 pkg "tree"
 pkg "wget"
 
@@ -37,6 +34,19 @@ pkg "cask quicklook-csv"
 pkg "cask qlmarkdown"
 pkg "cask slack"
 pkg "cask the-unarchiver"
+
+include_cookbook :alacritty
+include_cookbook :clojure
+include_cookbook :go
+include_cookbook :node
+include_cookbook :tmux
+include_cookbook :ruby
+include_cookbook :docker
+include_cookbook :rust
+include_cookbook :fish
+include_cookbook :vscode
+include_cookbook :vim
+include_cookbook :cli
 
 [
   { domain: "NSGlobalDomain", key: "NSTextShowsControlCharacters", type: "bool", value: "true" }, # ASCII制御文字を表示する
