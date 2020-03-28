@@ -71,6 +71,7 @@ pkg "kubectx"
 pkg "procs-bin"
 pkg "ripgrep"
 pkg "lefthook"
+pkg "mask"
 
 # IME
 pkg "fcitx"
