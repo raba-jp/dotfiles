@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-cd `dirname $0`
+cd $(dirname $0)
 ./bin/setup_mitamae
 
 if [ "$(uname)" = 'Darwin' ]; then

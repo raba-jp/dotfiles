@@ -19,6 +19,15 @@ lefthook install
 
 ## install
 
-```
+```sh
 ./install.sh
+```
+
+## format
+
+コードのフォーマットを実行
+
+```sh
+lefthook run rb-format
+lefthook run sh-format
 ```
