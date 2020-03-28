@@ -12,7 +12,7 @@ if arch_linux?
     "Code/User/settings.json",
     "Code/User/keybindings.json",
     "Code/User/locale.json",
-    "Code/User/projects.json"
+    "Code/User/projects.json",
   ].each do |item|
     ln item do
       user node["user"]

@@ -19,7 +19,7 @@ end
   { name: "GOPATH", value: "$HOME/dev" },
   { name: "RBENV_ROOT", value: "$HOME/.rbenv" },
   { name: "NODENV_ROOT", value: "$HOME/.nodenv" },
-  { name: "VOLTPATH", value: "$HOME/.config/volt" }
+  { name: "VOLTPATH", value: "$HOME/.config/volt" },
 ].each do |item|
   execute "fish --command 'set --universal --export #{item[:name]} #{item[:value]}'" do
     user node["user"]

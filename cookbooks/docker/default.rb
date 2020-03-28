@@ -8,7 +8,7 @@ if arch_linux?
     mode "644"
     source "files/daemon.json"
   end
-  
+
   remote_file "/etc/subuid" do
     user "root"
     owner "root"
@@ -16,7 +16,7 @@ if arch_linux?
     mode "644"
     source "files/subuid"
   end
-  
+
   remote_file "/etc/subgid" do
     user "root"
     owner "root"

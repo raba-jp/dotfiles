@@ -1,13 +1,17 @@
 MItamae::RecipeContext.class_eval do
   def include_cookbook(name)
-    name = name.to_s
-    root_dir = File.expand_path('..', __FILE__)
-    include_recipe File.join(root_dir, 'cookbooks', name, 'default')
+    root_dir = File.expand_path("..", __FILE__)
+    include_recipe(File.join(root_dir, "cookbooks", name.to_s, "default"))
   end
 
   def include_role(name)
-    root_dir = File.expand_path('..', __FILE__)
-    include_recipe File.join(root_dir, 'roles', "#{name}.rb")
+    root_dir = File.expand_path("..", __FILE__)
+    include_recipe(File.join(root_dir, "roles", "#{name}.rb"))
+  end
+
+  def include_definitions(name)
+    root_dir = File.expand_path("..", __FILE__)
+    include_recipe(File.join(root_dir, "definitions", "#{name.to_s}.rb"))
   end
 
   def arch_linux?
@@ -28,46 +32,15 @@ MItamae::RecipeContext.class_eval do
   end
 end
 
-define :pkg do
-  name = params[:name].shellescape
-  if arch_linux?
-    execute "yay -S --noconfirm #{name}" do
-      not_if "yay -Q #{name} || yay -Qg #{name}"
-      user node["user"]
-    end
-  elsif darwin? 
-    execute "brew #{name}"
-  else
-    package name do
-      action params[:action]
-      user params[:user]
-      cwd params[:cwd]
-      version params[:version]
-      options params[:options]
-    end
-  end
+[:pkg, :rmpkg, :ln].each do |de|
+  include_definitions de
 end
 
-define :rmpkg do
-  name = params[:name]
-  package name do
-    action :remove
-    user params[:user]
-    cwd params[:cwd]
-    version params[:version]
-    options params[:options]
-  end
+if arch_linux?
+  # Arch Linux
+  include_role "arch"
 end
 
-define :ln do
-  path = File.join("#{node["home"]}/.config/#{params[:name]}")
-  link path do
-    user node[:user]
-    force params[:force]
-    cwd params[:cwd]
-    to File.expand_path("../../../config/#{params[:name]}", __FILE__)
-  end
+if darwin?
+  include_role "darwin"
 end
-
-# Arch Linux
-include_role "arch"
