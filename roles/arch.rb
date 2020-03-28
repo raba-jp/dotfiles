@@ -1,5 +1,3 @@
-include_cookbook :symlink
-
 execute "LANG=C xdg-user-dirs-gtk-update"
 execute "pacman-mirrors --fasttrack"
 execute "yay -Syuu"
