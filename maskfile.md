@@ -16,3 +16,9 @@
 bundle install
 lefthook install
 ```
+
+## install
+
+```
+./install.sh
+```
