@@ -9,7 +9,6 @@ pkg "binutils"
 pkg "base-devel"
 pkg "fakeroot"
 pkg "python-pynvim"
-pkg "make"
 pkg "gcc"
 pkg "lm_sensors"
 pkg "libinput-gestures"
@@ -28,24 +27,11 @@ pkg "noto-fonts-extra"
 pkg "ttf-cica"
 pkg "ttf-hackgen"
 
-# Shell
-pkg "starship-bin"
-
 # CLI tools
-pkg "bat"
-pkg "bitwarden-cli-bin"
-pkg "direnv"
-pkg "dive"
-pkg "exa"
-pkg "fd"
-pkg "fzf"
-pkg "ghq-bin"
 pkg "kubectl"
-pkg "kubectx"
-pkg "procs-bin"
-pkg "ripgrep"
 pkg "lefthook"
 pkg "mask"
+pkg "stern-bin"
 
 # IME
 pkg "fcitx"

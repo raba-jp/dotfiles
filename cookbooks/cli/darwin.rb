@@ -1,19 +1,7 @@
 # brew
-pkg "bat"
-pkg "ctags"
-pkg "exa"
-pkg "fd"
-pkg "fish"
-pkg "ghq"
-pkg "jq"
-pkg "nkf"
 pkg "less"
-pkg "vim"
-pkg "peco"
-pkg "rg"
 pkg "reattach-to-user-namespace"
 pkg "stern"
-pkg "tree"
 pkg "wget"
 
 # brew cask
