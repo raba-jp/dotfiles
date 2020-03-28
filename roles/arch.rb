@@ -70,6 +70,7 @@ pkg "kubectl"
 pkg "kubectx"
 pkg "procs-bin"
 pkg "ripgrep"
+pkg "lefthook"
 
 # IME
 pkg "fcitx"

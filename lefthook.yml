@@ -1,0 +1,6 @@
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      glob: "*.rb"
+      run: bundle exec rufo {staged_files}
