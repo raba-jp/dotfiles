@@ -1,13 +1,5 @@
 pkg "fish"
 
-if arch_linux?
-  # alacritty用に /usr/local/bin 以下にシンボリックリンクを貼る
-  link "/usr/local/bin/fish" do
-    user "root"
-    to "/usr/bin/fish"
-  end
-end
-
 [
   { name: "XDG_CONFIG_HOME", value: "$HOME/.config" },
   { name: "XDG_CACHE_HOME", value: "$HOME/.cache" },

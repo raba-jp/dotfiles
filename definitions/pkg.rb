@@ -1,6 +1,6 @@
 define :pkg do
   name = params[:name].shellescape
-  if arch_linux?
+  if manjaro_linux?
     execute "yay -S --noconfirm #{name}" do
       not_if "yay -Q #{name} || yay -Qg #{name}"
       user node["user"]
