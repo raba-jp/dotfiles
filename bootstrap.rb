@@ -17,7 +17,7 @@ MItamae::RecipeContext.class_eval do
   end
 
   def darwin?
-    `uname` == "Darwin"
+    `uname` == "Darwin\n"
   end
 
   def manjaro_cookbook(name)
