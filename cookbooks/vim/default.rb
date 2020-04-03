@@ -1,5 +1,5 @@
 # Install volt
-execute "curl -Lo /tmp/volt https://github.com/vim-volt/volt/releases/download/v0.3.7/volt-v0.3.7-linux-amd64" do
+execute "curl -Lo /tmp/volt https://github.com/vim-volt/volt/releases/download/v0.3.7/volt-v0.3.7-#{`uname`.downcase.gsub("\n", "")}-amd64" do
   user node["user"]
   not_if "test -e /usr/local/bin/volt"
 end
