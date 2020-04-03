@@ -5,11 +5,10 @@ define :pkg do
       not_if "yay -Q #{name} || yay -Qg #{name}"
       user node["user"]
     end
-  elsif darwin?
+  ulsif darwin?
     execute "brew #{name}"
   else
     package name do
-      action params[:action]
       user params[:user]
       cwd params[:cwd]
       version params[:version]
