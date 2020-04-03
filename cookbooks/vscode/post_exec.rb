@@ -34,7 +34,6 @@
   redhat.vscode-yaml
   rust-lang.rust
   sianglim.slim
-  TabNine.tabnine-vscode
   VisualStudioExptTeam.vscodeintellicode
   vscodevim.vim
   wingrunr21.vscode-ruby
