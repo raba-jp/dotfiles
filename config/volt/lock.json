@@ -96,6 +96,11 @@
       "type": "git",
       "path": "github.com/vim-jp/vimdoc-ja",
       "version": "f12743ecfe53c2ba6c95be6ab08a5a579d6b6123"
+    },
+    {
+      "type": "git",
+      "path": "github.com/wakatime/vim-wakatime",
+      "version": "dd74c71cd2ea23b4a6cba4b05c873983c16e297c"
     }
   ],
   "profiles": [
@@ -126,7 +131,8 @@
         "github.com/roxma/nvim-yarp",
         "github.com/roxma/vim-hug-neovim-rpc",
         "github.com/sheerun/vim-polyglot",
-        "github.com/vim-jp/vimdoc-ja"
+        "github.com/vim-jp/vimdoc-ja",
+        "github.com/wakatime/vim-wakatime"
       ]
     }
   ]

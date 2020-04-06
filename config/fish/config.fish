@@ -38,6 +38,18 @@ function done_enter --on-event fish_postexec
     __do_enter_action $argv
 end
 
+function wakatime_hook --on-event fish_prompt
+  set -l project
+
+  if echo (pwd) | grep -qEi "^/Users/$USER/Sites/"
+    set  project (echo (pwd) | sed "s#^/Users/$USER/Sites/\\([^/]*\\).*#\\1#")
+  else
+    set  project "Terminal"
+  end
+
+  wakatime --write --plugin "fish-wakatime/0.0.1" --entity-type app --project "$project" --entity (echo $history[1] | cut -d ' ' -f1) 2>&1 > /dev/null&
+end
+
 [ (uname) = 'Darwin' ] && source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
 # [ -n (type gcloud) ] && complete --command gcloud --arguments="($XDG_CONFIG_HOME/fish/gcloud_completion.py (commandline -cp))"
 [ -n (type direnv) ] && eval (direnv hook fish)
