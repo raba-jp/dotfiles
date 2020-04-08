@@ -78,7 +78,10 @@
     "enabled": false,
     "liveIndexing": false,
     "delay": 500,
-    "exclude": [".terraform/**/*", "**/.terraform/**/*"]
+    "exclude": [
+      ".terraform/**/*",
+      "**/.terraform/**/*"
+    ]
   },
   "terraform.languageServer": {
     "enabled": true,
@@ -95,60 +98,112 @@
   "vim.leader": "<space>",
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
-      "before": [">"],
-      "commands": ["editor.action.indentLines"]
+      "before": [
+        ">"
+      ],
+      "commands": [
+        "editor.action.indentLines"
+      ]
     },
     {
-      "before": ["<"],
-      "commands": ["editor.action.outdentLines"]
+      "before": [
+        "<"
+      ],
+      "commands": [
+        "editor.action.outdentLines"
+      ]
     },
     {
-      "before": ["p"],
-      "after": ["p", "g", "v", "y"]
+      "before": [
+        "p"
+      ],
+      "after": [
+        "p",
+        "g",
+        "v",
+        "y"
+      ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [";"],
-      "after": [":"]
+      "before": [
+        ";"
+      ],
+      "after": [
+        ":"
+      ]
     },
     {
-      "before": [":"],
-      "after": [";"]
+      "before": [
+        ":"
+      ],
+      "after": [
+        ";"
+      ]
     },
     {
-      "before": ["s"],
+      "before": [
+        "s"
+      ],
       "after": []
     },
     {
-      "before": ["<Up>"],
+      "before": [
+        "<Up>"
+      ],
       "after": []
     },
     {
-      "before": ["<Down>"],
+      "before": [
+        "<Down>"
+      ],
       "after": []
     },
     {
-      "before": ["<Left>"],
-      "commands": ["workbench.action.previousEditor"]
+      "before": [
+        "<Left>"
+      ],
+      "commands": [
+        "workbench.action.previousEditor"
+      ]
     },
     {
-      "before": ["<Right>"],
-      "commands": ["workbench.action.nextEditor"]
+      "before": [
+        "<Right>"
+      ],
+      "commands": [
+        "workbench.action.nextEditor"
+      ]
     },
     {
-      "before": ["y", "y"],
-      "after": ["y", "$"]
+      "before": [
+        "y",
+        "y"
+      ],
+      "after": [
+        "y",
+        "$"
+      ]
     },
     {
-      "before": ["<tab>"],
-      "after": ["$"]
+      "before": [
+        "<tab>"
+      ],
+      "after": [
+        "$"
+      ]
     }
   ],
   "[typescriptreact]": {
@@ -166,5 +221,7 @@
   },
   "[jinja-yaml]": {
     "editor.tabSize": 2
-  }
+  },
+  "go.formatTool": "goimports",
+  "go.lintTool": "golangci-lint",
 }
