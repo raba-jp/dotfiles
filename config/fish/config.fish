@@ -47,7 +47,9 @@ function wakatime_hook --on-event fish_prompt
     set  project "Terminal"
   end
 
-  test (hash wakatime; echo $status) -eq 0 && wakatime --write --plugin "fish-wakatime/0.0.1" --entity-type app --project "$project" --entity (echo $history[1] | cut -d ' ' -f1) 2>&1 > /dev/null&
+  if type wakatime >/dev/null 2>&1;
+    wakatime --write --plugin "fish-wakatime/0.0.1" --entity-type app --project "$project" --entity (echo $history[1] | cut -d ' ' -f1) 2>&1 > /dev/null&
+  end
 end
 
 [ (uname) = 'Darwin' ] && source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
