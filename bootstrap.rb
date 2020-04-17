@@ -4,16 +4,9 @@ MItamae::RecipeContext.class_eval do
   end
 
   def manjaro_linux?
-    executable = true
-    result = false
-    lambda do
-      return result if executable
-      executable = false
-
-      file = File.open("/etc/arch-release", "r")
-      result = file.gets == "Manjaro Linux\n"
-      return result
-    end
+    return false unless File.exists?("/etc/arch-release")
+    file = File.open("/etc/arch-release", "r")
+    return file.gets == "Manjaro Linux\n"
   end
 
   def darwin?
