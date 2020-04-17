@@ -1,3 +1,5 @@
+directory "/etc/docker"
+
 remote_file "/etc/docker/daemon.json" do
   user "root"
   owner "root"
