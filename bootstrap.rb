@@ -42,6 +42,10 @@ MItamae::RecipeContext.class_eval do
   end
 end
 
+directory "#{node["home"]}/.config" do
+  user node["user"]
+end
+
 include_definitions :pkg
 include_definitions :rmpkg
 include_definitions :ln
