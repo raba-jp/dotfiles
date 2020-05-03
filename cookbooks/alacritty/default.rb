@@ -1,2 +1,1 @@
-pkg "alacritty"
 ln "alacritty"

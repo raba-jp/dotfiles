@@ -1,3 +1,9 @@
+pkg "cask visual-studio-code"
+
+directory "#{node["home"]}/Library/Application\ Support/Code/User" do
+  user node["user"]
+end
+
 link "#{node["home"]}/Library/Application\ Support/Code/User/settings.json" do
   user node["user"]
   to File.expand_path("../../../config/Code/User/settings.json", __FILE__)
