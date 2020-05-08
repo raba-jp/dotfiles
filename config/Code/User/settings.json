@@ -26,7 +26,6 @@
   "editor.folding": true,
   "editor.formatOnSave": true,
   "editor.insertSpaces": true,
-  "editor.lineNumbers": "off",
   "editor.minimap.enabled": false,
   "editor.quickSuggestions": {
     "other": true,
@@ -223,5 +222,5 @@
     "editor.tabSize": 2
   },
   "go.formatTool": "goimports",
-  "go.lintTool": "golangci-lint",
+  "go.lintTool": "golangci-lint"
 }

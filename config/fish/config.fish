@@ -58,3 +58,6 @@ end
 status --is-interactive; and source (nodenv init -|psub)
 status --is-interactive; and source (rbenv init -|psub)
 [ -n (type starship) ] && starship init fish | source
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/sakuraba/.local/share/google-cloud-sdk/path.fish.inc' ]; . '/home/sakuraba/.local/share/google-cloud-sdk/path.fish.inc'; end

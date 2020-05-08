@@ -28,10 +28,13 @@ pkg "ttf-cica"
 pkg "ttf-hackgen"
 
 # CLI tools
+pkg "patch"
 pkg "kubectl"
 pkg "lefthook"
 pkg "mask"
 pkg "stern-bin"
+pkg "minikube"
+pkg "skaffold"
 
 # IME
 pkg "fcitx"
