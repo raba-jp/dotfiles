@@ -55,7 +55,7 @@
     "**/node_modules/**": true
   },
   "go.gopath": "~/dev",
-  "go.inferGopath": true,
+  "go.inferGopath": false,
   "javascript.preferences.importModuleSpecifier": "relative",
   "javascript.updateImportsOnFileMove.enabled": "never",
   "typescript.locale": "ja",
