@@ -24,6 +24,7 @@ paths = [
   "$NODENV_ROOT/bin",
   "$XDG_DATA_HOME/flutter/bin",
   "$XDG_DATA_HOME/dart-sdk/bin",
+  "$HOME/.local/share/flutter/bin",
 ].join(" ")
 
 execute "fish --command 'set --universal fish_user_paths #{paths}'" do
