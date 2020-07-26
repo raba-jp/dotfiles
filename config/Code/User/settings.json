@@ -40,6 +40,7 @@
   "terminal.external.linuxExec": "alacritty",
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+  "terminal.integrated.shell.linux": "/usr/local/bin/fish",
   "files.autoSave": "onFocusChange",
   "files.enableTrash": true,
   "files.insertFinalNewline": true,
@@ -223,4 +224,15 @@
   },
   "go.formatTool": "goimports",
   "go.lintTool": "golangci-lint"
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
 }
