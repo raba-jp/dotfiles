@@ -1,16 +1,19 @@
-execute "LANG=C xdg-user-dirs-gtk-update"
+# TODO 手動で一度だけ実行するようにする
+# execute "LANG=C xdg-user-dirs-gtk-update"
+# execute "pacman-mirrors --fasttrack"
 
-# Install yay and system upgrade
-execute "pacman -Syu"
+
+# Install yay and base-devel and system upgrade
+execute "pacman -Syu --noconfirm"
+package "base-devel"
 package "yay"
-execute "pacman-mirrors --fasttrack"
-execute "yay -Syuu"
+execute "yay -Syu --noconfirm"
 
 # Remove unused packages
 rmpkg "gnome-terminal"
 rmpkg "firefox"
-rmpkg "gtkhash"
 rmpkg "gtkhash-nautilus"
+rmpkg "gtkhash"
 rmpkg "hexchat"
 rmpkg "gnome-calculator"
 
