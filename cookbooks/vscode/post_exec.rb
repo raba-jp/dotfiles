@@ -2,7 +2,6 @@
   2gua.rainbow-brackets
   alefragnani.project-manager
   apollographql.vscode-apollo
-  auchenberg.vscode-browser-preview
   BazelBuild.vscode-bazel
   castwide.solargraph
   dbaeumer.vscode-eslint
@@ -10,9 +9,10 @@
   esbenp.prettier-vscode
   gerane.Theme-Solarized-dark
   GitHub.vscode-pull-request-github
-  googlecloudtools.cloudcode
+  golang.go
+  hashicorp.terraform
   keyring.Lua
-  mauve.terraform
+  matklad.rust-analyzer
   ms-azuretools.vscode-docker
   MS-CEINTL.vscode-language-pack-ja
   ms-kubernetes-tools.vscode-kubernetes-tools
@@ -21,7 +21,6 @@
   ms-vscode-remote.remote-ssh-edit
   ms-vscode-remote.remote-ssh-explorer
   ms-vscode-remote.vscode-remote-extensionpack
-  ms-vscode.Go
   ms-vsliveshare.vsliveshare
   PKief.material-icon-theme
   redhat.vscode-yaml
