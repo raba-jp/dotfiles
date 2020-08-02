@@ -5,12 +5,12 @@
     {
       "type": "git",
       "path": "github.com/Shougo/defx.nvim",
-      "version": "ceea32bb05ec33512c556054b91aff9c1d89f1cb"
+      "version": "4469568bef6571a4d0fda0b48c8c80e082a8e08d"
     },
     {
       "type": "git",
       "path": "github.com/Shougo/denite.nvim",
-      "version": "fadf7d2d4b9e592e70f764a6100bb94b214fb035"
+      "version": "ee43e5b08009072b46a17905d2ccfcb15f79224d"
     },
     {
       "type": "git",
@@ -25,7 +25,7 @@
     {
       "type": "git",
       "path": "github.com/editorconfig/editorconfig-vim",
-      "version": "8aff78a03357bf573abcec407a543762f281b7d3"
+      "version": "0a3c1d8082e38a5ebadcba7bb3a608d88a9ff044"
     },
     {
       "type": "git",
@@ -35,17 +35,17 @@
     {
       "type": "git",
       "path": "github.com/itchyny/lightline.vim",
-      "version": "b8976d2e549b417e5d1c1594fb9034b749976cc0"
+      "version": "079dc5754c87b4d18b40f916273c2fe56810c4a1"
     },
     {
       "type": "git",
       "path": "github.com/kristijanhusak/defx-git",
-      "version": "b5d0b842064ddb7a7af0e790f4648cb1909ed43f"
+      "version": "96fbc0de0e02edef9054dd8f33efbad9fc1fe6e6"
     },
     {
       "type": "git",
       "path": "github.com/kristijanhusak/defx-icons",
-      "version": "2e4df3b6302da537ac7df28fbc0e0991c6c1aa0e"
+      "version": "320f8f192d53f296514037b0425b85734feeddd5"
     },
     {
       "type": "git",
@@ -55,27 +55,27 @@
     {
       "type": "git",
       "path": "github.com/mattn/vim-lsp-settings",
-      "version": "2d9b59c0111e7b167330064c0d3040ee146e20a9"
+      "version": "97055a7ef9b20b6f59e7f8f00f7861b4db33b328"
     },
     {
       "type": "git",
       "path": "github.com/prabirshrestha/async.vim",
-      "version": "f67ecb5a1120d0d0fb9312afcf262c829b218ca2"
+      "version": "6102020b4690f05ab6509a37fa25bc53e2d799a9"
     },
     {
       "type": "git",
       "path": "github.com/prabirshrestha/asyncomplete-lsp.vim",
-      "version": "5c470ae8e58c8762dc4c669b38fa5649b57f53e3"
+      "version": "684c34453db9dcbed5dbf4769aaa6521530a23e0"
     },
     {
       "type": "git",
       "path": "github.com/prabirshrestha/asyncomplete.vim",
-      "version": "5713fa6a1ee8de62ff8f1b5f03823f1daa824ac4"
+      "version": "bb8a9924b703b3663d3be07d326055e44d22179a"
     },
     {
       "type": "git",
       "path": "github.com/prabirshrestha/vim-lsp",
-      "version": "5dd94c66f7195cf4605fe02c86a27d6d24d8fc88"
+      "version": "04cef02eed7fe861f5fdbf066da1b8b7e270b8a2"
     },
     {
       "type": "git",
@@ -85,17 +85,12 @@
     {
       "type": "git",
       "path": "github.com/roxma/vim-hug-neovim-rpc",
-      "version": "701ecbb0a1f904c0b44c6beaafef35e1de998a94"
+      "version": "0b700099e567964bad1f3d17fe16035052b5129a"
     },
     {
       "type": "git",
       "path": "github.com/sheerun/vim-polyglot",
-      "version": "14dc82fc4e6c0c08078f97a24a6c1639c1cc5113"
-    },
-    {
-      "type": "git",
-      "path": "github.com/vim-jp/vimdoc-ja",
-      "version": "00064c27fcd5787496055eb22f7610de934b5e15"
+      "version": "56121b4e27cb48efb17be55a969b2f0d725266f8"
     }
   ],
   "profiles": [
@@ -125,8 +120,7 @@
         "github.com/prabirshrestha/vim-lsp",
         "github.com/roxma/nvim-yarp",
         "github.com/roxma/vim-hug-neovim-rpc",
-        "github.com/sheerun/vim-polyglot",
-        "github.com/vim-jp/vimdoc-ja"
+        "github.com/sheerun/vim-polyglot"
       ]
     }
   ]
