@@ -64,6 +64,7 @@ include_cookbook :fish
 include_cookbook :vscode
 include_cookbook :vim
 include_cookbook :cli
+include_cookbook :hammerspoon
 
 if manjaro_linux?
   # include_cookbook :gnome3
