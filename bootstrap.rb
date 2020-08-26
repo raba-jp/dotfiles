@@ -53,6 +53,7 @@ include_definitions :ln
 include_cookbook :os
 include_cookbook :alacritty
 include_cookbook :clojure
+include_cookbook :dart
 include_cookbook :go
 include_cookbook :node
 include_cookbook :tmux

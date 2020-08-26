@@ -1,6 +1,7 @@
 pkg "albert"
 ln "albert"
 
+
 # development
 pkg "autoconf"
 pkg "automake"
@@ -17,8 +18,8 @@ pkg "libinput-gestures"
 pkg "google-chrome"
 pkg "station"
 pkg "gnome-tweak-tool"
-pkg "dbeaver"
 pkg "bitwarden"
+pkg "android-studio"
 
 # Fonts
 pkg "noto-fonts"

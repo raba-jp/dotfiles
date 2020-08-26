@@ -24,13 +24,14 @@ paths = [
   "$NODENV_ROOT/bin",
   "$XDG_DATA_HOME/flutter/bin",
   "$XDG_DATA_HOME/dart-sdk/bin",
+  "$HOME/.local/share/flutter/bin",
 ].join(" ")
 
 execute "fish --command 'set --universal fish_user_paths #{paths}'" do
   user node["user"]
 end
 
-execute "curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish" do
+execute "curl https://raw.githubusercontent.com/jorgebucaran/fisher/main/fisher.fish --create-dirs -sLo ~/.config/fish/functions/fisher.fish" do
   user node["user"]
   not_if "type fisher"
 end
