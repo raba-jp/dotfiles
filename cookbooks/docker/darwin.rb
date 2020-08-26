@@ -1,1 +1,1 @@
-pkg "docker"
+pkg "cask docker-edge"

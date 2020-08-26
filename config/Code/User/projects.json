@@ -1,32 +1,30 @@
 [
   {
     "name": "dotfiles",
-    "rootPath": "/home/sakuraba/dotfiles",
+    "rootPath": "$home/dotfiles",
     "paths": [],
     "group": ""
   },
   {
     "name": "narv",
-    "rootPath": "/home/sakuraba/dev/src/github.com/raba-jp/narv",
+    "rootPath": "$home/dev/src/github.com/raba-jp/narv",
     "paths": [],
     "group": ""
   },
   {
     "name": "narv-server",
-    "rootPath": "/home/sakuraba/dev/src/github.com/raba-jp/narv-server",
+    "rootPath": "$home/dev/src/github.com/raba-jp/narv-server",
     "paths": [],
     "group": ""
   },
   {
     "name": "rskmod",
-    "rootPath": "/home/sakuraba/dev/src/github.com/raba-jp/rskmod",
+    "rootPath": "$home/dev/src/github.com/raba-jp/rskmod",
     "paths": [],
     "group": ""
   },
   {
     "name": "microservices_template",
-    "rootPath": "/home/sakuraba/dev/src/github.com/raba-jp/microservices_template",
-    "paths": [],
-    "group": ""
+    "rootPath": "$home/dev/src/github.com/raba-jp/microservices_template"
   }
 ]
