@@ -26,3 +26,6 @@
 	root=~/dev/src
 [pull]
 	ff = only
+
+[include]
+	path = config.local
