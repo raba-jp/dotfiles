@@ -9,6 +9,11 @@
     },
     {
       "type": "git",
+      "path": "github.com/ctrlpvim/ctrlp.vim",
+      "version": "ae5237f8eb9bbc1ad7f8903738e0dc2af194f740"
+    },
+    {
+      "type": "git",
       "path": "github.com/editorconfig/editorconfig-vim",
       "version": "0a3c1d8082e38a5ebadcba7bb3a608d88a9ff044"
     },
@@ -24,8 +29,18 @@
     },
     {
       "type": "git",
+      "path": "github.com/lambdalisue/fern.vim",
+      "version": "5cd3e31465754dbf459b5622a8a44e42ae61acca"
+    },
+    {
+      "type": "git",
       "path": "github.com/lifepillar/vim-solarized8",
       "version": "7b6399093c090ef931e9a4ba031bff90fb7c8de1"
+    },
+    {
+      "type": "git",
+      "path": "github.com/mattn/ctrlp-matchfuzzy",
+      "version": "07781dc11bd1b5fabcc8b43269a49f85b960d1e0"
     },
     {
       "type": "git",
@@ -69,10 +84,13 @@
     {
       "name": "truecolor",
       "repos_path": [
+        "github.com/ctrlpvim/ctrlp.vim",
         "github.com/editorconfig/editorconfig-vim",
         "github.com/haya14busa/vim-edgemotion",
         "github.com/itchyny/lightline.vim",
+        "github.com/lambdalisue/fern.vim",
         "github.com/lifepillar/vim-solarized8",
+        "github.com/mattn/ctrlp-matchfuzzy",
         "github.com/mattn/vim-lsp-settings",
         "github.com/prabirshrestha/async.vim",
         "github.com/prabirshrestha/asyncomplete-lsp.vim",
