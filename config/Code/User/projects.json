@@ -26,5 +26,9 @@
   {
     "name": "microservices_template",
     "rootPath": "$home/dev/src/github.com/raba-jp/microservices_template"
+  },
+  {
+    "name": "primus",
+    "rootPath": "$home/dev/src/github.com/raba-jp/primus"
   }
 ]
