@@ -20,6 +20,7 @@ function! PackInit() abort
   call minpac#add('prabirshrestha/asyncomplete.vim')
   call minpac#add('prabirshrestha/vim-lsp')
   call minpac#add('sheerun/vim-polyglot')
+  call minpac#add('sgur/ctrlp-extensions.vim')
 endfunction
 
 command! PackUpdate call PackInit() | call minpac#update()
@@ -56,10 +57,11 @@ let g:mapleader = "\<Space>"
 set noswapfile
 set smartindent
 set visualbell
-set smartcase
 set hlsearch
 set backspace=2
 set signcolumn=yes
+set ignorecase
+set smartcase
 
 filetype plugin indent on
 syntax enable
