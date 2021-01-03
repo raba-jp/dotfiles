@@ -55,6 +55,7 @@ include_cookbook :manjaro if manjaro_linux?
 ## Tools
 include_cookbook :fish
 include_cookbook :alacritty
+include_cookbook :git
 include_cookbook :vim
 include_cookbook :vscode
 include_cookbook :tmux

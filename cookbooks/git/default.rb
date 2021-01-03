@@ -1,6 +1,8 @@
 darwin_pkg "git"
 manjaro_pkg "git"
 
+directory File.expand_path("~/.config/git")
+
 link File.expand_path("~/.config/git/ignore") do
   force true
   to File.expand_path("cookbooks/git/files/ignore")
@@ -12,6 +14,8 @@ end
 
 darwin_pkg "tig"
 manjaro_pkg "tig"
+
+directory File.expand_path("~/.config/tig")
 
 link File.expand_path("~/.config/tig/config") do
   force true

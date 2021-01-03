@@ -6,12 +6,6 @@ define :manjaro_pkg do
     cwd params[:cwd]
   end
 
-  execute "yay -S --noconfirm powerpill" do
-    not_if "which powerpill"
-    user ENV["USER"]
-    cwd params[:cwd]
-  end
-
   name = params[:name].shellescape
   execute "yay -S --noconfirm #{name}" do
     not_if "yay -Q #{name} || yay -Qg #{name}"
