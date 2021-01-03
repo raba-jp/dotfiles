@@ -1,37 +1,11 @@
-directory "/etc/docker"
-
-remote_file "/etc/docker/daemon.json" do
-  user "root"
-  owner "root"
-  group "root"
-  mode "644"
-  source "files/daemon.json"
-end
-
-remote_file "/etc/subuid" do
-  user "root"
-  owner "root"
-  group "root"
-  mode "644"
-  source "files/subuid"
-end
-
-remote_file "/etc/subgid" do
-  user "root"
-  owner "root"
-  group "root"
-  mode "644"
-  source "files/subgid"
-end
-
-pkg "docker"
-pkg "docker-compose"
-pkg "docker-machine"
-pkg "libvirt"
-pkg "qemu"
-pkg "ebtables"
-pkg "dnsmasq"
-pkg "docker-machine-driver-kvm2"
+manjaro_pkg "docker"
+manjaro_pkg "docker-compose"
+manjaro_pkg "docker-machine"
+manjaro_pkg "libvirt"
+manjaro_pkg "qemu"
+manjaro_pkg "ebtables"
+manjaro_pkg "dnsmasq"
+manjaro_pkg "docker-machine-driver-kvm2"
 
 ["docker", "libvirt"].each do |g|
   group g do

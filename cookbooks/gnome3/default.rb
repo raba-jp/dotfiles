@@ -6,7 +6,5 @@
     value: "['google-chrome.desktop:1', 'visual-studio-code.desktop:2', 'alacritty.desktop:3', 'station.desktop:4']",
   },
 ].each do |s|
-  execute "gsettings set #{s[:key]} #{s[:value]}" do
-    user node["user"]
-  end
+  execute "gsettings set #{s[:key]} #{s[:value]}"
 end

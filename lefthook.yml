@@ -1,9 +1,0 @@
-pre-commit:
-  parallel: true
-  commands:
-    rb-format:
-      glob: "*.rb"
-      run: bundle exec rufo {staged_files}
-    sh-format:
-      glob: "*.sh"
-      run: shfmt -l -w {staged_files}

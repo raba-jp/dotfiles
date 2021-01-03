@@ -1,5 +1,4 @@
-directory "#{node["home"]}/dev" do
-  user node["user"]
-end
+directory File.expand_path("~/dev")
 
-pkg "go"
+manjaro_pkg "go"
+darwin_pkg "go"

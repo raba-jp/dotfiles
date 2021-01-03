@@ -22,3 +22,72 @@
   execute "defaults write #{item[:domain]} #{item[:key]} -#{item[:type]} #{item[:value]}" do
   end
 end
+
+darwin_pkg "less"
+darwin_pkg "reattach-to-user-namespace"
+darwin_pkg "stern"
+darwin_pkg "wget"
+darwin_pkg "bat"
+darwin_pkg "bitwarden-cli"
+darwin_pkg "dive"
+darwin_pkg "direnv"
+darwin_pkg "exa"
+darwin_pkg "fd"
+darwin_pkg "fzf"
+darwin_pkg "ghq"
+darwin_pkg "jq"
+darwin_pkg "make"
+darwin_pkg "nkf"
+darwin_pkg "ripgrep"
+darwin_pkg "procs"
+darwin_pkg "kubectx"
+darwin_pkg "starship"
+
+darwin_pkg "alfred" do
+  options "--cask"
+end
+darwin_pkg "android-studio" do
+  options "--cask"
+end
+darwin_pkg "bartender" do
+  options "--cask"
+end
+darwin_pkg "clipy" do
+  options "--cask"
+end
+darwin_pkg "dash" do
+  options "--cask"
+end
+darwin_pkg "docker" do
+  options "--cask"
+end
+darwin_pkg "homebrew/cask-fonts/font-cica" do
+  options "--cask"
+end
+darwin_pkg "homebrew/cask-fonts/font-myrica" do
+  options "--cask"
+end
+darwin_pkg "google-chrome" do
+  options "--cask"
+end
+darwin_pkg "google-cloud-sdk" do
+  options "--cask"
+end
+darwin_pkg "hyperswitch" do
+  options "--cask"
+end
+darwin_pkg "mplayerx" do
+  options "--cask"
+end
+darwin_pkg "quicklook-csv" do
+  options "--cask"
+end
+darwin_pkg "qlmarkdown" do
+  options "--cask"
+end
+darwin_pkg "slack" do
+  options "--cask"
+end
+darwin_pkg "the-unarchiver" do
+  options "--cask"
+end

@@ -9,7 +9,6 @@ if status --is-interactive
   abbr --add --global find 'fd'
   abbr --add --global tree 'exa --tree'
   abbr --add --global ps 'procs'
-  abbr --add --global tmux 'tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
   abbr --add --global fit_display 'xrandr --fb 7680x2160 --output DP-3 --panning 3840x2160+0+0 --scale 2x2 --output eDP-1 --panning 3840x2160+3840+0 --scale 1x1'
   abbr --add --global dot 'cd $HOME/dotfiles'
   abbr --add --global gc 'git commit'
@@ -54,9 +53,9 @@ end
 [ (uname) = 'Darwin' ] && source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
 # [ -n (type gcloud) ] && complete --command gcloud --arguments="($XDG_CONFIG_HOME/fish/gcloud_completion.py (commandline -cp))"
 [ -n (type direnv) ] && eval (direnv hook fish)
-status --is-interactive; and source (nodenv init -|psub)
-status --is-interactive; and source (rbenv init -|psub)
 [ -n (type starship) ] && starship init fish | source
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/sakuraba/.local/share/google-cloud-sdk/path.fish.inc' ]; . '/home/sakuraba/.local/share/google-cloud-sdk/path.fish.inc'; end
+set -gx VOLTA_HOME "$HOME/.local/share/volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH

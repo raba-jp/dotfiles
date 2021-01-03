@@ -1,4 +1,8 @@
-link "#{node["home"]}/.vim/vimrc" do
-  user node["user"]
-  to File.expand_path("../../../config/vim/init.vim", __FILE__)
+manjaro_pkg "gvim"
+
+darwin_pkg "vim"
+
+link File.expand_path("~/.vim/vimrc") do
+  force true
+  to File.expand_path("cookbooks/vim/files/init.vim")
 end

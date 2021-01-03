@@ -42,30 +42,30 @@ MItamae::RecipeContext.class_eval do
   end
 end
 
-directory "#{node["home"]}/.config" do
-  user node["user"]
-end
+directory File.expand_path("~/.config")
+directory File.expand_path("~/.local/share")
+directory File.expand_path("~/.cache")
 
 include_definitions :pkg
 include_definitions :rmpkg
-include_definitions :ln
 
-include_cookbook :os
-include_cookbook :alacritty
-include_cookbook :clojure
-include_cookbook :dart
-include_cookbook :go
-include_cookbook :node
-include_cookbook :tmux
-include_cookbook :ruby
-include_cookbook :docker
-include_cookbook :rust
+include_cookbook :darwin if darwin?
+include_cookbook :manjaro if manjaro_linux?
+
+## Tools
 include_cookbook :fish
-include_cookbook :vscode
+include_cookbook :alacritty
 include_cookbook :vim
-include_cookbook :cli
-include_cookbook :hammerspoon
+include_cookbook :vscode
+include_cookbook :tmux
+include_cookbook :docker
+include_cookbook :hammerspoon if darwin?
 
-if manjaro_linux?
-  # include_cookbook :gnome3
-end
+## Programming Languages
+include_cookbook :go
+include_cookbook :ruby
+include_cookbook :rust
+include_cookbook :node
+
+
+# include_cookbook :gnome3 if manjaro_linux?

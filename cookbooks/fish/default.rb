@@ -1,4 +1,10 @@
-pkg "fish"
+darwin_pkg "fish"
+manjaro_pkg "fish"
+
+link File.expand_path("~/.config/fish/config.fish") do
+  force true
+  to File.expand_path("cookbooks/fish/files/config.fish")
+end
 
 [
   { name: "XDG_CONFIG_HOME", value: "$HOME/.config" },
@@ -10,35 +16,32 @@ pkg "fish"
   { name: "EDITOR", value: "vim" },
   { name: "GOPATH", value: "$HOME/dev" },
   { name: "RBENV_ROOT", value: "$HOME/.rbenv" },
-  { name: "NODENV_ROOT", value: "$HOME/.nodenv" },
-  { name: "VOLTPATH", value: "$HOME/.config/volt" },
+  { name: "VOLTA_HOME", value: "$HOME/.local/share/volta" },
 ].each do |item|
-  execute "fish --command 'set --universal --export #{item[:name]} #{item[:value]}'" do
-    user node["user"]
-  end
+  execute "fish --command 'set --universal --export #{item[:name]} #{item[:value]}'"
 end
 
 paths = [
   "$GOPATH/bin",
   "$RBENV_ROOT/bin",
-  "$NODENV_ROOT/bin",
-  "$XDG_DATA_HOME/flutter/bin",
-  "$XDG_DATA_HOME/dart-sdk/bin",
-  "$HOME/.local/share/flutter/bin",
+  "$VOLTA_HOME/bin"
 ].join(" ")
 
-execute "fish --command 'set --universal fish_user_paths #{paths}'" do
-  user node["user"]
+execute "fish --command 'set --universal fish_user_paths #{paths}'"
+
+link File.expand_path("~/.config/fish/fish_plugins") do
+  force true
+  to File.expand_path("cookbooks/fish/files/fish_plugins")
 end
 
-execute "curl https://raw.githubusercontent.com/jorgebucaran/fisher/main/fisher.fish --create-dirs -sLo ~/.config/fish/functions/fisher.fish" do
-  user node["user"]
+execute "curl -sL https://git.io/fisher | fish --command 'source && fisher update'" do
   not_if "type fisher"
 end
 
-ln "fish/config.fish" do
-  user node["user"]
-end
-ln "fish/fishfile" do
-  user node["user"]
+if manjaro_linux?
+  # alacritty用に /usr/local/bin 以下にシンボリックリンクを貼る
+  link "/usr/local/bin/fish" do
+    user "root"
+    to "/usr/bin/fish"
+  end
 end
