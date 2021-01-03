@@ -36,7 +36,6 @@ end
 
 # GUI applications
 manjaro_pkg "google-chrome"
-manjaro_pkg "station"
 manjaro_pkg "gnome-tweak-tool"
 manjaro_pkg "bitwarden"
 manjaro_pkg "android-studio"
