@@ -1,4 +1,5 @@
 manjaro_pkg "gvim"
+manjaro_pkg "neovim"
 
 darwin_pkg "vim"
 
