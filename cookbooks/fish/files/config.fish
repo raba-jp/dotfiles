@@ -52,7 +52,7 @@ end
 
 [ (uname) = 'Darwin' ] && source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
 # [ -n (type gcloud) ] && complete --command gcloud --arguments="($XDG_CONFIG_HOME/fish/gcloud_completion.py (commandline -cp))"
-[ -n (type direnv) ] && eval (direnv hook fish)
+[ -n (type direnv) ] && direnv hook fish | source
 [ -n (type starship) ] && starship init fish | source
 
 # The next line updates PATH for the Google Cloud SDK.
