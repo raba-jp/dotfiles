@@ -28,6 +28,9 @@ command! PackClean  call PackInit() | call minpac#clean()
 command! PackStatus packadd minpac | call minpac#status()
 
 let s:minpac_dir = '~/.vim/pack/minpac/opt/minpac'
+if has('nvim')
+  let s:minpac_dir = '~/.config/nvim/pack/minpac/opt/minpac'
+endif
 if has('vim_starting')
   if !isdirectory(expand(s:minpac_dir))
     echo "Install minpac ...\n"
