@@ -24,7 +24,9 @@ end
 paths = [
   "$GOPATH/bin",
   "$RBENV_ROOT/bin",
-  "$VOLTA_HOME/bin"
+  "$VOLTA_HOME/bin",
+  "$HOME/.tfenv/bin",
+  "$HOME/.cargo/bin",
 ].join(" ")
 
 execute "fish --command 'set --universal fish_user_paths #{paths}'"
