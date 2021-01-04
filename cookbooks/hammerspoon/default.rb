@@ -1,5 +1,5 @@
 darwin_pkg "hammerspoon" do
-  option "--cask"
+  options "--cask"
 end
 
 link File.expand_path("~/.hammerspoon") do
