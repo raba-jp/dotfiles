@@ -12,7 +12,12 @@ end
 manjaro_pkg "neovim-nightly-bin"
 
 directory File.expand_path("~/.config/nvim")
-link File.expand_path("~/.config/nvim/init.vim") do
+link File.expand_path("~/.config/nvim/init.lua") do
   force true
-  to File.expand_path("cookbooks/vim/files/init.vim")
+  to File.expand_path("cookbooks/vim/files/init.lua")
+end
+
+link File.expand_path("~/.config/nvim/lua") do
+  force true
+  to File.expand_path("cookbooks/vim/files/lua")
 end
