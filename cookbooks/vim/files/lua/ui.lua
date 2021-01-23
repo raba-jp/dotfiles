@@ -9,4 +9,4 @@ cmd('syntax on')
 cmd('filetype plugin indent on')
 cmd('colorscheme solarized8')
 
-setvar('lightline', { colorscheme = 'solarized' })
+setvar('lightline', {colorscheme = 'solarized'})
