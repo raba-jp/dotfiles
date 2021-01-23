@@ -23,6 +23,6 @@ require 'keybindings'
 require 'commands'
 require 'ui'
 
-vim.cmd [[augroup lsp_aucmds]]
-vim.cmd [[au BufEnter * lua require('completion').on_attach()]]
-vim.cmd [[augroup END]]
+--vim.cmd [[augroup lsp_aucmds]]
+--vim.cmd [[au BufEnter * lua require('completion').on_attach()]]
+--vim.cmd [[augroup END]]

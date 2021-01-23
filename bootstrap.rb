@@ -45,6 +45,7 @@ end
 directory File.expand_path("~/.config")
 directory File.expand_path("~/.local/share")
 directory File.expand_path("~/.cache")
+directory File.expand_path("~/.local/bin")
 
 include_definitions :pkg
 include_definitions :rmpkg
@@ -67,6 +68,7 @@ include_cookbook :go
 include_cookbook :ruby
 include_cookbook :rust
 include_cookbook :node
+include_cookbook :lua
 
 
 # include_cookbook :gnome3 if manjaro_linux?

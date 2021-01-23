@@ -13,20 +13,19 @@ use {'lifepillar/vim-solarized8'} -- Colorscheme
 use {'editorconfig/editorconfig-vim'}	-- Editorconfig
 
 use {
-	'neovim/nvim-lspconfig', 'nvim-lua/lsp-status.nvim', {
+	{'neovim/nvim-lspconfig'},
+	'nvim-lua/lsp-status.nvim', {
 		'nvim-lua/completion-nvim',
 		after = 'nvim-lspconfig',
 		config = function()
-			vim.g.completion_confirm_key = '<CR>'
-			vim.g.completion_enable_auto_popup = 1
-			vim.g.completion_matching_smart_case = 1
+			vim.lsp.set_log_level("debug")
+			require("lsp")
 			require('completion').on_attach()
 
 			vim.cmd [[augroup lsp_aucmds]]
 			vim.cmd [[au BufEnter * lua require('completion').on_attach()]]
 			vim.cmd [[augroup END]]
 
-			vim.cmd [[doautoall FileType]]
 		end,
 	},
 	{'nvim-treesitter/completion-treesitter', opt = true},
