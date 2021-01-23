@@ -9,7 +9,7 @@ local function init()
     packer.reset()
 
     use {'wbthomason/packer.nvim', opt = true} -- Plugin manager
-    use {'sheerun/vim-polyglot'}
+    use {'sheerun/vim-polyglot'} -- Language config
     use {'lifepillar/vim-solarized8'} -- Colorscheme
     use {'editorconfig/editorconfig-vim'} -- Editorconfig
 
@@ -35,15 +35,20 @@ local function init()
                     after = 'nvim-treesitter'
                 }, {'romgrk/nvim-treesitter-context', after = 'nvim-treesitter'}
             },
-            config = "require('treesitter')"
+            config = "require('plugin_treesitter')"
         }
     }
 
     use {'itchyny/lightline.vim'} -- Statusline
-    use { -- Fuzzy finder
-        'nvim-telescope/telescope.nvim',
-        config = [[require('telescope')]]
-    }
+    use {
+          'nvim-telescope/telescope.nvim',
+            requires = {
+                'nvim-lua/popup.nvim',
+                'nvim-lua/plenary.nvim',
+                 'nvim-telescope/telescope-ghq.nvim',
+            },
+            config = 'require("plugin_telescope")',
+        }
 
     use {'haya14busa/vim-edgemotion'}
 end
