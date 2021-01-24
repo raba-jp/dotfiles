@@ -12,6 +12,7 @@ local function init()
     use {'sheerun/vim-polyglot'} -- Language config
     use {'lifepillar/vim-solarized8'} -- Colorscheme
     use {'editorconfig/editorconfig-vim'} -- Editorconfig
+    use {'mattn/vim-lsp-settings', opt = true}
 
     use {'neovim/nvim-lspconfig'}
     use {'nvim-lua/lsp-status.nvim'}
@@ -41,16 +42,26 @@ local function init()
 
     use {'itchyny/lightline.vim'} -- Statusline
     use {
-          'nvim-telescope/telescope.nvim',
-            requires = {
-                'nvim-lua/popup.nvim',
-                'nvim-lua/plenary.nvim',
-                 'nvim-telescope/telescope-ghq.nvim',
-            },
-            config = 'require("plugin_telescope")',
-        }
+        'nvim-telescope/telescope.nvim',
+        requires = {
+            'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope-ghq.nvim'
+        },
+        config = 'require("plugin_telescope")'
+    }
 
     use {'haya14busa/vim-edgemotion'}
+    use {'cohama/lexima.vim'}
+    use {
+        'rhysd/clever-f.vim',
+        config = function()
+            vim.g.clever_f_smart_case = 1
+            vim.g.clever_f_mark_char_color = 1
+            vim.g.clever_f_use_migemo = 1
+            vim.g.clever_f_fix_key_direction = 1
+        end
+    }
+    use {'mhartington/formatter.nvim', config = 'require("plugin_formatter")'}
 end
 
 local plugins = setmetatable({}, {

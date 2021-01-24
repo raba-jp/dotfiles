@@ -12,6 +12,9 @@ else
 end
 
 local home = os.getenv("HOME")
+
+local lsp = require('lspconfig')
+
 local sumneko_root_path = home .. "/.local/share/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/" .. system_name ..
                            "/lua-language-server"
@@ -30,7 +33,8 @@ require('lspconfig').sumneko_lua.setup {
     }
 }
 
-require("lspconfig").gopls.setup {}
+local lsp_server_path = home .. "/.local/share/vim-lsp-settings/servers"
+lsp.gopls.setup {cmd = {lsp_server_path .. "/gopls/gopls"}}
 
 require('completion').on_attach()
 vim.cmd [[augroup lsp_aucmds]]

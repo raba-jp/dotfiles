@@ -3,3 +3,5 @@ vim.cmd [[command! PackerUpdate packadd packer.nvim | lua require('plugins').upd
 vim.cmd [[command! PackerSync packadd packer.nvim | lua require('plugins').sync()]]
 vim.cmd [[command! PackerClean packadd packer.nvim | lua require('plugins').clean()]]
 vim.cmd [[command! PackerCompile packadd packer.nvim | lua require('plugins').compile()]]
+vim.cmd [[command! LspInstallServer packadd vim-lsp-settings | lua vim.cmd('LspInstallServer')]]
+vim.cmd [[command! LspUninstallServer packadd vim-lsp-settings | lua vim.cmd('LspUninstallServer')]]
