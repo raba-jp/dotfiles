@@ -39,6 +39,3 @@ end
 [ (uname) = 'Darwin' ] && source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
 [ -n (type direnv) ] && direnv hook fish | source
 [ -n (type starship) ] && starship init fish | source
-
-set -gx VOLTA_HOME "$HOME/.local/share/volta"
-set -gx PATH "$VOLTA_HOME/bin" $PATH
