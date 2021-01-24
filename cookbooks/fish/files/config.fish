@@ -37,11 +37,8 @@ function done_enter --on-event fish_postexec
 end
 
 [ (uname) = 'Darwin' ] && source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
-# [ -n (type gcloud) ] && complete --command gcloud --arguments="($XDG_CONFIG_HOME/fish/gcloud_completion.py (commandline -cp))"
 [ -n (type direnv) ] && direnv hook fish | source
 [ -n (type starship) ] && starship init fish | source
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/sakuraba/.local/share/google-cloud-sdk/path.fish.inc' ]; . '/home/sakuraba/.local/share/google-cloud-sdk/path.fish.inc'; end
 set -gx VOLTA_HOME "$HOME/.local/share/volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
