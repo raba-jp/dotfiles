@@ -2,18 +2,23 @@
 
 set -e
 
+
 if [ "$(uname)" = 'Darwin' ]; then
-	xcode-select --install
-	which brew >/dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  sh <(wget -q -O - https://nixos.org/nix/install) --daemon
+  echo 'export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH' >> ~/.zshrc
 fi
 
-dotfiles=$HOME/dotfiles
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-21.05.tar.gz home-manager
+nix-channel --update
+nix-shell '<home-manager>' -A install
+
+dir=$HOME/ghq/github.com/raba-jp
+dotfiles=$dir/dotfiles
 if [ "$1" != '' ]; then
-	dotfiles=$1
+  dotfiles=$1
 fi
 
 if [ ! -d $dotfiles ]; then
-	git clone https://github.com/raba-jp/dotfiles.git $dotfiles
+  mkdir -p $dir	
+  git clone https://github.com/raba-jp/dotfiles.git $dotfiles
 fi
-
-$dotfiles/install.sh
