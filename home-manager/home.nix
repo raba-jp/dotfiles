@@ -8,7 +8,26 @@
   home.homeDirectory = "/home/sakuraba";
   home.stateVersion = "21.03";
 
-  home.packages = with pkgs; [ vim ripgrep fd procs ghq fzf nixfmt ];
+  home.packages = with pkgs; [
+    alacritty
+    google-chrome
+    git
+    arc-theme
+    materia-theme
+    gitAndTools.tig
+    starship
+    fish
+    obsidian
+    vim
+    ripgrep
+    fd
+    procs
+    ghq
+    fzf
+    nixfmt
+    vscode
+    tmux
+  ];
 
   programs.exa.enable = true;
   programs.jq.enable = true;
