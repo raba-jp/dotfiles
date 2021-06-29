@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 {
-  nixpkgs.config = { allowUnfree = true; };
-
   imports = [ ./fish.nix ./tmux.nix ./alacritty.nix ./git.nix ./vim.nix ];
 
   programs.home-manager.enable = true;
