@@ -48,12 +48,6 @@
     };
   };
 
-  programs.vim = {
-enable = true;
-extraConfig = ''
-'';
-};
-
   programs.vscode = { enable = true; };
 
   programs.zoxide = {

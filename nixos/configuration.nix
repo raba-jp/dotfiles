@@ -5,49 +5,19 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+  imports = [
+    ./hardware-configuration.nix  # Include the results of the hardware scan.
+    <home-manager/nixos>
+    /home/sakuraba/ghq/github.com/raba-jp/dotfiles/nixos/boot.nix
+    /home/sakuraba/ghq/github.com/raba-jp/dotfiles/nixos/networking.nix
+    /home/sakuraba/ghq/github.com/raba-jp/dotfiles/nixos/localize.nix
   ];
 
   nixpkgs.overlays =
-    import /home/sakuraba/ghq/github.com/raba-jp/nix-configuration/overlays;
+    import /home/sakuraba/ghq/github.com/raba-jp/dotfiles/overlays;
 
   nixpkgs.config.allowUnfree = true;
   system.autoUpgrade.enable = true;
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "define7-nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "Asia/Tokyo";
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp39s0.useDHCP = true;
-  networking.interfaces.wlo1.useDHCP = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "ja_JP.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  # };
-
-  i18n.inputMethod = {
-    enabled = "fcitx";
-    fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
-  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -80,6 +50,12 @@
       [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
   };
 
+  home-manager.useGlobalPkgs = true;
+  home-manager.users.sakuraba = { pkgs, ... }: {
+
+    imports = [ /home/sakuraba/ghq/github.com/raba-jp/dotfiles/home-manager/home.nix ];
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -102,11 +78,6 @@
     obsidian
     libnotify
   ];
-
-  fonts.fonts = with pkgs; [ noto-fonts noto-fonts-cjk noto-fonts-emoji cica ];
-
-  fonts.fontconfig.defaultFonts.serif = [ "Noto Sans CJK JP" ];
-  fonts.fontconfig.defaultFonts.sansSerif = [ "Noto Sans Mono CJK JP" ];
 
   virtualisation.docker.enable = true;
 
