@@ -12,7 +12,7 @@
     /home/sakuraba/ghq/github.com/raba-jp/dotfiles/nixos/networking.nix
     /home/sakuraba/ghq/github.com/raba-jp/dotfiles/nixos/localize.nix
     /home/sakuraba/ghq/github.com/raba-jp/dotfiles/nixos/sound.nix
-    /home/sakuraba/ghq/github.com/raba-jp/dotfiles/nixos/gui.nix
+    /home/sakuraba/ghq/github.com/raba-jp/dotfiles/nixos/gnome.nix
     /home/sakuraba/ghq/github.com/raba-jp/dotfiles/nixos/users.nix
     /home/sakuraba/ghq/github.com/raba-jp/dotfiles/nixos/pkgs.nix
   ];
@@ -22,16 +22,23 @@
     overlays = import /home/sakuraba/ghq/github.com/raba-jp/dotfiles/overlays;
   };
 
+  nix = {
+    extraOptions = ''
+      keep-outputs = true
+      keep-derivations = true
+    '';
+    gc = {
+      automatic = true;
+      dates = "monthly";
+      options = "--delete-older-than 31d";
+    };
+    trustedUsers = [ "root" "sakuraba" ];
+  };
+
   system = {
     autoUpgrade.enable = true;
 
     stateVersion = "21.05";
   };
-
-  nix.extraOptions = ''
-    keep-outputs = true
-    keep-derivations = true
-  '';
-
 }
 

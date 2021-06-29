@@ -1,11 +1,17 @@
 { config, pkgs, ... }:
 
 {
-  boot.loader.systemd-boot = {
-    enable = true;
-    editor = false;
-    consoleMode = "auto";
-  };
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        editor = false;
+        consoleMode = "auto";
+      };
 
-  boot.loader.efi.canTouchEfiVariables = true;
+      efi.canTouchEfiVariables = true;
+    };
+
+    kernelPackages = pkgs.linuxPackages_5_12;
+  };
 }

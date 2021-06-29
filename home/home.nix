@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  nixpkgs.config = { allowUnfree = true; };
+
   imports = [ ./fish.nix ./tmux.nix ./alacritty.nix ./git.nix ./vim.nix ];
 
   programs.home-manager.enable = true;
@@ -38,6 +40,14 @@
     google-cloud-sdk
     kubectl
     bazelisk
+    slack
+
+    # GTK theme
+    adapta-gtk-theme
+    # xmonad
+    networkmanager_dmenu # Network Manager on dmenu
+    networkmanagerapplet # Network Manager applet
+    nitrogen # wallpaper manager
   ];
 
   programs.exa.enable = true;
@@ -111,6 +121,20 @@
   programs.broot = {
     enable = true;
     enableFishIntegration = true;
+  };
+
+  gtk = {
+    enable = true;
+
+    iconTheme = {
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    theme = {
+      name = "Adapta";
+      package = pkgs.adapta-gtk-theme;
+    };
   };
 
 }
