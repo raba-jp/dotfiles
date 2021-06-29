@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./fish.nix ./tmux.nix ./alacritty.nix ./git.nix ];
+  imports = [ ./fish.nix ./tmux.nix ./alacritty.nix ./git.nix ./vim.nix ];
 
   programs.home-manager.enable = true;
   home.username = "sakuraba";
@@ -12,9 +12,7 @@
     alacritty
     google-chrome
     git
-    arc-theme
-    materia-theme
-    gitAndTools.tig
+    tig
     starship
     fish
     obsidian
@@ -27,6 +25,7 @@
     nixfmt
     vscode
     tmux
+    rustup
   ];
 
   programs.exa.enable = true;
