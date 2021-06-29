@@ -39,13 +39,8 @@
     kubectl
     bazelisk
     slack
-
-    # GTK theme
     adapta-gtk-theme
-    # xmonad
-    networkmanager_dmenu # Network Manager on dmenu
-    networkmanagerapplet # Network Manager applet
-    nitrogen # wallpaper manager
+    
   ];
 
   programs.exa.enable = true;
@@ -112,10 +107,6 @@
     bind generic G move-last-line
   '';
 
-  # gtk.theme = {
-  # name = "Arc Darker"
-  # };
-
   programs.broot = {
     enable = true;
     enableFishIntegration = true;
@@ -134,26 +125,4 @@
       package = pkgs.adapta-gtk-theme;
     };
   };
-
-  xdg.configFile."networkmanager-dmenu/config.ini".text = ''
-    [dmenu]
-    dmenu_command = rofi
-    rofi_highlight = True
-    [editor]
-    gui_if_available = True
-  '';
-
-  programs.rofi = {
-    enable = true;
-    terminal = "${pkgs.alacritty}/bin/alacritty";
-  };
-
-  # xsession = {
-  #   enable = true;
-  #   windowManager.xmonad = {
-  #     enable = true;
-  #     enableContribAndExtras = true;
-  #     config = ./config.hs;
-  #   };
-  # };
 }
