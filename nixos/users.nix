@@ -11,6 +11,6 @@
 
   home-manager.users.sakuraba = { pkgs, ... }: {
     imports =
-      [ /home/sakuraba/ghq/github.com/raba-jp/dotfiles/home-manager/home.nix ];
+      [ /home/sakuraba/ghq/github.com/raba-jp/dotfiles/home/home.nix ];
   };
 }

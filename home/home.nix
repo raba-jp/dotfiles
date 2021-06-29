@@ -26,6 +26,18 @@
     vscode
     tmux
     rustup
+    stern
+    skaffold
+    tilt
+    kubectx
+    dive
+    jq
+    nkf
+    flutter
+    android-studio
+    google-cloud-sdk
+    kubectl
+    bazelisk
   ];
 
   programs.exa.enable = true;

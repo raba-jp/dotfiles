@@ -9,4 +9,6 @@
     layout = "us";
     libinput.enable = true;
   };
+
+  services.gnome.chrome-gnome-shell.enable = true;
 }

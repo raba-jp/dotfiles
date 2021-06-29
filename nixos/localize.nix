@@ -3,12 +3,8 @@
   i18n = {
     defaultLocale = "ja_JP.UTF-8";
     inputMethod = {
-      enabled = "fcitx";
-      fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
-
-      # Use fcitx5
-      # enabled = "fcitx5";
-      # fcitx5.addons = with pkgs; [ fcitx5-mozc ];
+      enabled = "fcitx5";
+      fcitx5.addons = with pkgs; [ fcitx5-mozc ];
     };
   };
 
