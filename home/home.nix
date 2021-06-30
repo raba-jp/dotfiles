@@ -10,12 +10,12 @@
 
   home.packages = with pkgs; [
     alacritty
-    google-chrome
+    # google-chrome
     git
     tig
     starship
     fish
-    obsidian
+    # obsidian
     vim
     ripgrep
     fd
@@ -33,13 +33,13 @@
     dive
     jq
     nkf
-    flutter
-    android-studio
+    # flutter
+    # android-studio
     google-cloud-sdk
     kubectl
     bazelisk
-    slack
-    adapta-gtk-theme
+    # slack
+    # adapta-gtk-theme
     
   ];
 
@@ -112,17 +112,17 @@
     enableFishIntegration = true;
   };
 
-  gtk = {
-    enable = true;
+  # gtk = {
+  #   enable = true;
 
-    iconTheme = {
-      name = "Papirus";
-      package = pkgs.papirus-icon-theme;
-    };
+  #   iconTheme = {
+  #     name = "Papirus";
+  #     package = pkgs.papirus-icon-theme;
+  #   };
 
-    theme = {
-      name = "Adapta";
-      package = pkgs.adapta-gtk-theme;
-    };
-  };
+  #   theme = {
+  #     name = "Adapta";
+  #     package = pkgs.adapta-gtk-theme;
+  #   };
+  # };
 }
