@@ -104,18 +104,4 @@
     enable = true;
     enableFishIntegration = true;
   };
-
-  # gtk = {
-  #   enable = true;
-
-  #   iconTheme = {
-  #     name = "Papirus";
-  #     package = pkgs.papirus-icon-theme;
-  #   };
-
-  #   theme = {
-  #     name = "Adapta";
-  #     package = pkgs.adapta-gtk-theme;
-  #   };
-  # };
 }
