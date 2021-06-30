@@ -10,12 +10,10 @@
 
   home.packages = with pkgs; [
     alacritty
-    # google-chrome
     git
     tig
     starship
     fish
-    # obsidian
     vim
     ripgrep
     fd
@@ -33,14 +31,9 @@
     dive
     jq
     nkf
-    # flutter
-    # android-studio
     google-cloud-sdk
     kubectl
     bazelisk
-    # slack
-    # adapta-gtk-theme
-    
   ];
 
   programs.exa.enable = true;

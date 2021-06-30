@@ -10,7 +10,9 @@
   };
 
   home-manager.users.sakuraba = { pkgs, ... }: {
-    imports =
-      [ /home/sakuraba/ghq/github.com/raba-jp/dotfiles/home/home.nix ];
+    imports = [
+      /home/sakuraba/ghq/github.com/raba-jp/dotfiles/home/home.nix
+      /home/sakuraba/ghq/github.com/raba-jp/dotfiles/home/nixos.nix
+    ];
   };
 }
