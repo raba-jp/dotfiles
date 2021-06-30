@@ -34,6 +34,13 @@
     google-cloud-sdk
     kubectl
     bazelisk
+    httpie
+    conftest
+    terraform
+    kubernetes-helm
+    kube3d
+    kpt
+    kind
   ];
 
   programs.exa.enable = true;

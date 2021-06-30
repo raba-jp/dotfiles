@@ -21,6 +21,8 @@
       remotes = "remote -v";
     };
 
+    delta.enable = true;
+
     extraConfig = {
       core = {
         editor = "vim";
