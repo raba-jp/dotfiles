@@ -34,6 +34,22 @@
       bind \cm __done-enter
     '';
 
+    loginShellInit = ''
+      if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+        fenv source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+      end
+
+      if test -e /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+        fenv source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+      end
+
+      if test (test) = "Darwin"
+        if test -e /etc/zshenv
+          fenv source /etc/zshenv
+        end
+      end
+    '';
+
     plugins = [
       {
         name = "done";
@@ -72,6 +88,16 @@
           repo = "fish-bd";
           rev = "master";
           sha256 = "1fifn0h6ib528yxsz0vky1qlny1rffvysbg7p1fdbyd0p0qs5pvw";
+        };
+      }
+
+      {
+        name = "foreign-env";
+        src = pkgs.fetchFromGitHub {
+          owner = "oh-my-fish";
+          repo = "plugin-foreign-env";
+          rev = "dddd9213272a0ab848d474d0cbde12ad034e65bc";
+          sha256 = "00xqlyl3lffc5l0viin1nyp819wf81fncqyz87jx8ljjdhilmgbs";
         };
       }
     ];

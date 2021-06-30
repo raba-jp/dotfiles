@@ -3,8 +3,8 @@
 set -e
 
 
-if [ "$(uname)" = 'Darwin' ]; then
-  sh <(wget -q -O - https://nixos.org/nix/install) --daemon
+if [ "`uname`" = 'Darwin' ]; then
+  sh <(curl -L https://nixos.org/nix/install) --daemon
   echo 'export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH' >> ~/.zshrc
 fi
 
