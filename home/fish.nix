@@ -43,10 +43,8 @@
         fenv source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
       end
 
-      if test (uname) = "Darwin"
-        if test -e /etc/zshenv
-          fenv source /etc/zshenv
-        end
+      if test -e /etc/static/bashrc
+        fenv source /etc/static/bashrc
       end
     '';
 

@@ -4,8 +4,6 @@
   imports = [ ./fish.nix ./tmux.nix ./alacritty.nix ./git.nix ./vim.nix ];
 
   programs.home-manager.enable = true;
-  home.username = "sakuraba";
-  home.homeDirectory = "/home/sakuraba";
   home.stateVersion = "21.03";
 
   home.packages = with pkgs; [
@@ -38,7 +36,6 @@
     conftest
     terraform
     kubernetes-helm
-    kube3d
     kpt
     kind
   ];
