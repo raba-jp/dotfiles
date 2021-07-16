@@ -19,7 +19,6 @@
     ghq
     fzf
     nixfmt
-    vscode
     tmux
     rustup
     stern
@@ -38,6 +37,7 @@
     kubernetes-helm
     kpt
     kind
+    navi
   ];
 
   programs.exa.enable = true;
@@ -77,8 +77,6 @@
       shellIntegrationOptions = [ "-w 80%" "-h 50%" ];
     };
   };
-
-  programs.vscode = { enable = true; };
 
   programs.zoxide = {
     enable = true;

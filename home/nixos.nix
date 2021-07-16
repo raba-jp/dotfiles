@@ -12,6 +12,7 @@
     # Theme
     arc-theme
     papirus-icon-theme
+    vscode
   ];
 
   gtk = {
