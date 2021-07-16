@@ -38,6 +38,9 @@
     kpt
     kind
     navi
+    sops
+    buf
+    python39
   ];
 
   programs.exa.enable = true;
