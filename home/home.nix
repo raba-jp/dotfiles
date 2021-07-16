@@ -41,6 +41,8 @@
     sops
     buf
     python39
+    nodejs
+    yarn
   ];
 
   programs.exa.enable = true;

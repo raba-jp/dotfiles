@@ -22,10 +22,6 @@
   programs.zsh.enable = true;  # default shell on catalina
   # programs.fish.enable = true;
 
-  # Used for backwards compatibility, please read the changelog before changing.
-  # $ darwin-rebuild changelog
-  system.stateVersion = 4;
-
   users.users.sakuraba = {
     name = "sakuraba";
     description = "Sakuraba Hiroki";
@@ -36,6 +32,10 @@
       /Users/sakuraba/dotfiles/home/home.nix
       /Users/sakuraba/dotfiles/home/darwin.nix
     ];
+  };
+
+  system = {
+    stateVersion = 4;
   };
 
   nixpkgs.config.allowUnfree = true;  
