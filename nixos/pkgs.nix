@@ -7,5 +7,6 @@
     libnotify
     vim
     wget
+    nixos-generators
 ];
 }

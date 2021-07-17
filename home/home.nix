@@ -7,42 +7,59 @@
   home.stateVersion = "21.03";
 
   home.packages = with pkgs; [
-    alacritty
     git
-    tig
-    starship
-    fish
-    vim
-    ripgrep
-    fd
-    procs
-    ghq
-    fzf
-    nixfmt
-    tmux
-    rustup
-    stern
-    skaffold
-    tilt
-    kubectx
-    dive
+    vim                # text editor 
+    tmux               # terminal multiplexer
+    alacritty          # terminal emulator
+    tig                # git client
+    starship           # shell prompt
+    fish               # shell
+    ripgrep            # replace from 'grep'
+    fd                 # replace from 'find'
+    procs              # replace from ps
+    ghq                # remote repository management cli
+    fzf                # fuzzy finder
     jq
     nkf
-    google-cloud-sdk
-    kubectl
-    bazelisk
+    navi
+    killall
     httpie
-    conftest
-    terraform
+
+    # Nix
+    manix
+    any-nix-shell
+    nixfmt             # nix file formatter
+
+    # Kubernetes
+    kubectl
+    kubectx 
+    skaffold
+    tilt
+    kustomize
     kubernetes-helm
     kpt
-    kind
-    navi
+    stern              # multi pod and container log for Kubernetes
+    kind               # Kubernetes in Docker tool
+
+    dive               # explor docker layers
+    google-cloud-sdk
+    bazelisk
+    conftest
+    terraform
     sops
     buf
+
+    # Language
+
+    ## Python
     python39
+
+    ## Node.js
     nodejs
     yarn
+
+    ## Rust
+    rustup             # The Rust toolchain installer
   ];
 
   programs.exa.enable = true;
