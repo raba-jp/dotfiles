@@ -7,19 +7,15 @@
   home.stateVersion = "21.03";
 
   home.packages = with pkgs; [
-    git
     vim                # text editor 
-    tmux               # terminal multiplexer
     alacritty          # terminal emulator
     tig                # git client
     starship           # shell prompt
-    fish               # shell
     ripgrep            # replace from 'grep'
     fd                 # replace from 'find'
     procs              # replace from ps
     ghq                # remote repository management cli
     fzf                # fuzzy finder
-    jq
     nkf
     navi
     killall
