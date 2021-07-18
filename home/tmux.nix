@@ -3,8 +3,16 @@
 {
   programs.tmux = {
     enable = true;
+
     aggressiveResize = true;
+
     keyMode = "vi";
+
+    prefix = "C-q";
+
+    shell = "${pkgs.fish}/bin/fish";
+    terminal = "tmux-256color";
+
     plugins = with pkgs; [
       tmuxPlugins.sensible
       tmuxPlugins.pain-control
@@ -29,8 +37,6 @@
         extraConfig = "set -g @colors-solarized 'dark'";
       }
     ];
-    prefix = "C-q";
-    shell = "${pkgs.fish}/bin/fish";
 
     extraConfig = ''
       set-option -g status-position top
@@ -42,6 +48,8 @@
       set-window-option -g window-status-format '#P: #W'
       set-window-option -g window-status-current-format '#P: #W'
       set-window-option -g mouse
+
+      set-option -ga terminal-overrides ",xterm-256color:Tc"
 
       bind -T copy-mode-vi v send -X begin-selection
 

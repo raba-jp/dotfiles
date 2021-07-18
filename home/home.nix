@@ -1,13 +1,12 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./fish.nix ./tmux.nix ./alacritty.nix ./git.nix ./vim.nix ];
+  imports = [ ./fish.nix ./tmux.nix ./alacritty.nix ./git.nix ./vim/default.nix ./neovim/default.nix ];
 
   programs.home-manager.enable = true;
   home.stateVersion = "21.03";
 
   home.packages = with pkgs; [
-    vim                # text editor 
     alacritty          # terminal emulator
     tig                # git client
     starship           # shell prompt
@@ -44,6 +43,7 @@
     terraform
     sops
     buf
+    shellcheck
 
     # Language
 
