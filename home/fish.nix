@@ -24,6 +24,8 @@
 
     interactiveShellInit = ''
       set -U FZF_LEGACY_KEYBINDINGS 0
+      set -U GHQ_SELECTOR "fzf-tmux"
+      set -U GHQ_SELECTOR_OPTS "-w 80% -h 50% --"
 
       bind \ck up-or-search
       bind \cj down-or-search
@@ -109,8 +111,6 @@
       tree = "exa --tree";
       ps = "procs";
       untar = "tar -xzvf";
-      repo =
-        "cd (ghq list | fzf --select-1 | xargs echo $GOPATH/src/ | sed 's/ //')";
     };
   };
 }

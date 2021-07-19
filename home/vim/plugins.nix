@@ -1,8 +1,8 @@
-{ buildVimPlugin, fetchFromGitHub }: {
-  vim-edgemotion = buildVimPlugin {
+{ pkgs }: {
+  vim-edgemotion = pkgs.vimUtils.buildVimPlugin {
     name = "vim-edgemotion";
 
-    src = fetchFromGitHub {
+    src = pkgs.fetchFromGitHub {
       owner = "haya14busa";
       repo = "vim-edgemotion";
       rev = "8d16bd92f6203dfe44157d43be7880f34fd5c060";
@@ -10,10 +10,10 @@
     };
   };
 
-  asyncomplete-lsp-vim = buildVimPlugin {
+  asyncomplete-lsp-vim = pkgs.vimUtils.buildVimPlugin {
     name = "asyncomplete-lsp-vim";
 
-    src = fetchFromGitHub {
+    src = pkgs.fetchFromGitHub {
       owner = "prabirshrestha";
       repo = "asyncomplete-lsp.vim";
       rev = "684c34453db9dcbed5dbf4769aaa6521530a23e0";
@@ -21,10 +21,10 @@
     };
   };
 
-  vim-lsp-settings = buildVimPlugin {
+  vim-lsp-settings = pkgs.vimUtils.buildVimPlugin {
     name = "vim-lsp-settings";
 
-    src = fetchFromGitHub {
+    src = pkgs.fetchFromGitHub {
       owner = "mattn";
       repo = "vim-lsp-settings";
       rev = "609c40d4947c762bbe9009b8bcd89e2c83be1dad";
@@ -32,10 +32,10 @@
     };
   };
 
-  fern-vim = buildVimPlugin {
+  fern-vim = pkgs.vimUtils.buildVimPlugin {
     name = "fern-vim";
 
-    src = fetchFromGitHub {
+    src = pkgs.fetchFromGitHub {
       owner = "lambdalisue";
       repo = "fern.vim";
       rev = "v1.37.0";
@@ -43,10 +43,10 @@
     };
   };
 
-  vim-solarized8 = buildVimPlugin {
+  vim-solarized8 = pkgs.vimUtils.buildVimPlugin {
     name = "vim-soalized8";
 
-    src = fetchFromGitHub {
+    src = pkgs.fetchFromGitHub {
       owner = "lifepillar";
       repo = "vim-solarized8";
       rev = "v1.2.0";

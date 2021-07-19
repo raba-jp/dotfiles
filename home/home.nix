@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./fish.nix ./tmux.nix ./alacritty.nix ./git.nix ./vim/default.nix ./neovim/default.nix ];
+  imports = [ ./fish.nix ./tmux.nix ./alacritty.nix ./git.nix ./vim/default.nix ];
 
   programs.home-manager.enable = true;
   home.stateVersion = "21.03";
@@ -14,7 +14,6 @@
     fd                 # replace from 'find'
     procs              # replace from ps
     ghq                # remote repository management cli
-    fzf                # fuzzy finder
     nkf
     navi
     killall

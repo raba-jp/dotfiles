@@ -1,15 +1,19 @@
 { pkgs, ... }: 
 
 let
-  custom-plugins = pkgs.callPackage ./plugins.nix {
-    inherit (pkgs.vimUtils) buildVimPlugin;
-    inherit (pkgs) fetchFromGitHub;
-  };
+  nixosUnstable = import <nixos-unstable> {};
 
-  plugins = pkgs.vimPlugins // custom-plugins;
-  config = builtins.readFile ./config.vim;
+  customPlugins = import ./plugins.nix { inherit pkgs; };
+
+  plugins = pkgs.vimPlugins // customPlugins;
+  vimConfig = builtins.readFile ./config.vim;
+  neovimConfig = builtins.readFile ./init.lua;
 in
 {
+  home.packages = with pkgs; [
+    gcc
+    tree-sitter
+  ];
   programs.vim = {
     enable = true;
 
@@ -22,6 +26,26 @@ in
       fern-vim
       vim-solarized8
     ];
-    extraConfig = config;
+    extraConfig = vimConfig;
+  };
+
+  programs.neovim = {
+    enable = true;
+
+    package = nixosUnstable.neovim-unwrapped;
+
+    viAlias = false;
+    vimAlias = false;
+    vimdiffAlias = false;
+
+    plugins = with plugins; [
+      vim-polyglot
+      editorconfig-vim
+      vim-edgemotion
+      nvim-treesitter
+      vim-solarized8
+    ];
+
+    extraConfig = "lua <<EOF\n" + neovimConfig + "\nEOF";
   };
 }
