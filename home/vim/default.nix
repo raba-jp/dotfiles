@@ -1,7 +1,7 @@
 { pkgs, ... }: 
 
 let
-  nixosUnstable = import <nixos-unstable> {};
+  unstable = import <unstable> {};
 
   customPlugins = import ./plugins.nix { inherit pkgs; };
 
@@ -32,7 +32,7 @@ in
   programs.neovim = {
     enable = true;
 
-    package = nixosUnstable.neovim-unwrapped;
+    package = unstable.neovim-unwrapped;
 
     viAlias = false;
     vimAlias = false;
