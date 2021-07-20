@@ -13,6 +13,8 @@ in
   home.packages = with pkgs; [
     gcc
     tree-sitter
+    gopls
+    rust-analyzer
   ];
   programs.vim = {
     enable = true;
@@ -34,16 +36,26 @@ in
 
     package = unstable.neovim-unwrapped;
 
-    viAlias = false;
-    vimAlias = false;
-    vimdiffAlias = false;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
 
     plugins = with plugins; [
       vim-polyglot
       editorconfig-vim
       vim-edgemotion
       nvim-treesitter
-      vim-solarized8
+      vim-solarized8 # colorscheme
+
+      popup-nvim
+      plenary-nvim 
+      telescope-nvim # depends on popup-nvim, plenary-nvim
+
+      lualine-nvim
+
+      nvim-lspconfig
+      nvim-compe
+      lspsaga-nvim
     ];
 
     extraConfig = "lua <<EOF\n" + neovimConfig + "\nEOF";

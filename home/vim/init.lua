@@ -1,6 +1,7 @@
 local fn = vim.fn
 local cmd = vim.cmd
 local opt = vim.o
+local gvar = vim.g
 local setmap = vim.api.nvim_set_keymap
 
 -- Keybindings
@@ -19,6 +20,11 @@ setmap('', '<C-k>', '<Plug>(edgemotion-k)', {})
 setmap('n', '<ESC><ESC>', ':nohlsearch<CR>', {noremap = true, silent = true})
 setmap('i', '<Tab>', 'pumvisible() ? "<C-n>" : "<Tab>"', {noremap = true, expr = true})
 setmap('i', '<S-Tab>', 'pumvisible() ? "<C-p>" : "<S-Tab>"', {noremap = true, expr = true})
+setmap('n', 'gh', '<cmd>lua require"lspsaga.provider".lsp_finder()<CR>', {silent = true, noremap = true})
+setmap('n', 'ca', '<cmd>lua require"lspsaga.codeaction".code_action()<CR>', {silent = true, noremap = true})
+setmap('v', 'ca', ':<C-U>lua require"lspsaga.codeaction".range_code_action()<CR>', {silent = true, noremap = true})
+
+gvar.mapleader = " "
 
 -- Config
 if fn.has('mac') then
@@ -71,3 +77,48 @@ require('nvim-treesitter.configs').setup {
     },
     rainbow = {enable = true}
 }
+
+require('telescope').setup {
+    defaults = {
+        vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--ne-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+        },
+        prompt_prefix = "> ",
+        selection_caret = "> ",
+        entry_prefix = " ",
+        set_env = { ['COLORTERM'] = 'truecolor' },
+    }
+}
+
+require('lualine').setup {
+    options = {
+        theme = "solarized_dark"
+    }
+}
+
+-- LSP
+local lspconfig = require('lspconfig')
+lspconfig.gopls.setup {}
+lspconfig.rust_analyzer.setup {}
+
+-- Completion
+require('compe').setup {
+    enabled = true;
+    autocomplete = true;
+    debug = false;
+    min_length = 1;
+    preselect = 'enable';
+
+    source = {
+        buffer = true;
+        nvim_lsp = true;
+    };
+}
+
+require('lspsaga').init_lsp_saga()
