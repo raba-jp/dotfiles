@@ -23,10 +23,6 @@
     };
 
     interactiveShellInit = ''
-      set -U FZF_LEGACY_KEYBINDINGS 0
-      set -U GHQ_SELECTOR "fzf-tmux"
-      set -U GHQ_SELECTOR_OPTS "-w 80% -h 50% --"
-
       bind \ck up-or-search
       bind \cj down-or-search
       bind \ch backward-char
@@ -37,6 +33,11 @@
     '';
 
     loginShellInit = ''
+      set -U FZF_LEGACY_KEYBINDINGS 0
+      set -U GHQ_SELECTOR "fzf-tmux"
+      set -U GHQ_SELECTOR_OPTS "-w 80% -h 50% --"
+      set -U FZF_TMUX_OPTS "-w 80% -h 50%"
+
       if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
         fenv source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
       end
