@@ -67,8 +67,9 @@
         src = pkgs.fetchFromGitHub {
           owner = "decors";
           repo = "fish-ghq";
-          rev = "master";
-          sha256 = "07jjrykxqvmyvq96qyd7wp6q90s9i6i9mv30gm6nkwxmcj2qk94k";
+          rev = "cafaaabe63c124bf0714f89ec715cfe9ece87fa2";
+          sha256 = "0cv7jpvdfdha4hrnjr887jv1pc6vcrxv2ahy7z6x562y7fd77gg9";
+
         };
       }
 
