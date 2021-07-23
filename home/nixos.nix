@@ -13,6 +13,7 @@
     arc-theme
     papirus-icon-theme
     vscode
+    xclip
   ];
 
   gtk = {

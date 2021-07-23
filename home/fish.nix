@@ -113,6 +113,7 @@
       tree = "exa --tree";
       ps = "procs";
       untar = "tar -xzvf";
+      xclip = "xclip -selection clipboard";
     };
   };
 }
