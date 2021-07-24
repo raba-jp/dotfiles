@@ -4,7 +4,6 @@
   services = {
     xserver = {
       enable = true;
-      videoDrivers = [ "nvidia" ];
 
       displayManager = {
         gdm = {

@@ -1,8 +1,6 @@
 { pkgs, ... }: 
 
 let
-  unstable = import <unstable> {};
-
   customPlugins = import ./plugins.nix { inherit pkgs; };
 
   plugins = pkgs.vimPlugins // customPlugins;
@@ -34,7 +32,7 @@ in
   programs.neovim = {
     enable = true;
 
-    package = unstable.neovim-unwrapped;
+    package = pkgs.neovim-unwrapped;
 
     viAlias = true;
     vimAlias = true;
