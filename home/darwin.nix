@@ -1,2 +1,5 @@
-{ pkgs, ... } : {
+{ pkgs, ... }: {
+  imports = [
+    ./hammerspoon/default.nix
+  ];
 }
