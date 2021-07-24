@@ -1,7 +1,7 @@
 {
   inputs = { 
     nixos.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-21.05";
+    home-manager.url = "github:nix-community/home-manager";
   };
 
   outputs = { self, nixos, home-manager }@inputs: {
