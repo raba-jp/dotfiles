@@ -6,20 +6,20 @@
 
     functions = {
       __done-enter = ''
-        if [ -z (commandline) ]
-          if git rev-parse --is-inside-work-tree > /dev/null 2>&1
-            echo
-            echo
-	    echo (set_color yellow)"---------- Git status ----------"(set_color normal)
-            git status --short --branch
-            echo
-            echo
-          end
-        else
-          commandline -f execute
-        end
-        commandline -f repaint
-      '';
+                if [ -z (commandline) ]
+                  if git rev-parse --is-inside-work-tree > /dev/null 2>&1
+                    echo
+                    echo
+        	    echo (set_color yellow)"---------- Git status ----------"(set_color normal)
+                    git status --short --branch
+                    echo
+                    echo
+                  end
+                else
+                  commandline -f execute
+                end
+                commandline -f repaint
+              '';
     };
 
     interactiveShellInit = ''

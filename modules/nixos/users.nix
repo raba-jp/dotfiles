@@ -10,9 +10,6 @@
   };
 
   home-manager.users.sakuraba = { pkgs, ... }: {
-    imports = [
-      ../../home/home.nix
-      ../../home/nixos.nix
-    ];
+    imports = [ ../../home/home.nix ../../home/nixos.nix ];
   };
 }

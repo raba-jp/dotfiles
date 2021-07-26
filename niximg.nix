@@ -14,12 +14,8 @@
 
   networking.hostName = "niximg";
 
-  users.users.nixos = {
-    isNormalUser = true;
-  };
+  users.users.nixos = { isNormalUser = true; };
 
-  system = {
-    stateVersion = "21.05";
-  };
+  system = { stateVersion = "21.05"; };
 }
 

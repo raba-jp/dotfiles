@@ -21,7 +21,6 @@
 
   networking.hostName = "define7";
 
-
   system = {
     autoUpgrade.enable = true;
 

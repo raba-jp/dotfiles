@@ -1,5 +1,5 @@
 {
-  inputs = { 
+  inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     darwin = {
@@ -17,6 +17,7 @@
           ./machines/define7/configuration.nix
         ];
       };
+
       xps13 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -24,10 +25,12 @@
           ./machines/xps13/configuration.nix
         ];
       };
+
       respi4-internal = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = [ ];
       };
+
       bootable-image = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ];

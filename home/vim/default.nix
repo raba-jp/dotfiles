@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 
 let
   customPlugins = import ./plugins.nix { inherit pkgs; };
@@ -6,14 +6,8 @@ let
   plugins = pkgs.vimPlugins // customPlugins;
   vimConfig = builtins.readFile ./config.vim;
   neovimConfig = builtins.readFile ./init.lua;
-in
-{
-  home.packages = with pkgs; [
-    gcc
-    tree-sitter
-    gopls
-    rust-analyzer
-  ];
+in {
+  home.packages = with pkgs; [ gcc tree-sitter gopls rust-analyzer ];
   programs.vim = {
     enable = true;
 
@@ -46,7 +40,7 @@ in
       vim-solarized8 # colorscheme
 
       popup-nvim
-      plenary-nvim 
+      plenary-nvim
       telescope-nvim # depends on popup-nvim, plenary-nvim
 
       lualine-nvim
@@ -56,6 +50,10 @@ in
       lspsaga-nvim
     ];
 
-    extraConfig = "lua <<EOF\n" + neovimConfig + "\nEOF";
+    extraConfig = ''
+      lua <<EOF
+    '' + neovimConfig + ''
+
+      EOF'';
   };
 }

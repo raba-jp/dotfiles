@@ -1,11 +1,11 @@
 { lib, fetchzip }:
 
-let
-  version = "5.0.2";
+let version = "5.0.2";
 in fetchzip {
   name = "cica-${version}";
 
-  url = "https://github.com/miiton/Cica/releases/download/v${version}/Cica_v${version}_with_emoji.zip";
+  url =
+    "https://github.com/miiton/Cica/releases/download/v${version}/Cica_v${version}_with_emoji.zip";
   sha256 = "0zh1n5x1swgh72pyzgkvajs9r4xn172v6shl7978gjbh9xlqb8a2";
 
   postFetch = ''

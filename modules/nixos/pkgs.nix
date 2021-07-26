@@ -6,5 +6,5 @@
     libnotify
     wget
     nixos-generators
-];
+  ];
 }

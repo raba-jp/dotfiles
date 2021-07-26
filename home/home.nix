@@ -1,19 +1,20 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./fish.nix ./tmux.nix ./alacritty.nix ./git.nix ./vim/default.nix ];
+  imports =
+    [ ./fish.nix ./tmux.nix ./alacritty.nix ./git.nix ./vim/default.nix ];
 
   programs.home-manager.enable = true;
   home.stateVersion = "21.03";
 
   home.packages = with pkgs; [
-    alacritty          # terminal emulator
-    tig                # git client
-    starship           # shell prompt
-    ripgrep            # replace from 'grep'
-    fd                 # replace from 'find'
-    procs              # replace from ps
-    ghq                # remote repository management cli
+    alacritty # terminal emulator
+    tig # git client
+    starship # shell prompt
+    ripgrep # replace from 'grep'
+    fd # replace from 'find'
+    procs # replace from ps
+    ghq # remote repository management cli
     nkf
     navi
     killall
@@ -22,20 +23,20 @@
     # Nix
     manix
     any-nix-shell
-    nixfmt             # nix file formatter
+    nixfmt # nix file formatter
 
     # Kubernetes
     kubectl
-    kubectx 
+    kubectx
     skaffold
     tilt
     kustomize
     kubernetes-helm
     kpt
-    stern              # multi pod and container log for Kubernetes
-    kind               # Kubernetes in Docker tool
+    stern # multi pod and container log for Kubernetes
+    kind # Kubernetes in Docker tool
 
-    dive               # explor docker layers
+    dive # explor docker layers
     google-cloud-sdk
     bazelisk
     conftest
@@ -54,7 +55,7 @@
     yarn
 
     ## Rust
-    rustup             # The Rust toolchain installer
+    rustup # The Rust toolchain installer
   ];
 
   programs.exa.enable = true;
