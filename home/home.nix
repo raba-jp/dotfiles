@@ -20,6 +20,7 @@
     killall
     httpie
     cargo-make
+    gh
 
     # Nix
     manix
