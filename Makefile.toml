@@ -2,7 +2,18 @@
 skip_core_tasks = true
 
 [tasks.format]
-scripts = '''
+script = '''
 #!/usr/bin/env bash
 fd --extension nix . | xargs nixfmt
+'''
+
+[tasks.build.linux]
+script = '''
+#!/usr/bin/env bash
+sudo nixos-rebuild switch
+'''
+
+[tasks.build.mac]
+script = '''
+#!/usr/bin/env bash
 '''
