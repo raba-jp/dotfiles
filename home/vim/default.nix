@@ -48,6 +48,8 @@ in {
       nvim-lspconfig
       nvim-compe
       lspsaga-nvim
+
+      format-nvim
     ];
 
     extraConfig = ''

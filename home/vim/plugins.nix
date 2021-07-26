@@ -53,4 +53,15 @@
       sha256 = "1kb9ma1j0ijsvikzypc2dwdkrp5xy1cwcqs8gdz53n35kragfc9c";
     };
   };
+
+  format-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "format.nvim";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "lukas-reineke";
+      repo = "format.nvim";
+      rev = "c46ab8b46100e26fce4d6ce69a94d4cea8b9f4d7";
+      sha256 = "1msssg73xx1c2s5nvwpnphb79habxz3d6zmp7i0m3bc1s47mqg9k";
+    };
+  };
 }
