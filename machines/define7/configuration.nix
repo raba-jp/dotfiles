@@ -19,7 +19,7 @@
     ../../modules/nixos/virtualization.nix
   ];
 
-  networking.hostName = "define7-nixos";
+  networking.hostName = "define7";
 
 
   system = {
