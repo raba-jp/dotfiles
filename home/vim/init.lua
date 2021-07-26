@@ -127,3 +127,21 @@ require('compe').setup {
 }
 
 require('lspsaga').init_lsp_saga()
+
+require('format').setup {
+    go = {
+        {
+            cmd = {"gofmt -w"},
+            tempfile_postfix = ".tmp"
+        }
+    },
+    nix = {
+        { cmd = {"nixfmt"} }
+    }
+}
+
+cmd('augroup Format')
+cmd('autocmd!')
+cmd('autocmd BufWritePost * FormatWrite')
+cmd('augroup END')
+
