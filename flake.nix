@@ -14,13 +14,14 @@
         system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager
+          ./machines/define7/configuration.nix
         ];
       };
       xps13 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager
-          machines/xps13/configuration.nix
+          ./machines/xps13/configuration.nix
         ];
       };
       respi4-internal = nixpkgs.lib.nixosSystem {
