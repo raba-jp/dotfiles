@@ -16,7 +16,7 @@
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  # nix.package = pkgs.nix;
+  nix.package = pkgs.nixUnstable;
 
   # Create /etc/bashrc that loads the nix-darwin environment.
   programs.zsh.enable = true;  # default shell on catalina
@@ -29,8 +29,8 @@
 
   home-manager.users.sakuraba = { pkgs, ... }: {
     imports = [
-      /Users/sakuraba/dotfiles/home/home.nix
-      /Users/sakuraba/dotfiles/home/darwin.nix
+      ../home/home.nix
+      ../home/darwin.nix
     ];
   };
 

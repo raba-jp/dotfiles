@@ -1,9 +1,9 @@
 { pkgs, ... }:
 
 let
-  initFile = builtin.readFile ./init.lua;
-  cmdKanaEngFile = builtin.readFile ./Spoons/CMDKanaEng.spoon/init.lua;
-  ctrlMateFile = builtin.readFile ./Spoons/CtrlMate.spoon/init.lua;
+  initFile = builtins.readFile ./init.lua;
+  cmdKanaEngFile = builtins.readFile ./Spoons/CMDKanaEng.spoon/init.lua;
+  ctrlMateFile = builtins.readFile ./Spoons/CtrlMate.spoon/init.lua;
 in {
   xdg.configFile."hammerspoon/init.lua".text = initFile;
   xdg.configFile."hammerspoon/Spoons/CMDKanaEng.spoon/init.lua".text = cmdKanaEngFile;
