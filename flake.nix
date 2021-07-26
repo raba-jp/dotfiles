@@ -1,31 +1,43 @@
 {
   inputs = { 
-    nixos.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
+    darwin = {
+      url = "github:LnL7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixos, home-manager }@inputs: {
+  outputs = { self, nixpkgs, darwin, home-manager }@inputs: {
     nixosConfigurations = {
-      define7-nixos = nixos.lib.nixosSystem {
+      define7-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager
         ];
       };
-      xps13 = nixos.lib.nixosSystem {
+      xps13 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager
           machines/xps13/configuration.nix
         ];
       };
-      respi4-internal = nixos.lib.nixosSystem {
+      respi4-internal = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = [ ];
       };
-      bootable-image = nixos.lib.nixosSystem {
+      bootable-image = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ];
+      };
+    };
+    darwinConfigurations = {
+      SakurabaMBP = darwin.lib.darwinSystem {
+        modules = [
+          home-manager.darwinModules.home-manager
+          ./darwin/darwin-configuration.nix
+        ];
       };
     };
   };
