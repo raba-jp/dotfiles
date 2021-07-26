@@ -19,6 +19,7 @@
     navi
     killall
     httpie
+    cargo-make
 
     # Nix
     manix
