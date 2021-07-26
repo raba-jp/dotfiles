@@ -10,7 +10,7 @@
 
   outputs = { self, nixpkgs, darwin, home-manager }@inputs: {
     nixosConfigurations = {
-      define7-nixos = nixpkgs.lib.nixosSystem {
+      define7 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager

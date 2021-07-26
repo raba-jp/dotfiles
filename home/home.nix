@@ -24,6 +24,7 @@
     manix
     any-nix-shell
     nixfmt # nix file formatter
+    nix-prefetch-github
 
     # Kubernetes
     kubectl
