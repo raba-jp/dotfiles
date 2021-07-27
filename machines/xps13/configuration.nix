@@ -21,6 +21,10 @@
 
   networking.hostName = "xps13";
 
+  services = {
+    power-profiles-daemon.enable = true;
+  };
+
   system = {
     autoUpgrade.enable = true;
 
