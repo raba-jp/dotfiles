@@ -40,7 +40,7 @@
       SakurabaMBP = darwin.lib.darwinSystem {
         modules = [
           home-manager.darwinModules.home-manager
-          ./darwin/darwin-configuration.nix
+          ./machines/SakurabaMBP/darwin-configuration.nix
         ];
       };
     };

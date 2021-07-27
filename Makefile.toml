@@ -16,4 +16,6 @@ sudo nixos-rebuild switch
 [tasks.build.mac]
 script = '''
 #!/usr/bin/env bash
+nix build './#darwinConfigurations.SakurabaMBP.system'
+./result/sw/bin/darwin-rebuilt switch --flake ./
 '''

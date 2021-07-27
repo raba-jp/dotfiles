@@ -23,7 +23,7 @@
   };
 
   home-manager.users.sakuraba = { pkgs, ... }: {
-    imports = [ ../home/home.nix ../home/darwin.nix ];
+    imports = [ ../../home/home.nix ../../home/darwin.nix ];
   };
 
   system = { stateVersion = 4; };
