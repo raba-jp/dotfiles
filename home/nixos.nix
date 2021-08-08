@@ -2,6 +2,10 @@
   home.username = "sakuraba";
   home.homeDirectory = "/home/sakuraba";
 
+  imports = [
+    ./dconf.nix
+  ];
+
   home.packages = with pkgs; [
     google-chrome
     obsidian
@@ -14,6 +18,7 @@
     papirus-icon-theme
     vscode
     xclip
+    dconf2nix
   ];
 
   gtk = {

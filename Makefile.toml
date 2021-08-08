@@ -19,3 +19,9 @@ script = '''
 nix build './#darwinConfigurations.SakurabaMBP.system'
 ./result/sw/bin/darwin-rebuilt switch --flake ./
 '''
+
+[tasks.generate.mac]
+script = '''
+#!/usr/bin/env bash
+dconf dump / | dconf2nix > home/dconf.nix
+'''
