@@ -21,6 +21,7 @@
     httpie
     cargo-make
     gh
+    clang-tools
 
     # Nix
     manix
@@ -50,8 +51,13 @@
 
     # Language
 
+    ## Go
+    golangci-lint
+
     ## Python
     python39
+    python39Packages.pip
+    python39Packages.setuptools
 
     ## Node.js
     nodejs
