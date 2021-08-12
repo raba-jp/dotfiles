@@ -66,6 +66,9 @@
 
     ## Rust
     rustup # The Rust toolchain installer
+
+    ## Lua
+    luaformatter
   ];
 
   programs.exa.enable = true;

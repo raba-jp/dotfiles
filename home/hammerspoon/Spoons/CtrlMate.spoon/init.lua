@@ -1,7 +1,6 @@
 --- === CtrlMate ===
 ---
 --- Use Ctrl + `h/l/j/k` as arrow keys, `y/u/i/o` as mouse wheel, `,/.` as left/right click.
-
 local obj = {}
 obj.__index = obj
 

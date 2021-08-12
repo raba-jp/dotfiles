@@ -6,6 +6,7 @@ script = '''
 #!/usr/bin/env bash
 fd --extension nix . | xargs nixfmt
 fd --extension sh . | xargs shfmt -w
+fd --extension lua . | xargs lua-format -i
 '''
 
 [tasks.build.linux]
