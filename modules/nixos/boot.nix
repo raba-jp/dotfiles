@@ -12,6 +12,6 @@
       efi.canTouchEfiVariables = true;
     };
 
-    kernelPackages = pkgs.linuxPackages_5_12;
+    kernelPackages = pkgs.linuxPackages_zen;
   };
 }

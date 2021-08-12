@@ -10,8 +10,8 @@
 
     gc = {
       automatic = true;
-      dates = "monthly";
-      options = "--delete-older-than 31d";
+      dates = "weekly";
+      options = "--delete-older-than 7d";
     };
 
     trustedUsers = [ "root" "sakuraba" ];

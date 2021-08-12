@@ -20,8 +20,14 @@ nix build './#darwinConfigurations.SakurabaMBP.system'
 ./result/sw/bin/darwin-rebuild switch --flake ./
 '''
 
-[tasks.generate.mac]
+[tasks.generate.linux]
 script = '''
 #!/usr/bin/env bash
 dconf dump / | dconf2nix > home/dconf.nix
+'''
+
+[tasks.update]
+script = '''
+#!/usr/bin/env bash
+nix flake update
 '''
