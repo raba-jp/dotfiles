@@ -48,6 +48,7 @@
     sops
     buf
     shellcheck
+    shfmt
 
     # Language
 

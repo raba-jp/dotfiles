@@ -2,9 +2,7 @@
   home.username = "sakuraba";
   home.homeDirectory = "/home/sakuraba";
 
-  imports = [
-    ./dconf.nix
-  ];
+  imports = [ ./dconf.nix ];
 
   home.packages = with pkgs; [
     google-chrome

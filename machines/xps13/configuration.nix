@@ -21,13 +21,9 @@
 
   networking.hostName = "xps13";
 
-  services = {
-    power-profiles-daemon.enable = true;
-  };
+  services = { power-profiles-daemon.enable = true; };
 
-  environment.systemPackages = with pkgs; [
-    lm_sensors
-  ];
+  environment.systemPackages = with pkgs; [ lm_sensors ];
 
   system = {
     autoUpgrade.enable = true;

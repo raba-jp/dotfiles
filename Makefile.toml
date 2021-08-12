@@ -5,6 +5,7 @@ skip_core_tasks = true
 script = '''
 #!/usr/bin/env bash
 fd --extension nix . | xargs nixfmt
+fd --extension sh . | xargs shfmt -w
 '''
 
 [tasks.build.linux]

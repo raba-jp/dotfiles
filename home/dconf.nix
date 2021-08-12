@@ -1,19 +1,16 @@
 # Generated via dconf2nix: https://github.com/gvolpe/dconf2nix
 { lib, ... }:
 
-let
-  mkTuple = lib.hm.gvariant.mkTuple;
-in
-{
+let mkTuple = lib.hm.gvariant.mkTuple;
+in {
   dconf.settings = {
-    "org/gnome/control-center" = {
-      last-panel = "power";
-    };
+    "org/gnome/control-center" = { last-panel = "power"; };
 
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///nix/store/3pjv1bqh3ds84l9pvzgjwji9pszvnxwp-gnome-backgrounds-40.1/share/backgrounds/gnome/Tree.jpg";
+      picture-uri =
+        "file:///nix/store/3pjv1bqh3ds84l9pvzgjwji9pszvnxwp-gnome-backgrounds-40.1/share/backgrounds/gnome/Tree.jpg";
       primary-color = "#ffffff";
       secondary-color = "#000000";
     };
@@ -34,7 +31,8 @@ in
     };
 
     "org/gnome/desktop/notifications" = {
-      application-children = [ "fish" "gnome-power-panel" "obsidian" "google-chrome" ];
+      application-children =
+        [ "fish" "gnome-power-panel" "obsidian" "google-chrome" ];
     };
 
     "org/gnome/desktop/notifications/application/fish" = {
@@ -63,7 +61,8 @@ in
     "org/gnome/desktop/screensaver" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///nix/store/3pjv1bqh3ds84l9pvzgjwji9pszvnxwp-gnome-backgrounds-40.1/share/backgrounds/gnome/Tree.jpg";
+      picture-uri =
+        "file:///nix/store/3pjv1bqh3ds84l9pvzgjwji9pszvnxwp-gnome-backgrounds-40.1/share/backgrounds/gnome/Tree.jpg";
       primary-color = "#ffffff";
       secondary-color = "#000000";
     };
@@ -95,26 +94,21 @@ in
       workspaces-only-on-primary = true;
     };
 
-    "org/gnome/settings-daemon/plugins/power" = {
-      idle-dim = true;
-    };
+    "org/gnome/settings-daemon/plugins/power" = { idle-dim = true; };
 
     "org/gnome/shell" = {
-      enabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" "sensory-perception@HarlemSquirrel.github.io" ];
+      enabled-extensions = [
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "sensory-perception@HarlemSquirrel.github.io"
+      ];
       welcome-dialog-last-shown-version = "40.1";
     };
 
-    "org/gnome/shell/extensions/user-theme" = {
-      name = "Arc-Dark";
-    };
+    "org/gnome/shell/extensions/user-theme" = { name = "Arc-Dark"; };
 
-    "org/gnome/shell/world-clocks" = {
-      locations = "@av []";
-    };
+    "org/gnome/shell/world-clocks" = { locations = "@av []"; };
 
-    "org/gnome/tweaks" = {
-      show-extensions-notice = false;
-    };
+    "org/gnome/tweaks" = { show-extensions-notice = false; };
 
     "org/gtk/settings/file-chooser" = {
       date-format = "regular";
