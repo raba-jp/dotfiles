@@ -2,8 +2,6 @@
   home.username = "sakuraba";
   home.homeDirectory = "/home/sakuraba";
 
-  imports = [ ./dconf.nix ];
-
   home.packages = with pkgs; [
     google-chrome
     obsidian
@@ -12,7 +10,6 @@
     slack
     kube3d
     # Theme
-    arc-theme
     papirus-icon-theme
     vscode
     xclip
@@ -28,8 +25,8 @@
     };
 
     theme = {
-      name = "Arc-Dark";
-      package = pkgs.arc-theme;
+      name = "Materia-dark-compact";
+      package = pkgs.materia-theme;
     };
   };
 }
