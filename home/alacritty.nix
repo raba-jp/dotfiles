@@ -8,7 +8,7 @@
       env.TERM = "xterm-256color";
 
       window = {
-        decorations = "full";
+        decorations = "none";
         startup_mode = "Maximized";
       };
 

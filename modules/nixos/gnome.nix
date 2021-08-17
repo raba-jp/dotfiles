@@ -8,7 +8,8 @@
       displayManager = {
         gdm = {
           enable = true;
-          nvidiaWayland = false;
+          wayland = true;
+          nvidiaWayland = true;
         };
       };
       desktopManager = { gnome.enable = true; };

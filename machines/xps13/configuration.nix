@@ -30,7 +30,5 @@
 
     stateVersion = "21.05";
   };
-
-  services.xserver.displayManager.gdm.wayland = true;
 }
 
