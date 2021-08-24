@@ -22,6 +22,8 @@
     cargo-make
     gh
     clang-tools
+    yq
+    envsubst
 
     # Nix
     manix
@@ -68,7 +70,7 @@
     rustup # The Rust toolchain installer
 
     ## Lua
-    luaformatter
+    # luaformatter
   ];
 
   programs.exa.enable = true;
