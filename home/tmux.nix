@@ -18,6 +18,7 @@
       tmuxPlugins.pain-control
       tmuxPlugins.battery
       tmuxPlugins.logging
+      tmuxPlugins.yank
       {
         plugin = tmuxPlugins.sysstat;
         extraConfig =
