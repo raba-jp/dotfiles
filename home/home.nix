@@ -61,6 +61,7 @@
     python39
     python39Packages.pip
     python39Packages.setuptools
+    poetry
 
     ## Node.js
     nodejs
