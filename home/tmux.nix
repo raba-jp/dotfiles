@@ -11,7 +11,7 @@
     prefix = "C-q";
 
     shell = "${pkgs.fish}/bin/fish";
-    terminal = "tmux-256color";
+    terminal = "xterm-256color";
 
     plugins = with pkgs; [
       tmuxPlugins.sensible
