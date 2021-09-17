@@ -14,7 +14,6 @@
     vscode
     xclip
     dconf2nix
-    toggldesktop
   ];
 
   gtk = {
