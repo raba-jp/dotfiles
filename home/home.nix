@@ -24,6 +24,7 @@
     clang-tools
     yq
     envsubst
+    zstd
 
     # Nix
     manix
