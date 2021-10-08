@@ -73,6 +73,12 @@
 
     ## Lua
     # luaformatter
+
+    ## Elm
+    elmPackages.elm
+
+    ## OpenAPI
+    openapi-generator-cli
   ];
 
   programs.exa.enable = true;

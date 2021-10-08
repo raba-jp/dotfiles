@@ -18,7 +18,7 @@ in {
       ctrlp-vim
       vim-edgemotion
       fern-vim
-      vim-solarized8
+      nord-vim
     ];
     extraConfig = vimConfig;
   };
@@ -37,7 +37,7 @@ in {
       editorconfig-vim
       vim-edgemotion
       nvim-treesitter
-      vim-solarized8 # colorscheme
+      nord-vim
 
       popup-nvim
       plenary-nvim

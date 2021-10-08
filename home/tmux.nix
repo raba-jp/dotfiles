@@ -20,9 +20,17 @@
       tmuxPlugins.logging
       tmuxPlugins.yank
       {
+        plugin = tmuxPlugins.nord;
+        extraConfig = ''
+          set -g @nord_tmux_no_patched_font "1"
+        '';
+      }
+      {
         plugin = tmuxPlugins.sysstat;
-        extraConfig =
-          "set-option -g status-right '#{sysstat_cpu} | #{sysstat_mem} | #{sysstat_swap} | #{sysstat_loadavg} | #[fg=cyan]#(echo $USER)#[default]@#H'";
+        extraConfig = ''
+          set-option -g status-left '#{prefix_highlight}#[fg=black,bg=blue,bold]#S'
+          set-option -g status-right '#[fg=white,bg=brightblack] #{sysstat_cpu}#[fg=white,bg=brightblack,nobold,noitalics,nounderscore] |#[fg=white,bg=brightblack] #{sysstat_mem}#[fg=white,bg=brightblack,nobold,noitalics,nounderscore] |#[fg=white,bg=brightblack] #{sysstat_swap}#[fg=white,bg=brightblack] #[fg=black,bg=cyan,bold] #(echo $USER)#[fg=black,bg=cyan,bold]@#H '
+        '';
       }
       {
         plugin = tmuxPlugins.prefix-highlight;
@@ -33,21 +41,17 @@
         '';
 
       }
-      {
-        plugin = tmuxPlugins.tmux-colors-solarized;
-        extraConfig = "set -g @colors-solarized 'dark'";
-      }
     ];
 
     extraConfig = ''
+      set-option -g monitor-activity on
+      set-option -g visual-activity off
       set-option -g status-position top
       set-option -g status-left-length 120
       set-option -g status-right-length 120
       set-option -g monitor-activity on
       set-option -g visual-activity on
       set-option -g visual-bell on
-      set-window-option -g window-status-format '#P: #W'
-      set-window-option -g window-status-current-format '#P: #W'
       set-window-option -g mouse
 
       set-option -ga terminal-overrides ",xterm-256color:Tc"

@@ -43,17 +43,6 @@
     };
   };
 
-  vim-solarized8 = pkgs.vimUtils.buildVimPlugin {
-    name = "vim-soalized8";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "lifepillar";
-      repo = "vim-solarized8";
-      rev = "v1.2.0";
-      sha256 = "1kb9ma1j0ijsvikzypc2dwdkrp5xy1cwcqs8gdz53n35kragfc9c";
-    };
-  };
-
   format-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "format.nvim";
 

@@ -61,7 +61,7 @@ opt.background = 'dark'
 
 cmd('syntax on')
 cmd('filetype plugin indent on')
-cmd('colorscheme solarized8')
+cmd('colorscheme nord')
 
 require('nvim-treesitter.configs').setup {
     ensure_installed = {
@@ -92,7 +92,7 @@ require('telescope').setup {
     }
 }
 
-require('lualine').setup {options = {theme = "solarized_dark"}}
+require('lualine').setup {options = {theme = "nord"}}
 
 -- LSP
 local lspconfig = require('lspconfig')
