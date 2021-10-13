@@ -8,7 +8,7 @@
       env.TERM = "xterm-256color";
 
       window = {
-        decorations = "none";
+        decorations = "full";
         startup_mode = "Maximized";
       };
 
@@ -25,6 +25,7 @@
           family = "Cica";
           style = "Italic";
         };
+        size = 14;
         use_thin_stroke = true;
       };
 
