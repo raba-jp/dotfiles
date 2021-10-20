@@ -38,6 +38,7 @@
     };
     darwinConfigurations = {
       SakurabaMBP = darwin.lib.darwinSystem {
+        system = "x86_64-darwin";
         modules = [
           home-manager.darwinModules.home-manager
           ./machines/SakurabaMBP/darwin-configuration.nix
