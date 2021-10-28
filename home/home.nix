@@ -77,6 +77,9 @@
     ## Elm
     elmPackages.elm
 
+    ## Java
+    adoptopenjdk-openj9-bin-11
+
     ## OpenAPI
     openapi-generator-cli
   ];
