@@ -11,7 +11,7 @@
     ./vim/default.nix
   ];
 
-  home.stateVersion = "21.03";
+  home.stateVersion = "21.11";
 
   programs = {
     home-manager.enable = true;

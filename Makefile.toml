@@ -22,6 +22,14 @@ nix build './#darwinConfigurations.SakurabaMBP.system'
 ./result/sw/bin/darwin-rebuild switch --flake ./
 '''
 
+[tasks.setup.mac]
+script = '''
+#!/usr/bin/env bash
+nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
+./result/bin/darwin-installer
+nix-env -iA nixpkgs.nixUnstable
+'''
+
 [tasks.generate.linux]
 script = '''
 #!/usr/bin/env bash
