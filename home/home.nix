@@ -1,153 +1,74 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [ ./fish.nix ./tmux.nix ./alacritty.nix ./git.nix ./vim/default.nix ];
-
-  programs.home-manager.enable = true;
-  home.stateVersion = "21.03";
-
-  home.packages = with pkgs; [
-    alacritty # terminal emulator
-    tig # git client
-    starship # shell prompt
-    ripgrep # replace from 'grep'
-    fd # replace from 'find'
-    procs # replace from ps
-    ghq # remote repository management cli
-    nkf
-    navi
-    killall
-    httpie
-    cargo-make
-    gh
-    clang-tools
-    yq
-    envsubst
-    zstd
-
-    # Nix
-    manix
-    any-nix-shell
-    nixfmt # nix file formatter
-    nix-prefetch-github
-
-    # Kubernetes
-    kubectl
-    kubectx
-    skaffold
-    tilt
-    kustomize
-    kubernetes-helm
-    kpt
-    stern # multi pod and container log for Kubernetes
-    kind # Kubernetes in Docker tool
-
-    dive # explor docker layers
-    google-cloud-sdk
-    bazelisk
-    conftest
-    terraform
-    sops
-    buf
-    shellcheck
-    shfmt
-
-    # Language
-
-    ## Go
-    golangci-lint
-
-    ## Python
-    python39
-    python39Packages.pip
-    python39Packages.setuptools
-    poetry
-
-    ## Node.js
-    nodejs
-    yarn
-
-    ## Rust
-    rustup # The Rust toolchain installer
-
-    ## Lua
-    # luaformatter
-
-    ## Elm
-    elmPackages.elm
-
-    ## Java
-    adoptopenjdk-openj9-bin-11
-
-    ## OpenAPI
-    openapi-generator-cli
+  imports = [
+    ./packages.nix
+    ./xdg.nix
+    ./fish.nix
+    ./tmux.nix
+    ./alacritty.nix
+    ./git.nix
+    ./vim/default.nix
   ];
 
-  programs.exa.enable = true;
-  programs.jq.enable = true;
-  programs.go.enable = true;
+  home.stateVersion = "21.03";
 
-  programs.bat = {
-    enable = true;
-    config = {
-      theme = "Solarized (dark)";
-      style = "changes,header";
+  programs = {
+    home-manager.enable = true;
+
+    exa.enable = true;
+
+    jq.enable = true;
+
+    go = {
+      enable = true;
+      goPath = "go";
     };
-  };
 
-  programs.starship = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
-  programs.direnv = {
-    enable = true;
-    enableFishIntegration = true;
-    nix-direnv.enable = true;
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableFishIntegration = true;
-    changeDirWidgetCommand = "fd --type d";
-    changeDirWidgetOptions = [ "--preview 'exa --tree {} | head -200'" ];
-    defaultCommand = "fd --type f";
-    fileWidgetOptions = [
-      "--preview 'bat  --color=always --style=header,grid --line-range=:300 {}'"
-    ];
-    tmux = {
-      enableShellIntegration = true;
-      shellIntegrationOptions = [ "-w 80%" "-h 50%" ];
+    bat = {
+      enable = true;
+      config = {
+        theme = "Nord";
+        style = "changes,header";
+      };
     };
-  };
 
-  programs.zoxide = {
-    enable = true;
-    enableFishIntegration = true;
-  };
+    starship = {
+      enable = true;
+      enableFishIntegration = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+    };
 
-  xdg.enable = true;
-  xdg.configFile."tig/config".text = ''
-    bind generic h scroll-left
-    bind generic j move-down
-    bind generic k move-up
-    bind generic l scroll-right
+    direnv = {
+      enable = true;
+      enableFishIntegration = true;
+      nix-direnv.enable = true;
+    };
 
-    bind generic g  none
-    bind generic gg move-first-line
-    bind generic gj next
-    bind generic gk previous
-    bind generic gp parent
-    bind generic gP back
-    bind generic gn view-next
+    fzf = {
+      enable = true;
+      enableFishIntegration = true;
+      changeDirWidgetCommand = "fd --type d";
+      changeDirWidgetOptions = [ "--preview 'exa --tree {} | head -200'" ];
+      defaultCommand = "fd --type f";
+      fileWidgetOptions = [
+        "--preview 'bat  --color=always --style=header,grid --line-range=:300 {}'"
+      ];
+      tmux = {
+        enableShellIntegration = true;
+        shellIntegrationOptions = [ "-w 80%" "-h 50%" ];
+      };
+    };
 
-    bind main    G move-last-line
-    bind generic G move-last-line
-  '';
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+    };
 
-  programs.broot = {
-    enable = true;
-    enableFishIntegration = true;
+    broot = {
+      enable = true;
+      enableFishIntegration = true;
+    };
   };
 }
