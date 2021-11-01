@@ -8,7 +8,8 @@
     ./tmux.nix
     ./alacritty.nix
     ./git.nix
-    ./vim/default.nix
+    ./vim
+    ./kitty.nix
   ];
 
   home.stateVersion = "21.11";

@@ -22,8 +22,11 @@
         , stable ? inputs.darwin-stable, modules ? [ ] }:
         darwinSystem {
           inherit system;
-          modules = [ home-manager.darwinModules.home-manager ./modules/darwin ]
-            ++ modules;
+          modules = [
+            home-manager.darwinModules.home-manager
+            ./modules/common
+            ./modules/darwin
+          ] ++ modules;
           specialArgs = { inherit inputs nixpkgs stable; };
         };
 
@@ -33,6 +36,7 @@
           inherit system;
           modules = [
             home-manager.nixosModules.home-manager
+            ./modules/common
             ./modules/nixos
             ./overlays
           ] ++ modules;

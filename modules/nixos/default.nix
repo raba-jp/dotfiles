@@ -77,8 +77,6 @@
   };
 
   nix = {
-    package = pkgs.nixUnstable;
-
     extraOptions = ''
       keep-outputs = true
       keep-derivations = true
@@ -99,8 +97,6 @@
       exec ${pkgs.nixUnstable}/bin/nix --experimental-features "nix-command flakes" "$@"
     '')
   ];
-
-  nixpkgs.config.allowUnfree = true;
 
   system = {
     autoUpgrade.enable = true;
