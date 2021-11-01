@@ -1,5 +1,7 @@
 { pkgs, ... }: {
-  home-manager.users.sakuraba = import ../../modules/home-manager;
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
+  home-manager = {
+    users.sakuraba = import ../../modules/home-manager;
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
 }
