@@ -1,16 +1,8 @@
 { inputs, config, pkgs, ... }: {
   environment = {
-    loginShell = pkgs.zsh;
     pathsToLink = [ "/Applications" ];
 
     systemPackages = with pkgs; [ vim ];
-  };
-
-  programs.zsh.enable = true;
-
-  fonts = {
-    enableFontDir = true;
-    fonts = with pkgs; [ cica ];
   };
 
   nix = {

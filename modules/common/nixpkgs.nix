@@ -6,6 +6,18 @@
   nix = {
     package = pkgs.nixFlakes;
 
+    extraOptions = ''
+      keep-outputs = true
+      keep-derivations = true
+      experimental-features = nix-command flakes
+    '';
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+
     maxJobs = 8;
     buildCores = 8;
 

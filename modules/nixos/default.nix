@@ -1,15 +1,5 @@
 { pkgs, ... }: {
-  imports = [
-    ./gnome.nix
-    ./localize.nix
-    ./networking.nix
-    ./nix.nix
-    ./nixpkgs.nix
-    ./pkgs.nix
-    ./sound.nix
-    ./users.nix
-    ./virtualization.nix
-  ];
+  imports = [ ./pkgs.nix ];
 
   boot = {
     loader = {
@@ -43,12 +33,9 @@
     };
   };
 
-  fonts = {
-    fonts = with pkgs; [ noto-fonts noto-fonts-cjk noto-fonts-emoji cica ];
-    fontconfig.defaultFonts = {
-      serif = [ "Noto Sans CJK JP" ];
-      sansSerif = [ "Noto Sans Mono CJK JP" ];
-    };
+  fonts.fontconfig.defaultFonts = {
+    serif = [ "Noto Sans CJK JP" ];
+    sansSerif = [ "Noto Sans Mono CJK JP" ];
   };
 
   virtualisation.docker.enable = true;
@@ -76,21 +63,7 @@
     gnome.chrome-gnome-shell.enable = true;
   };
 
-  nix = {
-    extraOptions = ''
-      keep-outputs = true
-      keep-derivations = true
-      experimental-features = nix-command flakes
-    '';
-
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-
-    trustedUsers = [ "root" "sakuraba" ];
-  };
+  nix.trustedUsers = [ "root" "sakuraba" ];
 
   environment.systemPackages = [
     (pkgs.writeShellScriptBin "nixFlakes" ''

@@ -10,6 +10,7 @@
     ./git.nix
     ./vim
     ./kitty.nix
+    ./zsh.nix
   ];
 
   home.stateVersion = "21.11";
