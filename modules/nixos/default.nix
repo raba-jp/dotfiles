@@ -34,6 +34,7 @@
   };
 
   fonts.fontconfig.defaultFonts = {
+    fonts = with pkgs; [ noto-fonts noto-fonts-cjk noto-fonts-emoji cica ];
     serif = [ "Noto Sans CJK JP" ];
     sansSerif = [ "Noto Sans Mono CJK JP" ];
   };
@@ -63,7 +64,15 @@
     gnome.chrome-gnome-shell.enable = true;
   };
 
-  nix.trustedUsers = [ "root" "sakuraba" ];
+  nix = {
+    trustedUsers = [ "root" "sakuraba" ];
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+  };
 
   environment.systemPackages = [
     (pkgs.writeShellScriptBin "nixFlakes" ''

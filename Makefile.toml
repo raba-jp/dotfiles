@@ -47,3 +47,9 @@ script = '''
 #!/usr/bin/env bash
 nix flake update
 '''
+
+[tasks.check]
+script = '''
+#!/usr/bin/env bash
+nix-shell -p nix-info --run "nix-info -m"
+'''
