@@ -1,6 +1,11 @@
 {
+  description = "Nix system configurations";
+
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    darwin-stable.url = "github:nixos/nixpkgs/nixpkgs-21.05-darwin";
+    nixos-stable.url = "github:nixos/nixpkgs/nixos-21.05";
+    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
     darwin = {
       url = "github:LnL7/nix-darwin/master";
@@ -8,42 +13,58 @@
     };
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager }@inputs: {
-    nixosConfigurations = {
-      define7 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager
-          ./machines/define7/configuration.nix
-        ];
+  outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }:
+    let
+      inherit (darwin.lib) darwinSystem;
+      inherit (nixpkgs.lib) nixosSystem;
+
+      mkDarwinConfig = { system ? "x86_64-darwin", nixpkgs ? inputs.nixpkgs
+        , stable ? inputs.darwin-stable, modules ? [ ] }:
+        darwinSystem {
+          inherit system;
+          modules = [ home-manager.darwinModules.home-manager ./modules/darwin ]
+            ++ modules;
+          specialArgs = { inherit inputs nixpkgs stable; };
+        };
+
+      mkNixosCOnfig = { system ? "x86_64-linux", nixpkgs ? inputs.nixos-unstable
+        , stable ? inputs.nixos-stable, modules ? [ ] }:
+        nixosSystem {
+          inherit system;
+          modules = [
+            home-manager.nixosModules.home-manager
+            ./modules/nixos
+            ./overlays
+          ] ++ modules;
+          specialArgs = { inherit inputs nixpkgs stable; };
+        };
+
+    in {
+      darwinConfigurations = {
+        SakurabaMBP = mkDarwinConfig {
+          modules = [
+            ./modules/darwin/apps.nix
+            ./profiles/darwin/personal.nix
+            ./profiles/home-manager/personal.nix
+          ];
+        };
       };
 
-      xps13 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager
-          ./machines/xps13/configuration.nix
-        ];
-      };
-
-      respi4-internal = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        modules = [ ];
-      };
-
-      bootable-image = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ];
+      nixosConfigurations = {
+        define7 = mkNixosCOnfig {
+          modules = [
+            ./modules/hardware/define7
+            ./profiles/nixos/personal.nix
+            ./profiles/home-manager/personal.nix
+          ];
+        };
+        xps13 = mkNixosCOnfig {
+          modules = [
+            ./modules/hardware/xps13
+            ./profiles/nixos/personal.nix
+            ./profiles/home-manager/personal.nix
+          ];
+        };
       };
     };
-    darwinConfigurations = {
-      SakurabaMBP = darwin.lib.darwinSystem {
-        system = "x86_64-darwin";
-        modules = [
-          home-manager.darwinModules.home-manager
-          ./machines/SakurabaMBP/darwin-configuration.nix
-        ];
-      };
-    };
-  };
 }

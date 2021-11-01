@@ -1,15 +1,10 @@
-{ config, pkgs, ... }: {
-  home-manager.useGlobalPkgs = true;
-
+{ pkgs, ... }: {
+  imports = [ ../home-manager/personal.nix ];
   users.users.sakuraba = {
     isNormalUser = true;
     createHome = true;
     home = "/home/sakuraba";
     extraGroups = [ "wheel" "networkmanager" "docker" ];
     packages = with pkgs; [ materia-theme papirus-icon-theme ];
-  };
-
-  home-manager.users.sakuraba = { pkgs, ... }: {
-    imports = [ ../../home/home.nix ../../home/nixos.nix ];
   };
 }
