@@ -13,7 +13,6 @@
       "discord"
       "docker"
       "eul"
-      "font-cica"
       "font-hackgen"
       "font-myrica"
       "google-chrome"

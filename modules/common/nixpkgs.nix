@@ -1,11 +1,6 @@
 { inputs, config, pkgs, nixpkgs, stable, ... }: {
   nixpkgs = {
     config = { allowUnfree = true; };
-    overlays = [
-      (final: prev: { stable = import stable { system = prev.system; }; })
-      (final: prev: rec { kitty = prev.stable.kitty; })
-      (final: prev: { fonts = (import ./fonts); })
-    ];
   };
 
   nix = {

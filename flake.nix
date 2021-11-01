@@ -26,6 +26,7 @@
             home-manager.darwinModules.home-manager
             ./modules/common
             ./modules/darwin
+            ./overlays
           ] ++ modules;
           specialArgs = { inherit inputs nixpkgs stable; };
         };

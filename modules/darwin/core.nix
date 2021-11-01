@@ -10,7 +10,7 @@
 
   fonts = {
     enableFontDir = true;
-    fonts = [ ];
+    fonts = with pkgs; [ cica ];
   };
 
   nix = {
