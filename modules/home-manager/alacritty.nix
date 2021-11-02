@@ -132,7 +132,7 @@
       };
 
       shell = {
-        program = "${pkgs.fish}/bin/fish";
+        program = "${pkgs.zsh}/bin/zsh";
         args = [ "--login" ];
       };
 

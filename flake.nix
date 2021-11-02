@@ -58,14 +58,14 @@
       nixosConfigurations = {
         define7 = mkNixosCOnfig {
           modules = [
-            ./modules/hardware/define7
+            ./modules/hardwares/define7
             ./profiles/nixos/personal.nix
             ./profiles/home-manager/personal.nix
           ];
         };
         xps13 = mkNixosCOnfig {
           modules = [
-            ./modules/hardware/xps13
+            ./modules/hardwares/xps13
             ./profiles/nixos/personal.nix
             ./profiles/home-manager/personal.nix
           ];

@@ -33,10 +33,12 @@
     };
   };
 
-  fonts.fontconfig.defaultFonts = {
+  fonts = {
     fonts = with pkgs; [ noto-fonts noto-fonts-cjk noto-fonts-emoji cica ];
-    serif = [ "Noto Sans CJK JP" ];
-    sansSerif = [ "Noto Sans Mono CJK JP" ];
+    fontconfig.defaultFonts = {
+      serif = [ "Noto Sans CJK JP" ];
+      sansSerif = [ "Noto Sans Mono CJK JP" ];
+    };
   };
 
   virtualisation.docker.enable = true;

@@ -1,20 +1,22 @@
 { pkgs, ... }: {
-  home.username = "sakuraba";
-  home.homeDirectory = "/home/sakuraba";
+  home = {
+    username = "sakuraba";
+    homeDirectory = "/home/sakuraba";
 
-  home.packages = with pkgs; [
-    google-chrome
-    obsidian
-    flutter
-    android-studio
-    slack
-    kube3d
-    # Theme
-    papirus-icon-theme
-    vscode
-    xclip
-    dconf2nix
-  ];
+    packages = with pkgs; [
+      google-chrome
+      obsidian
+      flutter
+      android-studio
+      slack
+      kube3d
+      # Theme
+      papirus-icon-theme
+      vscode
+      xclip
+      dconf2nix
+    ];
+  };
 
   gtk = {
     enable = true;

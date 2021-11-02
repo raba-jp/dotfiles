@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ../home-manager/personal.nix ];
+  imports = [ ../home-manager/personal.nix ./home-manager.nix ];
   users.users.sakuraba = {
     isNormalUser = true;
     createHome = true;
