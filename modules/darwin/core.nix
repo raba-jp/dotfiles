@@ -11,7 +11,10 @@
     trustedUsers = [ "sakuraba" ];
   };
 
-  fonts.fonts = with pkgs; [ cica ];
+  fonts = {
+    enableFontDir = true;
+    fonts = with pkgs; [ cica ];
+  };
 
   users.nix.configureBuildUsers = true;
   services.nix-daemon.enable = true;

@@ -35,6 +35,7 @@
 
   fonts = {
     fonts = with pkgs; [ noto-fonts noto-fonts-cjk noto-fonts-emoji cica ];
+    fontDir.enable = true;
     fontconfig.defaultFonts = {
       serif = [ "Noto Sans CJK JP" ];
       sansSerif = [ "Noto Sans Mono CJK JP" ];
