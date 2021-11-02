@@ -10,7 +10,7 @@
 
     prefix = "C-q";
 
-    shell = "${pkgs.fish}/bin/fish";
+    shell = "${pkgs.zsh}/bin/zsh";
     terminal = "xterm-256color";
 
     plugins = with pkgs; [

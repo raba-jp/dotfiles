@@ -2,7 +2,7 @@
 
 {
   programs.fish = {
-    enable = true;
+    enable = false;
 
     functions = {
       __done-enter = ''
