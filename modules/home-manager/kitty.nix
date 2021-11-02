@@ -9,8 +9,8 @@
     keybindings = {
       # window
       "ctrl+q>-" = "launch --cwd=current --location=default";
-      "ctrl+q>j" = "next_window";
-      "ctrl+q>k" = "previous_window";
+      "ctrl+q>q" = "next_window";
+      "ctrl+q>a" = "previous_window";
       # tab
       "ctrl+q>t" = "launch --cwd=current --type=tab";
       "ctrl+q>n" = "next_tab";
