@@ -21,7 +21,12 @@
   };
 
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+
+  hardware = {
+    pulseaudio.enable = true;
+    opengl.enable = true;
+    nvidia.nvidiaSettings = true;
+  };
 
   time.timeZone = "Asia/Tokyo";
   i18n = {
@@ -50,14 +55,8 @@
     xserver = {
       enable = true;
 
-      displayManager = {
-        gdm = {
-          enable = true;
-          wayland = true;
-          nvidiaWayland = true;
-        };
-      };
-      desktopManager = { gnome.enable = true; };
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
 
       layout = "us";
       xkbOptions = "ctrl:nocaps";
