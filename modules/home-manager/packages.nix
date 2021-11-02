@@ -20,6 +20,8 @@
     envsubst
     zstd
 
+    zinit
+
     # Nix
     manix
     any-nix-shell
