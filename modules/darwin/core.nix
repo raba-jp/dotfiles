@@ -4,6 +4,7 @@
 
     systemPackages = with pkgs; [ vim ];
   };
+  programs.zsh.enable = true;
 
   nix = {
     allowedUsers = [ "sakuraba" ];
