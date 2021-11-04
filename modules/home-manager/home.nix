@@ -1,18 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ./packages.nix
-    ./xdg.nix
-    ./fish.nix
-    ./tmux.nix
-    ./alacritty.nix
-    ./git.nix
-    ./vim
-    ./kitty.nix
-    ./zsh.nix
-  ];
-
   home.stateVersion = "21.11";
 
   programs = {

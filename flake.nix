@@ -49,7 +49,7 @@
         SakurabaMBP = mkDarwinConfig {
           modules = [
             ./modules/darwin/apps.nix
-            ./profiles/darwin/personal.nix
+            ./profiles/darwin-personal.nix
           ];
         };
       };
@@ -58,13 +58,13 @@
         define7 = mkNixosCOnfig {
           modules = [
             ./modules/hardwares/define7
-            ./profiles/nixos/personal.nix
+            ./profiles/linux-personal.nix
           ];
         };
         xps13 = mkNixosCOnfig {
           modules = [
             ./modules/hardwares/xps13
-            ./profiles/nixos/personal.nix
+            ./profiles/linux-personal.nix
           ];
         };
       };
