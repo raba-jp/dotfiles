@@ -50,7 +50,6 @@
           modules = [
             ./modules/darwin/apps.nix
             ./profiles/darwin/personal.nix
-            ./profiles/home-manager/personal.nix
           ];
         };
       };
@@ -60,14 +59,12 @@
           modules = [
             ./modules/hardwares/define7
             ./profiles/nixos/personal.nix
-            ./profiles/home-manager/personal.nix
           ];
         };
         xps13 = mkNixosCOnfig {
           modules = [
             ./modules/hardwares/xps13
             ./profiles/nixos/personal.nix
-            ./profiles/home-manager/personal.nix
           ];
         };
       };

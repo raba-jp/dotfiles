@@ -1,6 +1,1 @@
-{ pkgs, ...}: {
-  imports = [
-    ./home.nix
-    ./nixos.nix
-  ];
-}
+{ pkgs, ... }: { imports = [ ./home.nix ./hammerspoon ./nixos.nix ]; }

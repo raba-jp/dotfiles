@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }:
+lib.mkIf (pkgs.stdenvNoCC.isLinux) {
   home = {
     username = "sakuraba";
     homeDirectory = "/home/sakuraba";

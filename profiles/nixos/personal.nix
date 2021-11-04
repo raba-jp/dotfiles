@@ -1,5 +1,4 @@
 { pkgs, ... }: {
-  imports = [ ../home-manager/personal.nix ];
   users.users.sakuraba = {
     isNormalUser = true;
     createHome = true;
@@ -7,4 +6,6 @@
     extraGroups = [ "wheel" "networkmanager" "docker" "video" ];
     packages = with pkgs; [ materia-theme papirus-icon-theme ];
   };
+
+  home-manager.users.sakuraba = { imports = [ ../../modules/home-manager ]; };
 }
