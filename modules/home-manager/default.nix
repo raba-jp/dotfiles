@@ -10,7 +10,7 @@
     ./vim
     ./kitty.nix
     ./zsh.nix
-    ./hammerspoon # Enabled for only darwin
-    ./nixos.nix # Enabled for only linux
+    # ./hammerspoon # Enabled for only darwin
+    # ./nixos.nix # Enabled for only linux
   ];
 }

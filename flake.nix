@@ -31,7 +31,7 @@
           specialArgs = { inherit inputs nixpkgs stable; };
         };
 
-      mkNixosCOnfig = { system ? "x86_64-linux", nixpkgs ? inputs.nixos-unstable
+      mkNixosConfig = { system ? "x86_64-linux", nixpkgs ? inputs.nixos-unstable
         , stable ? inputs.nixos-stable, modules ? [ ] }:
         nixosSystem {
           inherit system;
@@ -47,25 +47,18 @@
     in {
       darwinConfigurations = {
         SakurabaMBP = mkDarwinConfig {
-          modules = [
-            ./modules/darwin/apps.nix
-            ./profiles/darwin-personal.nix
-          ];
+          modules =
+            [ ./modules/darwin/apps.nix ./profiles/darwin-personal.nix ];
         };
       };
 
       nixosConfigurations = {
-        define7 = mkNixosCOnfig {
-          modules = [
-            ./modules/hardwares/define7
-            ./profiles/linux-personal.nix
-          ];
+        define7 = mkNixosConfig {
+          modules =
+            [ ./modules/hardwares/define7 ./profiles/linux-personal.nix ];
         };
-        xps13 = mkNixosCOnfig {
-          modules = [
-            ./modules/hardwares/xps13
-            ./profiles/linux-personal.nix
-          ];
+        xps13 = mkNixosConfig {
+          modules = [ ./modules/hardwares/xps13 ./profiles/linux-personal.nix ];
         };
       };
     };
