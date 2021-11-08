@@ -30,12 +30,14 @@
 
     direnv = {
       enable = true;
+      enableZshIntegration = true;
       enableFishIntegration = true;
       nix-direnv.enable = true;
     };
 
     fzf = {
       enable = true;
+      enableZshIntegration = true;
       enableFishIntegration = true;
       changeDirWidgetCommand = "fd --type d";
       changeDirWidgetOptions = [ "--preview 'exa --tree {} | head -200'" ];
@@ -51,11 +53,13 @@
 
     zoxide = {
       enable = true;
+      enableZshIntegration = true;
       enableFishIntegration = true;
     };
 
     broot = {
       enable = true;
+      enableZshIntegration = true;
       enableFishIntegration = true;
     };
   };

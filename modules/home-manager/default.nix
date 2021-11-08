@@ -7,9 +7,9 @@
     ./tmux.nix
     ./alacritty.nix
     ./git.nix
-    ./vim
     ./kitty.nix
-    ./zsh.nix
+    ./vim
+    ./zsh
     # ./hammerspoon # Enabled for only darwin
     # ./nixos.nix # Enabled for only linux
   ];
