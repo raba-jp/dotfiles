@@ -5,7 +5,5 @@
     home = "/Users/sakuraba";
   };
 
-  home-manager = {
-    users.sakuraba = { imports = [ ../../modules/home-manager ]; };
-  };
+  home-manager.users.sakuraba = import ../modules/home-manager;
 }

@@ -1,11 +1,6 @@
-{ inputs, stable, ... }: 
-let
-  zinit = import ./zinit.nix;
-in {
+{ inputs, stable, ... }: {
   nixpkgs.overlays = [
-    (final: prev: {
-      cica = prev.callPackage (import ./fonts/cica.nix) { };
-    })
+    (final: prev: { cica = prev.callPackage (import ./fonts/cica.nix) { }; })
     (final: prev: { stable = import stable { system = prev.system; }; })
     (final: prev: rec { kitty = prev.stable.kitty; })
     (self: super:
@@ -21,6 +16,5 @@ in {
         };
         python39Packages = python39.pkgs;
       })
-    zinit
   ];
 }

@@ -7,5 +7,5 @@
     packages = with pkgs; [ materia-theme papirus-icon-theme ];
   };
 
-  home-manager.users.sakuraba = { imports = [ ../../modules/home-manager ]; };
+  home-manager.users.sakuraba = import ../modules/home-manager;
 }

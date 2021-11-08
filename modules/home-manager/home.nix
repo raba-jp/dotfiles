@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{ pkgs, ... }: {
   home.stateVersion = "21.11";
 
   programs = {
