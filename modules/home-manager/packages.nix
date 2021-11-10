@@ -20,7 +20,7 @@
     envsubst
     zstd
 
-    zinit
+    via
 
     # Nix
     manix
