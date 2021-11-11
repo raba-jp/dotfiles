@@ -2,6 +2,11 @@
 
 {
   system = {
+    keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToControl = true;
+    };
+
     defaults = {
       NSGlobalDomain = {
         # ASCII制御文字を表示する
@@ -20,7 +25,15 @@
         "com.apple.trackpad.scaling" = "3";
       };
 
-      dock.show-recents = false;
+      dock = {
+        show-recents = false;
+        # dockを自動的に表示/非表示
+        showhidden = true;
+        # 最新の使用状況に基づいて操作スペースを自動的に並べ替える
+        mru-spaces = false;
+        # 起動済みのアプリケーションにインジケータを表示
+        show-process-indicators = true;
+      };
 
       finder = {
         # 全ての拡張子を表示する
