@@ -4,7 +4,8 @@
 
     systemPackages = with pkgs; [ vim ];
   };
-  programs.zsh.enable = true;
+  # https://github.com/LnL7/nix-darwin/issues/373
+  # programs.zsh.enable = true;
 
   nix = {
     allowedUsers = [ "sakuraba" ];
