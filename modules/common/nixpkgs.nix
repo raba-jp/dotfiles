@@ -4,7 +4,7 @@
   };
 
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixUnstable;
 
     extraOptions = ''
       keep-outputs = true
