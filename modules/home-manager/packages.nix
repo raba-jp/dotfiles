@@ -19,8 +19,7 @@
     yq
     envsubst
     zstd
-
-    via
+    gobang # TUI database management tool
 
     # Nix
     manix
