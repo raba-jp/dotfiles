@@ -16,5 +16,6 @@
         };
         python39Packages = python39.pkgs;
       })
+    (import ./tilt.nix)
   ];
 }
