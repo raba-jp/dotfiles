@@ -16,6 +16,7 @@ lib.mkIf (pkgs.stdenvNoCC.isLinux) {
       vscode
       xclip
       dconf2nix
+      factorio
     ];
   };
 

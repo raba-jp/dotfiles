@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./pkgs.nix ];
+  imports = [ ./pkgs.nix ./factorio.nix ];
 
   boot = {
     loader = {

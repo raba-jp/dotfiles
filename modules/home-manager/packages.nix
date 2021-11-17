@@ -20,6 +20,8 @@
     envsubst
     zstd
     gobang # TUI database management tool
+    git-crypt
+    gnupg
 
     # Nix
     manix
