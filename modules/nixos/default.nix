@@ -57,7 +57,7 @@
 
       displayManager.gdm = {
         enable = true;
-        wayland = false;
+        wayland = true;
         nvidiaWayland = false;
       };
       desktopManager.gnome.enable = true;
