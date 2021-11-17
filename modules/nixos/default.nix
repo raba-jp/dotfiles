@@ -55,7 +55,11 @@
     xserver = {
       enable = true;
 
-      displayManager.gdm.enable = true;
+      displayManager.gdm = {
+        enable = true;
+        wayland = false;
+        nvidiaWayland = false;
+      };
       desktopManager.gnome.enable = true;
 
       layout = "us";

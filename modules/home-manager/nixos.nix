@@ -17,6 +17,7 @@ lib.mkIf (pkgs.stdenvNoCC.isLinux) {
       xclip
       dconf2nix
       factorio
+      glxinfo
     ];
   };
 
