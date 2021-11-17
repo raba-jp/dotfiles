@@ -39,3 +39,11 @@ script = '''
 #!/usr/bin/env bash
 nix-shell -p nix-info --run "nix-info -m"
 '''
+
+[tasks.crypt]
+script = '''
+#!/usr/bin/env bash
+gpg --import gpg-public.keys.backup
+gpg --import --allow-secret-key-import gpg-private.keys.backup
+gpg --import-ownertrust trust.txt
+'''
