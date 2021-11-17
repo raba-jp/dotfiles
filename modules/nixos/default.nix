@@ -82,6 +82,12 @@
     '')
   ];
 
+  programs = {
+    gnupg = {
+      agent.enable = true;
+    };
+  };
+
   system = {
     autoUpgrade.enable = true;
 
