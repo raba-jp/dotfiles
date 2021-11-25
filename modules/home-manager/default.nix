@@ -12,5 +12,6 @@
     ./zsh
     ./hammerspoon # Enabled for only darwin
     ./nixos.nix # Enabled for only linux
+    ./dconf.nix # Enabled for only linux
   ];
 }

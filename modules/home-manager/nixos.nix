@@ -17,6 +17,7 @@ lib.mkIf (pkgs.stdenvNoCC.isLinux) {
       xclip
       dconf2nix
       glxinfo
+      gnome3.dconf-editor
     ];
   };
 

@@ -17,6 +17,8 @@
 
   networking = {
     networkmanager.enable = true;
+    firewall.allowedTCPPorts = [ 34197 ];
+    firewall.allowedUDPPorts = [ 34197 ];
     useDHCP = false;
   };
 
@@ -86,11 +88,7 @@
     '')
   ];
 
-  programs = {
-    gnupg = {
-      agent.enable = true;
-    };
-  };
+  programs = { gnupg = { agent.enable = true; }; };
 
   system = {
     autoUpgrade.enable = true;
