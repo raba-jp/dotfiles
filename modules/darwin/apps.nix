@@ -19,7 +19,6 @@
       "hammerspoon"
       "hyperswitch"
       "intellij-idea"
-      "iterm2"
       "kitty"
       "obsidian"
       "osxfuse"
