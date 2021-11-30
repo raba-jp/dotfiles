@@ -5,11 +5,8 @@ let
   cmdKanaEngFile = builtins.readFile ./Spoons/CMDKanaEng.spoon/init.lua;
   ctrlMateFile = builtins.readFile ./Spoons/CtrlMate.spoon/init.lua;
 in lib.mkIf (pkgs.stdenvNoCC.isDarwin) {
-  xdg.configFile."hammerspoon/init.lua".text = initFile;
-  xdg.configFile."hammerspoon/Spoons/CMDKanaEng.spoon/init.lua".text =
+  home.file.".hammerspoon/init.lua".text = initFile;
+  home.file.".hammerspoon/Spoons/CMDKanaEng.spoon/init.lua".text =
     cmdKanaEngFile;
-  xdg.configFile."hammerspoon/Spoons/CtrlMate.spoon/init.lua".text =
-    ctrlMateFile;
-
-  # https://github.com/Hammerspoon/hammerspoon/pull/582
+  home.file.".hammerspoon/Spoons/CtrlMate.spoon/init.lua".text = ctrlMateFile;
 }
