@@ -11,13 +11,17 @@ lib.mkIf (pkgs.stdenvNoCC.isLinux) {
       android-studio
       slack
       kube3d
-      # Theme
-      papirus-icon-theme
       vscode
       xclip
       dconf2nix
       glxinfo
       gnome3.dconf-editor
+      # Theme
+      papirus-icon-theme
+      nordic
+      nordic-polar
+      materia-theme
+      papirus-icon-theme
     ];
   };
 

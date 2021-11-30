@@ -4,7 +4,6 @@
     createHome = true;
     home = "/home/sakuraba";
     extraGroups = [ "wheel" "networkmanager" "docker" "video" ];
-    packages = with pkgs; [ materia-theme papirus-icon-theme ];
   };
 
   home-manager.users.sakuraba = import ../modules/home-manager;
