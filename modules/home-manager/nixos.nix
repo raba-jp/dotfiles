@@ -19,7 +19,6 @@ lib.mkIf (pkgs.stdenvNoCC.isLinux) {
       # Theme
       papirus-icon-theme
       nordic
-      nordic-polar
       materia-theme
       papirus-icon-theme
     ];
