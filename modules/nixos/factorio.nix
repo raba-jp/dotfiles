@@ -1,12 +1,12 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
   userFile = builtins.readFile ../../secrets/factorio_username;
   tokenFile = builtins.readFile ../../secrets/factorio_token;
 in lib.mkIf ((builtins.hashFile "sha256" ../../secrets/factorio_token)
   == "34fc592b9e318b3bc7931a26ebc6eef899990251eded749ec9a10e9d43cc7eda") {
-    environment.systemPackages = with pkgs; [ factorio ];
+    # environment.systemPackages = with pkgs; [ factorio ];
 
-    services.factorio = {
+    services.factorio = lib.mkIf (config.networking.hostName == "define7") {
       enable = true;
 
       username = userFile;

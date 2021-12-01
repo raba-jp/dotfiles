@@ -11,9 +11,10 @@
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix.url = "github:ryantm/agenix";
   };
 
-  outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, darwin, home-manager, agenix, ... }:
     let
       inherit (darwin.lib) darwinSystem;
       inherit (nixpkgs.lib) nixosSystem;
@@ -37,6 +38,7 @@
           inherit system;
           modules = [
             home-manager.nixosModules.home-manager
+            agenix.nixosModules.age
             ./modules/common
             ./modules/nixos
             ./overlays
