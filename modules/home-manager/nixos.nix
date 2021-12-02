@@ -33,8 +33,8 @@ lib.mkIf (pkgs.stdenvNoCC.isLinux) {
     };
 
     theme = {
-      name = "Materia-dark-compact";
-      package = pkgs.materia-theme;
+      name = "Nordic-darker";
+      package = pkgs.nordic;
     };
   };
 }
