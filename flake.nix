@@ -2,8 +2,8 @@
   description = "Nix system configurations";
 
   inputs = {
-    darwin-stable.url = "github:nixos/nixpkgs/nixpkgs-21.05-darwin";
-    nixos-stable.url = "github:nixos/nixpkgs/nixos-21.05";
+    darwin-stable.url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
+    nixos-stable.url = "github:nixos/nixpkgs/nixos-21.11";
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
