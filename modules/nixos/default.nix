@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ./pkgs.nix ./factorio.nix ];
+{ config, pkgs, lib, ... }: {
+  imports = [ ./pkgs.nix ];
 
   boot = {
     loader = {
@@ -70,6 +70,13 @@
     };
 
     gnome.chrome-gnome-shell.enable = true;
+
+    openssh.enable = true;
+
+    factorio = lib.mkIf (config.networking.hostName == "define7") {
+      enable = true;
+      public = false;
+    };
   };
 
   nix = {
@@ -88,7 +95,10 @@
     '')
   ];
 
-  programs = { gnupg = { agent.enable = true; }; };
+  programs = {
+    gnupg = { agent.enable = true; };
+    steam.enable = true;
+  };
 
   system = {
     autoUpgrade.enable = true;
