@@ -11,4 +11,7 @@ if command -v nix > /dev/null; then
 else
     bash <(curl -L $URL) --daemon $FLAG
     nix-env -iA nixpkgs.nix_2_4
+    if ! grep 'experimental-features = nix-command flakes' ~/.config/nix/nix.conf; then
+        echo 'experimental-features = nix-command flakes' >~/.config/nix/nix.conf
+    fi
 fi
