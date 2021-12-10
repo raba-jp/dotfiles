@@ -1,0 +1,23 @@
+[formatter.nix]
+command = "nixfmt"
+options = []
+includes = [ "*.nix" ]
+excludes = []
+
+[formatter.lua]
+command = "stylua"
+options = []
+includes = [ "*.lua" ]
+excludes = []
+
+[formatter.sh]
+command = "shfmt"
+options = ["-w"]
+includes = [ "*.sh" ]
+excludes = []
+
+[formatter.python]
+command = "black"
+options = []
+includes = [ "*.py" ]
+excludes = []

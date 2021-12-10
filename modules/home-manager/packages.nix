@@ -17,6 +17,7 @@
     fd # replace from 'find'
 
     tig # git client
+    lazygit
     procs # replace from ps
     ghq # remote repository management cli
     navi
@@ -25,6 +26,7 @@
     gh
     yq
     gobang # TUI database management tool
+    treefmt
 
     # Nix
     manix
@@ -59,6 +61,7 @@
     python39
     python39Packages.pip
     python39Packages.setuptools
+    python39Packages.black
     poetry
 
     ## Node.js
@@ -69,7 +72,7 @@
     rustup # The Rust toolchain installer
 
     ## Lua
-    luaformatter
+    stylua
 
     ## Elm
     elmPackages.elm

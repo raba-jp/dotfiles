@@ -2,8 +2,16 @@
 
 ## Installation
 
+### NixOS
+
 ```bash
-$ curl -sL https://dot.raba.me | sh
+sudo nixos-install --flake github:raba-jp/dotfiles#define7
+```
+
+Or
+
+```bash
+sudo nixos-install --flake github:raba-jp/dotfiles#xps13
 ```
 
 ## Manual Installation

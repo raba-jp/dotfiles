@@ -11,13 +11,20 @@
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    agenix.url = "github:ryantm/agenix";
+    devshell.url = "github:numtide/devshell";
+    flake-utils.url = "github:numtide/flake-utils";
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
+      flake = false;
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, darwin, home-manager, agenix, ... }:
+  outputs =
+    inputs@{ self, nixpkgs, darwin, home-manager, devshell, flake-utils, ... }:
     let
       inherit (darwin.lib) darwinSystem;
       inherit (nixpkgs.lib) nixosSystem;
+      inherit (flake-utils.lib) eachDefaultSystem;
 
       mkDarwinConfig = { system ? "x86_64-darwin", nixpkgs ? inputs.nixpkgs
         , stable ? inputs.darwin-stable, modules ? [ ] }:
@@ -38,7 +45,6 @@
           inherit system;
           modules = [
             home-manager.nixosModules.home-manager
-            agenix.nixosModules.age
             ./modules/common
             ./modules/nixos
             ./overlays
@@ -63,5 +69,27 @@
           modules = [ ./modules/hardwares/xps13 ./profiles/linux-personal.nix ];
         };
       };
-    };
+    } // eachDefaultSystem (system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ devshell.overlay ];
+        };
+        nixBin = pkgs.writeShellScriptBin "nix" ''
+          ${pkgs.nixFlakes}/bin/nix --option experimental-features "nix-command flakes" "$@"
+        '';
+        pyEnv = (pkgs.python39.withPackages (ps: with ps; [ black ]));
+      in {
+        devShell = pkgs.devshell.mkShell {
+          packages = [
+            nixBin
+            pyEnv
+            pkgs.treefmt
+            pkgs.nixfmt
+            pkgs.stylua
+            pkgs.shfmt
+            pkgs.cargo-make
+          ];
+        };
+      });
 }
