@@ -50,6 +50,8 @@ in {
       lspsaga-nvim
 
       format-nvim
+
+      nordic-nvim
     ];
 
     extraConfig = ''

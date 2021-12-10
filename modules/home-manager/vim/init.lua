@@ -64,7 +64,13 @@ opt.background = "dark"
 
 cmd("syntax on")
 cmd("filetype plugin indent on")
-cmd("colorscheme nord")
+require('nordic').colorscheme({
+    underline_option = 'none',
+    italic = true,
+    italic_comments = false,
+    minimal_mode = false,
+    alternate_backgrounds = false
+})
 
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {

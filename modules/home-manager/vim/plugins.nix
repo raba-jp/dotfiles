@@ -53,4 +53,15 @@
       sha256 = "fYyUStur+cCKx2uDdrsCBct1/xDTIOaxAkm8RwZMuFg=";
     };
   };
+
+  nordic-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "nordic.nvim";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "andersevenrud";
+      repo = "nordic.nvim";
+      rev = "6c19b29aa3e09687ee6d0f6d6eef2644ef39f690";
+      sha256 = "ILldqjSjhDO8me+ZaPkLuo1eoyF19RiQ6Eb09jBSaZA=";
+    };
+  };
 }
