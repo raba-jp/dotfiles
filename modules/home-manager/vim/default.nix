@@ -1,27 +1,18 @@
 { pkgs, ... }:
-
 let
   customPlugins = import ./plugins.nix { inherit pkgs; };
 
   plugins = pkgs.vimPlugins // customPlugins;
-  vimConfig = builtins.readFile ./config.vim;
   neovimConfig = builtins.readFile ./init.lua;
 in {
-  home.packages = with pkgs; [ gcc tree-sitter gopls rust-analyzer ];
-  programs.vim = {
-    enable = true;
-
-    plugins = with plugins; [
-      vim-polyglot
-      lightline-vim
-      editorconfig-vim
-      ctrlp-vim
-      vim-edgemotion
-      fern-vim
-      nord-vim
-    ];
-    extraConfig = vimConfig;
-  };
+  home.packages = with pkgs; [
+    # tree sitter
+    gcc
+    tree-sitter
+    # LSP
+    gopls
+    rust-analyzer
+  ];
 
   programs.neovim = {
     enable = true;
@@ -37,7 +28,6 @@ in {
       editorconfig-vim
       vim-edgemotion
       nvim-treesitter
-      nord-vim
 
       popup-nvim
       plenary-nvim
@@ -57,7 +47,6 @@ in {
     extraConfig = ''
       lua <<EOF
     '' + neovimConfig + ''
-
       EOF'';
   };
 }
