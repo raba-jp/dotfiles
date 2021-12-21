@@ -1,5 +1,9 @@
 { config, pkgs, lib, ... }: {
-  imports = [ ./pkgs.nix ];
+  imports = [
+    ./pkgs.nix
+    #./i3.nix
+    ./gnome.nix
+  ];
 
   boot = {
     loader = {
@@ -57,13 +61,6 @@
     xserver = {
       enable = true;
 
-      displayManager.gdm = {
-        enable = true;
-        wayland = true;
-        nvidiaWayland = false;
-      };
-      desktopManager.gnome.enable = true;
-
       layout = "us";
       xkbOptions = "ctrl:nocaps";
       libinput.enable = true;
@@ -98,6 +95,7 @@
   programs = {
     gnupg = { agent.enable = true; };
     steam.enable = true;
+    dconf.enable = true;
   };
 
   system = {
