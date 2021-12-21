@@ -15,6 +15,8 @@ lib.mkIf (pkgs.stdenvNoCC.isLinux) {
       xclip
       dconf2nix
       glxinfo
+      appimagekit
+      stack
       gnome3.dconf-editor
       # Theme
       papirus-icon-theme

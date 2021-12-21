@@ -26,6 +26,7 @@
       "quicklook-csv"
       "redisinsight"
       "slack"
+      "stack-stack"
       "tableplus"
       "tandem"
       "the-unarchiver"

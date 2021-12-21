@@ -27,6 +27,7 @@
     yq
     gobang # TUI database management tool
     treefmt
+    unzip
 
     # Nix
     manix
