@@ -16,8 +16,10 @@ lib.mkIf (pkgs.stdenvNoCC.isLinux) {
       dconf2nix
       glxinfo
       appimagekit
+      appimage-run
       stack
       gnome3.dconf-editor
+      via
       # Theme
       papirus-icon-theme
       nordic

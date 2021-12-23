@@ -74,6 +74,8 @@
       enable = true;
       public = false;
     };
+
+    udev.packages = [ pkgs.via ];
   };
 
   nix = {
