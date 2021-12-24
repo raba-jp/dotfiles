@@ -2,7 +2,10 @@
   home = {
     sessionPath = [ "$GOPATH/bin" ];
 
-    sessionVariables = { EDITOR = "vim"; };
+    sessionVariables = {
+      EDITOR = "vim";
+      PAGER = "bat";
+    };
 
     stateVersion = "21.11";
   };
