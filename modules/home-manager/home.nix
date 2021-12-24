@@ -1,5 +1,11 @@
 { pkgs, ... }: {
-  home.stateVersion = "21.11";
+  home = {
+    sessionPath = [ "$GOPATH/bin" ];
+
+    sessionVariables = { EDITOR = "vim"; };
+
+    stateVersion = "21.11";
+  };
 
   programs = {
     home-manager.enable = true;

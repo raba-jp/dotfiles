@@ -1,28 +1,6 @@
 { config, pkgs, lib, ... }: {
-  imports = [
-    ./pkgs.nix
-    #./i3.nix
-    ./gnome.nix
-  ];
-
-  boot = {
-    loader = {
-      systemd-boot = {
-        enable = true;
-        editor = false;
-        consoleMode = "auto";
-      };
-
-      efi.canTouchEfiVariables = true;
-    };
-
-    kernelPackages = pkgs.linuxPackages_zen;
-  };
-
   networking = {
     networkmanager.enable = true;
-    firewall.allowedTCPPorts = [ 34197 ];
-    firewall.allowedUDPPorts = [ 34197 ];
     useDHCP = false;
   };
 
@@ -31,7 +9,6 @@
   hardware = {
     pulseaudio.enable = true;
     opengl.enable = true;
-    nvidia.nvidiaSettings = true;
   };
 
   time.timeZone = "Asia/Tokyo";
@@ -57,26 +34,7 @@
 
   console.useXkbConfig = true;
 
-  services = {
-    xserver = {
-      enable = true;
-
-      layout = "us";
-      xkbOptions = "ctrl:nocaps";
-      libinput.enable = true;
-    };
-
-    gnome.chrome-gnome-shell.enable = true;
-
-    openssh.enable = true;
-
-    factorio = lib.mkIf (config.networking.hostName == "define7") {
-      enable = true;
-      public = false;
-    };
-
-    udev.packages = [ pkgs.via ];
-  };
+  services = { openssh.enable = true; };
 
   nix = {
     trustedUsers = [ "root" "sakuraba" ];
@@ -88,17 +46,12 @@
     };
   };
 
-  environment.systemPackages = [
-    (pkgs.writeShellScriptBin "nixFlakes" ''
-      exec ${pkgs.nixUnstable}/bin/nix --experimental-features "nix-command flakes" "$@"
-    '')
-  ];
-
   programs = {
     gnupg = { agent.enable = true; };
-    steam.enable = true;
     dconf.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [ libnotify wget ];
 
   system = {
     autoUpgrade.enable = true;

@@ -11,6 +11,10 @@
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     devshell.url = "github:numtide/devshell";
     flake-utils.url = "github:numtide/flake-utils";
     flake-compat = {
@@ -19,11 +23,12 @@
     };
   };
 
-  outputs =
-    inputs@{ self, nixpkgs, darwin, home-manager, devshell, flake-utils, ... }:
+  outputs = inputs@{ self, nixpkgs, darwin, home-manager, nixos-generators
+    , devshell, flake-utils, ... }:
     let
       inherit (darwin.lib) darwinSystem;
       inherit (nixpkgs.lib) nixosSystem;
+      inherit (nixos-generators) nixosGenerate;
       inherit (flake-utils.lib) eachDefaultSystem;
 
       mkDarwinConfig = { system ? "x86_64-darwin", nixpkgs ? inputs.nixpkgs
@@ -47,11 +52,25 @@
             home-manager.nixosModules.home-manager
             ./modules/common
             ./modules/nixos
+            ./modules/nixos-desktop
             ./overlays
           ] ++ modules;
           specialArgs = { inherit inputs nixpkgs stable; };
         };
 
+      mkBootableImage = { format, nixpkgs ? inputs.nixos-unstable
+        , stable ? inputs.nixos-stable, modules ? [ ] }:
+        nixosGenerate {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          modules = [
+            home-manager.nixosModules.home-manager
+            ./modules/common
+            ./modules/nixos
+            ./modules/nixos-vm
+            ./overlays
+          ] ++ modules;
+          format = format;
+        };
     in {
       darwinConfigurations = {
         SakurabaMBP = mkDarwinConfig {
@@ -67,6 +86,21 @@
         };
         xps13 = mkNixosConfig {
           modules = [ ./modules/hardwares/xps13 ./profiles/linux-personal.nix ];
+        };
+      };
+
+      packages.x86_64-linux = {
+        vmware = mkBootableImage {
+          modules = [ ./profiles/linux-personal.nix ];
+          format = "vmware";
+        };
+        virtualbox = mkBootableImage {
+          modules = [ ./profiles/linux-personal.nix ];
+          format = "virtualbox";
+        };
+        installer = mkBootableImage {
+          modules = [ ./profiles/linux-personal.nix ];
+          format = "install-iso";
         };
       };
     } // eachDefaultSystem (system:
