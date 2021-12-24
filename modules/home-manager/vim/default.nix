@@ -46,7 +46,6 @@ in {
 
     extraConfig = ''
       lua <<EOF
-    '' + neovimConfig + ''
-      EOF'';
+    '' + neovimConfig + "EOF";
   };
 }
