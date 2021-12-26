@@ -2,18 +2,18 @@
   description = "Nix system configurations";
 
   inputs = {
-    darwin-stable.url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
+    home-manager.url = "github:nix-community/home-manager";
     nixos-stable.url = "github:nixos/nixpkgs/nixos-21.11";
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    home-manager.url = "github:nix-community/home-manager";
+    darwin-stable.url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
+    darwin-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     darwin = {
       url = "github:LnL7/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "darwin-unstable";
     };
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixos-unstable";
     };
     devshell.url = "github:numtide/devshell";
     flake-utils.url = "github:numtide/flake-utils";
@@ -23,16 +23,17 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, darwin, home-manager, nixos-generators
-    , devshell, flake-utils, ... }:
+  outputs = inputs@{ self, nixos-stable, nixos-unstable, darwin, home-manager
+    , nixos-generators, devshell, flake-utils, ... }:
     let
       inherit (darwin.lib) darwinSystem;
-      inherit (nixpkgs.lib) nixosSystem;
+      inherit (nixos-unstable.lib) nixosSystem;
       inherit (nixos-generators) nixosGenerate;
       inherit (flake-utils.lib) eachDefaultSystem;
 
-      mkDarwinConfig = { system ? "x86_64-darwin", nixpkgs ? inputs.nixpkgs
-        , stable ? inputs.darwin-stable, modules ? [ ] }:
+      mkDarwinConfig = { system ? "x86_64-darwin"
+        , nixpkgs ? inputs.darwin-unstable, stable ? inputs.darwin-stable
+        , modules ? [ ] }:
         darwinSystem {
           inherit system;
           modules = [
@@ -90,22 +91,12 @@
       };
 
       packages.x86_64-linux = {
-        vmware = mkBootableImage {
-          modules = [ ./profiles/linux-personal.nix ];
-          format = "vmware";
-        };
-        virtualbox = mkBootableImage {
-          modules = [ ./profiles/linux-personal.nix ];
-          format = "virtualbox";
-        };
-        installer = mkBootableImage {
-          modules = [ ./profiles/linux-personal.nix ];
-          format = "install-iso";
-        };
+        vmware = mkBootableImage { format = "vmware"; };
+        virtualbox = mkBootableImage { format = "virtualbox"; };
       };
     } // eachDefaultSystem (system:
       let
-        pkgs = import nixpkgs {
+        pkgs = import nixos-unstable {
           inherit system;
           overlays = [ devshell.overlay ];
         };

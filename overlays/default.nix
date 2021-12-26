@@ -1,4 +1,4 @@
-{ inputs, stable, ... }: {
+{ stable, ... }: {
   nixpkgs.overlays = [
     (import ./cica.nix)
     (import ./stack.nix)
