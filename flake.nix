@@ -31,6 +31,8 @@
       inherit (nixos-generators) nixosGenerate;
       inherit (flake-utils.lib) eachDefaultSystem;
 
+      nixpkgsOverlays = { nixpkgs.overlays = [ (import ./overlays) ]; };
+
       mkDarwinConfig = { system ? "x86_64-darwin"
         , nixpkgs ? inputs.darwin-unstable, stable ? inputs.darwin-stable
         , modules ? [ ] }:
@@ -40,7 +42,7 @@
             home-manager.darwinModules.home-manager
             ./modules/common
             ./modules/darwin
-            ./overlays
+            nixpkgsOverlays
           ] ++ modules;
           specialArgs = { inherit inputs nixpkgs stable; };
         };
@@ -54,7 +56,7 @@
             ./modules/common
             ./modules/nixos
             ./modules/nixos-desktop
-            ./overlays
+            nixpkgsOverlays
           ] ++ modules;
           specialArgs = { inherit inputs nixpkgs stable; };
         };
@@ -62,13 +64,13 @@
       mkBootableImage = { format, nixpkgs ? inputs.nixos-unstable
         , stable ? inputs.nixos-stable, modules ? [ ] }:
         nixosGenerate {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          pkgs = nixpkgs.legacyPackages.x86_64-linux.extend (import ./overlays);
           modules = [
             home-manager.nixosModules.home-manager
             ./modules/common
             ./modules/nixos
             ./modules/nixos-vm
-            ./overlays
+            nixpkgsOverlays
           ] ++ modules;
           format = format;
         };
