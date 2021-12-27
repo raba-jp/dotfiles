@@ -4,7 +4,8 @@ let
 
   plugins = pkgs.vimPlugins // customPlugins;
   neovimConfig = builtins.readFile ./init.lua;
-in {
+in
+{
   home.packages = with pkgs; [
     # tree sitter
     gcc

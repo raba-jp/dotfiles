@@ -33,6 +33,7 @@
     manix
     any-nix-shell
     nixfmt # nix file formatter
+    nixpkgs-fmt
     nix-prefetch-github
 
     # Kubernetes

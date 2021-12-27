@@ -1,6 +1,7 @@
 { lib, pkgs, ... }:
 let mkTuple = lib.hm.gvariant.mkTuple;
-in lib.mkIf (pkgs.stdenvNoCC.isLinux) {
+in
+lib.mkIf (pkgs.stdenvNoCC.isLinux) {
   dconf.settings = {
     # Disable Super + P keybind
     "org/gnome/mutter/keybindings" = { switch-monitor = [ "XF86Display" ]; };

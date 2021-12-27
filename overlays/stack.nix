@@ -19,7 +19,8 @@ let
   };
 
   appimageContents = appimageTools.extractType2 { inherit name src; };
-in {
+in
+{
   stack = appimageTools.wrapType2 rec {
     inherit name src;
 

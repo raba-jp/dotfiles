@@ -1,6 +1,7 @@
 final: prev:
 let version = "5.0.2";
-in {
+in
+{
   cica = prev.fetchzip {
     name = "cica-${version}";
 

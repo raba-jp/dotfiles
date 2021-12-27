@@ -1,6 +1,7 @@
 final: prev:
 let version = "0.23.0";
-in {
+in
+{
   tilt = prev.tilt.overrideAttrs (old: {
     version = version;
     src = prev.fetchFromGitHub {

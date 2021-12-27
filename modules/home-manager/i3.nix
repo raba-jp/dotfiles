@@ -26,7 +26,8 @@ let
     success = "#A3BE8C";
     function = "#B48EAD";
   };
-in lib.mkIf (pkgs.stdenvNoCC.isLinux) {
+in
+lib.mkIf (pkgs.stdenvNoCC.isLinux) {
   xsession.windowManager.i3 = {
     enable = true;
     config = {

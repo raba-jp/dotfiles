@@ -1,5 +1,5 @@
-{ inputs, config, pkgs, nixpkgs, stable, ... }: {
-  nixpkgs = { config = { allowUnfree = true; }; };
+{ inputs, config, pkgs, ... }: {
+  nixpkgs.config.allowUnfree = true;
 
   nix = {
     package = pkgs.nix_2_4;

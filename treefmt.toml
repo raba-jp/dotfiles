@@ -1,5 +1,5 @@
 [formatter.nix]
-command = "nixfmt"
+command = "nixpkgs-fmt"
 options = []
 includes = [ "*.nix" ]
 excludes = []
