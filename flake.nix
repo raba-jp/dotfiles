@@ -47,7 +47,7 @@
       inherit (nixos-generators) nixosGenerate;
       inherit (flake-utils.lib) eachDefaultSystem;
 
-      overlays = { nixpkgs.overlays = [ (import ./overlays) ]; };
+      overlays = { nixpkgs.overlays = [ ((import ./overlays) inputs) ]; };
 
       mkDarwinConfig =
         { system ? "x86_64-darwin"
@@ -91,7 +91,7 @@
         , modules ? [ ]
         }:
         nixosGenerate {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux.extend (import ./overlays);
+          pkgs = nixpkgs.legacyPackages.x86_64-linux.extend ((import ./overlays) inputs);
           modules = [
             home-manager.nixosModules.home-manager
             ./modules/common
