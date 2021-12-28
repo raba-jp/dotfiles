@@ -119,27 +119,31 @@ require("telescope").setup({
 
 require("lualine").setup({ options = { theme = "nord" } })
 
--- LSP
-local lspconfig = require("lspconfig")
-lspconfig.gopls.setup({})
-lspconfig.rust_analyzer.setup({})
-
 -- Completion
-require("compe").setup({
-	enabled = true,
-	autocomplete = true,
-	debug = false,
-	min_length = 1,
-	preselect = "enable",
+local cmp = require("cmp")
+cmp.setup({
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp" },
+		{ name = "buffer" },
+	}),
+})
 
-	source = { buffer = true, nvim_lsp = true },
+-- LSP
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local lspconfig = require("lspconfig")
+lspconfig.gopls.setup({
+	capabilities = capabilities,
+})
+lspconfig.rust_analyzer.setup({
+	capabilities = capabilities,
 })
 
 require("lspsaga").init_lsp_saga()
 
 require("format").setup({
 	go = { { cmd = { "gofmt -w" }, tempfile_postfix = ".tmp" } },
-	nix = { { cmd = { "nixfmt" } } },
+	lua = { { cmd = { "stylua" } },
+	nix = { { cmd = { "nixpkgs-fmt" } } },
 })
 
 cmd("augroup Format")

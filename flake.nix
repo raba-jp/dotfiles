@@ -24,8 +24,25 @@
       flake = false;
     };
 
+    ## NeoVim Plugins
     vim-edgemotion = {
       url = "github:haya14busa/vim-edgemotion";
+      flake = false;
+    };
+    format-nvim = {
+      url = "github:lukas-reineke/format.nvim";
+      flake = false;
+    };
+    nordic-nvim = {
+      url = "github:andersevenrud/nordic.nvim";
+      flake = false;
+    };
+    cmp-nvim-lsp = {
+      url = "github:hrsh7th/cmp-nvim-lsp";
+      flake = false;
+    };
+    lspsaga-nvim = {
+      url = "github:tami5/lspsaga.nvim";
       flake = false;
     };
   };

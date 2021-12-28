@@ -34,7 +34,8 @@ in
       lualine-nvim
 
       nvim-lspconfig
-      nvim-compe
+      nvim-cmp
+      cmp-nvim-lsp
       lspsaga-nvim
 
       format-nvim

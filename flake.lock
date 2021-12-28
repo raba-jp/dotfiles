@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "cmp-nvim-lsp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1636543770,
+        "narHash": "sha256-jLfW4xoYnEOWa7oWSmkB7vNxu9Jgttbme+nTiAC92so=",
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp",
+        "rev": "134117299ff9e34adde30a735cd8ca9cf8f3db81",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -83,6 +99,22 @@
         "type": "github"
       }
     },
+    "format-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1639295342,
+        "narHash": "sha256-B2wwgyQMeuRZm3uLI9/w6DvBnaWKfw94lcY/ajNWk6Y=",
+        "owner": "lukas-reineke",
+        "repo": "format.nvim",
+        "rev": "29a7dccbdee6d657380104958b4b8e81d316803d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lukas-reineke",
+        "repo": "format.nvim",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -98,6 +130,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "lspsaga-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1639948427,
+        "narHash": "sha256-mUwtxtBz94vEA5C5gFC3E5kdDm3UIN2FP/lYYVdap1s=",
+        "owner": "tami5",
+        "repo": "lspsaga.nvim",
+        "rev": "55979c8390037615c21ac109f538189316cfef18",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tami5",
+        "repo": "lspsaga.nvim",
         "type": "github"
       }
     },
@@ -199,18 +247,38 @@
         "type": "github"
       }
     },
+    "nordic-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1639969370,
+        "narHash": "sha256-TGe0OiANaF/ncCwsCgcowo4NMBU39WmO8jhQLhKjdZ4=",
+        "owner": "andersevenrud",
+        "repo": "nordic.nvim",
+        "rev": "c348fba712af0c15bfdf23b396fdcb0311dfbae9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "andersevenrud",
+        "repo": "nordic.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "cmp-nvim-lsp": "cmp-nvim-lsp",
         "darwin": "darwin",
         "darwin-stable": "darwin-stable",
         "devshell": "devshell",
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
+        "format-nvim": "format-nvim",
         "home-manager": "home-manager",
+        "lspsaga-nvim": "lspsaga-nvim",
         "nixos-generators": "nixos-generators",
         "nixos-stable": "nixos-stable",
         "nixos-unstable": "nixos-unstable",
         "nixpkgs": "nixpkgs_2",
+        "nordic-nvim": "nordic-nvim",
         "vim-edgemotion": "vim-edgemotion"
       }
     },
