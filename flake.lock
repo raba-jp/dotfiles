@@ -315,6 +315,7 @@
         "nvim-web-devicons": "nvim-web-devicons",
         "telescope-command-palette-nvim": "telescope-command-palette-nvim",
         "telescope-ghq-nvim": "telescope-ghq-nvim",
+        "telescope-lsp-handlers-nvim": "telescope-lsp-handlers-nvim",
         "vim-edgemotion": "vim-edgemotion",
         "which-key-nvim": "which-key-nvim"
       }
@@ -348,6 +349,22 @@
       "original": {
         "owner": "nvim-telescope",
         "repo": "telescope-ghq.nvim",
+        "type": "github"
+      }
+    },
+    "telescope-lsp-handlers-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1631051048,
+        "narHash": "sha256-y3Sx/kiEs1uERjuP2uUQJCScCEgIao0lq5wNFiStofQ=",
+        "owner": "gbrlsnchs",
+        "repo": "telescope-lsp-handlers.nvim",
+        "rev": "d6d5983b0131ee2c386ca9e349f6621e12d971cb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gbrlsnchs",
+        "repo": "telescope-lsp-handlers.nvim",
         "type": "github"
       }
     },

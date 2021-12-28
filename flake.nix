@@ -66,6 +66,11 @@
       url = "github:LinArcX/telescope-command-palette.nvim";
       flake = false;
     };
+
+    telescope-lsp-handlers-nvim = {
+      url = "github:gbrlsnchs/telescope-lsp-handlers.nvim";
+      flake = false;
+    };
   };
 
   outputs =

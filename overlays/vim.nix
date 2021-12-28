@@ -50,5 +50,10 @@ inputs: final: prev:
       name = "telescope-command-palette.nvim";
       src = inputs.telescope-command-palette-nvim;
     };
+
+    telescope-lsp-handlers-nvim = prev.pkgs.vimUtils.buildVimPlugin {
+      name = "telescope-lsp-handlers.nvim";
+      src = inputs.telescope-lsp-handlers-nvim;
+    };
   };
 }

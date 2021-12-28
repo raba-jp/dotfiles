@@ -104,6 +104,11 @@ require("nvim-treesitter.configs").setup({
 	rainbow = { enable = true },
 })
 
+require("treesitter-context").setup({
+	enable = true,
+	throttle = true,
+})
+
 local telescope = require("telescope")
 telescope.setup({
 	defaults = {
@@ -124,6 +129,7 @@ telescope.setup({
 })
 telescope.load_extension("ghq")
 telescope.load_extension("command_palette")
+telescope.load_extension("lsp_handlers")
 
 CpMenu = {
 	{

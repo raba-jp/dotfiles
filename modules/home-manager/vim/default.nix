@@ -27,12 +27,14 @@ in
       editorconfig-vim
       vim-edgemotion
       nvim-treesitter
+      nvim-treesitter-context
 
       popup-nvim
       plenary-nvim
       telescope-nvim # depends on popup-nvim, plenary-nvim
       telescope-ghq-nvim
       telescope-command-palette-nvim
+      telescope-lsp-handlers-nvim
 
       lualine-nvim
 
