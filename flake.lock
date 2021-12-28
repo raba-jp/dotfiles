@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "cmp-buffer": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1640356244,
+        "narHash": "sha256-KktOSIkxZnES2duuc0pMOkMIm+jnnRVkzuP5icRmUWM=",
+        "owner": "hrsh7th",
+        "repo": "cmp-buffer",
+        "rev": "a01cfeca70594f505b2f086501e90fb6c2f2aaaa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-buffer",
+        "type": "github"
+      }
+    },
     "cmp-nvim-lsp": {
       "flake": false,
       "locked": {
@@ -263,8 +279,25 @@
         "type": "github"
       }
     },
+    "nvim-web-devicons": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1640033101,
+        "narHash": "sha256-DWbUhVTIhKYw+39rEHxUhDE7hRm3CtYMzfRDFj0j9Lk=",
+        "owner": "kyazdani42",
+        "repo": "nvim-web-devicons",
+        "rev": "ac71ca88b1136e1ecb2aefef4948130f31aa40d1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kyazdani42",
+        "repo": "nvim-web-devicons",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "cmp-buffer": "cmp-buffer",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
         "darwin": "darwin",
         "darwin-stable": "darwin-stable",
@@ -279,7 +312,25 @@
         "nixos-unstable": "nixos-unstable",
         "nixpkgs": "nixpkgs_2",
         "nordic-nvim": "nordic-nvim",
+        "nvim-web-devicons": "nvim-web-devicons",
+        "telescope-ghq-nvim": "telescope-ghq-nvim",
         "vim-edgemotion": "vim-edgemotion"
+      }
+    },
+    "telescope-ghq-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1638784863,
+        "narHash": "sha256-Uct+2jg9qZD7V3eSnICLNu2jpaQLc3ugW8qunPiAynM=",
+        "owner": "nvim-telescope",
+        "repo": "telescope-ghq.nvim",
+        "rev": "dc1022f91100ca06c9c7bd645f08e2bf985ad283",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-telescope",
+        "repo": "telescope-ghq.nvim",
+        "type": "github"
       }
     },
     "vim-edgemotion": {

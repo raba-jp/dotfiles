@@ -21,7 +21,6 @@ setmap("", "<C-k>", "<Plug>(edgemotion-k)", {})
 setmap("n", "<ESC><ESC>", ":nohlsearch<CR>", { noremap = true, silent = true })
 setmap("i", "<Tab>", 'pumvisible() ? "<C-n>" : "<Tab>"', { noremap = true, expr = true })
 setmap("i", "<S-Tab>", 'pumvisible() ? "<C-p>" : "<S-Tab>"', { noremap = true, expr = true })
-
 setmap("n", "sh", '<cmd>lua require"lspsaga.provider".lsp_finder()<CR>', { silent = true, noremap = true })
 setmap("n", "sa", '<cmd>lua require"lspsaga.codeaction".code_action()<CR>', { silent = true, noremap = true })
 setmap("v", "sa", ':<C-U>lua require"lspsaga.codeaction".range_code_action()<CR>', { silent = true, noremap = true })
@@ -99,7 +98,8 @@ require("nvim-treesitter.configs").setup({
 	rainbow = { enable = true },
 })
 
-require("telescope").setup({
+local telescope = require("telescope")
+telescope.setup({
 	defaults = {
 		vimgrep_arguments = {
 			"rg",
@@ -116,12 +116,18 @@ require("telescope").setup({
 		set_env = { ["COLORTERM"] = "truecolor" },
 	},
 })
+telescope.load_extension("ghq")
 
 require("lualine").setup({ options = { theme = "nord" } })
 
 -- Completion
 local cmp = require("cmp")
 cmp.setup({
+	mapping = {
+		["<Tab>"] = cmp.mapping.select_next_item(),
+		["<S-Tab>"] = cmp.mapping.select_prev_item(),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+	},
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "buffer" },
@@ -137,12 +143,30 @@ lspconfig.gopls.setup({
 lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
 })
+lspconfig.sumneko_lua.setup({
+	settings = {
+		Lua = {
+			runtime = {
+				version = "LuaJIT",
+			},
+			diagnostics = {
+				-- Get the language server to recognize the `vim` global
+				globals = { "vim" },
+			},
+			workspace = {
+				-- Make the server aware of Neovim runtime files
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+		},
+	},
+	capabilities = capabilities,
+})
 
 require("lspsaga").init_lsp_saga()
 
 require("format").setup({
 	go = { { cmd = { "gofmt -w" }, tempfile_postfix = ".tmp" } },
-	lua = { { cmd = { "stylua" } },
+	lua = { { cmd = { "stylua" } } },
 	nix = { { cmd = { "nixpkgs-fmt" } } },
 })
 

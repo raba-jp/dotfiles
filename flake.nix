@@ -41,8 +41,20 @@
       url = "github:hrsh7th/cmp-nvim-lsp";
       flake = false;
     };
+    cmp-buffer = {
+      url = "github:hrsh7th/cmp-buffer";
+      flake = false;
+    };
     lspsaga-nvim = {
       url = "github:tami5/lspsaga.nvim";
+      flake = false;
+    };
+    telescope-ghq-nvim = {
+      url = "github:nvim-telescope/telescope-ghq.nvim";
+      flake = false;
+    };
+    nvim-web-devicons = {
+      url = "github:kyazdani42/nvim-web-devicons";
       flake = false;
     };
   };

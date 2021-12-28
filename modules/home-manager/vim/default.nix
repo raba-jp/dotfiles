@@ -10,6 +10,7 @@ in
     # LSP
     gopls
     rust-analyzer
+    sumneko-lua-language-server
   ];
 
   programs.neovim = {
@@ -30,17 +31,20 @@ in
       popup-nvim
       plenary-nvim
       telescope-nvim # depends on popup-nvim, plenary-nvim
+      telescope-ghq-nvim
 
       lualine-nvim
 
       nvim-lspconfig
       nvim-cmp
       cmp-nvim-lsp
+      cmp-buffer
       lspsaga-nvim
 
       format-nvim
 
       nordic-nvim
+      nvim-web-devicons
     ];
 
     extraConfig = ''

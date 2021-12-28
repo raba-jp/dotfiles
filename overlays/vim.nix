@@ -21,9 +21,24 @@ inputs: final: prev:
       src = inputs.cmp-nvim-lsp;
     };
 
+    cmp-buffer = prev.pkgs.vimUtils.buildVimPlugin {
+      name = "cmp-buffer";
+      src = inputs.cmp-buffer;
+    };
+
     lspsaga-nvim = prev.pkgs.vimUtils.buildVimPlugin {
       name = "lspsaga.nvim";
       src = inputs.lspsaga-nvim;
+    };
+
+    telescope-ghq-nvim = prev.pkgs.vimUtils.buildVimPlugin {
+      name = "telescope-ghq.nvim";
+      src = inputs.telescope-ghq-nvim;
+    };
+
+    nvim-web-devicons = prev.pkgs.vimUtils.buildVimPlugin {
+      name = "nvim-web-devicons";
+      src = inputs.nvim-web-devicons;
     };
   };
 }
