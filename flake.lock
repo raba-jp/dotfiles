@@ -209,7 +209,24 @@
         "nixos-generators": "nixos-generators",
         "nixos-stable": "nixos-stable",
         "nixos-unstable": "nixos-unstable",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "vim-edgemotion": "vim-edgemotion"
+      }
+    },
+    "vim-edgemotion": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1514259000,
+        "narHash": "sha256-CFDU+q1CLbKgCwed5Qx728olgTpCTpYDzz6LefjEdvA=",
+        "owner": "haya14busa",
+        "repo": "vim-edgemotion",
+        "rev": "8d16bd92f6203dfe44157d43be7880f34fd5c060",
+        "type": "github"
+      },
+      "original": {
+        "owner": "haya14busa",
+        "repo": "vim-edgemotion",
+        "type": "github"
       }
     }
   },

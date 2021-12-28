@@ -23,6 +23,11 @@
       url = "github:edolstra/flake-compat";
       flake = false;
     };
+
+    vim-edgemotion = {
+      url = "github:haya14busa/vim-edgemotion";
+      flake = false;
+    };
   };
 
   outputs =

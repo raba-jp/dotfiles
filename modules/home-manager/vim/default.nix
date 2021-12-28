@@ -1,8 +1,5 @@
 { pkgs, ... }:
 let
-  customPlugins = import ./plugins.nix { inherit pkgs; };
-
-  plugins = pkgs.vimPlugins // customPlugins;
   neovimConfig = builtins.readFile ./init.lua;
 in
 {
@@ -24,7 +21,7 @@ in
     vimAlias = true;
     vimdiffAlias = true;
 
-    plugins = with plugins; [
+    plugins = with pkgs.vimPlugins; [
       vim-polyglot
       editorconfig-vim
       vim-edgemotion
