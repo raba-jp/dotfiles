@@ -32,6 +32,7 @@ in
       plenary-nvim
       telescope-nvim # depends on popup-nvim, plenary-nvim
       telescope-ghq-nvim
+      telescope-command-palette-nvim
 
       lualine-nvim
 
@@ -45,6 +46,8 @@ in
 
       nordic-nvim
       nvim-web-devicons
+
+      which-key-nvim
     ];
 
     extraConfig = ''

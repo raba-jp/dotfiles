@@ -40,5 +40,15 @@ inputs: final: prev:
       name = "nvim-web-devicons";
       src = inputs.nvim-web-devicons;
     };
+
+    which-key-nvim = prev.pkgs.vimUtils.buildVimPlugin {
+      name = "which-key.nvim";
+      src = inputs.which-key-nvim;
+    };
+
+    telescope-command-palette-nvim = prev.pkgs.vimUtils.buildVimPlugin {
+      name = "telescope-command-palette.nvim";
+      src = inputs.telescope-command-palette-nvim;
+    };
   };
 }

@@ -57,6 +57,15 @@
       url = "github:kyazdani42/nvim-web-devicons";
       flake = false;
     };
+    which-key-nvim = {
+      url = "github:folke/which-key.nvim";
+      flake = false;
+    };
+
+    telescope-command-palette-nvim = {
+      url = "github:LinArcX/telescope-command-palette.nvim";
+      flake = false;
+    };
   };
 
   outputs =

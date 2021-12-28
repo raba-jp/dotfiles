@@ -39,6 +39,12 @@ setmap(
 )
 
 gvar.mapleader = " "
+setmap(
+	"n",
+	"<C-p>",
+	'<cmd>lua require"telescope".extensions.command_palette.command_palette({})<CR>',
+	{ silent = true, noremap = true }
+)
 
 -- Config
 if fn.has("mac") then
@@ -117,6 +123,17 @@ telescope.setup({
 	},
 })
 telescope.load_extension("ghq")
+telescope.load_extension("command_palette")
+
+CpMenu = {
+	{
+		"File",
+		{ "file browser (C-i)", ":lua require'telescope'.extensions.file_browser.file_browser()", 1 },
+		{ "search word (A-w)", ":lua require('telescope.builtin').live_grep()", 1 },
+		{ "git files (A-f)", ":lua require('telescope.builtin').git_files()", 1 },
+		{ "files (C-f)", ":lua require('telescope.builtin').find_files()", 1 },
+	},
+}
 
 require("lualine").setup({ options = { theme = "nord" } })
 
@@ -174,3 +191,11 @@ cmd("augroup Format")
 cmd("autocmd!")
 cmd("autocmd BufWritePost * FormatWrite")
 cmd("augroup END")
+
+local wk = require("which-key")
+wk.setup({
+	window = {
+		border = "double",
+	},
+})
+wk.register({})
