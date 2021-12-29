@@ -126,19 +126,30 @@ telescope.setup({
 		entry_prefix = " ",
 		set_env = { ["COLORTERM"] = "truecolor" },
 	},
+	extensions = {
+		fzf = {
+			fuzzy = true,
+			override_generic_sorter = true,
+			override_file_sorter = true,
+			case_mode = "smart_case",
+		},
+	},
 })
 telescope.load_extension("ghq")
 telescope.load_extension("command_palette")
-telescope.load_extension("lsp_handlers")
+telescope.load_extension("fzf")
+
+require("octo").setup()
 
 CpMenu = {
 	{
 		"File",
-		{ "file browser (C-i)", ":lua require'telescope'.extensions.file_browser.file_browser()", 1 },
-		{ "search word (A-w)", ":lua require('telescope.builtin').live_grep()", 1 },
-		{ "git files (A-f)", ":lua require('telescope.builtin').git_files()", 1 },
-		{ "files (C-f)", ":lua require('telescope.builtin').find_files()", 1 },
+		{ "files", ":lua require('telescope.builtin').find_files()", 1 },
+		{ "file browser", ":lua require'telescope'.extensions.file_browser.file_browser()", 1 },
+		{ "search word", ":lua require('telescope.builtin').live_grep()", 1 },
+		{ "git files", ":lua require('telescope.builtin').git_files()", 1 },
 	},
+	{ "Help", { "Show cheatsheet", ":Cheatsheet" }, { "Edit cheatsheet", ":CheatsheetEdit" } },
 }
 
 require("lualine").setup({ options = { theme = "nord" } })
@@ -160,12 +171,10 @@ cmp.setup({
 -- LSP
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require("lspconfig")
-lspconfig.gopls.setup({
-	capabilities = capabilities,
-})
-lspconfig.rust_analyzer.setup({
-	capabilities = capabilities,
-})
+lspconfig.gopls.setup({ capabilities = capabilities })
+lspconfig.rust_analyzer.setup({ capabilities = capabilities })
+lspconfig.rnix.setup({ capabilities = capabilities })
+lspconfig.pyright.setup({ capabilities = capabilities })
 lspconfig.sumneko_lua.setup({
 	settings = {
 		Lua = {

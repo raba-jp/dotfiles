@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "cheatsheet-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1640255456,
+        "narHash": "sha256-TYkGB7cON2t4GwMaR9H1MDG2j3btBv2AR37ade8kqTY=",
+        "owner": "sudormrfbin",
+        "repo": "cheatsheet.nvim",
+        "rev": "9716f9aaa94dd1fd6ce59b5aae0e5f25e2a463ef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sudormrfbin",
+        "repo": "cheatsheet.nvim",
+        "type": "github"
+      }
+    },
     "cmp-buffer": {
       "flake": false,
       "locked": {
@@ -295,8 +311,25 @@
         "type": "github"
       }
     },
+    "octo-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1640645187,
+        "narHash": "sha256-1gFF4pk0Ty4K6FV7LeduLia6pBx40FPcBVEXt7q9zkE=",
+        "owner": "pwntester",
+        "repo": "octo.nvim",
+        "rev": "f29c1de15c4916b820786c729db16a0cbd26534f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pwntester",
+        "repo": "octo.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "cheatsheet-nvim": "cheatsheet-nvim",
         "cmp-buffer": "cmp-buffer",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
         "darwin": "darwin",
@@ -313,9 +346,9 @@
         "nixpkgs": "nixpkgs_2",
         "nordic-nvim": "nordic-nvim",
         "nvim-web-devicons": "nvim-web-devicons",
+        "octo-nvim": "octo-nvim",
         "telescope-command-palette-nvim": "telescope-command-palette-nvim",
         "telescope-ghq-nvim": "telescope-ghq-nvim",
-        "telescope-lsp-handlers-nvim": "telescope-lsp-handlers-nvim",
         "vim-edgemotion": "vim-edgemotion",
         "which-key-nvim": "which-key-nvim"
       }
@@ -349,22 +382,6 @@
       "original": {
         "owner": "nvim-telescope",
         "repo": "telescope-ghq.nvim",
-        "type": "github"
-      }
-    },
-    "telescope-lsp-handlers-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1631051048,
-        "narHash": "sha256-y3Sx/kiEs1uERjuP2uUQJCScCEgIao0lq5wNFiStofQ=",
-        "owner": "gbrlsnchs",
-        "repo": "telescope-lsp-handlers.nvim",
-        "rev": "d6d5983b0131ee2c386ca9e349f6621e12d971cb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "gbrlsnchs",
-        "repo": "telescope-lsp-handlers.nvim",
         "type": "github"
       }
     },

@@ -67,8 +67,13 @@
       flake = false;
     };
 
-    telescope-lsp-handlers-nvim = {
-      url = "github:gbrlsnchs/telescope-lsp-handlers.nvim";
+    cheatsheet-nvim = {
+      url = "github:sudormrfbin/cheatsheet.nvim";
+      flake = false;
+    };
+
+    octo-nvim = {
+      url = "github:pwntester/octo.nvim";
       flake = false;
     };
   };

@@ -11,6 +11,8 @@ in
     gopls
     rust-analyzer
     sumneko-lua-language-server
+    rnix-lsp
+    nodePackages.pyright
   ];
 
   programs.neovim = {
@@ -32,9 +34,11 @@ in
       popup-nvim
       plenary-nvim
       telescope-nvim # depends on popup-nvim, plenary-nvim
+      telescope-fzf-native-nvim
       telescope-ghq-nvim
       telescope-command-palette-nvim
-      telescope-lsp-handlers-nvim
+      cheatsheet-nvim
+      octo-nvim
 
       lualine-nvim
 
