@@ -13,6 +13,9 @@ in
     sumneko-lua-language-server
     rnix-lsp
     nodePackages.pyright
+    nodePackages.typescript-language-server
+    rubyPackages.solargraph
+    terraform-ls
   ];
 
   programs.neovim = {

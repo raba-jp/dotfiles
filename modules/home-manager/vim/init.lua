@@ -175,6 +175,10 @@ lspconfig.gopls.setup({ capabilities = capabilities })
 lspconfig.rust_analyzer.setup({ capabilities = capabilities })
 lspconfig.rnix.setup({ capabilities = capabilities })
 lspconfig.pyright.setup({ capabilities = capabilities })
+lspconfig.dartls.setup({ capabilities = capabilities })
+lspconfig.solargraph.setup({ capabilities = capabilities })
+lspconfig.terraformls.setup({ capabilities = capabilities })
+lspconfig.tsserver.setup({ capabilities = capabilities })
 lspconfig.sumneko_lua.setup({
 	settings = {
 		Lua = {
