@@ -120,6 +120,7 @@ telescope.setup({
 			"--line-number",
 			"--column",
 			"--smart-case",
+			"--trim",
 		},
 		prompt_prefix = "> ",
 		selection_caret = "> ",
@@ -144,10 +145,23 @@ require("octo").setup()
 CpMenu = {
 	{
 		"File",
-		{ "files", ":lua require('telescope.builtin').find_files()", 1 },
-		{ "file browser", ":lua require'telescope'.extensions.file_browser.file_browser()", 1 },
-		{ "search word", ":lua require('telescope.builtin').live_grep()", 1 },
-		{ "git files", ":lua require('telescope.builtin').git_files()", 1 },
+		{ "Files", ":lua require('telescope.builtin').find_files()", 1 },
+		{ "File browser", ":lua require('telescope.builtin').file_browser()", 1 },
+		{ "Git files", ":lua require('telescope.builtin').git_files()", 1 },
+	},
+	{
+		"Navigation",
+		{ "Buffers", ":lua require('telescope.builtin').buffers()" },
+		{ "Search", ":lua require('telescope.builtin').current_buffer_fuzzy_find()" },
+	},
+	{
+		"LSP",
+		{ "References", ":lua require('telescope.builtin').lsp_references()" },
+		{ "Document Symbols", ":lua require('telescope.builtin').lsp_document_symbols()" },
+		{ "Document Diagnostics", ":lua require('telescope.builtin').lsp_document_diagnostics()" },
+		{ "Workspace Symbols", ":lua require('telescope.builtin').lsp_workspace_symbols()" },
+		{ "Workspace Diagnostics", ":lua require('telescope.builtin').lsp_document_diagnostics" },
+		{ "Definitions", ":lua require('telescope.builtin').lsp_definitions()" },
 	},
 	{ "Help", { "Show cheatsheet", ":Cheatsheet" }, { "Edit cheatsheet", ":CheatsheetEdit" } },
 }
