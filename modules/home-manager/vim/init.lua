@@ -145,9 +145,9 @@ require("octo").setup()
 CpMenu = {
 	{
 		"File",
-		{ "Files", ":lua require('telescope.builtin').find_files()", 1 },
-		{ "File browser", ":lua require('telescope.builtin').file_browser()", 1 },
-		{ "Git files", ":lua require('telescope.builtin').git_files()", 1 },
+		{ "Files", ":lua require('telescope.builtin').find_files()" },
+		{ "File browser", ":lua require('telescope.builtin').file_browser()" },
+		{ "Git files", ":lua require('telescope.builtin').git_files()" },
 	},
 	{
 		"Navigation",
@@ -162,6 +162,11 @@ CpMenu = {
 		{ "Workspace Symbols", ":lua require('telescope.builtin').lsp_workspace_symbols()" },
 		{ "Workspace Diagnostics", ":lua require('telescope.builtin').lsp_document_diagnostics" },
 		{ "Definitions", ":lua require('telescope.builtin').lsp_definitions()" },
+	},
+	{
+		"Vim",
+		{ "Commands", ":lua require('telescope.builtin').commands()" },
+		{ "Registers", ":lua require('telescope.builtin').registers()" },
 	},
 	{ "Help", { "Show cheatsheet", ":Cheatsheet" }, { "Edit cheatsheet", ":CheatsheetEdit" } },
 }

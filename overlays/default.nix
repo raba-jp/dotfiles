@@ -9,5 +9,6 @@ with prev.lib;
     (import ./stack.nix)
     (import ./tilt.nix)
     ((import ./vim.nix) inputs)
+    ((import ./cachix.nix) inputs)
   ]
 ) final

@@ -76,6 +76,7 @@
       url = "github:pwntester/octo.nvim";
       flake = false;
     };
+    cachix.url = "github:cachix/cachix";
   };
 
   outputs =

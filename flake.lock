@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "cachix": {
+      "locked": {
+        "lastModified": 1640269602,
+        "narHash": "sha256-Li6GxQFtemPM0ODX+KqoVmOFLeHoqAlp+CcoowBh8lk=",
+        "owner": "cachix",
+        "repo": "cachix",
+        "rev": "f5cd1b44c2b3dffd6cc31c56a35c55a8775acf75",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cachix",
+        "repo": "cachix",
+        "type": "github"
+      }
+    },
     "cheatsheet-nvim": {
       "flake": false,
       "locked": {
@@ -329,6 +344,7 @@
     },
     "root": {
       "inputs": {
+        "cachix": "cachix",
         "cheatsheet-nvim": "cheatsheet-nvim",
         "cmp-buffer": "cmp-buffer",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
