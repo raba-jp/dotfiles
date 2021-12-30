@@ -30,6 +30,7 @@
     unzip
 
     # Nix
+    cachix
     manix
     any-nix-shell
     nixpkgs-fmt
