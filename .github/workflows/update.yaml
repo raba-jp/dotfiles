@@ -1,0 +1,24 @@
+name: Update dependencies
+on:
+  schedule:
+    - cron:  '0 9 * * *'
+jobs:
+  builds:
+    name: Update dependencies
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT }}
+          ref: ${{ github.head_ref }}
+      - uses: ./.github/actions/setup
+      - run: nix flake update
+      - run: nix flake check
+      - uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: Apply automatic changes
+          branch: daily_update
+          delete-branch: true
+          title: Daily Update
+          body: |
+            Run: nix flake update

@@ -1,0 +1,19 @@
+name: Build
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+jobs:
+  builds:
+    name: Build nixos configuration
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/setup
+      - run: nix build -L '.#nixosConfigurations.define7.config.system.build.toplevel'
+      # - name: Activate
+      #   if: ${{ github.ref == 'refs/heads/main' }}
+      #   run: cachix deploy activate
+      #   env:
+      #     CACHIX_ACTIVATE_TOKEN: ${{ secrets.CACHIX_ACTIVATE_TOKEN }}

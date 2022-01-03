@@ -172,11 +172,11 @@
       packages.x86_64-linux = {
         vmware = mkBootableImage {
           format = "vmware";
-          modules = [ ./profiles/linux-personal.nix ];
+          modules = [ ];
         };
         virtualbox = mkBootableImage {
           format = "virtualbox";
-          modules = [ ./profiles/linux-personal.nix ];
+          modules = [ ];
         };
       };
     } // eachDefaultSystem (system:
