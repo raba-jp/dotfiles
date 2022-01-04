@@ -12,6 +12,9 @@ jobs:
           token: ${{ secrets.PAT }}
           ref: ${{ github.head_ref }}
       - uses: ./.github/actions/setup
+        with:
+          github-access-token: ${{ secrets.GITHUB_TOKEN }}
+          cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
       - run: nix flake update
       - run: nix flake check
       - uses: peter-evans/create-pull-request@v3

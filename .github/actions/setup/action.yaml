@@ -1,5 +1,11 @@
 name: "Setup nix and tools"
 inputs:
+  github-access-token:
+    required: true
+    description: "GitHub Personal Access Token"
+  cachix-auth-token:
+    required:  true
+    description: "Cachix Auth Token"
 runs:
   using: "composite"
   steps:
@@ -8,12 +14,12 @@ runs:
       with:
         extra_nix_config: |
           experimental-features = nix-command flakes
-          access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+          access-tokens = github.com=${{ inputs.github-access-token }}
     - name: "Print nix info"
       shell: bash
-    - run: nix-shell -p nix-info --run "nix-info -m"
+      run: nix-shell -p nix-info --run "nix-info -m"
     - name: "Setup cachix"
       uses: cachix/cachix-action@v10
       with:
         name: raba-jp
-        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+        authToken: ${{ inputs.cachix-auth-token }}
