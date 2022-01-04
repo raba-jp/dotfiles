@@ -15,9 +15,6 @@ runs:
         extra_nix_config: |
           experimental-features = nix-command flakes
           access-tokens = github.com=${{ inputs.github-access-token }}
-    - name: "Print nix info"
-      shell: bash
-      run: nix-shell -p nix-info --run "nix-info -m"
     - name: "Setup cachix"
       uses: cachix/cachix-action@v10
       with:
