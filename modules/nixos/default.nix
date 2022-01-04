@@ -53,6 +53,18 @@
 
   environment.systemPackages = with pkgs; [ libnotify wget ];
 
+  systemd.services.cachix-agent = {
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    description = "Start Cachix deploy agent.";
+    serviceConfig = {
+      Type = "simple";
+      Restart = "always";
+      ExecStart = ''${pkgs.cachix}/bin/cachix deploy agent agent ${config.networking.hostName}'';
+      EnvironmentFile = "/etc/cachix/agent/token";
+    };
+  };
+
   system = {
     autoUpgrade.enable = true;
 
