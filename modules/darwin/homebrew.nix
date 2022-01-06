@@ -2,6 +2,7 @@
   homebrew = {
     enable = true;
     autoUpdate = false;
+    brewPrefix = "/opt/homebrew/bin";
     global = {
       brewfile = true;
       noLock = true;

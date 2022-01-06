@@ -157,6 +157,9 @@
           modules =
             [ ./modules/darwin/apps.nix ./profiles/darwin-personal.nix ];
         };
+        LF2107010038 = mkDarwinConfig {
+          modules = [ ./modules/darwin/apps.nix ./profiles/darwin-work.nix ];
+        };
       };
 
       nixosConfigurations = {

@@ -49,8 +49,8 @@
       macos_option_as_alt = "yes";
       macos_quit_when_last_window_closed = "yes";
       term = "xterm-256color";
-      # shell = "${pkgs.zsh}/bin/zsh --login";
-      shell = "/etc/profiles/per-user/sakuraba/bin/zsh --login";
+      shell = "${pkgs.zsh}/bin/zsh --login";
+      # shell = "/etc/profiles/per-user/sakuraba/bin/zsh --login";
       enabled_layouts = "grid,fat,horizontal,splits,tall,vertical";
       window_padding_width = 2;
       single_window_margin_width = 2;
