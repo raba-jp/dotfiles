@@ -2,6 +2,8 @@
 
 URL="https://nixos.org/nix/install"
 
+sudo xcodebuild -license accept
+
 # install using workaround for darwin systems
 [[ $(uname -s) = "Darwin" ]] && FLAG="--darwin-use-unencrypted-nix-store-volume"
 [[ ! -z "$1" ]] && URL="$1"

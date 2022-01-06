@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 let
   neovimConfig = builtins.readFile ./init.lua;
 in
@@ -10,7 +10,7 @@ in
     # LSP
     gopls
     rust-analyzer
-    sumneko-lua-language-server
+    (lib.mkIf (pkgs.stdenvNoCC.isLinux) sumneko-lua-language-server)
     rnix-lsp
     nodePackages.pyright
     nodePackages.typescript-language-server
