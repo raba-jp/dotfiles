@@ -191,18 +191,13 @@
       nixBin = pkgs.writeShellScriptBin "nix" ''
         ${pkgs.nixFlakes}/bin/nix --option experimental-features "nix-command flakes" "$@"
       '';
-      pyEnv = (pkgs.python39.withPackages (ps: with ps; [ black ]));
     in
     {
       devShell = pkgs.devshell.mkShell {
         packages = [
           nixBin
-          pyEnv
-          pkgs.treefmt
-          pkgs.nixfmt
-          pkgs.stylua
-          pkgs.shfmt
           pkgs.cargo-make
+          pkgs.nix-build-uncached
         ];
       };
     });
