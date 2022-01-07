@@ -8,6 +8,7 @@ with prev.lib;
     (import ./cica.nix)
     (import ./stack.nix)
     (import ./tilt.nix)
+    (import ./kitty.nix)
     ((import ./vim.nix) inputs)
     ((import ./cachix.nix) inputs)
   ]

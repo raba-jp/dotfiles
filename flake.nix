@@ -99,7 +99,7 @@
       overlays = { nixpkgs.overlays = [ ((import ./overlays) inputs) ]; };
 
       mkDarwinConfig =
-        { system ? "x86_64-darwin"
+        { system ? "aarch64-darwin"
         , nixpkgs ? inputs.nixpkgs
         , stable ? inputs.darwin-stable
         , modules ? [ ]

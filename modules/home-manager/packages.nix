@@ -3,8 +3,8 @@
 {
   home.packages = with pkgs; [
     # Termianl emulator
-    alacritty
     kitty
+    # alacritty
 
     # CLI
     nkf
