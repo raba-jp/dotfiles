@@ -18,7 +18,7 @@ jobs:
         with:
           github-access-token: ${{ secrets.GITHUB_TOKEN }}
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
-      - run: nix-shell --command nix-build-uncached deploy.nix
+      - run: nix-shell -p nix-build-uncached --run 'nix-build-uncached deploy.nix'
   activate:
     name: Activate deployment
     runs-on: ubuntu-20.04
