@@ -2,8 +2,7 @@
   homebrew = {
     enable = true;
     autoUpdate = false;
-    # FIX: https://github.com/LnL7/nix-darwin/pull/418/files
-    brewPrefix = if pkgs.stdenv.hostPlatform.darwinArch == "aarch64" then "/opt/homebrew/bin" else "/usr/local/bin";
+    brewPrefix = "/opt/homebrew/bin";
     global = {
       brewfile = true;
       noLock = true;
