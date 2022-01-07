@@ -4,6 +4,10 @@ on:
   push:
   workflow_dispatch:
 
+concurrency: 
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   builds:
     name: Build nixos configuration
@@ -15,6 +19,15 @@ jobs:
           github-access-token: ${{ secrets.GITHUB_TOKEN }}
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
       - run: nix build -L '.#nixosConfigurations.define7.config.system.build.toplevel'
+  activate:
+    name: Activate deployment
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/setup
+        with:
+          github-access-token: ${{ secrets.GITHUB_TOKEN }}
+          cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
       - name: Activate
         if: ${{ github.ref == 'refs/heads/main' }}
         run: cachix deploy activate $(nix-build deploy.nix)
