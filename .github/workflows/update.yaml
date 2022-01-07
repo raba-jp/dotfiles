@@ -19,6 +19,7 @@ jobs:
       - run: nix flake check
       - uses: peter-evans/create-pull-request@v3
         with:
+          token: ${{ secrets.PAT }}
           commit-message: Apply automatic changes
           branch: daily_update
           delete-branch: true
