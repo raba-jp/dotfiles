@@ -30,6 +30,7 @@ jobs:
     name: Activate deployment
     runs-on: ubuntu-20.04
     needs: builds
+    if: ${{ github.ref == 'refs/heads/main' }}
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/setup
@@ -41,7 +42,6 @@ jobs:
           name: deploy-spec
           path: deploy-spec.json
       - name: Activate
-        if: ${{ github.ref == 'refs/heads/main' }}
         run: cachix deploy activate deploy-spec.json
         env:
           CACHIX_ACTIVATE_TOKEN: ${{ secrets.CACHIX_ACTIVATE_TOKEN }}
