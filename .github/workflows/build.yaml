@@ -31,6 +31,7 @@ jobs:
     runs-on: ubuntu-20.04
     needs: builds
     steps:
+      - uses: actions/checkout@v2
       - uses: ./.github/actions/setup
         with:
           github-access-token: ${{ secrets.GITHUB_TOKEN }}
