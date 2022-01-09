@@ -1,24 +1,7 @@
 { config, pkgs, lib, ... }: {
-  networking = {
-    networkmanager.enable = true;
-    useDHCP = false;
-  };
-
-  sound.enable = true;
-
-  hardware = {
-    pulseaudio.enable = true;
-    opengl.enable = true;
-  };
-
   time.timeZone = "Asia/Tokyo";
   i18n = {
     defaultLocale = "ja_JP.UTF-8";
-    inputMethod = {
-      enabled = "fcitx";
-      fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
-      # fcitx5.addons = with pkgs; [ fcitx5-mozc ];
-    };
   };
 
   fonts = {
@@ -29,8 +12,6 @@
       sansSerif = [ "Noto Sans Mono CJK JP" ];
     };
   };
-
-  virtualisation.docker.enable = true;
 
   console.useXkbConfig = true;
 
@@ -53,17 +34,17 @@
 
   environment.systemPackages = with pkgs; [ libnotify wget ];
 
-  systemd.services.cachix-agent = {
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
-    description = "Start Cachix deploy agent.";
-    serviceConfig = {
-      Type = "simple";
-      Restart = "always";
-      ExecStart = ''${pkgs.cachix}/bin/cachix deploy agent agent ${config.networking.hostName}'';
-      EnvironmentFile = "/etc/cachix/agent/token";
-    };
-  };
+  # systemd.services.cachix-agent = {
+  #   wantedBy = [ "multi-user.target" ];
+  #   after = [ "network.target" ];
+  #   description = "Start Cachix deploy agent.";
+  #   serviceConfig = {
+  #     Type = "simple";
+  #     Restart = "always";
+  #     ExecStart = ''${pkgs.cachix}/bin/cachix deploy agent ${config.networking.hostName}'';
+  #     EnvironmentFile = "/etc/cachix/agent/token";
+  #   };
+  # };
 
   system = {
     autoUpgrade.enable = true;

@@ -18,14 +18,36 @@
     kernelPackages = pkgs.linuxPackages_zen;
   };
 
+
+  sound.enable = true;
+
   networking = {
+    networkmanager.enable = true;
+    useDHCP = false;
+
     firewall = {
       allowedTCPPorts = [ 34197 ];
       allowedUDPPorts = [ 34197 ];
     };
   };
 
-  hardware = { nvidia.nvidiaSettings = true; };
+  hardware = {
+    pulseaudio.enable = true;
+
+    opengl.enable = true;
+
+    nvidia.nvidiaSettings = true;
+  };
+
+  i18n = {
+    inputMethod = {
+      enabled = "fcitx";
+      fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
+      # fcitx5.addons = with pkgs; [ fcitx5-mozc ];
+    };
+  };
+
+  virtualisation.docker.enable = true;
 
   services = {
     xserver = {

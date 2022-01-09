@@ -127,7 +127,6 @@
             home-manager.nixosModules.home-manager
             ./modules/common
             ./modules/nixos
-            ./modules/nixos-desktop
             overlays
           ] ++ modules;
           specialArgs = { inherit inputs nixpkgs stable; };
@@ -145,7 +144,6 @@
             home-manager.nixosModules.home-manager
             ./modules/common
             ./modules/nixos
-            ./modules/nixos-vm
             overlays
           ] ++ modules;
           format = format;
@@ -165,21 +163,33 @@
       nixosConfigurations = {
         define7 = mkNixosConfig {
           modules =
-            [ ./modules/hardwares/define7 ./profiles/linux-personal.nix ];
+            [
+              ./modules/hardwares/define7
+              ./modules/nixos-desktop
+              ./profiles/linux-personal.nix
+            ];
         };
         xps13 = mkNixosConfig {
-          modules = [ ./modules/hardwares/xps13 ./profiles/linux-personal.nix ];
+          modules = [
+            ./modules/hardwares/xps13
+            ./modules/nixos-desktop
+            ./profiles/linux-personal.nix
+          ];
         };
       };
 
       packages.x86_64-linux = {
         vmware = mkBootableImage {
           format = "vmware";
-          modules = [ ];
+          modules = [ ./modules/nixos-desktop/vm.nix ];
         };
         virtualbox = mkBootableImage {
           format = "virtualbox";
-          modules = [ ];
+          modules = [ ./modules/nixos-desktop/vm.nix ];
+        };
+        server = mkBootableImage {
+          format = "do";
+          modules = [ ./modules/nixos-server ];
         };
       };
     } // eachDefaultSystem (system:
