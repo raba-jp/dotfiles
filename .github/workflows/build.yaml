@@ -40,7 +40,6 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: deploy-spec
-          path: deploy-spec.json
       - name: Activate
         run: cachix deploy activate deploy-spec.json
         env:
