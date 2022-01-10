@@ -1,3 +1,6 @@
+let
+  flake = (import ./flake-compat.nix).defaultNix;
+in
 {
-  deploy = import ./deploy.nix;
+  deploy = flake.deploy;
 }

@@ -90,9 +90,15 @@
     , nixos-generators
     , devshell
     , flake-utils
+    , hercules-ci-effects
     , ...
     }:
     let
+      pkgs = import nixos-unstable {
+        system = "x86_64-linux";
+        overlays = [ hercules-ci-effects.overlay ];
+      };
+
       inherit (darwin.lib) darwinSystem;
       inherit (nixos-unstable.lib) nixosSystem;
       inherit (nixos-generators) nixosGenerate;
@@ -209,6 +215,12 @@
           ];
         };
       };
+
+      deploy = pkgs.effects.runCachixDeploy {
+        deploy.agents."define7" = self.nixosConfigurations.define7.config.system.build.toplevel;
+        secretsMap.activate = "default-cachix-activate";
+      };
+
     } // eachDefaultSystem (system:
     let
       pkgs = import nixos-unstable {
@@ -227,5 +239,6 @@
           pkgs.nix-build-uncached
         ];
       };
+
     });
 }
