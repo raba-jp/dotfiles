@@ -2,7 +2,7 @@
   nixpkgs.config.allowUnfree = true;
 
   nix = {
-    package = pkgs.nix_2_4;
+    package = pkgs.nix_2_5;
 
     extraOptions = ''
       keep-outputs = true

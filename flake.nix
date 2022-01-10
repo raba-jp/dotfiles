@@ -78,6 +78,7 @@
     };
     cachix.url = "github:cachix/cachix";
     hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent";
+    hercules-ci-effects.url = "github:hercules-ci/hercules-ci-effects";
   };
 
   outputs =
@@ -164,6 +165,10 @@
               ./modules/hardwares/define7
               ./modules/nixos-desktop
               ./profiles/linux-personal.nix
+              ({ config, lib, pkgs, ... }: {
+                imports = [ inputs.hercules-ci-agent.nixosModules.agent-service ];
+                services.hercules-ci-agent.enable = true;
+              })
             ];
         };
 

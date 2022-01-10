@@ -15,7 +15,9 @@
 
   console.useXkbConfig = true;
 
-  services = { openssh.enable = true; };
+  services = {
+    openssh.enable = true;
+  };
 
   nix = {
     trustedUsers = [ "root" "sakuraba" ];
