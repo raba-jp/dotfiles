@@ -77,6 +77,7 @@
       flake = false;
     };
     cachix.url = "github:cachix/cachix";
+    hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent";
   };
 
   outputs =
@@ -151,10 +152,6 @@
     in
     {
       darwinConfigurations = {
-        SakurabaMBP = mkDarwinConfig {
-          modules =
-            [ ./modules/darwin/apps.nix ./profiles/darwin-personal.nix ];
-        };
         LF2107010038 = mkDarwinConfig {
           modules = [ ./modules/darwin/apps.nix ./profiles/darwin-work.nix ];
         };
@@ -169,11 +166,21 @@
               ./profiles/linux-personal.nix
             ];
         };
+
         xps13 = mkNixosConfig {
           modules = [
             ./modules/hardwares/xps13
             ./modules/nixos-desktop
             ./profiles/linux-personal.nix
+          ];
+        };
+
+        sirius = mkNixosConfig {
+          modules = [
+            ({ config, lib, pkgs, ... }: {
+              imports = [ inputs.hercules-ci-agent.nixosModules.agent-service ];
+              services.hercules-ci-agent.enable = true;
+            })
           ];
         };
       };
@@ -189,7 +196,12 @@
         };
         server = mkBootableImage {
           format = "do";
-          modules = [ ./modules/nixos-server ];
+          modules = [
+            ({ config, lib, pkgs, ... }: {
+              imports = [ inputs.hercules-ci-agent.nixosModules.agent-service ];
+              services.hercules-ci-agent.enable = true;
+            })
+          ];
         };
       };
     } // eachDefaultSystem (system:
