@@ -1,5 +1,5 @@
 { inputs, config, pkgs, ... }: {
-  imports = [ ./nixpkgs.nix ];
+  imports = [ ./nixpkgs.nix ./ssh.nix ];
 
   home-manager = {
     useGlobalPkgs = true;
