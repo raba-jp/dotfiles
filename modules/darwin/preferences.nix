@@ -23,6 +23,8 @@
         # 音量を変更した時にフィードバックを再生しない
         "com.apple.sound.beep.feedback" = 0;
         "com.apple.trackpad.scaling" = "3";
+        # ダークモード
+        AppleInterfaceStyle = "Dark";
       };
 
       dock = {
