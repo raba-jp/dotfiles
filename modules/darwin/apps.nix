@@ -26,7 +26,6 @@
       # "slack"
       "stack-stack"
       "tableplus"
-      "tandem"
       "the-unarchiver"
       "visual-studio-code"
       "zoom"

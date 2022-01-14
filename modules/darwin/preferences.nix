@@ -28,9 +28,9 @@
       };
 
       dock = {
-        show-recents = false;
         # dockを自動的に表示/非表示
-        showhidden = true;
+        autohide = true;
+        show-recents = false;
         # 最新の使用状況に基づいて操作スペースを自動的に並べ替える
         mru-spaces = false;
         # 起動済みのアプリケーションにインジケータを表示

@@ -5,7 +5,6 @@ with prev.lib;
 (foldl' (flip extends) (_: prev)
   [
     (import ./stable.nix)
-    (import ./zsh.nix)
     (import ./cica.nix)
     (import ./stack.nix)
     (import ./tilt.nix)
