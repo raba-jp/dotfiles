@@ -51,6 +51,8 @@
     google-cloud-sdk
     bazelisk
     terraform
+    terraformer
+    driftctl
     buf
     shellcheck
     shfmt
