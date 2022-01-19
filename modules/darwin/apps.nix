@@ -11,7 +11,6 @@
       "clipy"
       "deepl"
       "discord"
-      "docker"
       "font-hackgen"
       "font-myrica"
       # "google-chrome"
