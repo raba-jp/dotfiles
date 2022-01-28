@@ -27,6 +27,7 @@
       core = {
         editor = "vim";
         preloadindex = true;
+        fsmonitor = "rs-git-fsmonitor";
       };
 
       user = { useConfigOnly = true; };

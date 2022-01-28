@@ -10,11 +10,14 @@
     nkf
     killall
     gnupg
+    gnused
     git-crypt
     envsubst
     starship # shell prompt
     ripgrep # replace from 'grep'
     fd # replace from 'find'
+    awscli2
+    graphviz
 
     tig # git client
     lazygit
@@ -28,6 +31,9 @@
     gobang # TUI database management tool
     treefmt
     unzip
+    lima
+    watchman
+    rs-git-fsmonitor
 
     # Nix
     cachix
