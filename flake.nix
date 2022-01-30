@@ -4,8 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    # NixOS
-    nixos-stable.url = "github:nixos/nixpkgs/nixos-21.11";
+    # NixOS nixos-stable.url = "github:nixos/nixpkgs/nixos-21.11";
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Darwin
@@ -97,61 +96,125 @@
     };
   };
 
-  outputs = { self, home-manager, flake-utils-plus, ... }@inputs:
+  outputs = { self, nixos-unstable, darwin, home-manager, flake-utils-plus, ... }@inputs:
     let
       inherit (builtins) removeAttrs;
       inherit (darwin.lib) darwinSystem;
       inherit (nixos-unstable.lib) nixosSystem;
-      inherit (flake-utils-plus.lib) mkFlake;
+      inherit (flake-utils-plus.lib) mkFlake eachDefaultSystem;
     in
-    mkFlake {
-      inherit self inputs;
+    mkFlake
+      {
+        inherit self inputs;
 
-      supportedSystems = [ "x86_64-linux" "aarch64-darwin" ];
+        supportedSystems = [ "x86_64-linux" "aarch64-darwin" ];
 
-      channelsConfig = { allowUnfree = true; };
-      sharedOverlays = [ ];
+        channelsConfig = { allowUnfree = true; };
+        sharedOverlays = [
+          ((import ./overlays) inputs)
+          inputs.hercules-ci-effects.overlay
+          inputs.devshell.overlay
+        ];
 
-      hostDefaults.system = "x86_64-linux";
-      hostDefaults.channelName = "nixos-unstable";
-      hostDefaults.modules = [
-        home-manager.nixosModules.home-manager
-        agenix.nixosModules.age
-      ];
+        hostDefaults.system = "x86_64-linux";
+        hostDefaults.channelName = "nixos-unstable";
+        hostDefaults.modules = [
+          home-manager.nixosModules.home-manager
+          ./modules
+        ];
 
-      hosts = {
-        define7 = {
-          system = "x86_64-linux";
+        hosts = {
+          define7 = {
+            system = "x86_64-linux";
 
-          output = "nixosConfigurations";
+            output = "nixosConfigurations";
 
-          modules = [ ];
+            modules = [ ./system/nixos ./hosts/define7 ];
 
-          builder = args: nixosSystem (args);
+            builder = args: nixosSystem (args);
+          };
+
+          xps13 = {
+            system = "x86_64-linux";
+
+            output = "nixosConfigurations";
+
+            modules = [ ./system/nixos ./hosts/xps13 ];
+
+            builder = args: nixosSystem (args);
+          };
+
+          LF2107010038 = {
+            system = "aarch64-darwin";
+
+            output = "darwinConfigurations";
+
+            modules = [
+              home-manager.darwinModules.home-manager
+              ./system/darwin
+              ./hosts/LF2107010038
+            ];
+
+            # `removeAttrs` workaround due to this issue https://github.com/LnL7/nix-darwin/issues/319
+            builder = args: darwinSystem (removeAttrs args [ "system" ]);
+          };
         };
-
-        xps13 = {
-          system = "x86_64-linux";
-
-          output = "nixosConfigurations";
-
-          modules = [ ];
-
-          builder = args: nixosSystem (args);
-        };
-
-        LF2107010038 = {
-          system = "aarch64-darwin";
-
-          output = "darwinConfigurations";
-
-          modules = [
-            home-manager.darwinModules.home-manager
+      } // eachDefaultSystem (system:
+      let
+        pkgs = import inputs.nixpkgs {
+          inherit system;
+          overlays = [
+            inputs.devshell.overlay
+            inputs.hercules-ci-effects.overlay
           ];
-
-          # `removeAttrs` workaround due to this issue https://github.com/LnL7/nix-darwin/issues/319
-          builder = args: darwinSystem (removeAttrs args [ "system" ]);
         };
-      };
-    };
+      in
+      {
+        devShell = pkgs.devshell.mkShell
+          {
+            imports = [ "${pkgs.devshell.extraModulesDir}/git/hooks.nix" ];
+
+            packages = [ pkgs.treefmt pkgs.nixpkgs-fmt pkgs.stylua pkgs.shfmt ];
+
+            commands = [
+              {
+                name = "switch:define7";
+                command = "sudo nixos-rebuild switch --flake .#define7";
+                category = "switch";
+              }
+              {
+                name = "switch:xps13";
+                command = "sudo nixos-rebuild switch --flake .#xps13";
+                category = "switch";
+              }
+              {
+                name = "switch:LF2107010038";
+                command = ''
+                  nix build './#darwinConfigurations.LF2107010038.system'
+                  ./result/sw/bin/darwin-rebuild switch --flake ./
+                '';
+                category = "switch";
+              }
+              {
+                name = "info";
+                help = "Print nix informations";
+                command = ''
+                  nix-shell -p nix-info --run "nix-info -m"
+                '';
+              }
+            ];
+
+            git.hooks = {
+              enable = true;
+              pre-commit.text = ''
+                #!/bin/sh
+                treefmt
+
+                for FILE in `git diff --staged --name-only`; do
+                    git add $FILE
+                done
+              '';
+            };
+          };
+      });
 }
