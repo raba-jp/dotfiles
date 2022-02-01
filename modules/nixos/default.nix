@@ -34,7 +34,7 @@
     dconf.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [ libnotify wget ];
+  environment.systemPackages = with pkgs; [ libnotify wget gnomeExtensions.pop-shell ];
 
   # systemd.services.cachix-agent = {
   #   wantedBy = [ "multi-user.target" ];
