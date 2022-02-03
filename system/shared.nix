@@ -27,7 +27,7 @@
     };
 
     generateRegistryFromInputs = true;
-    linkInputs = true;
+    linkInputs = false;
 
     extraOptions = ''
       keep-outputs = true
