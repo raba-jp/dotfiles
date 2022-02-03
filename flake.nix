@@ -37,10 +37,6 @@
       flake = false;
     };
 
-    # CI
-    hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent";
-    hercules-ci-effects.url = "github:hercules-ci/hercules-ci-effects";
-
     ## NeoVim Plugins
     vim-edgemotion = {
       url = "github:haya14busa/vim-edgemotion";
@@ -95,7 +91,7 @@
     };
   };
 
-  outputs = { self, nixos-unstable, darwin, home-manager, flake-utils-plus, hercules-ci-agent, ... }@inputs:
+  outputs = { self, nixos-unstable, darwin, home-manager, flake-utils-plus, ... }@inputs:
     let
       inherit (builtins) removeAttrs;
       inherit (darwin.lib) darwinSystem;
@@ -111,7 +107,6 @@
         channelsConfig = { allowUnfree = true; };
         sharedOverlays = [
           ((import ./overlays) inputs)
-          inputs.hercules-ci-effects.overlay
           inputs.devshell.overlay
         ];
 
@@ -119,7 +114,6 @@
         hostDefaults.channelName = "nixos-unstable";
         hostDefaults.modules = [
           home-manager.nixosModules.home-manager
-          hercules-ci-agent.nixosModules.agent-service
           ./modules
         ];
 
@@ -165,7 +159,6 @@
           inherit system;
           overlays = [
             inputs.devshell.overlay
-            inputs.hercules-ci-effects.overlay
           ];
         };
       in
