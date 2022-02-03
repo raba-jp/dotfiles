@@ -95,7 +95,7 @@
     };
   };
 
-  outputs = { self, nixos-unstable, darwin, home-manager, flake-utils-plus, ... }@inputs:
+  outputs = { self, nixos-unstable, darwin, home-manager, flake-utils-plus, hercules-ci-agent, ... }@inputs:
     let
       inherit (builtins) removeAttrs;
       inherit (darwin.lib) darwinSystem;
@@ -119,6 +119,7 @@
         hostDefaults.channelName = "nixos-unstable";
         hostDefaults.modules = [
           home-manager.nixosModules.home-manager
+          hercules-ci-agent.nixosModules.agent-service
           ./modules
         ];
 

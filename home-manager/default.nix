@@ -67,6 +67,7 @@
       any-nix-shell
       nixpkgs-fmt
       nix-prefetch-github
+      hci
 
       # Kubernetes
       kubectl
