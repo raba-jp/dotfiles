@@ -35,7 +35,9 @@
   };
 
   nix = {
-    trustedUsers = [ "root" "sakuraba" ];
+    settings = {
+      trusted-users = [ "root" "sakuraba" ];
+    };
 
     gc = {
       automatic = true;
