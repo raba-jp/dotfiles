@@ -6,6 +6,5 @@ with prev.lib;
   [
     (import ./cica.nix)
     ((import ./vim.nix) inputs)
-    ((import ./cachix.nix) inputs)
   ]
 ) final

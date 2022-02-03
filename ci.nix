@@ -6,7 +6,7 @@ in
 {
   inherit shell;
 
-  build = effects.runCachixDeploy {
+  deploy = effects.runCachixDeploy {
     deploy.agents."define7" = flake.nixosConfigurations.define7.config.system.build.toplevel;
   };
 }

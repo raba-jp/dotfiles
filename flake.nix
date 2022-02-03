@@ -38,7 +38,6 @@
     };
 
     # CI
-    cachix.url = "github:cachix/cachix";
     hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent";
     hercules-ci-effects.url = "github:hercules-ci/hercules-ci-effects";
 
