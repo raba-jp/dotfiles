@@ -2,27 +2,45 @@
   description = "Nix system configurations";
 
   inputs = {
-    nixos-stable.url = "github:nixos/nixpkgs/nixos-21.11";
-    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    darwin-stable.url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    home-manager.url = "github:nix-community/home-manager";
+    # NixOS nixos-stable.url = "github:nixos/nixpkgs/nixos-21.11";
+    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # Darwin
+    darwin-stable.url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
     darwin = {
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Home Manager
+    home-manager.url = "github:nix-community/home-manager";
+
+    # ISO images and VMs
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixos-unstable";
     };
+
+    # Shell
     devshell.url = "github:numtide/devshell";
+
+    # Utility
     flake-utils.url = "github:numtide/flake-utils";
+    flake-utils-plus = {
+      url = "github:gytis-ivaskevicius/flake-utils-plus";
+      inputs.flake-utils.follows = "flake-utils";
+    };
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
     };
+
+    # CI
+    cachix.url = "github:cachix/cachix";
+    hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent";
+    hercules-ci-effects.url = "github:hercules-ci/hercules-ci-effects";
 
     ## NeoVim Plugins
     vim-edgemotion = {
@@ -76,169 +94,127 @@
       url = "github:pwntester/octo.nvim";
       flake = false;
     };
-    cachix.url = "github:cachix/cachix";
-    hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent";
-    hercules-ci-effects.url = "github:hercules-ci/hercules-ci-effects";
   };
 
-  outputs =
-    inputs@{ self
-    , nixos-stable
-    , nixos-unstable
-    , darwin
-    , home-manager
-    , nixos-generators
-    , devshell
-    , flake-utils
-    , hercules-ci-effects
-    , ...
-    }:
+  outputs = { self, nixos-unstable, darwin, home-manager, flake-utils-plus, ... }@inputs:
     let
-      pkgs = import nixos-unstable {
-        system = "x86_64-linux";
-        overlays = [ hercules-ci-effects.overlay ];
-      };
-
+      inherit (builtins) removeAttrs;
       inherit (darwin.lib) darwinSystem;
       inherit (nixos-unstable.lib) nixosSystem;
-      inherit (nixos-generators) nixosGenerate;
-      inherit (flake-utils.lib) eachDefaultSystem;
-
-      overlays = { nixpkgs.overlays = [ ((import ./overlays) inputs) ]; };
-
-      mkDarwinConfig =
-        { system ? "aarch64-darwin"
-        , nixpkgs ? inputs.nixpkgs
-        , stable ? inputs.darwin-stable
-        , modules ? [ ]
-        }:
-        darwinSystem {
-          inherit system;
-          modules = [
-            home-manager.darwinModules.home-manager
-            ./modules/common
-            ./modules/darwin
-            overlays
-          ] ++ modules;
-          specialArgs = { inherit inputs nixpkgs stable; };
-        };
-
-      mkNixosConfig =
-        { system ? "x86_64-linux"
-        , nixpkgs ? inputs.nixos-unstable
-        , stable ? inputs.nixos-stable
-        , modules ? [ ]
-        }:
-        nixosSystem {
-          inherit system;
-          modules = [
-            home-manager.nixosModules.home-manager
-            ./modules/common
-            ./modules/nixos
-            overlays
-          ] ++ modules;
-          specialArgs = { inherit inputs nixpkgs stable; };
-        };
-
-      mkBootableImage =
-        { format
-        , nixpkgs ? inputs.nixos-unstable
-        , stable ? inputs.nixos-stable
-        , modules ? [ ]
-        }:
-        nixosGenerate {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux.extend ((import ./overlays) inputs);
-          modules = [
-            home-manager.nixosModules.home-manager
-            ./modules/common
-            ./modules/nixos
-            overlays
-          ] ++ modules;
-          format = format;
-        };
+      inherit (flake-utils-plus.lib) mkFlake eachDefaultSystem;
     in
-    {
-      darwinConfigurations = {
-        LF2107010038 = mkDarwinConfig {
-          modules = [ ./modules/darwin/apps.nix ./profiles/darwin-work.nix ];
-        };
-      };
+    mkFlake
+      {
+        inherit self inputs;
 
-      nixosConfigurations = {
-        define7 = mkNixosConfig {
-          modules =
-            [
-              ./modules/hardwares/define7
-              ./modules/nixos-desktop
-              ./profiles/linux-personal.nix
-              ({ config, lib, pkgs, ... }: {
-                imports = [ inputs.hercules-ci-agent.nixosModules.agent-service ];
-                services.hercules-ci-agent.enable = true;
-              })
-            ];
-        };
+        supportedSystems = [ "x86_64-linux" "aarch64-darwin" ];
 
-        xps13 = mkNixosConfig {
-          modules = [
-            ./modules/hardwares/xps13
-            ./modules/nixos-desktop
-            ./profiles/linux-personal.nix
-          ];
-        };
-
-        sirius = mkNixosConfig {
-          modules = [
-            ({ config, lib, pkgs, ... }: {
-              imports = [ inputs.hercules-ci-agent.nixosModules.agent-service ];
-              services.hercules-ci-agent.enable = true;
-            })
-          ];
-        };
-      };
-
-      packages.x86_64-linux = {
-        vmware = mkBootableImage {
-          format = "vmware";
-          modules = [ ./modules/nixos-desktop/vm.nix ];
-        };
-        virtualbox = mkBootableImage {
-          format = "virtualbox";
-          modules = [ ./modules/nixos-desktop/vm.nix ];
-        };
-        server = mkBootableImage {
-          format = "do";
-          modules = [
-            ({ config, lib, pkgs, ... }: {
-              imports = [ inputs.hercules-ci-agent.nixosModules.agent-service ];
-              services.hercules-ci-agent.enable = true;
-            })
-          ];
-        };
-      };
-
-      deploy = pkgs.effects.runCachixDeploy {
-        deploy.agents."define7" = self.nixosConfigurations.define7.config.system.build.toplevel;
-        secretsMap.activate = "default-cachix-activate";
-      };
-
-    } // eachDefaultSystem (system:
-    let
-      pkgs = import nixos-unstable {
-        inherit system;
-        overlays = [ devshell.overlay ];
-      };
-      nixBin = pkgs.writeShellScriptBin "nix" ''
-        ${pkgs.nixFlakes}/bin/nix --option experimental-features "nix-command flakes" "$@"
-      '';
-    in
-    {
-      devShell = pkgs.devshell.mkShell {
-        packages = [
-          nixBin
-          pkgs.cargo-make
-          pkgs.nix-build-uncached
+        channelsConfig = { allowUnfree = true; };
+        sharedOverlays = [
+          ((import ./overlays) inputs)
+          inputs.hercules-ci-effects.overlay
+          inputs.devshell.overlay
         ];
-      };
 
-    });
+        hostDefaults.system = "x86_64-linux";
+        hostDefaults.channelName = "nixos-unstable";
+        hostDefaults.modules = [
+          home-manager.nixosModules.home-manager
+          ./modules
+        ];
+
+        hosts = {
+          define7 = {
+            system = "x86_64-linux";
+
+            output = "nixosConfigurations";
+
+            modules = [ ./system/nixos ./hosts/define7 ];
+
+            builder = args: nixosSystem (args);
+          };
+
+          xps13 = {
+            system = "x86_64-linux";
+
+            output = "nixosConfigurations";
+
+            modules = [ ./system/nixos ./hosts/xps13 ];
+
+            builder = args: nixosSystem (args);
+          };
+
+          LF2107010038 = {
+            system = "aarch64-darwin";
+
+            output = "darwinConfigurations";
+
+            modules = [
+              home-manager.darwinModules.home-manager
+              ./system/darwin
+              ./hosts/LF2107010038
+            ];
+
+            # `removeAttrs` workaround due to this issue https://github.com/LnL7/nix-darwin/issues/319
+            builder = args: darwinSystem (removeAttrs args [ "system" ]);
+          };
+        };
+      } // eachDefaultSystem (system:
+      let
+        pkgs = import inputs.nixpkgs {
+          inherit system;
+          overlays = [
+            inputs.devshell.overlay
+            inputs.hercules-ci-effects.overlay
+          ];
+        };
+      in
+      {
+        devShell = pkgs.devshell.mkShell
+          {
+            imports = [ "${pkgs.devshell.extraModulesDir}/git/hooks.nix" ];
+
+            packages = [ pkgs.treefmt pkgs.nixpkgs-fmt pkgs.stylua pkgs.shfmt ];
+
+            commands = [
+              {
+                name = "switch:define7";
+                command = "sudo nixos-rebuild switch --flake .#define7";
+                category = "switch";
+              }
+              {
+                name = "switch:xps13";
+                command = "sudo nixos-rebuild switch --flake .#xps13";
+                category = "switch";
+              }
+              {
+                name = "switch:LF2107010038";
+                command = ''
+                  nix build './#darwinConfigurations.LF2107010038.system'
+                  ./result/sw/bin/darwin-rebuild switch --flake ./
+                '';
+                category = "switch";
+              }
+              {
+                name = "info";
+                help = "Print nix informations";
+                command = ''
+                  nix-shell -p nix-info --run "nix-info -m"
+                '';
+              }
+            ];
+
+            git.hooks = {
+              enable = true;
+              pre-commit.text = ''
+                #!/bin/sh
+                treefmt
+
+                for FILE in `git diff --staged --name-only`; do
+                    git add $FILE
+                done
+              '';
+            };
+          };
+      });
 }
