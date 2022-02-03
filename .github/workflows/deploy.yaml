@@ -20,7 +20,7 @@ jobs:
         with:
           github-access-token: ${{ secrets.GITHUB_TOKEN }}
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
-      - run: nix build -f ci.nix -o deploy-spec.json
+      - run: nix build -f ci.nix -o deploy-spec.json --show-trace
       - uses: actions/upload-artifact@v2
         with:
           name: deploy-spec
