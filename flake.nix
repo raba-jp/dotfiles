@@ -178,17 +178,17 @@
 
             commands = [
               {
-                name = "switch:define7";
+                name = "switch-define7";
                 command = "sudo nixos-rebuild switch --flake .#define7";
                 category = "switch";
               }
               {
-                name = "switch:xps13";
+                name = "switch-xps13";
                 command = "sudo nixos-rebuild switch --flake .#xps13";
                 category = "switch";
               }
               {
-                name = "switch:LF2107010038";
+                name = "switch-LF2107010038";
                 command = ''
                   nix build './#darwinConfigurations.LF2107010038.system'
                   ./result/sw/bin/darwin-rebuild switch --flake ./
