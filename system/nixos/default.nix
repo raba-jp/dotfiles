@@ -32,7 +32,6 @@
 
   services = {
     openssh.enable = true;
-    hercules-ci-agent.enable = true;
   };
 
   nix = {

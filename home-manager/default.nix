@@ -47,6 +47,7 @@
       watchman
       rs-git-fsmonitor
       lima
+      yubikey-manager
 
       tig # git client
       lazygit

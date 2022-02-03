@@ -22,7 +22,7 @@ in
         displayManager.gdm = {
           enable = true;
           wayland = true;
-          nvidiaWayland = false;
+          # nvidiaWayland = false;
         };
 
         desktopManager.gnome.enable = true;
