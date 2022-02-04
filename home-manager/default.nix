@@ -48,6 +48,7 @@
       rs-git-fsmonitor
       lima
       yubikey-manager
+      bitwarden-cli
 
       tig # git client
       lazygit
