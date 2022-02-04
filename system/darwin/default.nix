@@ -20,8 +20,9 @@
 
   homebrew = {
     enable = true;
-    autoUpdate = false;
+    autoUpdate = true;
     brewPrefix = "/opt/homebrew/bin";
+    cleanup = "uninstall";
     global = {
       brewfile = true;
       noLock = true;
@@ -39,9 +40,8 @@
       "tilt-dev/tap"
     ];
 
-    cask = [
+    casks = [
       "alacritty"
-      "alfred"
       "appcleaner"
       "bartender"
       "betterdummy"
@@ -50,11 +50,10 @@
       "clipy"
       "deepl"
       "discord"
-      "docker"
       "eul"
       "font-hackgen"
       "font-myrica"
-      # "google-chrome"
+      "google-chrome"
       "hammerspoon"
       "hyperswitch"
       "kitty"

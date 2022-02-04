@@ -112,10 +112,7 @@
 
         hostDefaults.system = "x86_64-linux";
         hostDefaults.channelName = "nixos-unstable";
-        hostDefaults.modules = [
-          home-manager.nixosModules.home-manager
-          ./modules
-        ];
+        hostDefaults.modules = [ ];
 
         hosts = {
           define7 = {
@@ -123,7 +120,13 @@
 
             output = "nixosConfigurations";
 
-            modules = [ ./system/nixos ./hosts/define7 ];
+            modules = [
+              home-manager.nixosModules.home-manager
+              ./modules
+              ./system/nixos
+              ./hosts/define7
+            ];
+
 
             builder = args: nixosSystem (args);
           };
@@ -133,7 +136,7 @@
 
             output = "nixosConfigurations";
 
-            modules = [ ./system/nixos ./hosts/xps13 ];
+            modules = [ ./modules ./system/nixos ./hosts/xps13 ];
 
             builder = args: nixosSystem (args);
           };
@@ -145,12 +148,13 @@
 
             modules = [
               home-manager.darwinModules.home-manager
+              ./system/shared.nix
               ./system/darwin
               ./hosts/LF2107010038
             ];
 
             # `removeAttrs` workaround due to this issue https://github.com/LnL7/nix-darwin/issues/319
-            builder = args: darwinSystem (removeAttrs args [ "system" ]);
+            builder = args: darwinSystem args;
           };
         };
       } // eachDefaultSystem (system:
