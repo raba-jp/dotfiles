@@ -87,6 +87,7 @@
       bazelisk
       terraform
       terraformer
+      terragrunt
       driftctl
       buf
       shellcheck
