@@ -71,11 +71,11 @@
     },
     "darwin-stable": {
       "locked": {
-        "lastModified": 1643421252,
-        "narHash": "sha256-icSgAFt+EVW2etGE5Orm8fIf8NeL0OR7luQgXOAdkow=",
+        "lastModified": 1644158205,
+        "narHash": "sha256-R1htFqGRMIdFs52nbcBuuuGVPUGzEJ+VfChaCkiZ1bc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "46450f2f65f117459157e4ea90e39c6601e38109",
+        "rev": "811af3aa01df7303ae11a4e4cfcc7f2f6568b61c",
         "type": "github"
       },
       "original": {
@@ -258,11 +258,11 @@
     },
     "nixos-unstable": {
       "locked": {
-        "lastModified": 1643805626,
-        "narHash": "sha256-AXLDVMG+UaAGsGSpOtQHPIKB+IZ0KSd9WS77aanGzgc=",
+        "lastModified": 1643852787,
+        "narHash": "sha256-RHrvroV61jcfTXfW0Rwc0qu/8lHmfYxSy49adyXkB0I=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "554d2d8aa25b6e583575459c297ec23750adb6cb",
+        "rev": "76e3df7c0687d5b9ff31431fd4ee4d4cd07a4b2f",
         "type": "github"
       },
       "original": {
@@ -290,12 +290,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1643653624,
-        "narHash": "sha256-+8hLMsQrZ2rkvcEtEId6HMe8GPxVb5ga+Vh1fdsqJDU=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "a529f0c125a78343b145a8eb2b915b0295e4f459",
-        "type": "github"
+        "lastModified": 1643472818,
+        "narHash": "sha256-qzVPxKDUubYIxKRSuDl/JgzXWSmGvUVYny9SxFMfPJM=",
+        "path": "/nix/store/fbcgjqs34vllzzppa1y213fbxx01sxn7-source",
+        "rev": "7f65e4abd5ecaad12d2d26e4380d1a7d8edafea7",
+        "type": "path"
       },
       "original": {
         "id": "nixpkgs",
@@ -337,11 +336,11 @@
     "nvim-web-devicons": {
       "flake": false,
       "locked": {
-        "lastModified": 1643703290,
-        "narHash": "sha256-hJYLJIIs2TqWL/hJzFQmEfLD5Y3UbVKkEVG1F9ckRPU=",
+        "lastModified": 1644145343,
+        "narHash": "sha256-pBZ2HrgtNeQ5dF/dZ/DKRRiboplRr5fvSo74ebubUtE=",
         "owner": "kyazdani42",
         "repo": "nvim-web-devicons",
-        "rev": "2f8439282575ce75784fb22d528dec7fd2e31a2e",
+        "rev": "e3294f687626b40754bb40ac2d636d166098b2fb",
         "type": "github"
       },
       "original": {
