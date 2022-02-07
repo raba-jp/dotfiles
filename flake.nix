@@ -95,14 +95,16 @@
     let
       inherit (darwin.lib) darwinSystem;
       inherit (nixos-unstable.lib) nixosSystem;
-      inherit (flake-utils-plus.lib) mkFlake eachDefaultSystem;
+      inherit (flake-utils-plus.lib) mkFlake eachDefaultSystem eachSystem;
     in
     {
       nixosConfigurations = {
         define7 = nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ({ pkgs, ... }: { nixpkgs.overlays = [ ((import ./overlays) inputs) ]; })
+            ({ pkgs, ... }: {
+              nixpkgs.overlays = [ ((import ./overlays) inputs) ];
+            })
             home-manager.nixosModules.home-manager
             ./modules
             ./system/nixos
@@ -113,7 +115,9 @@
         xps13 = nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ({ pkgs, ... }: { nixpkgs.overlays = [ ((import ./overlays) inputs) ]; })
+            ({ pkgs, ... }: {
+              nixpkgs.overlays = [ ((import ./overlays) inputs) ];
+            })
             home-manager.nixosModules.home-manager
             ./modules
             ./system/nixos
@@ -126,13 +130,29 @@
         LF2107010038 = darwinSystem {
           system = "aarch64-darwin";
           modules = [
-            ({ pkgs, ... }: { nixpkgs.overlays = [ ((import ./overlays) inputs) ]; })
+            ({ pkgs, ... }: {
+              nixpkgs.overlays = [ ((import ./overlays) inputs) ];
+            })
             home-manager.darwinModules.home-manager
             ./system/shared.nix
             ./system/darwin
             ./hosts/LF2107010038
           ];
         };
+      };
+
+      defaultPackage = {
+        x86_64-linux = (import nixos-unstable { system = "x86_64-linux"; }).writeText "cachix-agents.json" (builtins.toJSON {
+          agents = {
+            define7 = self.nixosConfigurations.define7.config.system.build.toplevel;
+            xps13 = self.nixosConfigurations.xps13.config.system.build.toplevel;
+          };
+        });
+        aarch64-darwin = (import nixos-unstable { system = "aarch64-darwin"; }).writeText "cachix-agents.json" (builtins.toJSON {
+          agents = {
+            LF2107010038 = self.darwinConfigurations.LF2107010038.config.system.build.toplevel;
+          };
+        });
       };
     } // eachDefaultSystem (system:
       let
@@ -144,6 +164,7 @@
         };
       in
       {
+
         devShell = pkgs.devshell.mkShell
           {
             imports = [ "${pkgs.devshell.extraModulesDir}/git/hooks.nix" ];
