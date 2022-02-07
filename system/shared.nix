@@ -38,9 +38,6 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
 
-    generateRegistryFromInputs = true;
-    linkInputs = false;
-
     extraOptions = ''
       keep-outputs = true
       keep-derivations = true

@@ -93,71 +93,48 @@
 
   outputs = { self, nixos-unstable, darwin, home-manager, flake-utils-plus, ... }@inputs:
     let
-      inherit (builtins) removeAttrs;
       inherit (darwin.lib) darwinSystem;
       inherit (nixos-unstable.lib) nixosSystem;
       inherit (flake-utils-plus.lib) mkFlake eachDefaultSystem;
     in
-    mkFlake
-      {
-        inherit self inputs;
-
-        supportedSystems = [ "x86_64-linux" "aarch64-darwin" ];
-
-        channelsConfig = { allowUnfree = true; };
-        sharedOverlays = [
-          ((import ./overlays) inputs)
-          inputs.devshell.overlay
-        ];
-
-        hostDefaults.system = "x86_64-linux";
-        hostDefaults.channelName = "nixos-unstable";
-        hostDefaults.modules = [ ];
-
-        hosts = {
-          define7 = {
-            system = "x86_64-linux";
-
-            output = "nixosConfigurations";
-
-            modules = [
-              home-manager.nixosModules.home-manager
-              ./modules
-              ./system/nixos
-              ./hosts/define7
-            ];
-
-
-            builder = args: nixosSystem (args);
-          };
-
-          xps13 = {
-            system = "x86_64-linux";
-
-            output = "nixosConfigurations";
-
-            modules = [ ./modules ./system/nixos ./hosts/xps13 ];
-
-            builder = args: nixosSystem (args);
-          };
-
-          LF2107010038 = {
-            system = "aarch64-darwin";
-
-            output = "darwinConfigurations";
-
-            modules = [
-              home-manager.darwinModules.home-manager
-              ./system/shared.nix
-              ./system/darwin
-              ./hosts/LF2107010038
-            ];
-
-            # `removeAttrs` workaround due to this issue https://github.com/LnL7/nix-darwin/issues/319
-            builder = args: darwinSystem args;
-          };
+    {
+      nixosConfigurations = {
+        define7 = nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ({ pkgs, ... }: { nixpkgs.overlays = [ ((import ./overlays) inputs) ]; })
+            home-manager.nixosModules.home-manager
+            ./modules
+            ./system/nixos
+            ./hosts/define7
+          ];
         };
-      } // eachDefaultSystem (system:
+
+        xps13 = nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ({ pkgs, ... }: { nixpkgs.overlays = [ ((import ./overlays) inputs) ]; })
+            home-manager.nixosModules.home-manager
+            ./modules
+            ./system/nixos
+            ./hosts/xps13
+          ];
+        };
+      };
+
+      darwinConfigurations = {
+        LF2107010038 = darwinSystem {
+          system = "aarch64-darwin";
+          modules = [
+            ({ pkgs, ... }: { nixpkgs.overlays = [ ((import ./overlays) inputs) ]; })
+            home-manager.darwinModules.home-manager
+            ./system/shared.nix
+            ./system/darwin
+            ./hosts/LF2107010038
+          ];
+        };
+      };
+    } // eachDefaultSystem (system:
       let
         pkgs = import inputs.nixpkgs {
           inherit system;
@@ -206,7 +183,7 @@
               pre-commit.text = ''
                 #!/bin/sh
                 treefmt
-
+  
                 for FILE in `git diff --staged --name-only`; do
                     git add $FILE
                 done
