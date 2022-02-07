@@ -20,12 +20,12 @@ jobs:
         with:
           github-access-token: ${{ secrets.GITHUB_TOKEN }}
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
-      - run: nix build -f ci.nix -o deploy-spec.json --show-trace
+      - run: nix build
       - uses: actions/upload-artifact@v2
         with:
-          name: deploy-spec
+          name: result
           path: |
-            deploy-spec.json
+            result
   activate:
     name: Activate deployment
     runs-on: ubuntu-20.04
@@ -39,8 +39,8 @@ jobs:
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
       - uses: actions/download-artifact@v2
         with:
-          name: deploy-spec
+          name: result
       - name: Activate
-        run: cachix deploy activate deploy-spec.json
+        run: cachix deploy activate ./result
         env:
           CACHIX_ACTIVATE_TOKEN: ${{ secrets.CACHIX_ACTIVATE_TOKEN }}
