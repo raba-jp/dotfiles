@@ -22,5 +22,3 @@ runs:
       with:
         name: raba-jp
         authToken: ${{ inputs.cachix-auth-token }}
-    - run: nix-env -iA nix-build-uncached
-      shell: bash
