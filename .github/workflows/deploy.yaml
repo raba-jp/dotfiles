@@ -1,4 +1,4 @@
-name: Build
+name: Build and Activate
 on:
   pull_request:
   push:
@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  builds:
+  build:
     name: Build nixos configuration
     runs-on: ubuntu-20.04
     steps:
