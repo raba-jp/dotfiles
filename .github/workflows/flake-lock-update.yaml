@@ -6,7 +6,7 @@ on:
 
 jobs:
   lockfile:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -17,3 +17,5 @@ jobs:
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@v6
+        with:
+          token: ${{ secrets.PAT }}
