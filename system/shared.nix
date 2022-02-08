@@ -8,7 +8,8 @@
   nixpkgs.config.allowUnfree = true;
 
   nix = {
-    package = pkgs.nix_2_6;
+    # package = pkgs.nix_2_6;
+    package = pkgs.nix_2_5;
 
     # settings = {
     #   max-jobs = 8;
