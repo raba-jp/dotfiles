@@ -49,6 +49,7 @@
       lima
       yubikey-manager
       bitwarden-cli
+      sops
 
       tig # git client
       lazygit
