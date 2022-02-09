@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
   imports = [ ../shared.nix ];
 
   boot = {
@@ -32,6 +32,17 @@
 
   services = {
     openssh.enable = true;
+
+    cachix-agent = {
+      enable = true;
+      name = config.networking.hostName;
+      credentialsFile = config.sops.secrets."cachix-agent-token".path;
+    };
+  };
+
+  sops.secrets."cachix-agent-token" = {
+    format = "binary";
+    sopsFile = ../../secrets/cachix-agent-token;
   };
 
   nix = {

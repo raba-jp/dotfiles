@@ -317,6 +317,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1638097282,
+        "narHash": "sha256-EXCzj9b8X/lqDPJapxZThIOKL5ASbpsJZ+8L1LnY1ig=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "78cb77b29d37a9663e05b61abb4fa09465da4b70",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nordic-nvim": {
       "flake": false,
       "locked": {
@@ -385,10 +401,29 @@
         "nordic-nvim": "nordic-nvim",
         "nvim-web-devicons": "nvim-web-devicons",
         "octo-nvim": "octo-nvim",
+        "sops-nix": "sops-nix",
         "telescope-command-palette-nvim": "telescope-command-palette-nvim",
         "telescope-ghq-nvim": "telescope-ghq-nvim",
         "vim-edgemotion": "vim-edgemotion",
         "which-key-nvim": "which-key-nvim"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1644240878,
+        "narHash": "sha256-JO5WrnP6+5qN3isdmm9VmjzvCM64UElgGnql7vEGjKU=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "95b4393147dba5660bf0d13544ef5ef49d646f89",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     },
     "telescope-command-palette-nvim": {

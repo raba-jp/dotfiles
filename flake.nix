@@ -26,6 +26,9 @@
     # Shell
     devshell.url = "github:numtide/devshell";
 
+    # Secrets
+    sops-nix.url = "github:Mic92/sops-nix";
+
     # Utility
     flake-utils.url = "github:numtide/flake-utils";
     flake-utils-plus = {
@@ -91,7 +94,7 @@
     };
   };
 
-  outputs = { self, nixos-unstable, darwin, home-manager, flake-utils-plus, ... }@inputs:
+  outputs = { self, nixos-unstable, darwin, home-manager, flake-utils-plus, sops-nix, ... }@inputs:
     let
       inherit (darwin.lib) darwinSystem;
       inherit (nixos-unstable.lib) nixosSystem;
@@ -106,6 +109,7 @@
               nixpkgs.overlays = [ ((import ./overlays) inputs) ];
             })
             home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
             ./modules
             ./system/nixos
             ./hosts/define7
@@ -119,6 +123,7 @@
               nixpkgs.overlays = [ ((import ./overlays) inputs) ];
             })
             home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
             ./modules
             ./system/nixos
             ./hosts/xps13

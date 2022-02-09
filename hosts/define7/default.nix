@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
     {
@@ -16,7 +16,13 @@
     isNormalUser = true;
     createHome = true;
     home = "/home/sakuraba";
-    extraGroups = [ "wheel" "networkmanager" "docker" "video" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "docker"
+      "video"
+      config.users.groups.keys.name
+    ];
   };
 
   home-manager.users.sakuraba = import ../../home-manager;

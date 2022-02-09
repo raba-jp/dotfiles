@@ -1,0 +1,9 @@
+keys:
+  - &define7 age1lte2m39g82ch9zs0gqj88tdxu3unp9rxmhxxxelx79q3hkf7suhsse8635
+  - &define7_sakuraba age1eh6k2439cz0k47wvpayj9z2a27lcfz3sdczlzw4z35g0awyeaguqzq38kw
+creation_rules:
+  - path_regex: secrets/cachix-agent-token
+    key_groups:
+    - age:
+        - *define7
+        - *define7_sakuraba
