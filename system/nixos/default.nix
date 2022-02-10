@@ -32,11 +32,17 @@
 
   services = {
     openssh.enable = true;
+  };
 
-    cachix-agent = {
-      enable = true;
-      name = config.networking.hostName;
-      credentialsFile = config.sops.secrets."cachix-agent-token".path;
+  systemd.services.cachix-agent = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ config.nix.package ];
+    restartIfChanged = false;
+    serviceConfig = {
+      Restart = "on-failure";
+      Environment = "USER=root";
+      EnvironmentFile = config.sops.secrets."cachix-agent-token".path;
+      ExecStart = "${pkgs.cachix}/bin/cachix deploy agent ${config.networking.hostName}";
     };
   };
 
