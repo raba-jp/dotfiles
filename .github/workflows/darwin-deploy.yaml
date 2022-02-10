@@ -1,4 +1,4 @@
-name: Build and Activate
+name: Darwin build and activate
 on:
   pull_request:
   push:
@@ -7,13 +7,13 @@ on:
   workflow_dispatch:
 
 concurrency: 
-  group: ${{ github.ref }}
+  group: ${{ github.ref }}-darwin
   cancel-in-progress: true
 
 jobs:
   build:
-    name: Build nixos configuration
-    runs-on: ubuntu-20.04
+    name: Build darwin configuration
+    runs-on: macos-11
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/setup
