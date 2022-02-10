@@ -1,4 +1,4 @@
-name: NixOS build and activate
+name: NixOS_deploy
 on:
   pull_request:
   push:
