@@ -5,7 +5,15 @@
     backupFileExtension = "backup";
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+
+      permittedInsecurePackages = [
+        "electron-13.6.9"
+      ];
+    };
+  };
 
   nix = {
     # package = pkgs.nix_2_6;
