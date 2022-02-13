@@ -10,9 +10,11 @@ runs:
   using: "composite"
   steps:
     - name: "Install nix"
-      uses: nixbuild/nix-quick-install-action@v9
+      uses: cachix/install-nix-action@v16
       with:
-        nix_conf: |
+        install_url: https://releases.nixos.org/nix/nix-2.6.0/install
+        nix_path: nixpkgs=channel:nixos-unstable
+        extra_nix_config: |
           experimental-features = nix-command flakes
           access-tokens = github.com=${{ inputs.github-access-token }}
     - name: "Setup cachix"
