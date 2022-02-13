@@ -154,10 +154,7 @@
           };
         });
 
-        x86_64-darwin = (import nixos-unstable {
-          crossSystem = { config = "x86_64-darwin"; };
-          system = "aarch64-darwin";
-        }).writeText "cachix-agents.json"
+        x86_64-darwin = (import nixos-unstable { system = "x86_64-darwin"; }).writeText "cachix-agents.json"
           (builtins.toJSON {
             agents = {
               LF2107010038 = self.darwinConfigurations.LF2107010038.config.system.build.toplevel;
