@@ -153,6 +153,16 @@
             xps13 = self.nixosConfigurations.xps13.config.system.build.toplevel;
           };
         });
+
+        x86_64-darwin = (import nixos-unstable {
+          crossSystem = { config = "x86_64-darwin"; };
+          system = "aarch64-darwin";
+        }).writeText "cachix-agents.json"
+          (builtins.toJSON {
+            agents = {
+              LF2107010038 = self.darwinConfigurations.LF2107010038.config.system.build.toplevel;
+            };
+          });
         aarch64-darwin =
           (import nixos-unstable {
             crossSystem = { config = "x86_64-darwin"; };
