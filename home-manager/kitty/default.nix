@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   imports = [ ./keybindings.nix ./settings.nix ];
   programs.kitty = {
-    enable = true;
+    enable = false;
 
     font = {
       package = pkgs.cica;
