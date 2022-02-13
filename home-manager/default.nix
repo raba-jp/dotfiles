@@ -5,7 +5,6 @@
     ./kitty
     # CLI
     ./bat
-    ./broot
     ./direnv
     ./exa
     ./fish
