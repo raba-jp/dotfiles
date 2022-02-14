@@ -47,7 +47,6 @@
       "betterdummy"
       "bettertouchtool"
       "bitwarden"
-      "clipy"
       "deepl"
       "discord"
       "font-hackgen"
