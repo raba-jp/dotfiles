@@ -139,8 +139,8 @@
       materia-theme
       papirus-icon-theme
       gnomeExtensions.pop-shell
+      gnomeExtensions.google-earth-wallpaper
     ] else [ ]);
-
 
     stateVersion = "21.11";
   };
