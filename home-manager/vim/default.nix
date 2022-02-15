@@ -10,7 +10,7 @@ in
     # LSP
     gopls
     rust-analyzer
-    (lib.mkIf (pkgs.stdenvNoCC.isLinux) sumneko-lua-language-server)
+    sumneko-lua-language-server
     rnix-lsp
     nodePackages.pyright
     nodePackages.typescript-language-server

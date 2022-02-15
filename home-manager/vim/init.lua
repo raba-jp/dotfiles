@@ -217,7 +217,12 @@ lspconfig.sumneko_lua.setup({
 	capabilities = capabilities,
 })
 
-require("lspsaga").init_lsp_saga()
+require("lspsaga").setup({
+	error_sign = "!!",
+	warn_sign = "!",
+	hint_sign = "?",
+	infor_sign = ">",
+})
 
 require("format").setup({
 	go = { { cmd = { "gofmt -w" }, tempfile_postfix = ".tmp" } },
