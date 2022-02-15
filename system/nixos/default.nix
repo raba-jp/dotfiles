@@ -32,15 +32,6 @@
 
   services = {
     openssh.enable = true;
-
-    gnome3 = {
-      gnome-settings-daemon.enable = true;
-      gnome-terminal-server.enable = false;
-      gnome-remote-desktop.enable = false;
-      gnome-online-miners.enable = false;
-      gnome-online-accounts.enable = false;
-      gnome-documents.enable = false;
-    };
   };
 
   systemd.services.cachix-agent = {
@@ -74,7 +65,15 @@
 
   programs.gnupg.agent.enable = true;
 
-  environment.systemPackages = with pkgs; [ libnotify wget ];
+  environment.systemPackages = with pkgs; [ libnotify wget yubikey-personalization-gui ];
+
+
+  security.pam = {
+    u2f = {
+      enable = true;
+      control = "sufficient";
+    };
+  };
 
   system = {
     autoUpgrade.enable = true;
