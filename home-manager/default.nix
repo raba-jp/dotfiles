@@ -54,7 +54,6 @@
       lazygit
       procs # replace from ps
       ghq # remote repository management cli
-      navi
       cargo-make
       gh
       yq
