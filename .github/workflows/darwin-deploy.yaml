@@ -1,4 +1,4 @@
-name: Darwin-deploy
+name: Darwin_deploy
 on:
   pull_request:
   push:
