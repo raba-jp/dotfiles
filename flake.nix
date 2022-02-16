@@ -144,6 +144,19 @@
             ./hosts/LF2107010038
           ];
         };
+
+        LF2107010038_dummy = darwinSystem {
+          system = "x86_64-darwin";
+          modules = [
+            ({ pkgs, ... }: {
+              nixpkgs.overlays = [ ((import ./overlays) inputs) ];
+            })
+            home-manager.darwinModules.home-manager
+            ./system/shared.nix
+            ./system/darwin
+            ./hosts/LF2107010038
+          ];
+        };
       };
 
       defaultPackage = {
@@ -157,14 +170,10 @@
         x86_64-darwin = (import nixos-unstable { system = "x86_64-darwin"; }).writeText "cachix-agents.json"
           (builtins.toJSON {
             agents = {
-              LF2107010038 = self.darwinConfigurations.LF2107010038.config.system.build.toplevel;
+              LF2107010038_dummy = self.darwinConfigurations.LF2107010038_dummy.config.system.build.toplevel;
             };
           });
-        aarch64-darwin =
-          (import nixos-unstable {
-            crossSystem = { config = "x86_64-darwin"; };
-            system = "aarch64-darwin";
-          }).writeText "cachix-agents.json"
+        aarch64-darwin = (import nixos-unstable { system = "aarch64-darwin"; }).writeText "cachix-agents.json"
             (builtins.toJSON {
               agents = {
                 LF2107010038 = self.darwinConfigurations.LF2107010038.config.system.build.toplevel;
