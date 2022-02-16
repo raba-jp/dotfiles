@@ -55,7 +55,6 @@
       procs # replace from ps
       ghq # remote repository management cli
       navi
-      httpie
       cargo-make
       gh
       yq
