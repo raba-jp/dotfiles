@@ -49,6 +49,7 @@ in
       nvim-cmp
       cmp-nvim-lsp
       cmp-buffer
+      cmp-cmdline
       lspsaga-nvim
 
       format-nvim
