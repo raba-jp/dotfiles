@@ -174,11 +174,11 @@
             };
           });
         aarch64-darwin = (import nixos-unstable { system = "aarch64-darwin"; }).writeText "cachix-agents.json"
-            (builtins.toJSON {
-              agents = {
-                LF2107010038 = self.darwinConfigurations.LF2107010038.config.system.build.toplevel;
-              };
-            });
+          (builtins.toJSON {
+            agents = {
+              LF2107010038 = self.darwinConfigurations.LF2107010038.config.system.build.toplevel;
+            };
+          });
       };
     } // eachDefaultSystem (system:
       let
