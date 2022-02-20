@@ -4,8 +4,8 @@
     {
       dotfiles = {
         graphical.enable = true;
-        game.enable = true;
-        nvidia.enable = true;
+        game.enable = false;
+        nvidia.enable = false;
       };
     }
   ];
