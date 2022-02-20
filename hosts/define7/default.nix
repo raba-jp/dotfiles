@@ -12,6 +12,18 @@
 
   networking.hostName = "define7";
 
+  security.pam = {
+    u2f = {
+      enable = true;
+      control = "sufficient";
+    };
+  };
+
+  sops.secrets."cachix-agent-token" = {
+    format = "binary";
+    sopsFile = ../../secrets/cachix-agent-token;
+  };
+
   users.users.sakuraba = {
     isNormalUser = true;
     createHome = true;

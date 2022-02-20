@@ -49,6 +49,8 @@
       yubikey-manager
       bitwarden-cli
       sops
+      age
+      ssh-to-age
 
       tig # git client
       lazygit

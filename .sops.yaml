@@ -1,9 +1,16 @@
 keys:
   - &define7 age1lte2m39g82ch9zs0gqj88tdxu3unp9rxmhxxxelx79q3hkf7suhsse8635
   - &define7_sakuraba age1eh6k2439cz0k47wvpayj9z2a27lcfz3sdczlzw4z35g0awyeaguqzq38kw
+  - &xps13 age1mrvn09edqmza8fuc57kwyc78kd4nuau5gvj9t49uk2htz2jv3djqn7mn40
+  - &xps13_sakuraba age1yz9tf7ppq3yeyatqpr7hgq5nfnmvym6rsp4ud0wjtmjh3u399yls4p24nx
 creation_rules:
   - path_regex: secrets/cachix-agent-token
     key_groups:
     - age:
         - *define7
         - *define7_sakuraba
+  - path_regex: secrets/xps13-cachix-agent-token
+    key_groups:
+    - age:
+        - *xps13
+        - *xps13_sakuraba

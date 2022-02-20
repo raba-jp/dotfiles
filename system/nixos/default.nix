@@ -46,11 +46,6 @@
     };
   };
 
-  sops.secrets."cachix-agent-token" = {
-    format = "binary";
-    sopsFile = ../../secrets/cachix-agent-token;
-  };
-
   nix = {
     settings = {
       trusted-users = [ "root" "sakuraba" ];
@@ -66,14 +61,6 @@
   programs.gnupg.agent.enable = true;
 
   environment.systemPackages = with pkgs; [ libnotify wget yubikey-personalization-gui ];
-
-
-  security.pam = {
-    u2f = {
-      enable = true;
-      control = "sufficient";
-    };
-  };
 
   system = {
     autoUpgrade.enable = true;
