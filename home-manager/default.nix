@@ -117,6 +117,7 @@
       ## Elm
       elmPackages.elm
     ] ++ (if pkgs.stdenvNoCC.isLinux then [
+      contour
       # CLI
       flutter
       kube3d
