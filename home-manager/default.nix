@@ -38,7 +38,6 @@
       gnupg
       git-crypt
       envsubst
-      starship # shell prompt
       ripgrep # replace from 'grep'
       fd # replace from 'find'
       awscli2
@@ -96,13 +95,6 @@
       # Language
       ## Go
       golangci-lint
-
-      ## Python
-      python39
-      python39Packages.pip
-      python39Packages.setuptools
-      python39Packages.black
-      poetry
 
       ## Node.js
       nodejs
