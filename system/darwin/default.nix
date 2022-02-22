@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: {
+{  config, lib, pkgs, ... }: {
   imports = [ ../shared.nix ];
 
   environment = {
@@ -111,6 +111,12 @@
         # alt - t : yabai -m window --toggle float && /tmp/yabai-restore/$(yabai -m query --windows --window | jq -re '.id').restore 2>/dev/null || true
         alt - t : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
       '';
+    };
+
+    cachix-agent = {
+      enable = true;
+      name = config.networking.hostName;
+      credentialsFile = "/var/secrets/cachix-agent-token";
     };
   };
 
