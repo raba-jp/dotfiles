@@ -2,7 +2,7 @@
   imports = [ ./plugins.nix ];
 
   programs.fish = {
-    enable = false;
+    enable = true;
 
     functions = {
       __done-enter = ''
@@ -30,22 +30,18 @@
       bind \cs beginning-of-line
       bind \ce end-of-line
       bind \cm __done-enter
+
+      ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
     '';
 
+    # https://github.com/LnL7/nix-darwin/issues/122
     loginShellInit = ''
+      fish_add_path --move --prepend --path $HOME/.nix-profile/bin /run/wrappers/bin /etc/profiles/per-user/$USER/bin /nix/var/nix/profiles/default/bin /run/current-system/sw/bin
+
       set -U FZF_LEGACY_KEYBINDINGS 0
       set -U GHQ_SELECTOR "fzf-tmux"
       set -U GHQ_SELECTOR_OPTS "-w 80% -h 50% --"
       set -U FZF_TMUX_OPTS "-w 80% -h 50%"
-      if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-        fenv source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-      end
-      if test -e /nix/var/nix/profiles/default/etc/profile.d/nix.sh
-        fenv source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
-      end
-      if test -e /etc/static/bashrc
-        fenv source /etc/static/bashrc
-      end
     '';
 
     shellAbbrs = {
