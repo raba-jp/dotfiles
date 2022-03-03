@@ -41,6 +41,7 @@
       ripgrep # replace from 'grep'
       fd # replace from 'find'
       awscli2
+      aws-vault
       graphviz
       watchman
       rs-git-fsmonitor
