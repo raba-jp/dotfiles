@@ -45,10 +45,6 @@
       url = "github:haya14busa/vim-edgemotion";
       flake = false;
     };
-    format-nvim = {
-      url = "github:lukas-reineke/format.nvim";
-      flake = false;
-    };
     nordic-nvim = {
       url = "github:andersevenrud/nordic.nvim";
       flake = false;
@@ -90,6 +86,11 @@
 
     octo-nvim = {
       url = "github:pwntester/octo.nvim";
+      flake = false;
+    };
+
+    lsp-format-nvim = {
+      url = "github:lukas-reineke/lsp-format.nvim";
       flake = false;
     };
   };

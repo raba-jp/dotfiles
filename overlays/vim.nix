@@ -6,11 +6,6 @@ inputs: final: prev:
       src = inputs.vim-edgemotion;
     };
 
-    format-nvim = prev.pkgs.vimUtils.buildVimPlugin {
-      name = "format.nvim";
-      src = inputs.format-nvim;
-    };
-
     nordic-nvim = prev.pkgs.vimUtils.buildVimPlugin {
       name = "nordic.nvim";
       src = inputs.nordic-nvim;
@@ -59,6 +54,11 @@ inputs: final: prev:
     octo-nvim = prev.pkgs.vimUtils.buildVimPlugin {
       name = "octo.nvim";
       src = inputs.octo-nvim;
+    };
+
+    lsp-format-nvim = prev.pkgs.vimUtils.buildVimPlugin {
+      name = "lsp-format.nvim";
+      src = inputs.lsp-format-nvim;
     };
   };
 }

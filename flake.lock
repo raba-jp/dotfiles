@@ -170,22 +170,6 @@
         "type": "github"
       }
     },
-    "format-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1639295342,
-        "narHash": "sha256-B2wwgyQMeuRZm3uLI9/w6DvBnaWKfw94lcY/ajNWk6Y=",
-        "owner": "lukas-reineke",
-        "repo": "format.nvim",
-        "rev": "29a7dccbdee6d657380104958b4b8e81d316803d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lukas-reineke",
-        "repo": "format.nvim",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": "nixpkgs_2"
@@ -201,6 +185,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "lsp-format-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1646275841,
+        "narHash": "sha256-g5tj24Sbv5xLHMEK9q/wsh2WZZl4sGDfz97X9T6jgGI=",
+        "owner": "lukas-reineke",
+        "repo": "lsp-format.nvim",
+        "rev": "9ce61a5cc368da471e59fb0545527b7e7bc148ed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lukas-reineke",
+        "repo": "lsp-format.nvim",
         "type": "github"
       }
     },
@@ -393,8 +393,8 @@
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils_2",
         "flake-utils-plus": "flake-utils-plus",
-        "format-nvim": "format-nvim",
         "home-manager": "home-manager",
+        "lsp-format-nvim": "lsp-format-nvim",
         "lspsaga-nvim": "lspsaga-nvim",
         "nixos-generators": "nixos-generators",
         "nixos-unstable": "nixos-unstable",

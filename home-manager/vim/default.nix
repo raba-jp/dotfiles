@@ -16,6 +16,7 @@ in
     nodePackages.typescript-language-server
     rubyPackages.solargraph
     terraform-ls
+    efm-langserver
   ];
 
   programs.neovim = {
@@ -51,8 +52,7 @@ in
       cmp-buffer
       cmp-cmdline
       lspsaga-nvim
-
-      format-nvim
+      lsp-format-nvim
 
       nordic-nvim
       nvim-web-devicons

@@ -200,16 +200,21 @@ cmp.setup.cmdline(":", {
 })
 
 -- LSP
+require("lsp-format").setup({})
+
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require("lspconfig")
-lspconfig.gopls.setup({ capabilities = capabilities })
-lspconfig.rust_analyzer.setup({ capabilities = capabilities })
-lspconfig.rnix.setup({ capabilities = capabilities })
-lspconfig.pyright.setup({ capabilities = capabilities })
-lspconfig.dartls.setup({ capabilities = capabilities })
-lspconfig.solargraph.setup({ capabilities = capabilities })
-lspconfig.terraformls.setup({ capabilities = capabilities })
-lspconfig.tsserver.setup({ capabilities = capabilities })
+
+local default_lsp_options = { capabilities = capabilities, on_attach = require("lsp-format").on_attach }
+
+lspconfig.gopls.setup(default_lsp_options)
+lspconfig.rust_analyzer.setup(default_lsp_options)
+lspconfig.rnix.setup(default_lsp_options)
+lspconfig.pyright.setup(default_lsp_options)
+lspconfig.dartls.setup(default_lsp_options)
+lspconfig.solargraph.setup(default_lsp_options)
+lspconfig.terraformls.setup(default_lsp_options)
+lspconfig.tsserver.setup(default_lsp_options)
 lspconfig.sumneko_lua.setup({
 	settings = {
 		Lua = {
@@ -228,6 +233,21 @@ lspconfig.sumneko_lua.setup({
 	},
 	capabilities = capabilities,
 })
+lspconfig.efm.setup({
+	on_attach = require("lsp-format").on_attach,
+	init_options = { documentFormatting = true },
+	filetypes = { "lua" },
+	settings = {
+		languages = {
+			lua = {
+				{
+					formatCommand = [[stylua -]],
+					formatStdin = true,
+				},
+			},
+		},
+	},
+})
 
 require("lspsaga").setup({
 	error_sign = "!!",
@@ -236,15 +256,9 @@ require("lspsaga").setup({
 	infor_sign = ">",
 })
 
-require("format").setup({
-	go = { { cmd = { "gofmt -w" }, tempfile_postfix = ".tmp" } },
-	lua = { { cmd = { "stylua" } } },
-	nix = { { cmd = { "nixpkgs-fmt" } } },
-})
-
 cmd("augroup Format")
 cmd("autocmd!")
-cmd("autocmd BufWritePost * FormatWrite")
+cmd("autocmd BufWritePost * Format")
 cmd("augroup END")
 
 local wk = require("which-key")
