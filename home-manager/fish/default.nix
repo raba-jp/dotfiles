@@ -32,6 +32,10 @@
       bind \cm __done-enter
 
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+
+      if test -e /opt/homebrew/bin/brew
+        eval (/opt/homebrew/bin/brew shellenv)
+      end
     '';
 
     # https://github.com/LnL7/nix-darwin/issues/122
