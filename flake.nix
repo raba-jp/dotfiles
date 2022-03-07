@@ -93,6 +93,26 @@
       url = "github:lukas-reineke/lsp-format.nvim";
       flake = false;
     };
+
+    fish-done = {
+      url = "github:franciscolourenco/done";
+      flake = false;
+    };
+
+    fish-ghq = {
+      url = "github:decors/fish-ghq";
+      flake = false;
+    };
+
+    fish-fzf = {
+      url = "github:jethrokuan/fzf";
+      flake = false;
+    };
+
+    fish-foreign-env = {
+      url = "github:oh-my-fish/plugin-foreign-env";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, nixos-unstable, darwin, home-manager, flake-utils-plus, sops-nix, ... }@inputs:
@@ -109,6 +129,7 @@
           modules = [
             ({ pkgs, ... }: {
               nixpkgs.overlays = [ ((import ./overlays) inputs) ];
+              home-manager.extraSpecialArgs = inputs;
             })
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
@@ -123,6 +144,7 @@
           modules = [
             ({ pkgs, ... }: {
               nixpkgs.overlays = [ ((import ./overlays) inputs) ];
+              home-manager.extraSpecialArgs = inputs;
             })
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
@@ -139,6 +161,7 @@
           modules = [
             ({ pkgs, ... }: {
               nixpkgs.overlays = [ ((import ./overlays) inputs) ];
+              home-manager.extraSpecialArgs = inputs;
             })
             home-manager.darwinModules.home-manager
             ./system/shared.nix
@@ -186,7 +209,6 @@
         };
       in
       {
-
         devShell = pkgs.devshell.mkShell
           {
             imports = [ "${pkgs.devshell.extraModulesDir}/git/hooks.nix" ];

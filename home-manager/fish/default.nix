@@ -1,6 +1,4 @@
-{ pkgs, ... }: {
-  imports = [ ./plugins.nix ];
-
+{ pkgs, ... }@args: {
   programs.fish = {
     enable = true;
 
@@ -59,5 +57,24 @@
       untar = "tar -xzvf";
       xclip = "xclip -selection clipboard";
     };
+
+    plugins = [
+      {
+        name = "done";
+        src = args.fish-done;
+      }
+      {
+        name = "fish-ghq";
+        src = args.fish-ghq;
+      }
+      {
+        name = "fish-fzf";
+        src = args.fish-fzf;
+      }
+      {
+        name = "foreign-env";
+        src = args.fish-foreign-env;
+      }
+    ];
   };
 }

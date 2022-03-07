@@ -104,6 +104,70 @@
         "type": "github"
       }
     },
+    "fish-done": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1633849654,
+        "narHash": "sha256-6oeyN9ngXWvps1c5QAUjlyPDQwRWAoxBiVTNmZ4sG8E=",
+        "owner": "franciscolourenco",
+        "repo": "done",
+        "rev": "d6abb267bb3fb7e987a9352bc43dcdb67bac9f06",
+        "type": "github"
+      },
+      "original": {
+        "owner": "franciscolourenco",
+        "repo": "done",
+        "type": "github"
+      }
+    },
+    "fish-foreign-env": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1547655379,
+        "narHash": "sha256-er1KI2xSUtTlQd9jZl1AjqeArrfBxrgBLcw5OqinuAM=",
+        "owner": "oh-my-fish",
+        "repo": "plugin-foreign-env",
+        "rev": "dddd9213272a0ab848d474d0cbde12ad034e65bc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oh-my-fish",
+        "repo": "plugin-foreign-env",
+        "type": "github"
+      }
+    },
+    "fish-fzf": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1620776412,
+        "narHash": "sha256-28QW/WTLckR4lEfHv6dSotwkAKpNJFCShxmKFGQQ1Ew=",
+        "owner": "jethrokuan",
+        "repo": "fzf",
+        "rev": "479fa67d7439b23095e01b64987ae79a91a4e283",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jethrokuan",
+        "repo": "fzf",
+        "type": "github"
+      }
+    },
+    "fish-ghq": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1626409029,
+        "narHash": "sha256-6b1zmjtemNLNPx4qsXtm27AbtjwIZWkzJAo21/aVZzM=",
+        "owner": "decors",
+        "repo": "fish-ghq",
+        "rev": "cafaaabe63c124bf0714f89ec715cfe9ece87fa2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "decors",
+        "repo": "fish-ghq",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -390,6 +454,10 @@
         "darwin": "darwin",
         "darwin-stable": "darwin-stable",
         "devshell": "devshell",
+        "fish-done": "fish-done",
+        "fish-foreign-env": "fish-foreign-env",
+        "fish-fzf": "fish-fzf",
+        "fish-ghq": "fish-ghq",
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils_2",
         "flake-utils-plus": "flake-utils-plus",
