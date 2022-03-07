@@ -28,6 +28,24 @@ in
     vimdiffAlias = true;
 
     plugins = with pkgs.vimPlugins; [
+      {
+        plugin = nordic-nvim;
+        type = "lua";
+        config = ''
+          -- Global option
+          gvar.mapleader = " "
+
+          vim.cmd("syntax on")
+          vim.cmd("filetype plugin indent on")
+          require("nordic").colorscheme({
+          	underline_option = "none",
+          	italic = true,
+          	italic_comments = false,
+          	minimal_mode = false,
+          	alternate_backgrounds = false,
+          })
+        '';
+      }
       vim-polyglot
       editorconfig-vim
       vim-edgemotion
@@ -53,11 +71,29 @@ in
       lspsaga-nvim
       lsp-format-nvim
 
-      nordic-nvim
       nvim-web-devicons
 
-      which-key-nvim
-      nvim-notify
+      {
+        plugin = which-key-nvim;
+        type = "lua";
+        config = ''
+          local wk = require("which-key")
+          wk.setup({
+            window = {
+              border = "double",
+            },
+          })
+          wk.register({})
+
+        '';
+      }
+      {
+        plugin = nvim-notify;
+        type = "lua";
+        config = ''
+          vim.notify = require("notify")
+        '';
+      }
     ];
 
     extraConfig = ''

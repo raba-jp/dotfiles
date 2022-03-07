@@ -22,7 +22,6 @@ setmap("n", "<ESC><ESC>", ":nohlsearch<CR>", { noremap = true, silent = true })
 setmap("i", "<Tab>", 'pumvisible() ? "<C-n>" : "<Tab>"', { noremap = true, expr = true })
 setmap("i", "<S-Tab>", 'pumvisible() ? "<C-p>" : "<S-Tab>"', { noremap = true, expr = true })
 
-gvar.mapleader = " "
 setmap(
 	"n",
 	"<C-p>",
@@ -50,16 +49,6 @@ opt.showmode = true
 opt.completeopt = "menuone,noinsert,noselect"
 opt.termguicolors = true
 opt.background = "dark"
-
-cmd("syntax on")
-cmd("filetype plugin indent on")
-require("nordic").colorscheme({
-	underline_option = "none",
-	italic = true,
-	italic_comments = false,
-	minimal_mode = false,
-	alternate_backgrounds = false,
-})
 
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
@@ -244,13 +233,3 @@ cmd("augroup Format")
 cmd("autocmd!")
 cmd("autocmd BufWritePost * Format")
 cmd("augroup END")
-
-local wk = require("which-key")
-wk.setup({
-	window = {
-		border = "double",
-	},
-})
-wk.register({})
-
-vim.notify = require("notify")
