@@ -94,6 +94,12 @@
       flake = false;
     };
 
+    editorconfig-nvim = {
+      url = "github:gpanders/editorconfig.nvim";
+      flake = false;
+    };
+
+    # fish shell plugins
     fish-done = {
       url = "github:franciscolourenco/done";
       flake = false;

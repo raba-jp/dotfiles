@@ -1,35 +1,31 @@
-{ lib, pkgs, ... }:
-let
-  neovimConfig = builtins.readFile ./init.lua;
-in
-{
-  home.packages = with pkgs; [
-    # tree sitter
-    tree-sitter
-    # LSP
-    gopls
-    rust-analyzer
-    sumneko-lua-language-server
-    rnix-lsp
-    nodePackages.pyright
-    nodePackages.typescript-language-server
-    rubyPackages.solargraph
-    terraform-ls
-    efm-langserver
-  ];
-
+{ lib, pkgs, ... }: {
   programs.neovim = {
     enable = true;
-
-    package = pkgs.neovim-unwrapped;
-
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
 
+    package = pkgs.neovim-unwrapped;
+    extraPackages = with pkgs; [
+      tree-sitter
+      gopls
+      rust-analyzer
+      sumneko-lua-language-server
+      rnix-lsp
+      nodePackages.pyright
+      nodePackages.typescript-language-server
+      rubyPackages.solargraph
+      terraform-ls
+      efm-langserver
+    ];
+
     plugins = with pkgs.vimPlugins; [
+      vim-polyglot
+      editorconfig-nvim
+      vim-edgemotion
+      nvim-web-devicons
       {
-        plugin = nordic-nvim;
+        plugin = popup-nvim;
         type = "lua";
         config = ''
           -- Global option
@@ -47,85 +43,67 @@ in
           vim.o.completeopt = "menuone,noinsert,noselect"
           vim.o.termguicolors = true
           vim.o.background = "dark"
-
-          vim.cmd("syntax on")
-          vim.cmd("filetype plugin indent on")
-          require("nordic").colorscheme({
-          	underline_option = "none",
-          	italic = true,
-          	italic_comments = false,
-          	minimal_mode = false,
-          	alternate_backgrounds = false,
-          })
         '';
       }
-      vim-polyglot
-      editorconfig-vim
-      vim-edgemotion
+      { plugin = plenary-nvim; }
       {
-        plugin = (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars));
+        plugin = nordic-nvim;
         type = "lua";
-        config = ''
-          require("nvim-treesitter.configs").setup({
-            ensure_installed = {
-              "nix",
-              "rust",
-              "lua",
-              "dart",
-              "python",
-              "typescript",
-              "fish",
-              "bash",
-              "go",
-              "yaml",
-              "json",
-              "graphql",
-              "dockerfile",
-            },
-            highlight = { enable = true },
-            indent = { enable = true },
-            lsp_interop = { enable = true },
-            refactor = {
-              navigation = { enable = true },
-              highlight_definitions = { enable = true },
-              highlight_current_scope = { enable = true },
-            },
-            rainbow = { enable = true },
-          })
-        '';
+        config = builtins.readFile ./nordic-nvim.lua;
+      }
+      {
+        plugin = (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars));
+        type = "lua";
+        config = builtins.readFile ./nvim-treesitter.lua;
       }
       {
         plugin = nvim-treesitter-context;
         type = "lua";
-        config = ''
-          require("treesitter-context").setup({
-          	enable = true,
-          	throttle = true,
-          })
-        '';
+        config = ''require("treesitter-context").setup({ enable = true, throttle = true })'';
       }
-
-      popup-nvim
-      plenary-nvim
-      telescope-nvim # depends on popup-nvim, plenary-nvim
-      telescope-fzf-native-nvim
-      telescope-ghq-nvim
-      telescope-command-palette-nvim
-      cheatsheet-nvim
-      octo-nvim
-
-      lualine-nvim
-
-      nvim-lspconfig
-      nvim-cmp
-      cmp-nvim-lsp
-      cmp-buffer
-      cmp-cmdline
-      lspsaga-nvim
-      lsp-format-nvim
-
-      nvim-web-devicons
-
+      {
+        plugin = telescope-nvim;
+        type = "lua";
+        config = builtins.readFile ./telescope-nvim.lua;
+      }
+      {
+        plugin = telescope-fzf-native-nvim;
+        type = "lua";
+        config = ''require("telescope").load_extension("fzf")'';
+      }
+      {
+        plugin = telescope-ghq-nvim;
+        type = "lua";
+        config = ''require("telescope").load_extension("ghq")'';
+      }
+      {
+        plugin = telescope-command-palette-nvim;
+        type = "lua";
+        config = ''require("telescope").load_extension("command_palette")'';
+      }
+      {
+        plugin = lualine-nvim;
+        type = "lua";
+        config = ''require("lualine").setup({ options = { theme = "nord" } })'';
+      }
+      { plugin = cmp-nvim-lsp; }
+      { plugin = cmp-buffer; }
+      { plugin = cmp-cmdline; }
+      {
+        plugin = nvim-cmp;
+        type = "lua";
+        config = builtins.readFile ./nvim-cmp.lua;
+      }
+      {
+        plugin = lsp-format-nvim;
+        type = "lua";
+        config = builtins.readFile ./lsp-format-nvim.lua;
+      }
+      {
+        plugin = nvim-lspconfig;
+        type = "lua";
+        config = builtins.readFile ./nvim-lspconfig.lua;
+      }
       {
         plugin = which-key-nvim;
         type = "lua";
@@ -136,21 +114,20 @@ in
               border = "double",
             },
           })
-          wk.register({})
-
+          wk.register({
+            ["C-p"] = { '<cmd>lua require"telescope".extensions.command_palette.command_palette({})<CR>'}
+          })
         '';
       }
       {
         plugin = nvim-notify;
         type = "lua";
-        config = ''
-          vim.notify = require("notify")
-        '';
+        config = ''vim.notify = require("notify")'';
       }
     ];
 
     extraConfig = ''
       lua <<EOF
-    '' + neovimConfig + "EOF";
+    '' + builtins.readFile ./init.lua + "EOF";
   };
 }
