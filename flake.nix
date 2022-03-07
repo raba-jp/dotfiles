@@ -41,10 +41,9 @@
     };
 
     ## NeoVim Plugins
-    vim-edgemotion = {
-      url = "github:haya14busa/vim-edgemotion";
-      flake = false;
-    };
+    popup-nvim = { url = "github:nvim-lua/popup.nvim"; flake = false; };
+    plenary-nvim = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
+    vim-edgemotion = { url = "github:haya14busa/vim-edgemotion"; flake = false; };
     nordic-nvim = {
       url = "github:andersevenrud/nordic.nvim";
       flake = false;

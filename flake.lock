@@ -104,6 +104,22 @@
         "type": "github"
       }
     },
+    "editorconfig-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1645113744,
+        "narHash": "sha256-Nv9P0viDKd3e5mAEYTj/HrU3yimzQ8x31I2AGqqEANU=",
+        "owner": "gpanders",
+        "repo": "editorconfig.nvim",
+        "rev": "495d3e2f56ee392de0d55902c82849f94b6fc86b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gpanders",
+        "repo": "editorconfig.nvim",
+        "type": "github"
+      }
+    },
     "fish-done": {
       "flake": false,
       "locked": {
@@ -454,6 +470,7 @@
         "darwin": "darwin",
         "darwin-stable": "darwin-stable",
         "devshell": "devshell",
+        "editorconfig-nvim": "editorconfig-nvim",
         "fish-done": "fish-done",
         "fish-foreign-env": "fish-foreign-env",
         "fish-fzf": "fish-fzf",

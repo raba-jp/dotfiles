@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, ... }@args:
+let
+  inherit (pkgs.vimUtils.buildVimPlugin);
+in
+{
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -19,13 +23,36 @@
       efm-langserver
     ];
 
-    plugins = with pkgs.vimPlugins; [
-      vim-polyglot
-      editorconfig-nvim
-      vim-edgemotion
-      nvim-web-devicons
+    plugins = [
       {
-        plugin = popup-nvim;
+        plugin = buildVimPlugin {
+          name = "vim-polyglot";
+          src = args.vim-polyglot;
+        };
+      }
+      {
+        plugin = buildVimPlugin {
+          name = "editorconfig.nvim";
+          src = args.editorconfig-nvim;
+        };
+      }
+      {
+        plugin = buildVimPlugin {
+          name = "vim-edgemotion";
+          src = args.vim-edgemotion;
+        };
+      }
+      {
+        plugin = builtVimPlugin {
+          name = "nvim-web-devicons";
+          src = args.nvim-web-devicons;
+        };
+      }
+      {
+        plugin = builtVimPlugin {
+          name = "popup.nvim";
+          src = args.popup-nvim;
+        };
         type = "lua";
         config = ''
           -- Global option
@@ -45,7 +72,12 @@
           vim.o.background = "dark"
         '';
       }
-      { plugin = plenary-nvim; }
+      {
+        plugin = buildVimPlugin {
+          name = "plenary.nvim";
+          src = args.plenary-nvim;
+        };
+      }
       {
         plugin = nordic-nvim;
         type = "lua";
