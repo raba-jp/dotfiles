@@ -242,18 +242,6 @@
                 '';
               }
             ];
-
-            git.hooks = {
-              enable = true;
-              pre-commit.text = ''
-                #!/bin/sh
-                treefmt
-  
-                for FILE in `git diff --staged --name-only`; do
-                    git add $FILE
-                done
-              '';
-            };
           };
       });
 }
