@@ -1,7 +1,6 @@
 local fn = vim.fn
 local cmd = vim.cmd
 local opt = vim.o
-local gvar = vim.g
 local setmap = vim.api.nvim_set_keymap
 
 -- Keybindings
@@ -36,51 +35,6 @@ end
 if fn.has("unix") == 1 then
 	opt.clipboard = "unnamed"
 end
-opt.encoding = "UTF-8"
-opt.swapfile = false
-opt.smartindent = true
-opt.smarttab = true
-opt.visualbell = true
-opt.hlsearch = true
-opt.signcolumn = "yes"
-opt.smartcase = true
-opt.ignorecase = true
-opt.showmode = true
-opt.completeopt = "menuone,noinsert,noselect"
-opt.termguicolors = true
-opt.background = "dark"
-
-require("nvim-treesitter.configs").setup({
-	ensure_installed = {
-		"nix",
-		"rust",
-		"lua",
-		"dart",
-		"python",
-		"typescript",
-		"fish",
-		"bash",
-		"go",
-		"yaml",
-		"json",
-		"graphql",
-		"dockerfile",
-	},
-	highlight = { enable = true },
-	indent = { enable = true },
-	lsp_interop = { enable = true },
-	refactor = {
-		navigation = { enable = true },
-		highlight_definitions = { enable = true },
-		highlight_current_scope = { enable = true },
-	},
-	rainbow = { enable = true },
-})
-
-require("treesitter-context").setup({
-	enable = true,
-	throttle = true,
-})
 
 local telescope = require("telescope")
 telescope.setup({

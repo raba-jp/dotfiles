@@ -33,7 +33,20 @@ in
         type = "lua";
         config = ''
           -- Global option
-          gvar.mapleader = " "
+          vim.g.mapleader = " "
+          vim.o.encoding = "UTF-8"
+          vim.o.swapfile = false
+          vim.o.smartindent = true
+          vim.o.smarttab = true
+          vim.o.visualbell = true
+          vim.o.hlsearch = true
+          vim.o.signcolumn = "yes"
+          vim.o.smartcase = true
+          vim.o.ignorecase = true
+          vim.o.showmode = true
+          vim.o.completeopt = "menuone,noinsert,noselect"
+          vim.o.termguicolors = true
+          vim.o.background = "dark"
 
           vim.cmd("syntax on")
           vim.cmd("filetype plugin indent on")
@@ -49,8 +62,48 @@ in
       vim-polyglot
       editorconfig-vim
       vim-edgemotion
-      (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
-      nvim-treesitter-context
+      {
+        plugin = (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars));
+        type = "lua";
+        config = ''
+          require("nvim-treesitter.configs").setup({
+            ensure_installed = {
+              "nix",
+              "rust",
+              "lua",
+              "dart",
+              "python",
+              "typescript",
+              "fish",
+              "bash",
+              "go",
+              "yaml",
+              "json",
+              "graphql",
+              "dockerfile",
+            },
+            highlight = { enable = true },
+            indent = { enable = true },
+            lsp_interop = { enable = true },
+            refactor = {
+              navigation = { enable = true },
+              highlight_definitions = { enable = true },
+              highlight_current_scope = { enable = true },
+            },
+            rainbow = { enable = true },
+          })
+        '';
+      }
+      {
+        plugin = nvim-treesitter-context;
+        type = "lua";
+        config = ''
+          require("treesitter-context").setup({
+          	enable = true,
+          	throttle = true,
+          })
+        '';
+      }
 
       popup-nvim
       plenary-nvim
