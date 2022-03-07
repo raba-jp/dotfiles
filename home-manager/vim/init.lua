@@ -252,3 +252,5 @@ wk.setup({
 	},
 })
 wk.register({})
+
+vim.notify = require("notify")

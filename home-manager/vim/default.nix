@@ -5,7 +5,6 @@ in
 {
   home.packages = with pkgs; [
     # tree sitter
-    gcc
     tree-sitter
     # LSP
     gopls
@@ -32,7 +31,7 @@ in
       vim-polyglot
       editorconfig-vim
       vim-edgemotion
-      nvim-treesitter
+      (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
       nvim-treesitter-context
 
       popup-nvim
@@ -58,6 +57,7 @@ in
       nvim-web-devicons
 
       which-key-nvim
+      nvim-notify
     ];
 
     extraConfig = ''
