@@ -41,62 +41,28 @@
     };
 
     ## NeoVim Plugins
+    vim-polyglot = { url = "github:sheerun/vim-polyglot"; flake = false; };
+    editorconfig-nvim = { url = "github:gpanders/editorconfig.nvim"; flake = false; };
+    vim-edgemotion = { url = "github:haya14busa/vim-edgemotion"; flake = false; };
+    nvim-web-devicons = { url = "github:kyazdani42/nvim-web-devicons"; flake = false; };
     popup-nvim = { url = "github:nvim-lua/popup.nvim"; flake = false; };
     plenary-nvim = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
-    vim-edgemotion = { url = "github:haya14busa/vim-edgemotion"; flake = false; };
-    nordic-nvim = {
-      url = "github:andersevenrud/nordic.nvim";
-      flake = false;
-    };
-    cmp-nvim-lsp = {
-      url = "github:hrsh7th/cmp-nvim-lsp";
-      flake = false;
-    };
-    cmp-buffer = {
-      url = "github:hrsh7th/cmp-buffer";
-      flake = false;
-    };
-    lspsaga-nvim = {
-      url = "github:tami5/lspsaga.nvim";
-      flake = false;
-    };
-    telescope-ghq-nvim = {
-      url = "github:nvim-telescope/telescope-ghq.nvim";
-      flake = false;
-    };
-    nvim-web-devicons = {
-      url = "github:kyazdani42/nvim-web-devicons";
-      flake = false;
-    };
-    which-key-nvim = {
-      url = "github:folke/which-key.nvim";
-      flake = false;
-    };
-
-    telescope-command-palette-nvim = {
-      url = "github:LinArcX/telescope-command-palette.nvim";
-      flake = false;
-    };
-
-    cheatsheet-nvim = {
-      url = "github:sudormrfbin/cheatsheet.nvim";
-      flake = false;
-    };
-
-    octo-nvim = {
-      url = "github:pwntester/octo.nvim";
-      flake = false;
-    };
-
-    lsp-format-nvim = {
-      url = "github:lukas-reineke/lsp-format.nvim";
-      flake = false;
-    };
-
-    editorconfig-nvim = {
-      url = "github:gpanders/editorconfig.nvim";
-      flake = false;
-    };
+    nordic-nvim = { url = "github:andersevenrud/nordic.nvim"; flake = false; };
+    nvim-treesitter = { url = "github:nvim-treesitter/nvim-treesitter"; flake = false; };
+    nvim-treesitter-context = { url = "github:romgrk/nvim-treesitter-context"; flake = false; };
+    telescope-nvim = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
+    telescope-fzf-native-nvim = { url = "github:nvim-telescope/telescope-fzf-native.nvim"; flake = false; };
+    telescope-ghq-nvim = { url = "github:nvim-telescope/telescope-ghq.nvim"; flake = false; };
+    telescope-command-palette-nvim = { url = "github:LinArcX/telescope-command-palette.nvim"; flake = false; };
+    lualine-nvim = { url = "github:nvim-lualine/lualine.nvim"; flake = false; };
+    cmp-nvim-lsp = { url = "github:hrsh7th/cmp-nvim-lsp"; flake = false; };
+    cmp-buffer = { url = "github:hrsh7th/cmp-buffer"; flake = false; };
+    cmp-cmdline = { url = "github:hrsh7th/cmp-cmdline"; flake = false; };
+    nvim-cmp = { url = "github:hrsh7th/nvim-cmp"; flake = false; };
+    lsp-format-nvim = { url = "github:lukas-reineke/lsp-format.nvim"; flake = false; };
+    nvim-lspconfig = { url = "github:neovim/nvim-lspconfig"; flake = false; };
+    which-key-nvim = { url = "github:folke/which-key.nvim"; flake = false; };
+    nvim-notify = { url = "github:rcarriga/nvim-notify"; flake = false; };
 
     # fish shell plugins
     fish-done = {

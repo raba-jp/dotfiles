@@ -1,6 +1,6 @@
 { lib, pkgs, ... }@args:
 let
-  inherit (pkgs.vimUtils.buildVimPlugin);
+  inherit (pkgs.vimUtils) buildVimPluginFrom2Nix;
 in
 {
   programs.neovim = {
@@ -24,35 +24,12 @@ in
     ];
 
     plugins = [
+      { plugin = buildVimPluginFrom2Nix { name = "vim-polyglot"; src = args.vim-polyglot; }; }
+      { plugin = buildVimPluginFrom2Nix { name = "editorconfig.nvim"; src = args.editorconfig-nvim; }; }
+      { plugin = buildVimPluginFrom2Nix { name = "vim-edgemotion"; src = args.vim-edgemotion; }; }
+      { plugin = buildVimPluginFrom2Nix { name = "nvim-web-devicons"; src = args.nvim-web-devicons; }; }
       {
-        plugin = buildVimPlugin {
-          name = "vim-polyglot";
-          src = args.vim-polyglot;
-        };
-      }
-      {
-        plugin = buildVimPlugin {
-          name = "editorconfig.nvim";
-          src = args.editorconfig-nvim;
-        };
-      }
-      {
-        plugin = buildVimPlugin {
-          name = "vim-edgemotion";
-          src = args.vim-edgemotion;
-        };
-      }
-      {
-        plugin = builtVimPlugin {
-          name = "nvim-web-devicons";
-          src = args.nvim-web-devicons;
-        };
-      }
-      {
-        plugin = builtVimPlugin {
-          name = "popup.nvim";
-          src = args.popup-nvim;
-        };
+        plugin = buildVimPluginFrom2Nix { name = "popup.nvim"; src = args.popup-nvim; };
         type = "lua";
         config = ''
           -- Global option
@@ -72,72 +49,63 @@ in
           vim.o.background = "dark"
         '';
       }
+      { plugin = buildVimPluginFrom2Nix { name = "plenary.nvim"; src = args.plenary-nvim; }; }
+      { plugin = buildVimPluginFrom2Nix { name = "nordic.nvim"; src = args.nordic-nvim; }; type = "lua"; config = builtins.readFile ./nordic-nvim.lua; }
       {
-        plugin = buildVimPlugin {
-          name = "plenary.nvim";
-          src = args.plenary-nvim;
-        };
-      }
-      {
-        plugin = nordic-nvim;
-        type = "lua";
-        config = builtins.readFile ./nordic-nvim.lua;
-      }
-      {
-        plugin = (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars));
+        plugin = (pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars));
         type = "lua";
         config = builtins.readFile ./nvim-treesitter.lua;
       }
       {
-        plugin = nvim-treesitter-context;
+        plugin = buildVimPluginFrom2Nix { name = "nvim-treesitter-context"; src = args.nvim-treesitter-context; };
         type = "lua";
         config = ''require("treesitter-context").setup({ enable = true, throttle = true })'';
       }
       {
-        plugin = telescope-nvim;
+        plugin = buildVimPluginFrom2Nix { name = "telescope.nvim"; src = args.telescope-nvim; };
         type = "lua";
         config = builtins.readFile ./telescope-nvim.lua;
       }
       {
-        plugin = telescope-fzf-native-nvim;
+        plugin = buildVimPluginFrom2Nix { name = "telescope-fzf-native.nvim"; src = args.telescope-fzf-native-nvim; };
         type = "lua";
         config = ''require("telescope").load_extension("fzf")'';
       }
       {
-        plugin = telescope-ghq-nvim;
+        plugin = buildVimPluginFrom2Nix { name = "telescope-ghq.nvim"; src = args.telescope-ghq-nvim; };
         type = "lua";
         config = ''require("telescope").load_extension("ghq")'';
       }
       {
-        plugin = telescope-command-palette-nvim;
+        plugin = buildVimPluginFrom2Nix { name = "telescope-command-palette.nvim"; src = args.telescope-command-palette-nvim; };
         type = "lua";
         config = ''require("telescope").load_extension("command_palette")'';
       }
       {
-        plugin = lualine-nvim;
+        plugin = buildVimPluginFrom2Nix { name = "lualine.nvim"; src = args.lualine-nvim; };
         type = "lua";
         config = ''require("lualine").setup({ options = { theme = "nord" } })'';
       }
-      { plugin = cmp-nvim-lsp; }
-      { plugin = cmp-buffer; }
-      { plugin = cmp-cmdline; }
+      { plugin = buildVimPluginFrom2Nix { name = "cmp-nvim-lsp"; src = args.cmp-nvim-lsp; }; }
+      { plugin = buildVimPluginFrom2Nix { name = "cmp-buffer"; src = args.cmp-buffer; }; }
+      { plugin = buildVimPluginFrom2Nix { name = "cmp-cmdline"; src = args.cmp-cmdline; }; }
       {
-        plugin = nvim-cmp;
+        plugin = buildVimPluginFrom2Nix { name = "nvim-cmp"; src = args.nvim-cmp; };
         type = "lua";
         config = builtins.readFile ./nvim-cmp.lua;
       }
       {
-        plugin = lsp-format-nvim;
+        plugin = buildVimPluginFrom2Nix { name = "lsp-format.nvim"; src = args.lsp-format-nvim; };
         type = "lua";
         config = builtins.readFile ./lsp-format-nvim.lua;
       }
       {
-        plugin = nvim-lspconfig;
+        plugin = buildVimPluginFrom2Nix { name = "nvim-lspconfig"; src = args.nvim-lspconfig; };
         type = "lua";
         config = builtins.readFile ./nvim-lspconfig.lua;
       }
       {
-        plugin = which-key-nvim;
+        plugin = buildVimPluginFrom2Nix { name = "which-key.nvim"; src = args.which-key-nvim; };
         type = "lua";
         config = ''
           local wk = require("which-key")
@@ -152,7 +120,7 @@ in
         '';
       }
       {
-        plugin = nvim-notify;
+        plugin = buildVimPluginFrom2Nix { name = "nvim-notify"; src = args.nvim-notify; };
         type = "lua";
         config = ''vim.notify = require("notify")'';
       }
