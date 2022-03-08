@@ -99,7 +99,7 @@
           system = "x86_64-linux";
           modules = [
             ({ pkgs, ... }: {
-              nixpkgs.overlays = [ ((import ./overlays) inputs) ];
+              nixpkgs.overlays = [ (import ./overlays) ];
               home-manager.extraSpecialArgs = inputs;
             })
             home-manager.nixosModules.home-manager
@@ -114,7 +114,7 @@
           system = "x86_64-linux";
           modules = [
             ({ pkgs, ... }: {
-              nixpkgs.overlays = [ ((import ./overlays) inputs) ];
+              nixpkgs.overlays = [ (import ./overlays) ];
               home-manager.extraSpecialArgs = inputs;
             })
             home-manager.nixosModules.home-manager
@@ -131,7 +131,7 @@
           system = "aarch64-darwin";
           modules = [
             ({ pkgs, ... }: {
-              nixpkgs.overlays = [ ((import ./overlays) inputs) ];
+              nixpkgs.overlays = [ (import ./overlays) ];
               home-manager.extraSpecialArgs = inputs;
             })
             home-manager.darwinModules.home-manager
