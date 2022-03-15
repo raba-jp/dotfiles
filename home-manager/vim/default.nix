@@ -1,6 +1,6 @@
 { lib, pkgs, ... }@args:
 let
-  inherit (pkgs.vimUtils) buildVimPluginFrom2Nix;
+  inherit (pkgs.vimUtils) buildVimPlugin buildVimPluginFrom2Nix;
 in
 {
   programs.neovim = {
@@ -67,7 +67,7 @@ in
         config = builtins.readFile ./telescope-nvim.lua;
       }
       {
-        plugin = buildVimPluginFrom2Nix { name = "telescope-fzf-native.nvim"; src = args.telescope-fzf-native-nvim; };
+        plugin = buildVimPlugin { name = "telescope-fzf-native.nvim"; src = args.telescope-fzf-native-nvim; };
         type = "lua";
         config = ''require("telescope").load_extension("fzf")'';
       }
