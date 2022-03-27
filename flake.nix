@@ -48,7 +48,6 @@
     popup-nvim = { url = "github:nvim-lua/popup.nvim"; flake = false; };
     plenary-nvim = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
     nordic-nvim = { url = "github:andersevenrud/nordic.nvim"; flake = false; };
-    nvim-treesitter = { url = "github:nvim-treesitter/nvim-treesitter"; flake = false; };
     nvim-treesitter-context = { url = "github:romgrk/nvim-treesitter-context"; flake = false; };
     telescope-nvim = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
     telescope-fzf-native-nvim = { url = "github:nvim-telescope/telescope-fzf-native.nvim"; flake = false; };
