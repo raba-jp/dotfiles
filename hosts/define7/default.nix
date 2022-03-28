@@ -6,6 +6,7 @@
         graphical.enable = true;
         game.enable = true;
         nvidia.enable = true;
+        docker.enable = true;
       };
     }
   ];

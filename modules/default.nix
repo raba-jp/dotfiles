@@ -4,5 +4,6 @@
     ./game.nix
     ./graphical.nix
     ./nvidia.nix
+    ./docker.nix
   ];
 }
