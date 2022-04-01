@@ -32,7 +32,7 @@
           family = "Cica";
           style = "Italic";
         };
-        size = 14;
+        size = (if pkgs.stdenvNoCC.isDarwin then 20 else 14);
         use_thin_stroke = true;
       };
 
