@@ -110,7 +110,6 @@
       ## Elm
       elmPackages.elm
     ] ++ (if pkgs.stdenvNoCC.isLinux then [
-      contour
       # CLI
       flutter
       kube3d
@@ -133,7 +132,6 @@
       materia-theme
       papirus-icon-theme
       gnomeExtensions.pop-shell
-      gnomeExtensions.google-earth-wallpaper
     ] else [ ]);
 
     stateVersion = "21.11";
