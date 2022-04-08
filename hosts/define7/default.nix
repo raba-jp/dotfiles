@@ -5,7 +5,8 @@
       dotfiles = {
         graphical.enable = true;
         game.enable = true;
-        nvidia.enable = true;
+        nvidia.enable = false;
+        amd.enable = true;
         docker.enable = true;
       };
     }
