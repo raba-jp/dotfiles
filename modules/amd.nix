@@ -11,12 +11,15 @@ in
   config = mkIf cfg.enable {
     boot.initrd.kernelModules = [ "amdgpu" ];
 
-    services.xserver.videoDrivers = [ "amdgpu" "radeon" "modesetting" "fbdev" ];
+    services.xserver.videoDrivers = [ "amdgpu" ];
 
     environment.systemPackages = with pkgs; [
       glxinfo
     ];
 
-    hardware.opengl.driSupport = true;
+    hardware.opengl = {
+      extraPackages = with pkgs; [ amdvlk ];
+      extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
+    };
   };
 }

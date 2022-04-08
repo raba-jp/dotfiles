@@ -9,7 +9,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    boot.kernelPackages = pkgs.linuxPackages_zen;
+    boot.kernelPackages = pkgs.linuxPackages_latest;
 
     services = {
       xserver = {
@@ -21,8 +21,6 @@ in
 
         displayManager.gdm = {
           enable = true;
-          wayland = true;
-          # nvidiaWayland = false;
         };
 
         desktopManager.gnome.enable = true;
@@ -46,8 +44,13 @@ in
     };
 
     sound.enable = true;
+
     hardware = {
-      opengl.enable = true;
+      opengl = {
+        enable = true;
+        driSupport = true;
+        driSupport32Bit = true;
+      };
 
       pulseaudio.enable = true;
     };
@@ -56,7 +59,6 @@ in
 
     environment.systemPackages = with pkgs;
       [
-        chromium
         gnome.gnome-tweaks
       ];
   };
