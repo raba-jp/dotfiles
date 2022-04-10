@@ -11,11 +11,6 @@
       env.TERM = "xterm-256color";
 
       window = {
-        dimensions = {
-          columns = 200;
-          lines = 50;
-        };
-        decorations = "full";
         startup_mode = "Windowed";
       };
 

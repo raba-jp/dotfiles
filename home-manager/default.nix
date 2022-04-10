@@ -58,7 +58,6 @@
       ghq # remote repository management cli
       cargo-make
       gh
-      yq
       gobang # TUI database management tool
       treefmt
       unzip
@@ -134,6 +133,7 @@
       gnomeExtensions.pop-shell
       libva-utils
       vulkan-tools
+      sidekick
     ] else [ ]);
 
     stateVersion = "21.11";

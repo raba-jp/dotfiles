@@ -4,5 +4,6 @@ with prev.lib;
   [
     (import ./cica.nix)
     (import ./popshell.nix)
+    (final: prev: { sidekick = ((prev.callPackage ./sidekick.nix) { }); })
   ]
 ) final
