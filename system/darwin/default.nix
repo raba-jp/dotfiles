@@ -168,6 +168,7 @@
       "hyperswitch"
       "obsidian"
       "osxfuse"
+      "pushplaylabs-sidekick"
       "qlmarkdown"
       "quicklook-csv"
       "raycast"
