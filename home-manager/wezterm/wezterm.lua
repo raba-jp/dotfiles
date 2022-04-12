@@ -1,9 +1,23 @@
 local wezterm = require("wezterm")
+
 local modCtrl = "CTRL"
 local modLeader = "LEADER"
 local modShift = "SHIFT"
 local modLeaderShift = modLeader .. "|" .. modShift
 local modCtrlShift = modCtrl .. "|" .. modShift
+local modNone = "NONE"
+
+wezterm.on("update-right-status", function(window, _)
+	local leader = ""
+	if window:leader_is_active() then
+		leader = "LEADER"
+	end
+	window:set_right_status(leader)
+end)
+
+wezterm.on("window-config-reloaded", function(window, _)
+	window:toast_notification("wezterm", "Configuration reloaded!", nil, 4000)
+end)
 
 return {
 	default_prog = { "fish", "-l" },
@@ -60,5 +74,19 @@ return {
 
 		-- Reload
 		{ key = "R", mods = modCtrlShift, action = "ReloadConfiguration" },
+
+		-- Clipboard
+		{ key = "c", mods = modLeader, action = wezterm.action({ CopyTo = "Clipboard" }) },
+		{ key = "v", mods = modLeader, action = wezterm.action({ PasteFrom = "Clipboard" }) },
+		{ key = "x", mods = modLeader, action = "ActivateCopyMode" },
+		{ key = "x", mods = modLeaderShift, action = "QuickSelect" },
+	},
+
+	mouse_bindings = {
+		{
+			event = { Up = { streak = 1, button = "Left" } },
+			mods = modNone,
+			action = wezterm.action({ CompleteSelection = "Clipboard" }),
+		},
 	},
 }
