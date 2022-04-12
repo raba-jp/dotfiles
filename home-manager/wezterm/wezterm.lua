@@ -45,10 +45,10 @@ return {
 		{ key = "l", mods = modLeader, action = wezterm.action({ ActivatePaneDirection = "Right" }) },
 
 		-- Resize pane
-		{ key = "H", mods = modLeaderShift, action = wezterm.action({ AdjuestPaneSize = { "Left", 5 } }) },
-		{ key = "J", mods = modLeaderShift, action = wezterm.action({ AdjuestPaneSize = { "Down", 5 } }) },
-		{ key = "K", mods = modLeaderShift, action = wezterm.action({ AdjuestPaneSize = { "Up", 5 } }) },
-		{ key = "L", mods = modLeaderShift, action = wezterm.action({ AdjuestPaneSize = { "Right", 5 } }) },
+		{ key = "H", mods = modLeaderShift, action = wezterm.action({ AdjustPaneSize = { "Left", 5 } }) },
+		{ key = "J", mods = modLeaderShift, action = wezterm.action({ AdjustPaneSize = { "Down", 5 } }) },
+		{ key = "K", mods = modLeaderShift, action = wezterm.action({ AdjustPaneSize = { "Up", 5 } }) },
+		{ key = "L", mods = modLeaderShift, action = wezterm.action({ AdjustPaneSize = { "Right", 5 } }) },
 
 		-- Move tab
 		{ key = "n", mods = modLeader, action = wezterm.action({ ActivateTabRelative = 1 }) },
