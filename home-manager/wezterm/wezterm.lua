@@ -64,6 +64,9 @@ return {
 		{ key = "K", mods = modLeaderShift, action = wezterm.action({ AdjustPaneSize = { "Up", 5 } }) },
 		{ key = "L", mods = modLeaderShift, action = wezterm.action({ AdjustPaneSize = { "Right", 5 } }) },
 
+		-- Add tab
+		{ key = "t", mods = modLeader, action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
+
 		-- Move tab
 		{ key = "n", mods = modLeader, action = wezterm.action({ ActivateTabRelative = 1 }) },
 		{ key = "p", mods = modLeader, action = wezterm.action({ ActivateTabRelative = -1 }) },
