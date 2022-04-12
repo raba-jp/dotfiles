@@ -1,6 +1,6 @@
-{ ... }:
+{ pkgs, ... }:
 let
-  configFile = builtins.readFile ./wezterm.lua;
+  configFile = (builtins.replaceStrings [ "fish" ] [ "${pkgs.fish}/bin/fish" ] (builtins.readFile ./wezterm.lua));
 in
 {
   xdg.configFile."wezterm/wezterm.lua".text = configFile;
