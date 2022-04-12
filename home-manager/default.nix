@@ -21,6 +21,7 @@
     ./dconf
     ./gtk
     ./hammerspoon
+    ./wezterm
   ];
 
   home = {
@@ -134,6 +135,7 @@
       libva-utils
       vulkan-tools
       sidekick
+      wezterm
     ] else [ ]);
 
     stateVersion = "21.11";

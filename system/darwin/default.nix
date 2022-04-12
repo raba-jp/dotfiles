@@ -177,6 +177,7 @@
       "tableplus"
       "the-unarchiver"
       "visual-studio-code"
+      "wezterm"
       "zoom"
     ];
   };
