@@ -22,7 +22,11 @@ end)
 return {
 	default_prog = { "fish", "-l" },
 
-	font = wezterm.font("Cica"),
+	--font = wezterm.font("Cica"),
+	font = wezterm.font_with_fallback({
+		"JetBrains Mono",
+		"Noto Sans CJK JP",
+	}),
 	font_size = 14,
 
 	color_scheme = "nord",
@@ -52,6 +56,7 @@ return {
 			mods = modLeader,
 			action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
 		},
+
 		-- Move pane
 		{ key = "h", mods = modLeader, action = wezterm.action({ ActivatePaneDirection = "Left" }) },
 		{ key = "j", mods = modLeader, action = wezterm.action({ ActivatePaneDirection = "Down" }) },
