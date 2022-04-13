@@ -108,21 +108,6 @@
             ./hosts/define7
           ];
         };
-
-        xps13 = nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ({ pkgs, ... }: {
-              nixpkgs.overlays = [ (import ./overlays) ];
-              home-manager.extraSpecialArgs = inputs;
-            })
-            home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops
-            ./modules
-            ./system/nixos
-            ./hosts/xps13
-          ];
-        };
       };
 
       darwinConfigurations = {
@@ -151,7 +136,6 @@
           defaultPackage = pkgs.writeText "cachix-agents.json" (builtins.toJSON {
             agents = {
               define7 = self.nixosConfigurations.define7.config.system.build.toplevel;
-              xps13 = self.nixosConfigurations.xps13.config.system.build.toplevel;
             };
           });
         }))
@@ -189,11 +173,6 @@
               {
                 name = "switch-define7";
                 command = "sudo nixos-rebuild switch --flake .#define7";
-                category = "switch";
-              }
-              {
-                name = "switch-xps13";
-                command = "sudo nixos-rebuild switch --flake .#xps13";
                 category = "switch";
               }
               {
