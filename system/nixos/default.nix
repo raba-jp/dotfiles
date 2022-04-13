@@ -20,7 +20,7 @@
   };
 
   fonts = {
-    fonts = with pkgs; [ noto-fonts noto-fonts-cjk noto-fonts-emoji cica jetbrains-mono fira-code ];
+    fonts = with pkgs; [ noto-fonts noto-fonts-cjk noto-fonts-emoji cica jetbrains-mono udev-gothic udev-gothic-nf ];
     fontDir.enable = true;
     fontconfig.defaultFonts = {
       serif = [ "Noto Sans CJK JP" ];

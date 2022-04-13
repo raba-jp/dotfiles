@@ -46,7 +46,7 @@
 , commandLineArgs ? ""
 }:
 let
-  version = "98.17.0.18436-2e68cb9";
+  version = "20220413";
 
   rpath = lib.makeLibraryPath [
     alsa-lib
@@ -96,7 +96,7 @@ stdenv.mkDerivation {
 
   src = fetchurl {
     url = "https://api.meetsidekick.com/downloads/df/linux/deb";
-    sha256 = "039b9sn46b56gsf4v81i1g772y19443ag00zzv560s95ddaaa8z2";
+    sha256 = "1ry6jv7dzir6vs2zf5hd43sw6pc96ycijyxzipbi71sx7c0aiai0";
   };
 
   dontConfigure = true;
