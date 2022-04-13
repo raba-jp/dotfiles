@@ -24,8 +24,7 @@ return {
 
 	--font = wezterm.font("Cica"),
 	font = wezterm.font_with_fallback({
-		"JetBrains Mono",
-		"Noto Sans CJK JP",
+		"UDEV Gothic 35NFLG",
 	}),
 	font_size = 14,
 

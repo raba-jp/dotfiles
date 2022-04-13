@@ -6,7 +6,7 @@ in
     name = "udev-gothic-v${version}";
 
     url = "https://github.com/yuru7/udev-gothic/releases/download/v${version}/UDEVGothic_v${version}.zip";
-    sha256 = "19dylljdc1a6q8dxq359nxai5ylfnzb3cnzcs6z89gklchkhx6md";
+    sha256 = "+I9bt1jxeiUMLoIcYKwXaYjHAbssF8RUuknSQaunPFk=";
 
     postFetch = ''
       mkdir -p $out/share/fonts/udev-gothic
@@ -25,8 +25,7 @@ in
     name = "udev-gothic-nf-v${version}";
 
     url = "https://github.com/yuru7/udev-gothic/releases/download/v${version}/UDEVGothic_NF_v${version}.zip";
-    sha256 = "19k82gnzqn7bbn28ig6pbsfw7lkn8vdjgfm3ny0i2piq9wpp76am";
-
+    sha256 = "j0GSIMRMkSoEHRandSpfbX8DwqdtmFL8wTKQm7weoCY=";
 
     postFetch = ''
       mkdir -p $out/share/fonts/udev-gothic-nf
