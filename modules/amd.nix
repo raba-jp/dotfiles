@@ -15,6 +15,8 @@ in
 
     environment.systemPackages = with pkgs; [
       glxinfo
+      libva-utils
+      vulkan-tools
     ];
 
     hardware.opengl = {
