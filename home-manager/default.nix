@@ -134,6 +134,8 @@
       gnomeExtensions.pop-shell
       sidekick
       wezterm
+      libnotify
+      yubikey-personalization-gui
     ] else [ ]);
 
     stateVersion = "21.11";

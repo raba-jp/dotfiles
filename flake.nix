@@ -103,7 +103,7 @@
             })
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
-            ./modules
+            ./modules/nixos
             ./system/nixos
             ./hosts/define7
           ];

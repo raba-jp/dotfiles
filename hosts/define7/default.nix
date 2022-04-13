@@ -3,11 +3,12 @@
     ./hardware-configuration.nix
     {
       dotfiles = {
-        graphical.enable = true;
-        game.enable = true;
-        nvidia.enable = false;
         amd.enable = true;
         docker.enable = true;
+        game.enable = true;
+        gnome.enable = true;
+        physical.enable = true;
+        trackpad.enable = false;
       };
     }
   ];
