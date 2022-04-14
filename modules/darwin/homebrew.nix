@@ -29,7 +29,7 @@ in
 
     masApps = mkOption {
       type = with types; attrsOf ints.positive;
-      default = {};
+      default = { };
     };
   };
 
