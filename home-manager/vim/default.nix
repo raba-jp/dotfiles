@@ -52,7 +52,8 @@ in
       { plugin = buildVimPluginFrom2Nix { name = "plenary.nvim"; src = args.plenary-nvim; }; }
       { plugin = buildVimPluginFrom2Nix { name = "nordic.nvim"; src = args.nordic-nvim; }; type = "lua"; config = builtins.readFile ./nordic-nvim.lua; }
       {
-        plugin = (pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars));
+        plugin = (pkgs.vimPlugins.nvim-treesitter);
+        # plugin = (pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars));
         type = "lua";
         config = builtins.readFile ./nvim-treesitter.lua;
       }
