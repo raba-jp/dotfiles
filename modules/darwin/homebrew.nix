@@ -28,8 +28,8 @@ in
     };
 
     masApps = mkOption {
-      type = with types; listOf str;
-      default = [ ];
+      type = with types; attrsOf ints.positive;
+      default = {};
     };
   };
 

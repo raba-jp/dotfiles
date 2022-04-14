@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   imports = [
     ./homebrew.nix
     ./yabai.nix
@@ -24,11 +24,11 @@
     allowedUsers = [ "@wheel" ];
     trustedUsers = [ "@wheel" ];
 
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
+    # gc = {
+    #   automatic = true;
+    #   dates = "weekly";
+    #   options = "--delete-older-than 7d";
+    # };
 
     package = pkgs.nix;
 
