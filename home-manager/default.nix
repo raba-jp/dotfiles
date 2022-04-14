@@ -132,10 +132,10 @@
       materia-theme
       papirus-icon-theme
       gnomeExtensions.pop-shell
-      libva-utils
-      vulkan-tools
       sidekick
       wezterm
+      libnotify
+      yubikey-personalization-gui
     ] else [ ]);
 
     stateVersion = "21.11";

@@ -91,6 +91,14 @@
       inherit (nixos-unstable.lib) nixosSystem;
       inherit (flake-utils-plus.lib) mkFlake eachDefaultSystem eachSystem;
       inherit (nixpkgs) lib;
+
+      homeManagerConfigModule = {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          backupFileExtension = "backup";
+        };
+      };
     in
     {
       nixosConfigurations = {
@@ -103,8 +111,8 @@
             })
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
-            ./modules
-            ./system/nixos
+            homeManagerConfigModule
+            ./modules/nixos
             ./hosts/define7
           ];
         };
@@ -119,8 +127,8 @@
               home-manager.extraSpecialArgs = inputs;
             })
             home-manager.darwinModules.home-manager
-            ./system/shared.nix
-            ./system/darwin
+            homeManagerConfigModule
+            ./modules/darwin
             ./hosts/LF2107010038
           ];
         };
