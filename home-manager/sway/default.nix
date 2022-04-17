@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ lib, pkgs, ... }:
+lib.mkIf pkgs.stdenvNoCC.isLinux {
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;

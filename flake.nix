@@ -81,8 +81,13 @@
           useGlobalPkgs = true;
           useUserPackages = true;
           backupFileExtension = "backup";
+          extraSpecialArgs = inputs;
         };
       };
+      overlays = {
+        nixpkgs.overlays = [ (import ./overlays) ];
+      };
+
     in
     {
       homeConfigurations.codespaces = home-manager.lib.homeManagerConfiguration {
@@ -97,13 +102,10 @@
         define7 = nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ({ pkgs, ... }: {
-              nixpkgs.overlays = [ (import ./overlays) ];
-              home-manager.extraSpecialArgs = inputs;
-            })
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
             homeManagerConfigModule
+            overlays
             ./modules/nixos
             ./hosts/define7
           ];
@@ -114,45 +116,36 @@
         LF2107010038 = darwinSystem {
           system = "aarch64-darwin";
           modules = [
-            ({ pkgs, ... }: {
-              nixpkgs.overlays = [ (import ./overlays) ];
-              home-manager.extraSpecialArgs = inputs;
-            })
             home-manager.darwinModules.home-manager
             homeManagerConfigModule
+            overlays
             ./modules/darwin
             ./hosts/LF2107010038
           ];
         };
       };
-    } // lib.recursiveUpdate
-      (eachSystem [ "x86_64-linux" ] (system:
+
+      packages."x86_64-linux".default =
         let
-          pkgs = import nixpkgs {
-            inherit system;
-          };
+          pkgs = (import nixpkgs { system = "x86_64-linux"; });
         in
-        {
-          defaultPackage = pkgs.writeText "cachix-agents.json" (builtins.toJSON {
-            agents = {
-              define7 = self.nixosConfigurations.define7.config.system.build.toplevel;
-            };
-          });
-        }))
-      (eachSystem [ "x86_64-darwin" "aarch64-darwin" ] (system:
+        pkgs.writeText "cachix-agents.json" (builtins.toJSON {
+          agents = {
+            define7 = self.nixosConfigurations.define7.config.system.build.toplevel;
+          };
+        });
+
+      packages."aarch64-darwin".default =
         let
-          pkgs = import nixpkgs {
-            inherit system;
-            crossSystem = "aarch64-darwin";
-          };
+          pkgs = (import nixpkgs { system = "aarch64-darwin"; });
         in
-        {
-          defaultPackage = pkgs.writeText "cachix-agents.json" (builtins.toJSON {
-            agents = {
-              LF2107010038 = self.darwinConfigurations.LF2107010038.config.system.build.toplevel;
-            };
-          });
-        }))
+        pkgs.writeText "cachix-agents.json" (builtins.toJSON {
+          agents = {
+            LF2107010038 = self.darwinConfigurations.LF2107010038.config.system.build.toplevel;
+          };
+        });
+
+    }
     // eachDefaultSystem (system:
       let
         pkgs = import inputs.nixpkgs {
