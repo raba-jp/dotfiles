@@ -2,25 +2,24 @@
   description = "Nix system configurations";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-
-    # NixOS nixos-stable.url = "github:nixos/nixpkgs/nixos-21.11";
-    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Darwin
-    darwin-stable.url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
     darwin = {
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Home Manager
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # ISO images and VMs
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixos-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Shell
@@ -64,31 +63,16 @@
     nvim-notify = { url = "github:rcarriga/nvim-notify"; flake = false; };
 
     # fish shell plugins
-    fish-done = {
-      url = "github:franciscolourenco/done";
-      flake = false;
-    };
-
-    fish-ghq = {
-      url = "github:decors/fish-ghq";
-      flake = false;
-    };
-
-    fish-fzf = {
-      url = "github:jethrokuan/fzf";
-      flake = false;
-    };
-
-    fish-foreign-env = {
-      url = "github:oh-my-fish/plugin-foreign-env";
-      flake = false;
-    };
+    fish-done = { url = "github:franciscolourenco/done"; flake = false; };
+    fish-ghq = { url = "github:decors/fish-ghq"; flake = false; };
+    fish-fzf = { url = "github:jethrokuan/fzf"; flake = false; };
+    fish-foreign-env = { url = "github:oh-my-fish/plugin-foreign-env"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, nixos-unstable, darwin, home-manager, flake-utils-plus, sops-nix, ... }@inputs:
+  outputs = { self, nixpkgs, darwin, home-manager, flake-utils-plus, sops-nix, ... }@inputs:
     let
       inherit (darwin.lib) darwinSystem;
-      inherit (nixos-unstable.lib) nixosSystem;
+      inherit (nixpkgs.lib) nixosSystem;
       inherit (flake-utils-plus.lib) mkFlake eachDefaultSystem eachSystem;
       inherit (nixpkgs) lib;
 
@@ -101,6 +85,14 @@
       };
     in
     {
+      homeConfigurations.codespaces = home-manager.lib.homeManagerConfiguration {
+        configuration = import ./home-manager;
+        system = "x86_64-linux";
+        username = "codespaces";
+        stateVersion = "21.11";
+        homeDirectory = "/home/codespaces";
+      };
+
       nixosConfigurations = {
         define7 = nixosSystem {
           system = "x86_64-linux";
@@ -136,7 +128,7 @@
     } // lib.recursiveUpdate
       (eachSystem [ "x86_64-linux" ] (system:
         let
-          pkgs = import nixos-unstable {
+          pkgs = import nixpkgs {
             inherit system;
           };
         in
