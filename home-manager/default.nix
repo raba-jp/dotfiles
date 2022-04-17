@@ -22,6 +22,7 @@
     ./gtk
     ./hammerspoon
     ./wezterm
+    ./sway
   ];
 
   home = {
@@ -136,6 +137,7 @@
       wezterm
       libnotify
       yubikey-personalization-gui
+      gcc
     ] else [ ]);
 
     stateVersion = "21.11";
