@@ -2,10 +2,9 @@
 
 URL="https://nixos.org/nix/install"
 
-sudo xcodebuild -license accept
-
-# install using workaround for darwin systems
-[[ ! -z "$1" ]] && URL="$1"
+if [ "$(uname)" == 'Darwin' ]; then
+	sudo xcodebuild -license accept
+fi
 
 if command -v nix >/dev/null; then
 	echo "nix is already installed on this system."
