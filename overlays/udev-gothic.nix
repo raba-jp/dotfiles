@@ -1,12 +1,12 @@
 final: prev:
-let version = "0.1.0";
+let version = "1.0.0";
 in
 {
   udev-gothic = prev.fetchzip {
     name = "udev-gothic-v${version}";
 
     url = "https://github.com/yuru7/udev-gothic/releases/download/v${version}/UDEVGothic_v${version}.zip";
-    sha256 = "+I9bt1jxeiUMLoIcYKwXaYjHAbssF8RUuknSQaunPFk=";
+    sha256 = "LFzyndRTqJBBMiwb89jhDN4EHzOzHeS9kiO+chJB25s=";
 
     postFetch = ''
       mkdir -p $out/share/fonts/udev-gothic
@@ -25,7 +25,7 @@ in
     name = "udev-gothic-nf-v${version}";
 
     url = "https://github.com/yuru7/udev-gothic/releases/download/v${version}/UDEVGothic_NF_v${version}.zip";
-    sha256 = "j0GSIMRMkSoEHRandSpfbX8DwqdtmFL8wTKQm7weoCY=";
+    sha256 = "GWBDzkEUTpzGl+/euaQYQBbXAIbZOc10dj4jJNlD5OA=";
 
     postFetch = ''
       mkdir -p $out/share/fonts/udev-gothic-nf
