@@ -28,7 +28,30 @@ return {
 	}),
 	font_size = 14,
 
+	use_fancy_tab_bar = false,
+
 	color_scheme = "nord",
+	colors = {
+		tab_bar = {
+			background = "#2e3440",
+			active_tab = {
+				bg_color = "#4c566a",
+				fg_color = "#d8dee9",
+			},
+			inactive_tab = {
+				bg_color = "#3b4252",
+				fg_color = "#d8dee9",
+			},
+			new_tab = {
+				bg_color = "#4c566a",
+				fg_color = "#d8dee9",
+			},
+		},
+	},
+	inactive_pane_hsb = {
+		saturation = 0.8,
+		brightness = 0.7,
+	},
 
 	audible_bell = "Disabled",
 
