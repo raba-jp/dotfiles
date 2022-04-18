@@ -270,6 +270,22 @@
         "type": "github"
       }
     },
+    "lspkind-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1644054955,
+        "narHash": "sha256-0103K5lnzWCyuT/qwiBUo5PJ7lUX7fo+zNeEnQClI7A=",
+        "owner": "onsails",
+        "repo": "lspkind-nvim",
+        "rev": "93e98a0c900327ce7e9be1cbf24aebbe7170e375",
+        "type": "github"
+      },
+      "original": {
+        "owner": "onsails",
+        "repo": "lspkind-nvim",
+        "type": "github"
+      }
+    },
     "lualine-nvim": {
       "flake": false,
       "locked": {
@@ -515,6 +531,7 @@
         "flake-utils-plus": "flake-utils-plus",
         "home-manager": "home-manager",
         "lsp-format-nvim": "lsp-format-nvim",
+        "lspkind-nvim": "lspkind-nvim",
         "lualine-nvim": "lualine-nvim",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_2",

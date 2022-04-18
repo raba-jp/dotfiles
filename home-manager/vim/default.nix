@@ -90,6 +90,7 @@ in
       { plugin = buildVimPluginFrom2Nix { name = "cmp-nvim-lsp"; src = args.cmp-nvim-lsp; }; }
       { plugin = buildVimPluginFrom2Nix { name = "cmp-buffer"; src = args.cmp-buffer; }; }
       { plugin = buildVimPluginFrom2Nix { name = "cmp-cmdline"; src = args.cmp-cmdline; }; }
+      { plugin = buildVimPluginFrom2Nix { name = "lspkind-nvim"; src = args.lspkind-nvim; }; }
       {
         plugin = buildVimPluginFrom2Nix { name = "nvim-cmp"; src = args.nvim-cmp; };
         type = "lua";

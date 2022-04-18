@@ -1,4 +1,6 @@
 local cmp = require("cmp")
+local lspkind = require("lspkind")
+
 cmp.setup({
 	mapping = {
 		["<Tab>"] = cmp.mapping.select_next_item(),
@@ -9,6 +11,9 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "buffer" },
 	}),
+	formatting = {
+		format = lspkind.cmp_format({}),
+	},
 })
 cmp.setup.cmdline("/", {
 	sources = {
