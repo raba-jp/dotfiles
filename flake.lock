@@ -48,6 +48,38 @@
         "type": "github"
       }
     },
+    "cmp-nvim-lsp-document-symbol": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1647917976,
+        "narHash": "sha256-NASM5mm4DjLNupVTnhj7rQR8gx0cNrF8vzMg8A1a+co=",
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp-document-symbol",
+        "rev": "c3f0086ed9882e52e0ae38dd5afa915f69054941",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp-document-symbol",
+        "type": "github"
+      }
+    },
+    "cmp-nvim-lsp-signature-help": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1648526692,
+        "narHash": "sha256-SdB4pjV3om2J6hSBecTLomq7QxguY1mEgSKAWxNXwcw=",
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp-signature-help",
+        "rev": "8014f6d120f72fe0a135025c4d41e3fe41fd411b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp-signature-help",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -519,6 +551,8 @@
         "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
+        "cmp-nvim-lsp-document-symbol": "cmp-nvim-lsp-document-symbol",
+        "cmp-nvim-lsp-signature-help": "cmp-nvim-lsp-signature-help",
         "darwin": "darwin",
         "devshell": "devshell",
         "editorconfig-nvim": "editorconfig-nvim",

@@ -56,6 +56,8 @@
     cmp-nvim-lsp = { url = "github:hrsh7th/cmp-nvim-lsp"; flake = false; };
     cmp-buffer = { url = "github:hrsh7th/cmp-buffer"; flake = false; };
     cmp-cmdline = { url = "github:hrsh7th/cmp-cmdline"; flake = false; };
+    cmp-nvim-lsp-document-symbol = { url = "github:hrsh7th/cmp-nvim-lsp-document-symbol"; flake = false; };
+    cmp-nvim-lsp-signature-help = { url = "github:hrsh7th/cmp-nvim-lsp-signature-help"; flake = false; };
     nvim-cmp = { url = "github:hrsh7th/nvim-cmp"; flake = false; };
     lsp-format-nvim = { url = "github:lukas-reineke/lsp-format.nvim"; flake = false; };
     nvim-lspconfig = { url = "github:neovim/nvim-lspconfig"; flake = false; };
