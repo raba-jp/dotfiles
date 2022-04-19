@@ -18,6 +18,7 @@ in
       rnix-lsp
       nodePackages.pyright
       nodePackages.typescript-language-server
+      nodePackages.yaml-language-server
       rubyPackages.solargraph
       terraform-ls
       efm-langserver
