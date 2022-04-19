@@ -158,13 +158,15 @@
             inputs.devshell.overlay
           ];
         };
+        pythonEnv = (pkgs.python3.withPackages (p: with p; [ black typer pylint ]));
+        confm = pkgs.writeShellScriptBin "confm" ''
+          cd $PRJ_ROOT && ${pythonEnv}/bin/python3 bin/confm.py $@
+        '';
       in
       {
         devShell = pkgs.devshell.mkShell
           {
-            imports = [ "${pkgs.devshell.extraModulesDir}/git/hooks.nix" ];
-
-            packages = [ pkgs.treefmt pkgs.nixpkgs-fmt pkgs.stylua pkgs.shfmt ];
+            packages = [ pkgs.treefmt pkgs.nixpkgs-fmt pkgs.stylua pkgs.shfmt pythonEnv ];
 
             commands = [
               {
@@ -186,6 +188,12 @@
                 command = ''
                   nix-shell -p nix-info --run "nix-info -m"
                 '';
+              }
+              {
+                name = "confm";
+                package = confm;
+                help = "run action";
+                category = "utilities";
               }
             ];
           };
