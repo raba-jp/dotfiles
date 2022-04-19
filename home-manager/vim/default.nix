@@ -129,6 +129,13 @@ in
         type = "lua";
         config = ''vim.notify = require("notify")'';
       }
+      {
+        plugin = buildVimPluginFrom2Nix { name = "gitsigns-nvim"; src = args.gitsigns-nvim; };
+        type = "lua";
+        config = ''
+        require("gitsigns").setup()
+        '';
+    }
     ];
 
     extraConfig = ''
