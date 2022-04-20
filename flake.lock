@@ -32,6 +32,22 @@
         "type": "github"
       }
     },
+    "cmp-luasnip": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1648846007,
+        "narHash": "sha256-1JiDa7fK9AEMUxLOFD3SSsxKEVLfd5xR8vfUlLRqz+M=",
+        "owner": "saadparwaiz1",
+        "repo": "cmp_luasnip",
+        "rev": "b10829736542e7cc9291e60bab134df1273165c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "saadparwaiz1",
+        "repo": "cmp_luasnip",
+        "type": "github"
+      }
+    },
     "cmp-nvim-lsp": {
       "flake": false,
       "locked": {
@@ -582,6 +598,7 @@
       "inputs": {
         "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
+        "cmp-luasnip": "cmp-luasnip",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
         "cmp-nvim-lsp-document-symbol": "cmp-nvim-lsp-document-symbol",
         "cmp-nvim-lsp-signature-help": "cmp-nvim-lsp-signature-help",

@@ -58,6 +58,8 @@
     cmp-cmdline = { url = "github:hrsh7th/cmp-cmdline"; flake = false; };
     cmp-nvim-lsp-document-symbol = { url = "github:hrsh7th/cmp-nvim-lsp-document-symbol"; flake = false; };
     cmp-nvim-lsp-signature-help = { url = "github:hrsh7th/cmp-nvim-lsp-signature-help"; flake = false; };
+    luasnip = { url = "github:L3MON4D3/LuaSnip"; flake = false; };
+    cmp-luasnip = { url = "github:saadparwaiz1/cmp_luasnip"; flake = false; };
     nvim-cmp = { url = "github:hrsh7th/nvim-cmp"; flake = false; };
     lsp-format-nvim = { url = "github:lukas-reineke/lsp-format.nvim"; flake = false; };
     nvim-lspconfig = { url = "github:neovim/nvim-lspconfig"; flake = false; };
@@ -65,7 +67,6 @@
     nvim-notify = { url = "github:rcarriga/nvim-notify"; flake = false; };
     lspkind-nvim = { url = "github:onsails/lspkind-nvim"; flake = false; };
     gitsigns-nvim = { url = "github:lewis6991/gitsigns.nvim"; flake = false; };
-    luasnip = { url = "github:L3MON4D3/LuaSnip"; flake = false; };
 
     # fish shell plugins
     fish-done = { url = "github:franciscolourenco/done"; flake = false; };
