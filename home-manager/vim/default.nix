@@ -88,6 +88,7 @@ in
         type = "lua";
         config = ''require("lualine").setup({ options = { theme = "nord" } })'';
       }
+      { plugin = buildVimPluginFrom2Nix { name = "LuaSnip"; src = args.luasnip; }; }
       { plugin = buildVimPluginFrom2Nix { name = "cmp-nvim-lsp"; src = args.cmp-nvim-lsp; }; }
       { plugin = buildVimPluginFrom2Nix { name = "cmp-buffer"; src = args.cmp-buffer; }; }
       { plugin = buildVimPluginFrom2Nix { name = "cmp-cmdline"; src = args.cmp-cmdline; }; }
@@ -133,9 +134,9 @@ in
         plugin = buildVimPluginFrom2Nix { name = "gitsigns-nvim"; src = args.gitsigns-nvim; };
         type = "lua";
         config = ''
-        require("gitsigns").setup()
+          require("gitsigns").setup()
         '';
-    }
+      }
     ];
 
     extraConfig = ''

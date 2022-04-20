@@ -350,6 +350,22 @@
         "type": "github"
       }
     },
+    "luasnip": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1650006023,
+        "narHash": "sha256-w73j+QzR+qriRplGP56TePaGUCAkQgBbMZjV8dGcQSE=",
+        "owner": "L3MON4D3",
+        "repo": "LuaSnip",
+        "rev": "6b67cb12747225a6412d8263bb97d6d2b8d9366a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "L3MON4D3",
+        "repo": "LuaSnip",
+        "type": "github"
+      }
+    },
     "nixlib": {
       "locked": {
         "lastModified": 1636849918,
@@ -584,6 +600,7 @@
         "lsp-format-nvim": "lsp-format-nvim",
         "lspkind-nvim": "lspkind-nvim",
         "lualine-nvim": "lualine-nvim",
+        "luasnip": "luasnip",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_2",
         "nordic-nvim": "nordic-nvim",

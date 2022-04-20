@@ -2,6 +2,11 @@ local cmp = require("cmp")
 local lspkind = require("lspkind")
 
 cmp.setup({
+	snippet = {
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
 	mapping = {
 		["<Tab>"] = cmp.mapping.select_next_item(),
 		["<S-Tab>"] = cmp.mapping.select_prev_item(),
@@ -10,6 +15,7 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lsp_signature_help" },
+		{ name = "luasnip" },
 		{ name = "buffer" },
 	}),
 	formatting = {

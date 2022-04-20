@@ -22,13 +22,15 @@ end)
 return {
 	default_prog = { "fish", "-l" },
 
-	--font = wezterm.font("Cica"),
 	font = wezterm.font_with_fallback({
 		"UDEV Gothic 35NFLG",
 	}),
 	font_size = 14,
 
 	use_fancy_tab_bar = false,
+
+	initial_cols = 200,
+	initial_rows = 48,
 
 	color_scheme = "nord",
 	colors = {

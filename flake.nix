@@ -65,6 +65,7 @@
     nvim-notify = { url = "github:rcarriga/nvim-notify"; flake = false; };
     lspkind-nvim = { url = "github:onsails/lspkind-nvim"; flake = false; };
     gitsigns-nvim = { url = "github:lewis6991/gitsigns.nvim"; flake = false; };
+    luasnip = { url = "github:L3MON4D3/LuaSnip"; flake = false; };
 
     # fish shell plugins
     fish-done = { url = "github:franciscolourenco/done"; flake = false; };
