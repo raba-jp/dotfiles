@@ -2,6 +2,7 @@ import typer
 
 app = typer.Typer()
 
+
 @app.command(
     help="builds an initial configuration",
 )
