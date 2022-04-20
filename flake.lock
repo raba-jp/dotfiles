@@ -96,22 +96,6 @@
         "type": "github"
       }
     },
-    "command-center-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1650135765,
-        "narHash": "sha256-IIJyZDr5hG/qvdm4/Z2t5dgVD+LwrR/K/aopdVD4NBc=",
-        "owner": "FeiyouG",
-        "repo": "command_center.nvim",
-        "rev": "89895748ccb070f447d6ec4d0441dbf9bb6d1755",
-        "type": "github"
-      },
-      "original": {
-        "owner": "FeiyouG",
-        "repo": "command_center.nvim",
-        "type": "github"
-      }
-    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -149,6 +133,22 @@
       "original": {
         "owner": "numtide",
         "repo": "devshell",
+        "type": "github"
+      }
+    },
+    "dressing-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1648741247,
+        "narHash": "sha256-/mYpGvL6zxgIdH/hDe8jksM1ZLj/wk/EeVpFgzcjgFE=",
+        "owner": "stevearc",
+        "repo": "dressing.nvim",
+        "rev": "cad08fac5ed6d5e8384d8c0759268e2f6b89b217",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stevearc",
+        "repo": "dressing.nvim",
         "type": "github"
       }
     },
@@ -331,6 +331,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "legendary-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1650395874,
+        "narHash": "sha256-YQVmnrOXmy/3DKA5VrmewRGob19zZUocTuVJUDTmrnM=",
+        "owner": "mrjones2014",
+        "repo": "legendary.nvim",
+        "rev": "77b7bc365c2470aff48b7398eb940e8c88789af3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mrjones2014",
+        "repo": "legendary.nvim",
         "type": "github"
       }
     },
@@ -634,9 +650,9 @@
         "cmp-nvim-lsp": "cmp-nvim-lsp",
         "cmp-nvim-lsp-document-symbol": "cmp-nvim-lsp-document-symbol",
         "cmp-nvim-lsp-signature-help": "cmp-nvim-lsp-signature-help",
-        "command-center-nvim": "command-center-nvim",
         "darwin": "darwin",
         "devshell": "devshell",
+        "dressing-nvim": "dressing-nvim",
         "editorconfig-nvim": "editorconfig-nvim",
         "fish-done": "fish-done",
         "fish-foreign-env": "fish-foreign-env",
@@ -647,6 +663,7 @@
         "flake-utils-plus": "flake-utils-plus",
         "gitsigns-nvim": "gitsigns-nvim",
         "home-manager": "home-manager",
+        "legendary-nvim": "legendary-nvim",
         "lsp-format-nvim": "lsp-format-nvim",
         "lspkind-nvim": "lspkind-nvim",
         "lspsaga-nvim": "lspsaga-nvim",
@@ -667,8 +684,7 @@
         "telescope-ghq-nvim": "telescope-ghq-nvim",
         "telescope-nvim": "telescope-nvim",
         "vim-edgemotion": "vim-edgemotion",
-        "vim-polyglot": "vim-polyglot",
-        "which-key-nvim": "which-key-nvim"
+        "vim-polyglot": "vim-polyglot"
       }
     },
     "sops-nix": {
@@ -766,22 +782,6 @@
       "original": {
         "owner": "sheerun",
         "repo": "vim-polyglot",
-        "type": "github"
-      }
-    },
-    "which-key-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1647590687,
-        "narHash": "sha256-KvzS9Lzkw09s0TRmHLN/CLjXvietGJzI06W7WNChcwI=",
-        "owner": "folke",
-        "repo": "which-key.nvim",
-        "rev": "a3c19ec5754debb7bf38a8404e36a9287b282430",
-        "type": "github"
-      },
-      "original": {
-        "owner": "folke",
-        "repo": "which-key.nvim",
         "type": "github"
       }
     }

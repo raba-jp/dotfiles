@@ -1,46 +1,83 @@
-require("telescope").load_extension("command_center")
+require("dressing").setup({
+	input = {
+		enable = true,
+	},
+	select = {
+		enable = true,
+		backend = { "telescope", "builtin" },
+	},
+})
 
-local cc = require("command_center")
+local noremap = { noremap = true }
+local noremapSilent = { noremap = true, silent = true }
 
-cc.add({
-	{
-		description = "Find file",
-		cmd = "<CMD>Telescope git_files<CR>",
+local legendary = require("legendary")
+legendary.setup({
+	keymaps = {
+		{
+			"<leader><space>",
+			":Lspsaga hover_doc<CR>",
+			description = "Show API document",
+			mode = { "n" },
+			opts = noremap,
+		},
+		{
+			"<leader>a",
+			":Lspsaga code_action<CR>",
+			description = "Run code action",
+			mode = { "n" },
+			opts = noremap,
+		},
+		{
+			"<leader>p",
+			":Legendary commands<CR>",
+			description = "Show command palette",
+			mode = { "n" },
+			opts = noremap,
+		},
+		{ "jj", "<ESC>", mode = { "i" }, opts = noremapSilent },
+		{ ";", ":", mode = { "n" }, opts = noremap },
+		{ ":", ";", mode = { "n" }, opts = noremap },
+		{ "Y", "y$", mode = { "n" }, opts = noremap },
+		{ "<Tab>", "$", mode = { "n" }, opts = noremap },
+		{ "<S-Tab>", "0", mode = { "n" }, opts = noremap },
 	},
-	{
-		description = "List buffers",
-		cmd = "<CMD>Telescope buffers<CR>",
-	},
-	{
-		description = "Search inside current buffer",
-		cmd = "<CMD>Telescope current_buffer_fuzzy_find<CR>",
-	},
-	{
-		description = "List references",
-		cmd = "<CMD>Telescope lsp_references<CR>",
-	},
-	{
-		description = "List document symbols",
-		cmd = "<CMD>Telescope lsp_document_symbols<CR>",
-	},
-	{
-		description = "List document diagnostics<CR>",
-		cmd = "<CMD>Telescope lsp_document_diagnostics<CR>",
-	},
-	{
-		description = "List workspace symbols",
-		cmd = "<CMD>Telescope lsp_workspace_symbols<CR>",
-	},
-	{
-		description = "Workspace Diagnostics",
-		cmd = "<CMD>Telescope lsp_document_diagnostics<CR>",
-	},
-	{
-		description = "List definitions",
-		cmd = "<CMD>Telescope lsp_definitions<CR>",
-	},
-	{
-		description = "Show command center",
-		cmd = "<CMD>Telescope command_center<CR>",
+	commands = {
+		{
+			":Telescope git_files",
+			description = "Find file",
+		},
+		{
+			":Telescope buffers",
+			description = "List buffers",
+		},
+		{
+			":Telescope current_buffer_fuzzy_find",
+			description = "Search inside current buffer",
+		},
+		{
+			":Telescope lsp_references",
+			description = "List references",
+		},
+		{
+			":Telescope lsp_document_symbols",
+			description = "List document symbols",
+		},
+		{
+			":Telescope lsp_document_diagnostics",
+			description = "List document diagnostics",
+		},
+		{
+			":Telescope lsp_workspace_symbols",
+			description = "List workspace symbols",
+		},
+		{
+			":Telescope lsp_document_diagnostics",
+			description = "Workspace Diagnostics",
+		},
+		{
+			":Telescope lsp_definitions",
+			description = "List definitions",
+		},
 	},
 })

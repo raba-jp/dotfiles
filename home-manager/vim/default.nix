@@ -29,28 +29,9 @@ in
       { plugin = buildVimPluginFrom2Nix { name = "editorconfig.nvim"; src = args.editorconfig-nvim; }; }
       { plugin = buildVimPluginFrom2Nix { name = "vim-edgemotion"; src = args.vim-edgemotion; }; }
       { plugin = buildVimPluginFrom2Nix { name = "nvim-web-devicons"; src = args.nvim-web-devicons; }; }
-      {
-        plugin = buildVimPluginFrom2Nix { name = "popup.nvim"; src = args.popup-nvim; };
-        type = "lua";
-        config = ''
-          -- Global option
-          vim.g.mapleader = " "
-          vim.o.encoding = "UTF-8"
-          vim.o.swapfile = false
-          vim.o.smartindent = true
-          vim.o.smarttab = true
-          vim.o.visualbell = true
-          vim.o.hlsearch = true
-          vim.o.signcolumn = "yes"
-          vim.o.smartcase = true
-          vim.o.ignorecase = true
-          vim.o.showmode = true
-          vim.o.completeopt = "menuone,noinsert,noselect"
-          vim.o.termguicolors = true
-          vim.o.background = "dark"
-        '';
-      }
+      { plugin = buildVimPluginFrom2Nix { name = "popup.nvim"; src = args.popup-nvim; }; }
       { plugin = buildVimPluginFrom2Nix { name = "plenary.nvim"; src = args.plenary-nvim; }; }
+      { plugin = buildVimPluginFrom2Nix { name = "dressing.nvim"; src = args.dressing-nvim; }; }
       { plugin = buildVimPluginFrom2Nix { name = "nordic.nvim"; src = args.nordic-nvim; }; type = "lua"; config = builtins.readFile ./nordic-nvim.lua; }
       {
         plugin = (pkgs.vimPlugins.nvim-treesitter);
@@ -79,7 +60,7 @@ in
         config = ''require("telescope").load_extension("ghq")'';
       }
       {
-        plugin = buildVimPluginFrom2Nix { name = "command_center.nvim"; src = args.command-center-nvim; };
+        plugin = buildVimPluginFrom2Nix { name = "legendary.nvim"; src = args.legendary-nvim; };
         type = "lua";
         config = builtins.readFile ./commands.lua;
       }
@@ -110,11 +91,6 @@ in
         plugin = buildVimPluginFrom2Nix { name = "nvim-lspconfig"; src = args.nvim-lspconfig; };
         type = "lua";
         config = builtins.readFile ./nvim-lspconfig.lua;
-      }
-      {
-        plugin = buildVimPluginFrom2Nix { name = "which-key.nvim"; src = args.which-key-nvim; };
-        type = "lua";
-        config = builtins.readFile ./keybindings.lua;
       }
       {
         plugin = buildVimPluginFrom2Nix { name = "nvim-notify"; src = args.nvim-notify; };

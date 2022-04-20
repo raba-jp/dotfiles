@@ -46,12 +46,12 @@
     nvim-web-devicons = { url = "github:kyazdani42/nvim-web-devicons"; flake = false; };
     popup-nvim = { url = "github:nvim-lua/popup.nvim"; flake = false; };
     plenary-nvim = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
+    dressing-nvim = {url = "github:stevearc/dressing.nvim"; flake = false; };
     nordic-nvim = { url = "github:andersevenrud/nordic.nvim"; flake = false; };
     nvim-treesitter-context = { url = "github:romgrk/nvim-treesitter-context"; flake = false; };
     telescope-nvim = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
     telescope-fzf-native-nvim = { url = "github:nvim-telescope/telescope-fzf-native.nvim"; flake = false; };
     telescope-ghq-nvim = { url = "github:nvim-telescope/telescope-ghq.nvim"; flake = false; };
-    command-center-nvim = { url = "github:FeiyouG/command_center.nvim"; flake = false; };
     lualine-nvim = { url = "github:nvim-lualine/lualine.nvim"; flake = false; };
     cmp-nvim-lsp = { url = "github:hrsh7th/cmp-nvim-lsp"; flake = false; };
     cmp-buffer = { url = "github:hrsh7th/cmp-buffer"; flake = false; };
@@ -63,11 +63,11 @@
     nvim-cmp = { url = "github:hrsh7th/nvim-cmp"; flake = false; };
     lsp-format-nvim = { url = "github:lukas-reineke/lsp-format.nvim"; flake = false; };
     nvim-lspconfig = { url = "github:neovim/nvim-lspconfig"; flake = false; };
-    which-key-nvim = { url = "github:folke/which-key.nvim"; flake = false; };
     nvim-notify = { url = "github:rcarriga/nvim-notify"; flake = false; };
     lspkind-nvim = { url = "github:onsails/lspkind-nvim"; flake = false; };
     gitsigns-nvim = { url = "github:lewis6991/gitsigns.nvim"; flake = false; };
     lspsaga-nvim = { url = "github:tami5/lspsaga.nvim"; flake = false; };
+    legendary-nvim = { url = "github:mrjones2014/legendary.nvim"; flake = false; };
 
     # fish shell plugins
     fish-done = { url = "github:franciscolourenco/done"; flake = false; };
