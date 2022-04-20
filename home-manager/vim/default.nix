@@ -79,9 +79,9 @@ in
         config = ''require("telescope").load_extension("ghq")'';
       }
       {
-        plugin = buildVimPluginFrom2Nix { name = "telescope-command-palette.nvim"; src = args.telescope-command-palette-nvim; };
+        plugin = buildVimPluginFrom2Nix { name = "command_center.nvim"; src = args.command-center-nvim; };
         type = "lua";
-        config = ''require("telescope").load_extension("command_palette")'';
+        config = builtins.readFile ./commands.lua;
       }
       {
         plugin = buildVimPluginFrom2Nix { name = "lualine.nvim"; src = args.lualine-nvim; };
@@ -114,17 +114,7 @@ in
       {
         plugin = buildVimPluginFrom2Nix { name = "which-key.nvim"; src = args.which-key-nvim; };
         type = "lua";
-        config = ''
-          local wk = require("which-key")
-          wk.setup({
-            window = {
-              border = "double",
-            },
-          })
-          wk.register({
-            ["C-p"] = { '<cmd>lua require"telescope".extensions.command_palette.command_palette({})<CR>'}
-          })
-        '';
+        config = builtins.readFile ./keybindings.lua;
       }
       {
         plugin = buildVimPluginFrom2Nix { name = "nvim-notify"; src = args.nvim-notify; };
@@ -137,6 +127,9 @@ in
         config = ''
           require("gitsigns").setup()
         '';
+      }
+      {
+        plugin = buildVimPluginFrom2Nix { name = "lspsaga.nvim"; src = args.lspsaga-nvim; };
       }
     ];
 

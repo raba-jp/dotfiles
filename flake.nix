@@ -51,7 +51,7 @@
     telescope-nvim = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
     telescope-fzf-native-nvim = { url = "github:nvim-telescope/telescope-fzf-native.nvim"; flake = false; };
     telescope-ghq-nvim = { url = "github:nvim-telescope/telescope-ghq.nvim"; flake = false; };
-    telescope-command-palette-nvim = { url = "github:LinArcX/telescope-command-palette.nvim"; flake = false; };
+    command-center-nvim = { url = "github:FeiyouG/command_center.nvim"; flake = false; };
     lualine-nvim = { url = "github:nvim-lualine/lualine.nvim"; flake = false; };
     cmp-nvim-lsp = { url = "github:hrsh7th/cmp-nvim-lsp"; flake = false; };
     cmp-buffer = { url = "github:hrsh7th/cmp-buffer"; flake = false; };
@@ -67,6 +67,7 @@
     nvim-notify = { url = "github:rcarriga/nvim-notify"; flake = false; };
     lspkind-nvim = { url = "github:onsails/lspkind-nvim"; flake = false; };
     gitsigns-nvim = { url = "github:lewis6991/gitsigns.nvim"; flake = false; };
+    lspsaga-nvim = { url = "github:tami5/lspsaga.nvim"; flake = false; };
 
     # fish shell plugins
     fish-done = { url = "github:franciscolourenco/done"; flake = false; };

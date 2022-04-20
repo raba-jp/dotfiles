@@ -96,6 +96,22 @@
         "type": "github"
       }
     },
+    "command-center-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1650135765,
+        "narHash": "sha256-IIJyZDr5hG/qvdm4/Z2t5dgVD+LwrR/K/aopdVD4NBc=",
+        "owner": "FeiyouG",
+        "repo": "command_center.nvim",
+        "rev": "89895748ccb070f447d6ec4d0441dbf9bb6d1755",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FeiyouG",
+        "repo": "command_center.nvim",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -347,6 +363,22 @@
       "original": {
         "owner": "onsails",
         "repo": "lspkind-nvim",
+        "type": "github"
+      }
+    },
+    "lspsaga-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1647219889,
+        "narHash": "sha256-utb2Rp6RdYWZzVt4W7B7RHOk4Xq1Lli4RcHxZLa8dHc=",
+        "owner": "tami5",
+        "repo": "lspsaga.nvim",
+        "rev": "5309d75bd90ce5b1708331df3af1e971fa83a2b9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tami5",
+        "repo": "lspsaga.nvim",
         "type": "github"
       }
     },
@@ -602,6 +634,7 @@
         "cmp-nvim-lsp": "cmp-nvim-lsp",
         "cmp-nvim-lsp-document-symbol": "cmp-nvim-lsp-document-symbol",
         "cmp-nvim-lsp-signature-help": "cmp-nvim-lsp-signature-help",
+        "command-center-nvim": "command-center-nvim",
         "darwin": "darwin",
         "devshell": "devshell",
         "editorconfig-nvim": "editorconfig-nvim",
@@ -616,6 +649,7 @@
         "home-manager": "home-manager",
         "lsp-format-nvim": "lsp-format-nvim",
         "lspkind-nvim": "lspkind-nvim",
+        "lspsaga-nvim": "lspsaga-nvim",
         "lualine-nvim": "lualine-nvim",
         "luasnip": "luasnip",
         "nixos-generators": "nixos-generators",
@@ -629,7 +663,6 @@
         "plenary-nvim": "plenary-nvim",
         "popup-nvim": "popup-nvim",
         "sops-nix": "sops-nix",
-        "telescope-command-palette-nvim": "telescope-command-palette-nvim",
         "telescope-fzf-native-nvim": "telescope-fzf-native-nvim",
         "telescope-ghq-nvim": "telescope-ghq-nvim",
         "telescope-nvim": "telescope-nvim",
@@ -653,22 +686,6 @@
       "original": {
         "owner": "Mic92",
         "repo": "sops-nix",
-        "type": "github"
-      }
-    },
-    "telescope-command-palette-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1643653305,
-        "narHash": "sha256-o0BMEETqqBF7rhU9k2I9lwtLOnrW4A3lQGePgJhzuxI=",
-        "owner": "LinArcX",
-        "repo": "telescope-command-palette.nvim",
-        "rev": "1944d6312b29a0b41531ea3cf3912f03e4eb1705",
-        "type": "github"
-      },
-      "original": {
-        "owner": "LinArcX",
-        "repo": "telescope-command-palette.nvim",
         "type": "github"
       }
     },
