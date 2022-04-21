@@ -82,11 +82,7 @@ in
         type = "lua";
         config = builtins.readFile ./nvim-cmp.lua;
       }
-      {
-        plugin = buildVimPluginFrom2Nix { name = "lsp-format.nvim"; src = args.lsp-format-nvim; };
-        type = "lua";
-        config = builtins.readFile ./lsp-format-nvim.lua;
-      }
+      { plugin = buildVimPluginFrom2Nix { name = "lsp-format.nvim"; src = args.lsp-format-nvim; }; }
       {
         plugin = buildVimPluginFrom2Nix { name = "nvim-lspconfig"; src = args.nvim-lspconfig; };
         type = "lua";
