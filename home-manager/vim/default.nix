@@ -32,17 +32,13 @@ in
       { plugin = buildVimPluginFrom2Nix { name = "popup.nvim"; src = args.popup-nvim; }; }
       { plugin = buildVimPluginFrom2Nix { name = "plenary.nvim"; src = args.plenary-nvim; }; }
       { plugin = buildVimPluginFrom2Nix { name = "dressing.nvim"; src = args.dressing-nvim; }; }
-      { plugin = buildVimPluginFrom2Nix { name = "nightfox.nvim"; src = args.nightfox-nvim; }; type = "lua"; config = builtins.readFile ./colorscheme.lua; }
+      { plugin = buildVimPluginFrom2Nix { name = "nightfox.nvim"; src = args.nightfox-nvim; }; }
       {
         plugin = (pkgs.vimPlugins.nvim-treesitter);
         # plugin = (pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars));
-        type = "lua";
-        config = builtins.readFile ./nvim-treesitter.lua;
       }
       {
         plugin = buildVimPluginFrom2Nix { name = "nvim-treesitter-context"; src = args.nvim-treesitter-context; };
-        type = "lua";
-        config = ''require("treesitter-context").setup({ enable = true, throttle = true })'';
       }
       {
         plugin = buildVimPluginFrom2Nix { name = "telescope.nvim"; src = args.telescope-nvim; };
