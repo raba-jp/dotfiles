@@ -97,12 +97,12 @@
 
     in
     {
-      homeConfigurations.codespaces = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.vscode = home-manager.lib.homeManagerConfiguration {
         configuration = import ./home-manager;
         system = "x86_64-linux";
-        username = "codespaces";
+        username = "vscode";
         stateVersion = "21.11";
-        homeDirectory = "/home/codespaces";
+        homeDirectory = "/home/vscode";
       };
 
       nixosConfigurations = {
