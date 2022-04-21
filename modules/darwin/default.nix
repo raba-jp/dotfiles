@@ -16,7 +16,7 @@
   };
 
   fonts = {
-    enableFontDir = true;
+    fontDir.enable = true;
     fonts = with pkgs; [ cica udev-gothic udev-gothic-nf ];
   };
 
