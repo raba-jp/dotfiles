@@ -35,12 +35,6 @@ legendary.setup({
 			mode = { "n" },
 			opts = noremap,
 		},
-		{ "jj", "<ESC>", mode = { "i" }, opts = noremapSilent },
-		{ ";", ":", mode = { "n" }, opts = noremap },
-		{ ":", ";", mode = { "n" }, opts = noremap },
-		{ "Y", "y$", mode = { "n" }, opts = noremap },
-		{ "<Tab>", "$", mode = { "n" }, opts = noremap },
-		{ "<S-Tab>", "0", mode = { "n" }, opts = noremap },
 	},
 	commands = {
 		{

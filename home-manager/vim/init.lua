@@ -32,6 +32,13 @@ vim.o.termguicolors = true
 vim.o.background = "dark"
 
 -- Keybindings
+vim.api.nvim_set_keymap("i", "jj", "<ESC>", { silent = true })
+vim.api.nvim_set_keymap("n", " ", "<Nop>", { noremap = true })
+vim.api.nvim_set_keymap("n", ";", ":", { noremap = true })
+vim.api.nvim_set_keymap("n", ":", ";", { noremap = true })
+vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Tab>", "$", { noremap = true })
+vim.api.nvim_set_keymap("n", "<S-Tab>", "0", { noremap = true })
 vim.api.nvim_set_keymap("n", "ZZ", "<Nop>", { noremap = true })
 vim.api.nvim_set_keymap("n", "ZQ", "<Nop>", { noremap = true })
 vim.api.nvim_set_keymap("n", "Q", "<Nop>", { noremap = true })
