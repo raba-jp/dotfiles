@@ -32,7 +32,7 @@ in
       { plugin = buildVimPluginFrom2Nix { name = "popup.nvim"; src = args.popup-nvim; }; }
       { plugin = buildVimPluginFrom2Nix { name = "plenary.nvim"; src = args.plenary-nvim; }; }
       { plugin = buildVimPluginFrom2Nix { name = "dressing.nvim"; src = args.dressing-nvim; }; }
-      { plugin = buildVimPluginFrom2Nix { name = "nordic.nvim"; src = args.nordic-nvim; }; type = "lua"; config = builtins.readFile ./nordic-nvim.lua; }
+      { plugin = buildVimPluginFrom2Nix { name = "nightfox.nvim"; src = args.nightfox-nvim; }; type = "lua"; config = builtins.readFile ./colorscheme.lua; }
       {
         plugin = (pkgs.vimPlugins.nvim-treesitter);
         # plugin = (pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars));

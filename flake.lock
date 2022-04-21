@@ -430,6 +430,22 @@
         "type": "github"
       }
     },
+    "nightfox-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1650502498,
+        "narHash": "sha256-oxiSNXXpKWlBO1MfCl8yKBwCFKSVxQzpvV2kz27/Bv0=",
+        "owner": "EdenEast",
+        "repo": "nightfox.nvim",
+        "rev": "4cd89cb8ee0e3a6a92c7d0d0ebeccedc9fc3d48d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "EdenEast",
+        "repo": "nightfox.nvim",
+        "type": "github"
+      }
+    },
     "nixlib": {
       "locked": {
         "lastModified": 1636849918,
@@ -511,22 +527,6 @@
         "owner": "NixOS",
         "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nordic-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1649626397,
-        "narHash": "sha256-9Kj5IPx9dIQdI1yv8axQ6Z+acHrh+8fOZi6fjRTIXUc=",
-        "owner": "andersevenrud",
-        "repo": "nordic.nvim",
-        "rev": "fd9bfa20eb7513ac95fc49952949ae1ee3e0956a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "andersevenrud",
-        "repo": "nordic.nvim",
         "type": "github"
       }
     },
@@ -669,9 +669,9 @@
         "lspsaga-nvim": "lspsaga-nvim",
         "lualine-nvim": "lualine-nvim",
         "luasnip": "luasnip",
+        "nightfox-nvim": "nightfox-nvim",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_2",
-        "nordic-nvim": "nordic-nvim",
         "nvim-cmp": "nvim-cmp",
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-notify": "nvim-notify",
