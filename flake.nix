@@ -103,8 +103,8 @@
         stateVersion = "21.11";
         homeDirectory = "/home/vscode";
         pkgs = import inputs.nixpkgs {
-          inherit system;
-          overlays = [ import ./overlays ];
+          system = "x86_64-linux";
+          overlays = [(import ./overlays)];
         };
         extraSpecialArgs = inputs;
       };
