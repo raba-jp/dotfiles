@@ -46,7 +46,7 @@
     nvim-web-devicons = { url = "github:kyazdani42/nvim-web-devicons"; flake = false; };
     popup-nvim = { url = "github:nvim-lua/popup.nvim"; flake = false; };
     plenary-nvim = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
-    dressing-nvim = {url = "github:stevearc/dressing.nvim"; flake = false; };
+    dressing-nvim = { url = "github:stevearc/dressing.nvim"; flake = false; };
     nightfox-nvim = { url = "github:EdenEast/nightfox.nvim"; flake = false; };
     nvim-treesitter-context = { url = "github:romgrk/nvim-treesitter-context"; flake = false; };
     telescope-nvim = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
@@ -88,7 +88,6 @@
           useGlobalPkgs = true;
           useUserPackages = true;
           backupFileExtension = "backup";
-          extraSpecialArgs = inputs;
         };
       };
       overlays = {
@@ -103,6 +102,7 @@
         username = "vscode";
         stateVersion = "21.11";
         homeDirectory = "/home/vscode";
+        extraSpecialArgs = inputs;
       };
 
       nixosConfigurations = {
