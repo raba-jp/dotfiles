@@ -102,6 +102,10 @@
         username = "vscode";
         stateVersion = "21.11";
         homeDirectory = "/home/vscode";
+        pkgs = import inputs.nixpkgs {
+          inherit system;
+          overlays = [ import ./overlays ];
+        };
         extraSpecialArgs = inputs;
       };
 
