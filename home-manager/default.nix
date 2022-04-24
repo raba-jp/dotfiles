@@ -25,9 +25,8 @@
     ./sway
   ];
 
-  nixpkgs.overlays = [ import ../overlays ];
-
   home = {
+    nixpkgs.overlays = [ import ../overlays ];
     sessionPath = [ "$GOPATH/bin" ];
 
     sessionVariables = {
