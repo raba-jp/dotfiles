@@ -97,10 +97,7 @@
     in
     {
       homeConfigurations.vscode = home-manager.lib.homeManagerConfiguration {
-        configuration = imports [
-          ./home-manager
-          overlays
-        ];
+        configuration = import ./home-manager;
         system = "x86_64-linux";
         username = "vscode";
         stateVersion = "21.11";
