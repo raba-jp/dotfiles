@@ -97,18 +97,32 @@
 
     in
     {
-      homeConfigurations.vscode = home-manager.lib.homeManagerConfiguration {
-        configuration = import ./home-manager;
-        system = "x86_64-linux";
-        username = "vscode";
-        stateVersion = "21.11";
-        homeDirectory = "/home/vscode";
-        pkgs = import inputs.nixpkgs {
+      homeConfigurations =
+        let
+          configuration = import ./home-manager;
           system = "x86_64-linux";
-          overlays = [ (import ./overlays) ];
+          stateVersion = "21.11";
+          homeDirectory = "/home/vscode";
+          pkgs = import inputs.nixpkgs {
+            system = "x86_64-linux";
+            overlays = [ (import ./overlays) ];
+          };
+          extraSpecialArgs = inputs;
+        in
+        {
+          # For GitHub Codespaces
+          vscode = home-manager.lib.homeManagerConfiguration {
+            inherit configuration system stateVersion homeDirectory pkgs extraSpecialArgs;
+            username = "vscode";
+          };
+
+          # For GitHub Actions
+          runner = home-manager.lib.homeManagerConfiguration {
+            inherit configuration system stateVersion homeDirectory pkgs extraSpecialArgs;
+            username = "runner";
+          };
         };
-        extraSpecialArgs = inputs;
-      };
+
 
       nixosConfigurations = {
         define7 = nixosSystem {
