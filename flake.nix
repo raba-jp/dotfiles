@@ -88,6 +88,7 @@
           useGlobalPkgs = true;
           useUserPackages = true;
           backupFileExtension = "backup";
+          extraSpecialArgs = inputs;
         };
       };
       overlays = {
@@ -104,7 +105,7 @@
         homeDirectory = "/home/vscode";
         pkgs = import inputs.nixpkgs {
           system = "x86_64-linux";
-          overlays = [(import ./overlays)];
+          overlays = [ (import ./overlays) ];
         };
         extraSpecialArgs = inputs;
       };
