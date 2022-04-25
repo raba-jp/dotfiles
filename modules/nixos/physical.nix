@@ -62,6 +62,20 @@ in
     services.openssh.enable = true;
     programs.gnupg.agent.enable = true;
 
+    environment.systemPackages = with pkgs; [
+      appimagekit
+      appimage-run
+      google-chrome
+      obsidian
+      vscode
+      papirus-icon-theme
+      nordic
+      materia-theme
+      papirus-icon-theme
+      gnomeExtensions.pop-shell
+      sidekick
+    ];
+
     systemd.services.cachix-agent = {
       wantedBy = [ "multi-user.target" ];
       after = [ "network-online.target" ];
