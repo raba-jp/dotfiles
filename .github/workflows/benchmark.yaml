@@ -11,8 +11,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    name: Build nixos configuration
+  activate:
+    name: Activate home-manager configuration
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -21,5 +21,5 @@ jobs:
           github-access-token: ${{ secrets.GITHUB_TOKEN }}
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
       - run: |
-          nix build --no-link '.#homeConfigurations.runner.acttivationPackage'
+          nix build --no-link '.#homeConfigurations.runner.activationPackage'
           "$(nix path-info '.#homeConfigurations.runner.activationPackage')"/activate
