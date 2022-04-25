@@ -46,7 +46,6 @@
       driftctl
       buf
       any-nix-shell
-      cachix
       nix-prefetch-github
       nodejs
       yarn

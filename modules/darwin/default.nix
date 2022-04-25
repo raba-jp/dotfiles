@@ -59,6 +59,8 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [ cachix ];
+
   users.nix.configureBuildUsers = true;
   services.nix-daemon.enable = true;
   system.stateVersion = 4;
