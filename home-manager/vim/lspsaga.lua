@@ -1,2 +1,2 @@
 local lspsaga = require("lspsaga")
-lspsaga({ })
+lspsaga({})
