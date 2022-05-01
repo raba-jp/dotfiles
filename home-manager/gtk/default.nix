@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 lib.mkIf pkgs.stdenvNoCC.isLinux {
   gtk = {
-    enable = true;
+    enable = false;
 
     iconTheme = {
       name = "Papirus";

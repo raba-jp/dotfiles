@@ -6,5 +6,8 @@ with prev.lib;
     (import ./udev-gothic.nix)
     (import ./popshell.nix)
     (final: prev: { sidekick = ((prev.callPackage ./sidekick.nix) { }); })
+    (final: prev: { linuxPackages = prev.linuxPackages.extend (lpself: lpsuper: {
+rtl8723du = callPackage ./driver.nix;
+})})
   ]
 ) final

@@ -121,6 +121,10 @@
             inherit configuration system stateVersion homeDirectory pkgs extraSpecialArgs;
             username = "runner";
           };
+          sakuraba = home-manager.lib.homeManagerConfiguration {
+            inherit configuration system stateVersion homeDirectory pkgs extraSpecialArgs;
+            username = "sakuraba";
+          };
         };
 
 
