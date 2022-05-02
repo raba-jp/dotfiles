@@ -4,7 +4,7 @@ let
 in
 {
   imports = [
-    "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+    "${modulesPath}/installer/cd-dvd/installation-cd-graphical-gnome.nix"
   ];
 
   # use the latest Linux kernel
@@ -21,4 +21,6 @@ in
     "ntfs"
     "cifs"
   ];
+
+  home-manager.users.nixos = import ../../home-manager;
 }

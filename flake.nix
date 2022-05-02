@@ -174,6 +174,8 @@
         nixos-generators.nixosGenerate {
           pkgs = pkgs;
           modules = [
+            home-manager.darwinModules.home-manager
+            homeManagerConfigModule
             overlays
             ./hosts/iso
           ];
