@@ -4,6 +4,7 @@ in
 {
   cica = prev.fetchzip {
     name = "cica-${version}";
+    version = "v${version}";
 
     url =
       "https://github.com/miiton/Cica/releases/download/v${version}/Cica_v${version}.zip";
