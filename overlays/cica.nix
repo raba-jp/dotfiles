@@ -7,7 +7,8 @@ in
 
     url =
       "https://github.com/miiton/Cica/releases/download/v${version}/Cica_v${version}.zip";
-    sha256 = "0vshn2cd70mnbavsw9cbagcasa95wiv9qdj4wkzxn7gxygqvrlfb";
+    sha256 = "sha256-IM8KpR069FngrAUY02ESK1rW3ANbouuiglwSITrHQyw=";
+
     postFetch = ''
       mkdir -p $out/share/fonts/cica
       unzip -j $downloadedFile \*.ttf -d $out/share/fonts/cica
