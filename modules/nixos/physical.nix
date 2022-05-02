@@ -6,10 +6,16 @@ in
 {
   options.dotfiles.physical = {
     enable = mkEnableOption "if host is physical environment";
+    kernelPackages = mkOption {
+      type = types.unspecified;
+      default = pkgs.linuxPackages_latest;
+    };
+
     timezone = mkOption {
       type = types.str;
       default = "Asia/Tokyo";
     };
+
     locale = mkOption {
       type = types.str;
       default = "ja_JP.UTF-8";
@@ -17,14 +23,18 @@ in
   };
 
   config = mkIf cfg.enable {
-    boot.loader = {
-      systemd-boot = {
-        enable = true;
-        editor = false;
-        consoleMode = "auto";
-      };
+    boot = {
+      kernelPackages = cfg.kernelPackages;
 
-      efi.canTouchEfiVariables = true;
+      loader = {
+        systemd-boot = {
+          enable = true;
+          editor = false;
+          consoleMode = "auto";
+        };
+
+        efi.canTouchEfiVariables = true;
+      };
     };
 
     time.timeZone = cfg.timezone;

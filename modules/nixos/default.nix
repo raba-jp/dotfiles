@@ -6,9 +6,8 @@
     ./gnome.nix
     ./physical.nix
     ./trackpad.nix
+    ./lxqt.nix
   ];
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   i18n = {
     inputMethod = {

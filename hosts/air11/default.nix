@@ -3,28 +3,21 @@
     ./hardware-configuration.nix
     {
       dotfiles = {
-        amd.enable = true;
-        docker.enable = true;
-        game.enable = true;
-        gnome.enable = true;
-        trackpad.enable = false;
-        lxqt.enable = false;
+        amd.enable = false;
+        docker.enable = false;
+        game.enable = false;
+        gnome.enable = false;
+        trackpad.enable = true;
+        lxqt.enable = true;
         physical = {
           enable = true;
-          kernelPackages = pkgs.linuxPackages_latest;
+          kernelPackages = pkgs.linuxPackages_5_15;
         };
       };
     }
   ];
 
-  networking.hostName = "define7";
-
-  security.pam = {
-    u2f = {
-      enable = true;
-      control = "sufficient";
-    };
-  };
+  networking.hostName = "air11";
 
   sops.secrets."cachix-agent-token" = {
     format = "binary";
@@ -35,6 +28,7 @@
     isNormalUser = true;
     createHome = true;
     home = "/home/sakuraba";
+    hashedPassword = "$6$EaDVfauYjKXpfWC4$XO5ef3u4TyD47UllLNYrsH.VwZIJ.oL/x5TdXAwrWnmiCwTF.2yM12bjJ98BA5TuVyAoU06KuwBEdpuJXWgGh.";
     extraGroups = [
       "wheel"
       "networkmanager"
