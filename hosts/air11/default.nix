@@ -26,7 +26,7 @@
 
   users.users.sakuraba = {
     isNormalUser = true;
-    createHome = true;
+    createHome = false;
     home = "/home/sakuraba";
     hashedPassword = "$6$EaDVfauYjKXpfWC4$XO5ef3u4TyD47UllLNYrsH.VwZIJ.oL/x5TdXAwrWnmiCwTF.2yM12bjJ98BA5TuVyAoU06KuwBEdpuJXWgGh.";
     extraGroups = [
