@@ -140,6 +140,18 @@
             ./hosts/define7
           ];
         };
+
+        air11 = nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
+            homeManagerConfigModule
+            overlays
+            ./modules/nixos
+            ./hosts/air11
+          ];
+        };
       };
 
       darwinConfigurations = {
