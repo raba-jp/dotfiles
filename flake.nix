@@ -76,7 +76,7 @@
     fish-foreign-env = { url = "github:oh-my-fish/plugin-foreign-env"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, flake-utils-plus, sops-nix, ... }@inputs:
+  outputs = { self, nixpkgs, darwin, home-manager, flake-utils-plus, sops-nix, nixos-generators, ... }@inputs:
     let
       inherit (darwin.lib) darwinSystem;
       inherit (nixpkgs.lib) nixosSystem;
@@ -164,6 +164,21 @@
             define7 = self.nixosConfigurations.define7.config.system.build.toplevel;
           };
         });
+      packages."x86_64-linux".iso =
+        let
+          pkgs = (import nixpkgs {
+            system = "x86_64-linux";
+            overlays = [ (import ./overlays) ];
+          });
+        in
+        nixos-generators.nixosGenerate {
+          pkgs = pkgs;
+          modules = [
+            overlays
+            ./hosts/iso
+          ];
+          format = "install-iso";
+        };
 
       packages."aarch64-darwin".default =
         let

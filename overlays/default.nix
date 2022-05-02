@@ -7,9 +7,9 @@ with prev.lib;
     (import ./popshell.nix)
     (final: prev: { sidekick = ((prev.callPackage ./sidekick.nix) { }); })
     (final: prev: {
-      linuxPackages = prev.linuxPackages.extend
-        (lpself: lpsuper: {
-          rtl8723du = callPackage ./driver.nix;
-        })})
-      ]
-      ) final
+      linuxPackages = prev.linuxPackages.extend (final: prev: {
+        rtl8723du = prev.callPackage ./driver.nix {};
+      });
+    })
+  ]
+) final
