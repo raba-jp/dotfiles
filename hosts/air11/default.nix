@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+let
+  rtl8723du = config.boot.kernelPackages.callPackage ./driver.nix { };
+in
+{
   imports = [
     ./hardware-configuration.nix
     {
@@ -16,6 +20,11 @@
       };
     }
   ];
+
+  boot = {
+    extraModulePackages = [ rtl8723du ];
+    kernelModules = [ "8723du" ];
+  };
 
   networking.hostName = "air11";
 
