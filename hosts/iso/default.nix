@@ -10,6 +10,7 @@ in
   # use the latest Linux kernel
   boot.kernelPackages = pkgs.linuxPackages_5_15;
   boot.extraModulePackages = [ rtl8723du ];
+  boot.kernelModules = [ "8723du" ];
 
   # Needed for https://github.com/NixOS/nixpkgs/issues/58959
   boot.supportedFilesystems = lib.mkForce [

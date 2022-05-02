@@ -21,8 +21,8 @@ stdenv.mkDerivation rec {
   ];
 
   installPhase = ''
-    mkdir -p $out/${kernel.modDirVersion}/kernel/drivers/net/wireless/
-    install -p -m 644 8723du.ko $out/${kernel.modDirVersion}/kernel/drivers/net/wireless/
+    mkdir -p $out/lib/modules/${kernel.modDirVersion}/kernel/drivers/net/wireless/
+    install -p -m 644 8723du.ko $out/lib/modules/${kernel.modDirVersion}/kernel/drivers/net/wireless/
   '';
 
 }
