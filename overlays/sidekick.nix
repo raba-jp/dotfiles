@@ -96,7 +96,7 @@ stdenv.mkDerivation {
 
   src = fetchurl {
     url = "https://api.meetsidekick.com/downloads/df/linux/deb";
-    sha256 = "1ry6jv7dzir6vs2zf5hd43sw6pc96ycijyxzipbi71sx7c0aiai0";
+    sha256 = "0cm9ig3vxxy3i4xdhfhiwsqpj5xbdgbl7qpadd0zjp3jbz9mi2mm";
   };
 
   dontConfigure = true;
