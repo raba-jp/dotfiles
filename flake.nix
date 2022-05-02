@@ -226,7 +226,7 @@
             commands = [
               {
                 name = "switch-define7";
-                command = "sudo nixos-rebuild switch --flake .#define7";
+                command = "sudo nixos-rebuild switch --flake path:.#define7";
                 category = "switch";
               }
               {
