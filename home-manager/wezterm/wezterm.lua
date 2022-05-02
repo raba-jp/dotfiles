@@ -15,10 +15,6 @@ wezterm.on("update-right-status", function(window, _)
 	window:set_right_status(leader)
 end)
 
-wezterm.on("window-config-reloaded", function(window, _)
-	window:toast_notification("wezterm", "Configuration reloaded!", nil, 4000)
-end)
-
 return {
 	default_prog = { "fish", "-l" },
 
