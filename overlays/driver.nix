@@ -8,8 +8,8 @@ stdenv.mkDerivation rec {
     repo = "rtl8723du";
   };
 
-  hardeningDisable = [ "pic" "format" ]
-    nativeBuildInputs = kernel.moduleBuildDependencies;
+  hardeningDisable = [ "pic" "format" ];
+  nativeBuildInputs = kernel.moduleBuildDependencies;
 
   makeFlags = [
     "KERNELRELEASE=${kernel.modDirVersion}"

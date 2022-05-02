@@ -74,6 +74,7 @@ in
       papirus-icon-theme
       gnomeExtensions.pop-shell
       sidekick
+      gparted
     ];
 
     systemd.services.cachix-agent = {
