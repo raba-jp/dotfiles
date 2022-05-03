@@ -10,9 +10,9 @@ in
         amd.enable = false;
         docker.enable = false;
         game.enable = false;
-        gnome.enable = false;
+        gnome.enable = true;
         trackpad.enable = true;
-        lxqt.enable = true;
+        lxqt.enable = false;
         physical = {
           enable = true;
           kernelPackages = pkgs.linuxPackages_5_15;
