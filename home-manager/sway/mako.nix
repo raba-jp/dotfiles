@@ -13,7 +13,7 @@
     '';
 
     defaultTimeout = 3000;
-    font = "${config.fonts.monospace} 12";
+    font = "UDEV Gothic 12";
     height = 150;
     ignoreTimeout = true;
     maxVisible = -1;

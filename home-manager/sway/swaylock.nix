@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }:
+lib.mkIf pkgs.stdenvNoCC.isLinux {
   home.packages = [ pkgs.swaylock ];
 
   wayland.windowManager.sway.config.keybindings =
@@ -9,12 +10,11 @@
 
   xdg.configFile."swaylock/config".text = ''
     daemonize
-    image=${builtins.head (lib.splitString " " config.wayland.windowManager.sway.config.output."*".background)}
     scaling=fill
     bs-hl-color=bf616a
     caps-lock-bs-hl-color=bf616a
     caps-lock-key-hl-color=a3be8c
-    font=${config.fonts.monospace}
+    font=UDEV Gothic
     font-size=16
     indicator-radius=60
     indicator-thickness=20
