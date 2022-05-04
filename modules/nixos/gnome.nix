@@ -56,6 +56,12 @@ in
         gnome.atomix
         gnome-tour
         gnome.geary
+        gnome.gnome-calculator
+        gnome.simple-scan
+        gnome.gnome-remote-desktop
+        gnome.vinagre
+        gnome.gnome-boxes
+        gnome-connections
       ];
 
       systemPackages = [ pkgs.gnome.gnome-tweaks ];
