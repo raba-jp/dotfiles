@@ -1,6 +1,11 @@
 import typer
+import subprocess
+import time
+
+import benchmark
 
 app = typer.Typer()
+app.add_typer(benchmark.app, name="benchmark")
 
 
 @app.command(
