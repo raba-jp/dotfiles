@@ -69,7 +69,21 @@ in
 
     console.useXkbConfig = true;
 
-    services.openssh.enable = true;
+    services = {
+      openssh.enable = true;
+
+      greetd = {
+        enable = true;
+        restart = false;
+
+        settings = {
+          default_session = {
+            command = "${lib.makeBinPath [ pkgs.greetd.tuigreet ]}/tuigreet --time --cmd sway";
+            user = "greeter";
+          };
+        };
+      };
+    };
     programs.gnupg.agent.enable = true;
 
     environment.systemPackages = with pkgs; [

@@ -3,7 +3,7 @@ lib.mkIf pkgs.stdenvNoCC.isLinux {
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
-    # systemdIntegration = true;
+    systemdIntegration = true;
 
     config = {
       terminal = "${pkgs.wezterm}/bin/wezterm";
