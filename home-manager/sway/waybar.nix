@@ -11,19 +11,19 @@ lib.mkIf pkgs.stdenvNoCC.isLinux {
         layer = "top";
         position = "top";
         height = 24;
-        #
-        #      modules-left = [
-        #        "sway/workspaces"
-        #        "sway/mode"
-        #        "sway/window"
-        #      ];
-        #
+
+        modules-left = [
+          "sway/workspaces"
+          "sway/mode"
+          "sway/window"
+        ];
+
         modules-right = [
           #        # "cpu"
           #        # "memory"
           #        # "disk"
-          #        "network"
-          #        "pulseaudio"
+          "network"
+          "pulseaudio"
           #        "backlight"
           #        "battery"
           "clock"
@@ -44,27 +44,27 @@ lib.mkIf pkgs.stdenvNoCC.isLinux {
         #        format = " {used}/{total}";
         #      };
         #
-        #      network = {
-        #        format-ethernet = " {signalStrength} {essid}";
-        #        format-wifi = "﬉ {signalStrength} {essid}";
-        #        format-disconnected = " {ifname} disconnected";
-        #      };
-        #
-        #      pulseaudio = {
-        #        scroll-step = 2;
-        #        format = "{icon} {volume}%";
-        #        format-bluetooth = "{icon} {volume}% ";
-        #        format-muted = "🔇 {volume}%";
-        #
-        #        format-icons = {
-        #          default = [ "" "" ];
-        #          headphone = [ "" "" ];
-        #          headset = "";
-        #          phone = "";
-        #          speaker = [ "🔈" "🔉" "🔊" ];
-        #        };
-        #      };
-        #
+        network = {
+          format-ethernet = " {signalStrength} {essid}";
+          format-wifi = "﬉ {signalStrength} {essid}";
+          format-disconnected = " {ifname} disconnected";
+        };
+
+        pulseaudio = {
+          scroll-step = 2;
+          format = "{icon} {volume}%";
+          format-bluetooth = "{icon} {volume}% ";
+          format-muted = "🔇 {volume}%";
+
+          format-icons = {
+            default = [ "" "" ];
+            headphone = [ "" "" ];
+            headset = "";
+            phone = "";
+            speaker = [ "🔈" "🔉" "🔊" ];
+          };
+        };
+
         #      backlight = {
         #        format = "{icon} {percent}%";
         #        format-icons = [ "○" "◍" "●" ];

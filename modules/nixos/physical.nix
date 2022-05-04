@@ -73,7 +73,7 @@ in
       openssh.enable = true;
 
       greetd = {
-        enable = true;
+        enable = false;
         restart = false;
 
         settings = {
