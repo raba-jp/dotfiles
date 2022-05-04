@@ -214,8 +214,8 @@
           ];
         };
         pythonEnv = (pkgs.python3.withPackages (p: with p; [ black typer pylint ]));
-        confm = pkgs.writeShellScriptBin "confm" ''
-          cd $PRJ_ROOT && ${pythonEnv}/bin/python3 bin/confm.py $@
+        machinectl = pkgs.writeShellScriptBin "machinectl" ''
+          cd $PRJ_ROOT && ${pythonEnv}/bin/python3 bin/machinectl.py $@
         '';
       in
       {
@@ -245,8 +245,8 @@
                 '';
               }
               {
-                name = "confm";
-                package = confm;
+                name = "machinectl";
+                package = machinectl;
                 help = "run action";
                 category = "utilities";
               }
