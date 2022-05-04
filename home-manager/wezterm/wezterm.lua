@@ -25,7 +25,7 @@ return {
 
 	use_fancy_tab_bar = false,
 
-	initial_cols = 64
+	initial_cols = 64,
 	initial_rows = 24,
 
 	color_scheme = "nord",

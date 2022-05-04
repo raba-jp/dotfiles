@@ -1,5 +1,6 @@
 { lib, pkgs, ... }: {
   imports = [
+    ./sway.nix
     ./mako.nix
     ./swayidle.nix
     ./swaylock.nix
