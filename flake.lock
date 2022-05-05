@@ -298,6 +298,21 @@
         "type": "github"
       }
     },
+    "flake-utils_3": {
+      "locked": {
+        "lastModified": 1649676176,
+        "narHash": "sha256-OWKJratjt2RW151VUlJPRALb7OU2S5s+f0vLj4o1bHM=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "a4b154ebbdc88c8498a5c7b01589addc9e9cb678",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "gitsigns-nvim": {
       "flake": false,
       "locked": {
@@ -516,6 +531,21 @@
     },
     "nixpkgs_3": {
       "locked": {
+        "lastModified": 1651737265,
+        "narHash": "sha256-qQcVdI1ZpKitoh2mzVgi/8EYxqJx8LGKo82ZVztD7BM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "19e187fbabcefa3f3e608b94ed809f91524501bb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1638097282,
         "narHash": "sha256-EXCzj9b8X/lqDPJapxZThIOKL5ASbpsJZ+8L1LnY1ig=",
         "owner": "NixOS",
@@ -626,6 +656,25 @@
         "type": "github"
       }
     },
+    "poetry2nix": {
+      "inputs": {
+        "flake-utils": "flake-utils_3",
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1651727833,
+        "narHash": "sha256-J1FfipZyGp4OUvLBLcwO9UiQCf3wxRageArA/rI/rYw=",
+        "owner": "nix-community",
+        "repo": "poetry2nix",
+        "rev": "9927a08fd9537e86a7769b00ab7c231066ae1fb3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "poetry2nix",
+        "type": "github"
+      }
+    },
     "popup-nvim": {
       "flake": false,
       "locked": {
@@ -678,6 +727,7 @@
         "nvim-treesitter-context": "nvim-treesitter-context",
         "nvim-web-devicons": "nvim-web-devicons",
         "plenary-nvim": "plenary-nvim",
+        "poetry2nix": "poetry2nix",
         "popup-nvim": "popup-nvim",
         "sops-nix": "sops-nix",
         "telescope-fzf-native-nvim": "telescope-fzf-native-nvim",
@@ -689,7 +739,7 @@
     },
     "sops-nix": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
         "lastModified": 1649756291,

@@ -38,6 +38,9 @@
       url = "github:edolstra/flake-compat";
       flake = false;
     };
+    poetry2nix = {
+      url = "github:nix-community/poetry2nix";
+    };
 
     ## NeoVim Plugins
     vim-polyglot = { url = "github:sheerun/vim-polyglot"; flake = false; };
@@ -76,7 +79,7 @@
     fish-foreign-env = { url = "github:oh-my-fish/plugin-foreign-env"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, flake-utils-plus, sops-nix, nixos-generators, ... }@inputs:
+  outputs = { self, nixpkgs, darwin, home-manager, flake-utils-plus, sops-nix, nixos-generators, poetry2nix, ... }@inputs:
     let
       inherit (darwin.lib) darwinSystem;
       inherit (nixpkgs.lib) nixosSystem;
@@ -210,47 +213,19 @@
         pkgs = import inputs.nixpkgs {
           inherit system;
           overlays = [
-            inputs.devshell.overlay
+            poetry2nix.overlay
+            (final: prev: {
+              machinectl = prev.poetry2nix.mkPoetryApplication {
+                projectDir = ./bin/machinectl;
+              };
+            })
           ];
         };
-        pythonEnv = (pkgs.python3.withPackages (p: with p; [ black typer pylint ]));
-        machinectl = pkgs.writeShellScriptBin "machinectl" ''
-          cd $PRJ_ROOT && ${pythonEnv}/bin/python3 bin/machinectl.py $@
-        '';
       in
       {
-        devShell = pkgs.devshell.mkShell
-          {
-            packages = [ pkgs.treefmt pkgs.nixpkgs-fmt pkgs.stylua pkgs.shfmt pythonEnv ];
-
-            commands = [
-              {
-                name = "switch-define7";
-                command = "sudo nixos-rebuild switch --flake path:.#define7";
-                category = "switch";
-              }
-              {
-                name = "switch-LF2107010038";
-                command = ''
-                  nix build './#darwinConfigurations.LF2107010038.system'
-                  ./result/sw/bin/darwin-rebuild switch --flake ./
-                '';
-                category = "switch";
-              }
-              {
-                name = "info";
-                help = "Print nix informations";
-                command = ''
-                  nix-shell -p nix-info --run "nix-info -m"
-                '';
-              }
-              {
-                name = "machinectl";
-                package = machinectl;
-                help = "run action";
-                category = "utilities";
-              }
-            ];
-          };
+        packages = {
+          machinectl = pkgs.machinectl;
+        };
+        defaultApp = pkgs.machinectl;
       });
 }

@@ -16,8 +16,16 @@ def fish():
         start = time.time()
         subprocess.check_output("fish -i -c exit", shell=True)
         elapsed = time.time() - start
-        print(elapsed)
         result.append(elapsed)
+
+
+    average = sum(result) / len(result)
+
+    print(json.dumps([{
+        "name": "fish startup time (average)",
+        "unit": "msec",
+        "value": average * 100,
+    }]))
 
 
 @app.command(help="run vim benchmark")
@@ -51,5 +59,4 @@ def vim():
             "value": total_min_time,
         },
     ]
-    print(jsonout)
     print(json.dumps(jsonout))

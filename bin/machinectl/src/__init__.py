@@ -1,6 +1,5 @@
 import typer
-
-import benchmark
+from src import benchmark
 
 app = typer.Typer()
 app.add_typer(benchmark.app, name="benchmark")
@@ -13,5 +12,9 @@ def bootstrap():
     return
 
 
-if __name__ == "__main__":
+def main():
     app()
+
+
+if __name__ == "__main__":
+    main()

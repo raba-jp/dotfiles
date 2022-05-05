@@ -57,6 +57,8 @@
       sops
       age
       ssh-to-age
+      python
+      poetry
 
       # Kubernetes
       kubectl
