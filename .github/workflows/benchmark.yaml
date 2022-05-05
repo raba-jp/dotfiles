@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-go@v3
+      - run: go install github.com/rhysd/vim-startuptime@latest
       - uses: ./.github/actions/setup
         with:
           github-access-token: ${{ secrets.GITHUB_TOKEN }}
@@ -23,7 +25,6 @@ jobs:
       - run: |
           nix build --no-link '.#homeConfigurations.runner.activationPackage'
           "$(nix path-info '.#homeConfigurations.runner.activationPackage')"/activate
-      - run: go install github.com/rhysd/vim-startuptime@latest
       - name: Run benchmark
         run: nix run .#machinectl -- benchmark > result.json
       - name: Dump outputs
