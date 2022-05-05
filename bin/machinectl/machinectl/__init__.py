@@ -1,15 +1,15 @@
 import typer
-from machinectl import benchmark
+from machinectl import benchmark as bm
 
 app = typer.Typer()
-app.add_typer(benchmark.app, name="benchmark")
 
-
-@app.command(
-    help="builds an initial configuration",
-)
+@app.command(help="builds an initial configuration")
 def bootstrap():
     return
+
+@app.command(help="run benchmark")
+def benchmark():
+    bm.run()
 
 
 def main():

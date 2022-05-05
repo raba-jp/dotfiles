@@ -1,4 +1,3 @@
-import typer
 import subprocess
 import re
 import time
@@ -6,11 +5,8 @@ import json
 
 count = 10
 
-app = typer.Typer()
 
-
-@app.command(help="run fish benchmark")
-def fish():
+def __fish() -> list[dict[str, str]]:
     result = []
     for _ in range(count):
         start = time.time()
@@ -21,15 +17,14 @@ def fish():
 
     average = sum(result) / len(result)
 
-    print(json.dumps([{
+    return [{
         "name": "fish startup time (average)",
         "unit": "msec",
-        "value": average * 100,
-    }]))
+        "value": str(average * 100),
+    }]
 
 
-@app.command(help="run vim benchmark")
-def vim():
+def __vim() -> list[dict[str, str]]:
     cmd = "vim-startuptime -vimpath nvim -count {count}".format(count=count)
     value_regexp = r"[0-9]*\.[0-9]*"
 
@@ -42,7 +37,7 @@ def vim():
     total_max_time = re.findall(value_regexp, total_max[0])[0]
     total_min_time = re.findall(value_regexp, total_min[0])[0]
 
-    jsonout = [
+    return [
         {
             "name": "vim startup time (average)",
             "unit": "msec",
@@ -59,4 +54,10 @@ def vim():
             "value": total_min_time,
         },
     ]
-    print(json.dumps(jsonout))
+
+
+def run():
+    result = []
+    result.extend(__fish())
+    result.extend(__vim())
+    print(json.dumps(result))
