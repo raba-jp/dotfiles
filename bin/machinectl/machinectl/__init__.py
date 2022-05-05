@@ -1,5 +1,5 @@
 import typer
-from src import benchmark
+from machinectl import benchmark
 
 app = typer.Typer()
 app.add_typer(benchmark.app, name="benchmark")

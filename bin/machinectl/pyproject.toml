@@ -3,9 +3,6 @@ name = "machinectl"
 version = "0.1.0"
 description = ""
 authors = ["Hiroki Sakuraba <feath.7615@gmail.com>"]
-packages = [
-{ include = "src" },
-]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -16,7 +13,7 @@ platformdirs = "2.5.1"
 black = "^22.3.0"
 
 [tool.poetry.scripts]
-machinectl = 'src:main'
+machinectl = 'machinectl:main'
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
