@@ -59,6 +59,7 @@
       ssh-to-age
       python
       poetry
+      vim-startuptime
 
       # Kubernetes
       kubectl

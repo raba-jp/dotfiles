@@ -6,5 +6,6 @@ with prev.lib;
     (import ./udev-gothic.nix)
     (import ./popshell.nix)
     (final: prev: { sidekick = ((prev.callPackage ./sidekick.nix) { }); })
+    (import ./vim-startuptime.nix)
   ]
 ) final

@@ -16,8 +16,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-go@v3
-      - run: go install github.com/rhysd/vim-startuptime@latest
       - uses: ./.github/actions/setup
         with:
           github-access-token: ${{ secrets.GITHUB_TOKEN }}
