@@ -1,3 +1,4 @@
+local actions = require("telescope.actions")
 require("telescope").setup({
 	defaults = {
 		vimgrep_arguments = {
@@ -14,6 +15,15 @@ require("telescope").setup({
 		selection_caret = "> ",
 		entry_prefix = " ",
 		set_env = { ["COLORTERM"] = "truecolor" },
+	},
+	pickers = {
+		buffers = {
+			mappings = {
+				i = {
+					["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+				},
+			},
+		},
 	},
 	extensions = {
 		fzf = {

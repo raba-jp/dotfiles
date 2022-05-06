@@ -109,7 +109,7 @@ in
       serviceConfig = {
         Restart = "on-failure";
         Environment = "USER=root";
-        EnvironmentFile = config.sops.secrets."cachix-agent-token".path;
+        EnvironmentFile = config.sops.secrets.cachixAgentToken.path;
         ExecStart = "${pkgs.cachix}/bin/cachix deploy agent ${config.networking.hostName}";
       };
     };

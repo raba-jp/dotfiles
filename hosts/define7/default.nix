@@ -7,6 +7,10 @@
         docker.enable = true;
         game.enable = true;
         gnome.enable = true;
+        nextdns = {
+          enable = true;
+          filePath = config.sops.secrets.nextdnsConfiguration.path;
+        };
         trackpad.enable = false;
         lxqt.enable = false;
         physical = {
@@ -26,9 +30,18 @@
     };
   };
 
-  sops.secrets."cachix-agent-token" = {
-    format = "binary";
-    sopsFile = ../../secrets/cachix-agent-token;
+  sops = {
+    secrets = {
+      nextdnsConfiguration = {
+        format = "binary";
+        sopsFile = ../../secrets/nextdns-configuration;
+      };
+
+      cachixAgentToken = {
+        format = "binary";
+        sopsFile = ../../secrets/cachix-agent-token;
+      };
+    };
   };
 
   users.users.sakuraba = {

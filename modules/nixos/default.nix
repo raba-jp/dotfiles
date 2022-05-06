@@ -4,6 +4,7 @@
     ./docker.nix
     ./game.nix
     ./gnome.nix
+    ./nextdns.nix
     ./physical.nix
     ./trackpad.nix
     ./lxqt.nix
