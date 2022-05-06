@@ -96,6 +96,7 @@ in
       nordic
       materia-theme
       papirus-icon-theme
+      nordzy-cursor-theme
       gnomeExtensions.pop-shell
       sidekick
       gparted

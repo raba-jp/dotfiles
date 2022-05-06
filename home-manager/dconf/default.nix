@@ -4,7 +4,7 @@ with lib.hm.gvariant;
 lib.mkIf pkgs.stdenvNoCC.isLinux {
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-      cursor-theme = "Adwaita";
+      cursor-theme = "Nordzy-cursors";
       document-font-name = "Noto Sans CJK JP 11";
       enable-animations = true;
       enable-hot-corners = false;
