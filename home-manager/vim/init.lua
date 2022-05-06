@@ -1,3 +1,5 @@
+require('impatient')
+
 -- Disable default plugin
 vim.g.did_install_default_menus = false
 vim.g.did_install_syntax_menu = false
