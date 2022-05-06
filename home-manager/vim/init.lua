@@ -1,4 +1,4 @@
-require('impatient')
+require("impatient")
 
 -- Disable default plugin
 vim.g.did_install_default_menus = false
@@ -61,7 +61,53 @@ end
 
 vim.notify = require("notify")
 require("gitsigns").setup()
-require("lualine").setup({ options = { theme = "nord" } })
+
+local colors = {
+	nord0 = "#2E3440",
+	nord1 = "#3B4252",
+	nord2 = "#434C5E",
+	nord3 = "#4C566A",
+	nord5 = "#E5E9F0",
+	nord6 = "#ECEFF4",
+	nord7 = "#8FBCBB",
+	nord8 = "#88C0D0",
+	nord13 = "#EBCB8B",
+}
+local lualine_theme = {
+	normal = {
+		a = { fg = colors.nord1, bg = colors.nord8, gui = "bold" },
+		b = { fg = colors.nord5, bg = colors.nord2 },
+		c = { fg = colors.nord5, bg = colors.nord0 },
+	},
+	insert = { a = { fg = colors.nord1, bg = colors.nord6, gui = "bold" } },
+	visual = { a = { fg = colors.nord1, bg = colors.nord7, gui = "bold" } },
+	replace = { a = { fg = colors.nord1, bg = colors.nord13, gui = "bold" } },
+	inactive = {
+		a = { fg = colors.nord1, bg = colors.nord8, gui = "bold" },
+		b = { fg = colors.nord5, bg = colors.nord1 },
+		c = { fg = colors.nord5, bg = colors.nord1 },
+	},
+}
+
+require("lualine").setup({
+	options = {
+		theme = lualine_theme,
+		component_separators = "|",
+		section_separators = { left = "", right = "" },
+	},
+	sections = {
+		lualine_a = {
+			{ "mode", separator = { left = "" }, right_padding = 2 },
+		},
+		lualine_b = { "filename", "branch" },
+		lualine_c = {  },
+		lualine_x = {},
+		lualine_y = { "filetype", "progress" },
+		lualine_z = {
+			{ "location", separator = { right = "" }, left_padding = 2 },
+		},
+	},
+})
 
 -- Colorscheme
 vim.cmd("colorscheme nordfox")
