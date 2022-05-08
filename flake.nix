@@ -74,6 +74,7 @@
     impatient-nvim = { url = "github:lewis6991/impatient.nvim"; flake = false; };
     nvim-gps = { url = "github:SmiteshP/nvim-gps"; flake = false; };
     hop-nvim = { url = "github:phaazon/hop.nvim"; flake = false; };
+    lightspeed-nvim = { url = "github:ggandor/lightspeed.nvim"; flake = false; };
 
     # fish shell plugins
     fish-done = { url = "github:franciscolourenco/done"; flake = false; };

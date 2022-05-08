@@ -416,3 +416,4 @@ legendary.setup({
 require("lspsaga").setup({})
 
 require("hop").setup()
+require("lightspeed").setup({})
