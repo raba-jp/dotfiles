@@ -397,6 +397,22 @@
         "type": "github"
       }
     },
+    "lightspeed-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1651605441,
+        "narHash": "sha256-+q/3RlBP/cSWmEKTrGrAjosGZd/KdtSPrF+7v+/UNOg=",
+        "owner": "ggandor",
+        "repo": "lightspeed.nvim",
+        "rev": "1424af5d55d0734f179deda2cf04cd84f28194c3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ggandor",
+        "repo": "lightspeed.nvim",
+        "type": "github"
+      }
+    },
     "lsp-format-nvim": {
       "flake": false,
       "locked": {
@@ -763,6 +779,7 @@
         "hop-nvim": "hop-nvim",
         "impatient-nvim": "impatient-nvim",
         "legendary-nvim": "legendary-nvim",
+        "lightspeed-nvim": "lightspeed-nvim",
         "lsp-format-nvim": "lsp-format-nvim",
         "lspkind-nvim": "lspkind-nvim",
         "lspsaga-nvim": "lspsaga-nvim",
