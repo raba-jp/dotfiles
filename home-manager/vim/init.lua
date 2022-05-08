@@ -99,13 +99,32 @@ require("lualine").setup({
 		lualine_a = {
 			{ "mode", separator = { left = "" }, right_padding = 2 },
 		},
-		lualine_b = { "filename", "branch" },
-		lualine_c = {  },
-		lualine_x = {},
-		lualine_y = { "filetype", "progress" },
-		lualine_z = {
-			{ "location", separator = { right = "" }, left_padding = 2 },
+		lualine_b = {
+			{ "filetype", icon_only = true, separator = { right = "" } },
+			"filename",
 		},
+		lualine_c = {},
+		lualine_x = {
+			{
+				"diagnostics",
+				sources = { "nvim_diagnostic", "nvim_lsp" },
+				section = { "error", "warn", "info", "hint" },
+				diagnostics_color = {
+					error = "DiagnosticError",
+					warn = "DiagnosticWarn",
+					info = "DiagnosticInfo",
+					hint = "DiagnosticHint",
+				},
+				symbols = { error = " ", warn = " ", info = " ", hint = " " },
+				colored = true,
+				update_in_insert = true,
+				always_visible = false,
+			},
+		},
+		lualine_y = {
+			{ "location", separator = { left = "", right = "" }, left_padding = 2 },
+		},
+		lualine_z = {},
 	},
 })
 
