@@ -414,3 +414,5 @@ legendary.setup({
 })
 
 require("lspsaga").setup({})
+
+require("hop").setup()

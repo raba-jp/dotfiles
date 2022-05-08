@@ -56,6 +56,7 @@ in
       { plugin = buildVimPluginFrom2Nix { name = "lspsaga.nvim"; src = args.lspsaga-nvim; }; }
       { plugin = buildVimPluginFrom2Nix { name = "impatient.nvim"; src = args.impatient-nvim; }; }
       { plugin = buildVimPluginFrom2Nix { name = "nvim-gps"; src = args.nvim-gps; }; }
+      { plugin = buildVimPluginFrom2Nix { name = "hop.nvim"; src = args.hop-nvim; }; }
     ];
 
     extraConfig = ''
