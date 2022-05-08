@@ -592,6 +592,22 @@
         "type": "github"
       }
     },
+    "nvim-gps": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1651286740,
+        "narHash": "sha256-RDIJNgPSDqGFbhAtB0Apo+rUyYMwvknPE02psuhIQ1g=",
+        "owner": "SmiteshP",
+        "repo": "nvim-gps",
+        "rev": "9552418fcbb9587025f4bd38364259b3888f582b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SmiteshP",
+        "repo": "nvim-gps",
+        "type": "github"
+      }
+    },
     "nvim-lspconfig": {
       "flake": false,
       "locked": {
@@ -739,6 +755,7 @@
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_2",
         "nvim-cmp": "nvim-cmp",
+        "nvim-gps": "nvim-gps",
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-notify": "nvim-notify",
         "nvim-treesitter-context": "nvim-treesitter-context",

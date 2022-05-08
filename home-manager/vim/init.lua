@@ -62,72 +62,6 @@ end
 vim.notify = require("notify")
 require("gitsigns").setup()
 
-local colors = {
-	nord0 = "#2E3440",
-	nord1 = "#3B4252",
-	nord2 = "#434C5E",
-	nord3 = "#4C566A",
-	nord5 = "#E5E9F0",
-	nord6 = "#ECEFF4",
-	nord7 = "#8FBCBB",
-	nord8 = "#88C0D0",
-	nord13 = "#EBCB8B",
-}
-local lualine_theme = {
-	normal = {
-		a = { fg = colors.nord1, bg = colors.nord8, gui = "bold" },
-		b = { fg = colors.nord5, bg = colors.nord2 },
-		c = { fg = colors.nord5, bg = colors.nord0 },
-	},
-	insert = { a = { fg = colors.nord1, bg = colors.nord6, gui = "bold" } },
-	visual = { a = { fg = colors.nord1, bg = colors.nord7, gui = "bold" } },
-	replace = { a = { fg = colors.nord1, bg = colors.nord13, gui = "bold" } },
-	inactive = {
-		a = { fg = colors.nord1, bg = colors.nord8, gui = "bold" },
-		b = { fg = colors.nord5, bg = colors.nord1 },
-		c = { fg = colors.nord5, bg = colors.nord1 },
-	},
-}
-
-require("lualine").setup({
-	options = {
-		theme = lualine_theme,
-		component_separators = "|",
-		section_separators = { left = "", right = "" },
-	},
-	sections = {
-		lualine_a = {
-			{ "mode", separator = { left = "" }, right_padding = 2 },
-		},
-		lualine_b = {
-			{ "filetype", icon_only = true, separator = { right = "" } },
-			"filename",
-		},
-		lualine_c = {},
-		lualine_x = {
-			{
-				"diagnostics",
-				sources = { "nvim_diagnostic", "nvim_lsp" },
-				section = { "error", "warn", "info", "hint" },
-				diagnostics_color = {
-					error = "DiagnosticError",
-					warn = "DiagnosticWarn",
-					info = "DiagnosticInfo",
-					hint = "DiagnosticHint",
-				},
-				symbols = { error = " ", warn = " ", info = " ", hint = " " },
-				colored = true,
-				update_in_insert = true,
-				always_visible = false,
-			},
-		},
-		lualine_y = {
-			{ "location", separator = { left = "", right = "" }, left_padding = 2 },
-		},
-		lualine_z = {},
-	},
-})
-
 -- Colorscheme
 vim.cmd("colorscheme nordfox")
 require("nightfox").setup({
@@ -216,6 +150,83 @@ require("nvim-treesitter.configs").setup({
 	rainbow = { enable = true },
 })
 require("treesitter-context").setup({ enable = true, throttle = true })
+
+local gps = require("nvim-gps")
+gps.setup({
+	["class-name"] = " ",
+	["function-name"] = " ",
+	["method-name"] = " ",
+	["container-name"] = "⛶ ",
+	["tag-name"] = "炙",
+})
+
+local colors = {
+	nord0 = "#2E3440",
+	nord1 = "#3B4252",
+	nord2 = "#434C5E",
+	nord3 = "#4C566A",
+	nord5 = "#E5E9F0",
+	nord6 = "#ECEFF4",
+	nord7 = "#8FBCBB",
+	nord8 = "#88C0D0",
+	nord13 = "#EBCB8B",
+}
+local lualine_theme = {
+	normal = {
+		a = { fg = colors.nord1, bg = colors.nord8, gui = "bold" },
+		b = { fg = colors.nord5, bg = colors.nord2 },
+		c = { fg = colors.nord5, bg = colors.nord0 },
+	},
+	insert = { a = { fg = colors.nord1, bg = colors.nord6, gui = "bold" } },
+	visual = { a = { fg = colors.nord1, bg = colors.nord7, gui = "bold" } },
+	replace = { a = { fg = colors.nord1, bg = colors.nord13, gui = "bold" } },
+	inactive = {
+		a = { fg = colors.nord1, bg = colors.nord8, gui = "bold" },
+		b = { fg = colors.nord5, bg = colors.nord1 },
+		c = { fg = colors.nord5, bg = colors.nord1 },
+	},
+}
+
+require("lualine").setup({
+	options = {
+		theme = lualine_theme,
+		component_separators = "|",
+		section_separators = { left = "", right = "" },
+	},
+	sections = {
+		lualine_a = {
+			{ "mode", separator = { left = "" }, right_padding = 2 },
+		},
+		lualine_b = {
+			{ "filetype", icon_only = true, separator = { right = "" } },
+			"filename",
+		},
+		lualine_c = {
+			{ gps.get_location, cond = gps.is_available },
+		},
+		lualine_x = {
+			{
+				"diagnostics",
+				sources = { "nvim_diagnostic", "nvim_lsp" },
+				section = { "error", "warn", "info", "hint" },
+				diagnostics_color = {
+					error = "DiagnosticError",
+					warn = "DiagnosticWarn",
+					info = "DiagnosticInfo",
+					hint = "DiagnosticHint",
+				},
+				symbols = { error = " ", warn = " ", info = " ", hint = " " },
+				colored = true,
+				update_in_insert = true,
+				always_visible = false,
+			},
+		},
+		lualine_y = {
+			{ "location", separator = { left = "", right = "" }, left_padding = 2 },
+		},
+		lualine_z = {},
+	},
+})
 
 -- Telescope
 local actions = require("telescope.actions")

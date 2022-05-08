@@ -72,6 +72,7 @@
     lspsaga-nvim = { url = "github:tami5/lspsaga.nvim"; flake = false; };
     legendary-nvim = { url = "github:mrjones2014/legendary.nvim"; flake = false; };
     impatient-nvim = { url = "github:lewis6991/impatient.nvim"; flake = false; };
+    nvim-gps = { url = "github:SmiteshP/nvim-gps"; flake = false; };
 
     # fish shell plugins
     fish-done = { url = "github:franciscolourenco/done"; flake = false; };
