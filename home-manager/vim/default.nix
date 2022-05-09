@@ -33,7 +33,8 @@ in
       { plugin = buildVimPluginFrom2Nix { name = "plenary.nvim"; src = args.plenary-nvim; }; }
       { plugin = buildVimPluginFrom2Nix { name = "dressing.nvim"; src = args.dressing-nvim; }; }
       { plugin = buildVimPluginFrom2Nix { name = "nightfox.nvim"; src = args.nightfox-nvim; }; }
-      { plugin = (pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars)); }
+      { plugin = pkgs.vimPlugins.nvim-treesitter; }
+      # { plugin = (pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars)); }
       { plugin = buildVimPluginFrom2Nix { name = "nvim-treesitter-context"; src = args.nvim-treesitter-context; }; }
       { plugin = buildVimPluginFrom2Nix { name = "telescope.nvim"; src = args.telescope-nvim; }; }
       { plugin = buildVimPlugin { name = "telescope-fzf-native.nvim"; src = args.telescope-fzf-native-nvim; }; }
