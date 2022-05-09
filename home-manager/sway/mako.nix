@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, lib, pkgs, ... }:
+lib.mkIf pkgs.stdenvNoCC.isLinux {
   programs.mako = {
     enable = true;
     anchor = "bottom-right";

@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ lib, pkgs, ... }:
+lib.mkIf pkgs.stdenvNoCC.isLinux {
   services.swayidle = {
     enable = true;
 

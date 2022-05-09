@@ -1,4 +1,5 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }:
+lib.mkIf pkgs.stdenvNoCC.isLinux {
   home.packages = with pkgs; [
     clipman
     wl-clipboard
