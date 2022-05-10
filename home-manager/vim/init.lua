@@ -207,6 +207,10 @@ local function treesitter()
 			},
 			lualine_x = {
 				{
+					"lsp_progress",
+					display_components = { "lsp_client_name", { "title", "percentage", "message" } },
+				},
+				{
 					"diagnostics",
 					sources = { "nvim_diagnostic", "nvim_lsp" },
 					section = { "error", "warn", "info", "hint" },

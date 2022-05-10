@@ -75,6 +75,7 @@
     nvim-gps = { url = "github:SmiteshP/nvim-gps"; flake = false; };
     hop-nvim = { url = "github:phaazon/hop.nvim"; flake = false; };
     lightspeed-nvim = { url = "github:ggandor/lightspeed.nvim"; flake = false; };
+    lualine-lsp-progress = { url = "github:arkav/lualine-lsp-progress"; flake = false; };
 
     # fish shell plugins
     fish-done = { url = "github:franciscolourenco/done"; flake = false; };

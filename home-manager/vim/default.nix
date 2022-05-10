@@ -59,6 +59,7 @@ in
       { plugin = buildVimPluginFrom2Nix { name = "nvim-gps"; src = args.nvim-gps; }; }
       { plugin = buildVimPluginFrom2Nix { name = "hop.nvim"; src = args.hop-nvim; }; }
       { plugin = buildVimPluginFrom2Nix { name = "lightspeed.nvim"; src = args.lightspeed-nvim; }; }
+      { plugin = buildVimPluginFrom2Nix { name = "lualine-lsp-progress"; src = args.lualine-lsp-progress; }; }
     ];
 
     extraConfig = ''
