@@ -14,14 +14,15 @@ def __fish() -> list[dict[str, str]]:
         elapsed = time.time() - start
         result.append(elapsed)
 
-
     average = sum(result) / len(result)
 
-    return [{
-        "name": "fish startup time (average)",
-        "unit": "msec",
-        "value": str(average * 100),
-    }]
+    return [
+        {
+            "name": "fish startup time (average)",
+            "unit": "msec",
+            "value": str(average * 100),
+        }
+    ]
 
 
 def __vim() -> list[dict[str, str]]:

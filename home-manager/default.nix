@@ -63,6 +63,7 @@
         age
         ssh-to-age
         python
+        black
         poetry
         vim-startuptime
 
