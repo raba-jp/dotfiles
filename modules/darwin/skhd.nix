@@ -12,7 +12,7 @@ in {
 
   config = mkIf cfg.enable {
     services.skhd = {
-      enable = cfg.enable;
+      inherit (cfg) enable;
       skhdConfig = ''
         # focus window
         alt - x : yabai -m window --focus recent

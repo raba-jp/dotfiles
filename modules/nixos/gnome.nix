@@ -29,8 +29,8 @@ in {
           };
 
           autoLogin = {
-            enable = cfg.autoLogin.enable;
-            user = cfg.autoLogin.user;
+            inherit (cfg.autoLogin) enable;
+            inherit (cfg.autoLogin) user;
           };
         };
 

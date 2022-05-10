@@ -13,7 +13,7 @@ in {
 
   config = mkIf cfg.enable {
     services.yabai = {
-      enable = cfg.enable;
+      inherit (cfg) enable;
       package = pkgs.yabai;
       config = {
         layout = "bsp";

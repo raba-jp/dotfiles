@@ -1,4 +1,4 @@
-{...}: {
+_: {
   networking.hostName = "LF2107010038";
 
   users.users."hiroki.sakuraba" = {

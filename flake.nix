@@ -306,7 +306,7 @@
         };
       in
         nixos-generators.nixosGenerate {
-          pkgs = pkgs;
+          inherit pkgs;
           modules = [
             home-manager.darwinModules.home-manager
             homeManagerConfigModule
@@ -339,7 +339,7 @@
       };
     in {
       packages = {
-        machinectl = pkgs.machinectl;
+        inherit (pkgs) machinectl;
       };
       defaultApp = pkgs.machinectl;
     });

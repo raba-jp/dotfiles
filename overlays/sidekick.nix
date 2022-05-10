@@ -92,7 +92,7 @@ in
   stdenv.mkDerivation {
     name = "sidekick-${version}";
 
-    version = version;
+    inherit version;
 
     src = fetchurl {
       url = "https://api.meetsidekick.com/downloads/df/linux/deb";

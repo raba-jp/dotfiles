@@ -37,18 +37,18 @@ in {
 
   config = mkIf cfg.enable {
     homebrew = {
-      enable = cfg.enable;
+      inherit (cfg) enable;
       autoUpdate = true;
-      cleanup = cfg.cleanup;
+      inherit (cfg) cleanup;
       global = {
         brewfile = true;
         noLock = true;
       };
 
-      taps = cfg.taps;
-      brews = cfg.brews;
-      casks = cfg.casks;
-      masApps = cfg.masApps;
+      inherit (cfg) taps;
+      inherit (cfg) brews;
+      inherit (cfg) casks;
+      inherit (cfg) masApps;
     };
   };
 }

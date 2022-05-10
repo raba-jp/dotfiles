@@ -1,4 +1,4 @@
-{ ...}: {
+_: {
   programs.mako = {
     enable = true;
     anchor = "bottom-right";

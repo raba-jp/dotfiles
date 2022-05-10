@@ -1,4 +1,4 @@
-{ ...}: {
+_: {
   programs.git.ignores = [
     ".editorconfig"
     # direnv

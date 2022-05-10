@@ -27,7 +27,7 @@ in {
 
   config = mkIf cfg.enable {
     boot = {
-      kernelPackages = cfg.kernelPackages;
+      inherit (cfg) kernelPackages;
 
       loader = {
         systemd-boot = {
