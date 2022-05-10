@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ ...}: {
   programs.mako = {
     enable = true;
     anchor = "bottom-right";

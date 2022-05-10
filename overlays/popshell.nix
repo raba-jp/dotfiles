@@ -1,5 +1,5 @@
-final: prev: {
-  gnomeExtensions.pop-shell = prev.gnomeExtensions.pop-shell.overrideAttrs (old: {
+_final: prev: {
+  gnomeExtensions.pop-shell = prev.gnomeExtensions.pop-shell.overrideAttrs (_old: {
     version = "latest";
     src = prev.fetchFromGitHub {
       owner = "pop-os";

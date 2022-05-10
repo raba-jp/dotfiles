@@ -1,4 +1,4 @@
-final: prev: let
+_final: prev: let
   version = "1.0.0";
 in {
   udev-gothic = prev.fetchzip {

@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-} @ args: let
+{pkgs, ...} @ args: let
   inherit (pkgs.vimUtils) buildVimPlugin buildVimPluginFrom2Nix;
 in {
   programs.neovim = {

@@ -1,4 +1,4 @@
-final: prev: {
+_final: prev: {
   vim-startuptime = prev.buildGoModule rec {
     pname = "vim-startuptime";
     version = "1.2.0";

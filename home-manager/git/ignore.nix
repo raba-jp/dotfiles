@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ ...}: {
   programs.git.ignores = [
     ".editorconfig"
     # direnv

@@ -83,7 +83,13 @@ local function lsp()
 
 	lspconfig.gopls.setup(default_lsp_options)
 	lspconfig.rust_analyzer.setup(default_lsp_options)
-	lspconfig.rnix.setup(default_lsp_options)
+	lspconfig.rnix.setup({
+		capabilities = capabilities,
+		on_attach = function(client)
+			client.resolved_capabilities.document_formatting = false
+			lspformat.on_attach(client)
+		end,
+	})
 	lspconfig.pyright.setup(default_lsp_options)
 	lspconfig.dartls.setup(default_lsp_options)
 	lspconfig.solargraph.setup(default_lsp_options)
@@ -121,12 +127,18 @@ local function lsp()
 	lspconfig.efm.setup({
 		on_attach = require("lsp-format").on_attach,
 		init_options = { documentFormatting = true },
-		filetypes = { "lua" },
+		filetypes = { "lua", "nix" },
 		settings = {
 			languages = {
 				lua = {
 					{
 						formatCommand = [[stylua -]],
+						formatStdin = true,
+					},
+				},
+				nix = {
+					{
+						formatCommand = [[alejandra]],
 						formatStdin = true,
 					},
 				},

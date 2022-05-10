@@ -208,7 +208,7 @@
   } @ inputs: let
     inherit (darwin.lib) darwinSystem;
     inherit (nixpkgs.lib) nixosSystem;
-    inherit (flake-utils-plus.lib) mkFlake eachDefaultSystem eachSystem;
+    inherit (flake-utils-plus.lib) eachDefaultSystem;
     inherit (nixpkgs) lib;
 
     homeManagerConfigModule = {
@@ -330,7 +330,7 @@
         inherit system;
         overlays = [
           poetry2nix.overlay
-          (final: prev: {
+          (_final: prev: {
             machinectl = prev.poetry2nix.mkPoetryApplication {
               projectDir = ./bin/machinectl;
             };
