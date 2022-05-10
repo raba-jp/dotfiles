@@ -1,5 +1,5 @@
-{ ... }: {
-  imports = [ ./hardware-configuration.nix ];
+{...}: {
+  imports = [./hardware-configuration.nix];
 
   boot.cleanTmpDir = true;
   zramSwap.enable = true;
@@ -14,4 +14,3 @@
     apiKeyFile = "/run/keys/mackerel-api-key";
   };
 }
-

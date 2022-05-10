@@ -1,9 +1,12 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.dotfiles.homebrew;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.dotfiles.homebrew;
+in {
   options.dotfiles.homebrew = {
     enable = mkEnableOption "if you use homebrew";
 
@@ -14,22 +17,22 @@ in
 
     taps = mkOption {
       type = with types; listOf str;
-      default = [ ];
+      default = [];
     };
 
     brews = mkOption {
       type = with types; listOf str;
-      default = [ ];
+      default = [];
     };
 
     casks = mkOption {
       type = with types; listOf str;
-      default = [ ];
+      default = [];
     };
 
     masApps = mkOption {
       type = with types; attrsOf ints.positive;
-      default = { };
+      default = {};
     };
   };
 

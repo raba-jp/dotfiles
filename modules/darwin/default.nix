@@ -1,11 +1,15 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./homebrew.nix
     ./yabai.nix
     ./skhd.nix
   ];
 
-  environment.pathsToLink = [ "/Applications" ];
+  environment.pathsToLink = ["/Applications"];
 
   services = {
     cachix-agent = {
@@ -17,12 +21,12 @@
 
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [ cica udev-gothic udev-gothic-nf ];
+    fonts = with pkgs; [cica udev-gothic udev-gothic-nf];
   };
 
   nix = {
-    allowedUsers = [ "@wheel" ];
-    trustedUsers = [ "@wheel" ];
+    allowedUsers = ["@wheel"];
+    trustedUsers = ["@wheel"];
 
     # gc = {
     #   automatic = true;
@@ -59,7 +63,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ cachix ];
+  environment.systemPackages = with pkgs; [cachix];
 
   users.nix.configureBuildUsers = true;
   services.nix-daemon.enable = true;

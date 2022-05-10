@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 lib.mkIf pkgs.stdenvNoCC.isLinux {
   home.packages = with pkgs; [
     clipman
@@ -9,11 +14,11 @@ lib.mkIf pkgs.stdenvNoCC.isLinux {
   systemd.user.services.clipman = {
     Unit = {
       Description = "Clipboard manager for Wayland";
-      Documentation = [ "https://github.com/yory8/clipman" ];
-      PartOf = [ "graphical-session.target" ];
+      Documentation = ["https://github.com/yory8/clipman"];
+      PartOf = ["graphical-session.target"];
     };
 
-    Install = { WantedBy = [ "graphical-session.target" ]; };
+    Install = {WantedBy = ["graphical-session.target"];};
 
     Service = {
       Type = "simple";
@@ -23,7 +28,8 @@ lib.mkIf pkgs.stdenvNoCC.isLinux {
     };
   };
 
-  wayland.windowManager.sway.config.keybindings =
-    let mod = config.wayland.windowManager.sway.config.modifier;
-    in lib.mkOptionDefault { "${mod}+p" = "exec ${pkgs.clipman}/bin/clipman pick -t wofi"; };
+  wayland.windowManager.sway.config.keybindings = let
+    mod = config.wayland.windowManager.sway.config.modifier;
+  in
+    lib.mkOptionDefault {"${mod}+p" = "exec ${pkgs.clipman}/bin/clipman pick -t wofi";};
 }

@@ -1,9 +1,12 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.dotfiles.nextdns;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.dotfiles.nextdns;
+in {
   options.dotfiles.nextdns = {
     enable = mkEnableOption "if you use NextDNS";
     filePath = mkOption {
@@ -16,7 +19,7 @@ in
     services = {
       nextdns = {
         enable = true;
-        arguments = [ "-config-file" cfg.filePath ];
+        arguments = ["-config-file" cfg.filePath];
       };
     };
   };

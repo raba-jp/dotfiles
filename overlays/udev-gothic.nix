@@ -1,7 +1,6 @@
-final: prev:
-let version = "1.0.0";
-in
-{
+final: prev: let
+  version = "1.0.0";
+in {
   udev-gothic = prev.fetchzip {
     name = "udev-gothic-v${version}";
 
@@ -16,7 +15,7 @@ in
     meta = with prev.lib; {
       homepage = "https://github.com/yuru7/udev-gothic";
       license = licenses.ofl;
-      maintainers = with maintainers; [ raba-jp ];
+      maintainers = with maintainers; [raba-jp];
       platforms = platforms.all;
     };
   };
@@ -35,7 +34,7 @@ in
     meta = with prev.lib; {
       homepage = "https://github.com/yuru7/udev-gothic";
       license = licenses.ofl;
-      maintainers = with maintainers; [ raba-jp ];
+      maintainers = with maintainers; [raba-jp];
       platforms = platforms.all;
     };
   };

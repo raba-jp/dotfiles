@@ -1,9 +1,12 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.dotfiles.physical;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.dotfiles.physical;
+in {
   options.dotfiles.physical = {
     enable = mkEnableOption "if host is physical environment";
     kernelPackages = mkOption {
@@ -62,8 +65,8 @@ in
       ];
 
       fontconfig.defaultFonts = {
-        serif = [ "Noto Sans CJK JP" ];
-        sansSerif = [ "Noto Sans Mono CJK JP" ];
+        serif = ["Noto Sans CJK JP"];
+        sansSerif = ["Noto Sans Mono CJK JP"];
       };
     };
 
@@ -78,7 +81,7 @@ in
 
         settings = {
           default_session = {
-            command = "${lib.makeBinPath [ pkgs.greetd.tuigreet ]}/tuigreet --time --cmd sway";
+            command = "${lib.makeBinPath [pkgs.greetd.tuigreet]}/tuigreet --time --cmd sway";
             user = "greeter";
           };
         };
@@ -103,9 +106,9 @@ in
     ];
 
     systemd.services.cachix-agent = {
-      wantedBy = [ "multi-user.target" ];
-      after = [ "network-online.target" ];
-      path = [ config.nix.package ];
+      wantedBy = ["multi-user.target"];
+      after = ["network-online.target"];
+      path = [config.nix.package];
       reloadIfChanged = true;
       serviceConfig = {
         Restart = "on-failure";

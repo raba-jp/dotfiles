@@ -1,9 +1,12 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.dotfiles.lxqt;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.dotfiles.lxqt;
+in {
   options.dotfiles.lxqt = {
     enable = mkEnableOption "if you use LXQt";
   };

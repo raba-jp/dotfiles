@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 lib.mkIf pkgs.stdenvNoCC.isLinux {
   programs.mako = {
     enable = true;

@@ -1,12 +1,10 @@
-final: prev:
-let version = "5.0.3";
-in
-{
+final: prev: let
+  version = "5.0.3";
+in {
   cica = prev.fetchzip {
     name = "cica-${version}";
 
-    url =
-      "https://github.com/miiton/Cica/releases/download/v${version}/Cica_v${version}.zip";
+    url = "https://github.com/miiton/Cica/releases/download/v${version}/Cica_v${version}.zip";
     sha256 = "sha256-IM8KpR069FngrAUY02ESK1rW3ANbouuiglwSITrHQyw=";
 
     postFetch = ''
@@ -17,7 +15,7 @@ in
     meta = with prev.lib; {
       homepage = "https://github.com/miiton/Cica";
       license = licenses.ofl;
-      maintainers = with maintainers; [ raba-jp ];
+      maintainers = with maintainers; [raba-jp];
       platforms = platforms.all;
     };
   };

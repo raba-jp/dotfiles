@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
     ./amd.nix
     ./docker.nix
@@ -13,7 +13,7 @@
   i18n = {
     inputMethod = {
       enabled = "fcitx";
-      fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
+      fcitx.engines = with pkgs.fcitx-engines; [mozc];
       # fcitx5.addons = with pkgs; [ fcitx5-mozc ];
     };
   };
@@ -25,7 +25,7 @@
 
   nix = {
     settings = {
-      trusted-users = [ "root" "@wheel" ];
+      trusted-users = ["root" "@wheel"];
     };
 
     gc = {
@@ -53,7 +53,7 @@
     '';
   };
 
-  environment.systemPackages = with pkgs; [ cachix ];
+  environment.systemPackages = with pkgs; [cachix];
 
   nixpkgs = {
     config = {

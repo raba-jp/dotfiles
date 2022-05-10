@@ -1,9 +1,12 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.dotfiles.skhd;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.dotfiles.skhd;
+in {
   options.dotfiles.skhd = {
     enable = mkEnableOption "if you use skhd";
   };

@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  ...
+}:
 lib.mkIf pkgs.stdenvNoCC.isLinux {
   programs.waybar = {
     enable = true;
@@ -57,11 +61,11 @@ lib.mkIf pkgs.stdenvNoCC.isLinux {
           format-muted = "🔇 {volume}%";
 
           format-icons = {
-            default = [ "" "" ];
-            headphone = [ "" "" ];
+            default = ["" ""];
+            headphone = ["" ""];
             headset = "";
             phone = "";
-            speaker = [ "🔈" "🔉" "🔊" ];
+            speaker = ["🔈" "🔉" "🔊"];
           };
         };
 

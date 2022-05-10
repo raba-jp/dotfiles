@@ -1,12 +1,16 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 lib.mkIf pkgs.stdenvNoCC.isLinux {
-  home.packages = [ pkgs.swaylock ];
+  home.packages = [pkgs.swaylock];
 
-  wayland.windowManager.sway.config.keybindings =
-    let
-      mod = config.wayland.windowManager.sway.config.modifier;
-    in
-    lib.mkOptionDefault { "${mod}+x" = "exec swaylock"; };
+  wayland.windowManager.sway.config.keybindings = let
+    mod = config.wayland.windowManager.sway.config.modifier;
+  in
+    lib.mkOptionDefault {"${mod}+x" = "exec swaylock";};
 
   xdg.configFile."swaylock/config".text = ''
     daemonize

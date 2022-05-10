@@ -1,9 +1,12 @@
-{ config, pkgs, lib, ... }:
-with lib;
-let
-  cfg = config.dotfiles.game;
-in
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.dotfiles.game;
+in {
   options.dotfiles.game = {
     enable = mkEnableOption "if you play game";
 
@@ -24,8 +27,8 @@ in
 
     networking = mkIf cfg.factorio.server.enable {
       firewall = {
-        allowedTCPPorts = [ 34197 ];
-        allowedUDPPorts = [ 34197 ];
+        allowedTCPPorts = [34197];
+        allowedUDPPorts = [34197];
       };
     };
   };

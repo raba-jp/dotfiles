@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ./aliases.nix ./ignore.nix ];
+{pkgs, ...}: {
+  imports = [./aliases.nix ./ignore.nix];
   programs.git = {
     enable = true;
     delta.enable = true;
@@ -13,7 +13,7 @@
         fsmonitor = "rs-git-fsmonitor";
       };
 
-      user = { useConfigOnly = true; };
+      user = {useConfigOnly = true;};
 
       color = {
         status = "auto";

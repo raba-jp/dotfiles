@@ -1,15 +1,15 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, rustPlatform
-, pkg-config
-, openssl
-, installShellFiles
-, libiconv
-, nixosTests
-, Security
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  rustPlatform,
+  pkg-config,
+  openssl,
+  installShellFiles,
+  libiconv,
+  nixosTests,
+  Security,
 }:
-
 rustPlatform.buildRustPackage rec {
   pname = "starship";
   version = "1.2.1";
@@ -21,10 +21,11 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-5MJA8eHo1enOHlLpAOF1iDvOHCS/Nw0sc84VWu9nApE=";
   };
 
-  nativeBuildInputs = [ installShellFiles ] ++ lib.optionals stdenv.isLinux [ pkg-config ];
+  nativeBuildInputs = [installShellFiles] ++ lib.optionals stdenv.isLinux [pkg-config];
 
-  buildInputs = lib.optionals stdenv.isLinux [ openssl ]
-    ++ lib.optionals stdenv.isDarwin [ libiconv Security ];
+  buildInputs =
+    lib.optionals stdenv.isLinux [openssl]
+    ++ lib.optionals stdenv.isDarwin [libiconv Security];
 
   buildFeatures = lib.optional (!stdenv.isDarwin) "notify-rust";
 
@@ -49,6 +50,6 @@ rustPlatform.buildRustPackage rec {
     description = "A minimal, blazing fast, and extremely customizable prompt for any shell";
     homepage = "https://starship.rs";
     license = licenses.isc;
-    maintainers = with maintainers; [ bbigras danth davidtwco Br1ght0ne Frostman marsam ];
+    maintainers = with maintainers; [bbigras danth davidtwco Br1ght0ne Frostman marsam];
   };
 }

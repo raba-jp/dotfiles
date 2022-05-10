@@ -1,4 +1,4 @@
-{ pkgs, ... }@args: {
+{pkgs, ...} @ args: {
   programs.fish = {
     enable = true;
 

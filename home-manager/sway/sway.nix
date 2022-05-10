@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  ...
+}:
 lib.mkIf pkgs.stdenvNoCC.isLinux {
   wayland.windowManager.sway = {
     enable = true;
@@ -8,7 +12,7 @@ lib.mkIf pkgs.stdenvNoCC.isLinux {
     config = {
       terminal = "${pkgs.wezterm}/bin/wezterm";
       menu = "${pkgs.wofi}/bin/wofi --show drun";
-      bars = [ ];
+      bars = [];
     };
   };
 

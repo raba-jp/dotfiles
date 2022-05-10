@@ -1,9 +1,12 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.dotfiles.yabai;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.dotfiles.yabai;
+in {
   options.dotfiles.yabai = {
     enable = mkEnableOption "if you use yabai";
   };

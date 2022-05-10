@@ -1,9 +1,12 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.dotfiles.gnome;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.dotfiles.gnome;
+in {
   options.dotfiles.gnome = {
     enable = mkEnableOption "if you use Gnome Desktop";
     autoLogin = {
@@ -64,8 +67,7 @@ in
         gnome-connections
       ];
 
-      systemPackages = [ pkgs.gnome.gnome-tweaks ];
+      systemPackages = [pkgs.gnome.gnome-tweaks];
     };
   };
-
 }

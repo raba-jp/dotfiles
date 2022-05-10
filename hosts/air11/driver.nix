@@ -1,4 +1,11 @@
-{ stdenv, lib, fetchFromGitHub, kernel, pkgs, ... }:
+{
+  stdenv,
+  lib,
+  fetchFromGitHub,
+  kernel,
+  pkgs,
+  ...
+}:
 stdenv.mkDerivation rec {
   name = "rtl8723-${version}-${kernel.version}";
   version = "1";
@@ -10,10 +17,10 @@ stdenv.mkDerivation rec {
     sha256 = "DsbZ6Ymp6KYxy4jVLclPLPRKW2BqkCEHRh/NkBnos84=";
   };
 
-  hardeningDisable = [ "pic" "format" ];
+  hardeningDisable = ["pic" "format"];
   nativeBuildInputs = kernel.moduleBuildDependencies;
 
-  buildInputs = with pkgs; [ gnumake git bc openssl mokutil gcc glibc ];
+  buildInputs = with pkgs; [gnumake git bc openssl mokutil gcc glibc];
 
   makeFlags = [
     "KVER=${kernel.modDirVersion}"
@@ -24,5 +31,4 @@ stdenv.mkDerivation rec {
     mkdir -p $out/lib/modules/${kernel.modDirVersion}/kernel/drivers/net/wireless/
     install -p -m 644 8723du.ko $out/lib/modules/${kernel.modDirVersion}/kernel/drivers/net/wireless/
   '';
-
 }

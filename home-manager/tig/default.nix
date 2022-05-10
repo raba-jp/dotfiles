@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   xdg.enable = true;
 
   xdg.configFile."tig/config".text = ''
