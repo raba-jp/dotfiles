@@ -1,3 +1,9 @@
+[formatter.deadnix]
+command = "deadnix"
+options = ["-e"]
+includes = [ "*.nix" ]
+excludes = []
+
 [formatter.nix]
 command = "alejandra"
 options = []

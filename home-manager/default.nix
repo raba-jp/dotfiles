@@ -52,6 +52,7 @@
         buf
         any-nix-shell
         nix-prefetch-github
+        deadnix
         nodejs
         yarn
         rustup
