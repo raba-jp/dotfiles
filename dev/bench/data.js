@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1652425489255,
+  "lastUpdate": 1652433102029,
   "repoUrl": "https://github.com/raba-jp/dotfiles",
   "entries": {
     "Benchmark": [
@@ -1333,6 +1333,46 @@ window.BENCHMARK_DATA = {
           {
             "name": "vim startup time (min)",
             "value": "84.857000",
+            "unit": "msec"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "raba-jp",
+            "username": "raba-jp"
+          },
+          "committer": {
+            "name": "raba-jp",
+            "username": "raba-jp"
+          },
+          "id": "e0c20933e6dbc34b23e540e71fd1ec54bc680843",
+          "message": "flake.lock: Update",
+          "timestamp": "2022-01-10T17:18:11Z",
+          "url": "https://github.com/raba-jp/dotfiles/pull/37/commits/e0c20933e6dbc34b23e540e71fd1ec54bc680843"
+        },
+        "date": 1652433101221,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "fish startup time (average)",
+            "value": "29.573006629943848",
+            "unit": "msec"
+          },
+          {
+            "name": "vim startup time (average)",
+            "value": "102.189500",
+            "unit": "msec"
+          },
+          {
+            "name": "vim startup time (max)",
+            "value": "106.662000",
+            "unit": "msec"
+          },
+          {
+            "name": "vim startup time (min)",
+            "value": "99.421000",
             "unit": "msec"
           }
         ]
