@@ -219,34 +219,6 @@
     };
   in
     {
-      homeConfigurations = let
-        configuration = import ./home-manager;
-        system = "x86_64-linux";
-        stateVersion = "21.11";
-        homeDirectory = "/home/vscode";
-        pkgs = import inputs.nixpkgs {
-          system = "x86_64-linux";
-          overlays = [(import ./overlays)];
-        };
-        extraSpecialArgs = inputs;
-      in {
-        # For GitHub Codespaces
-        vscode = home-manager.lib.homeManagerConfiguration {
-          inherit configuration system stateVersion homeDirectory pkgs extraSpecialArgs;
-          username = "vscode";
-        };
-
-        # For GitHub Actions
-        runner = home-manager.lib.homeManagerConfiguration {
-          inherit configuration system stateVersion homeDirectory pkgs extraSpecialArgs;
-          username = "runner";
-        };
-        sakuraba = home-manager.lib.homeManagerConfiguration {
-          inherit configuration system stateVersion homeDirectory pkgs extraSpecialArgs;
-          username = "sakuraba";
-        };
-      };
-
       nixosConfigurations = {
         define7 = nixosSystem {
           system = "x86_64-linux";
@@ -304,7 +276,7 @@
         };
     }
     // eachDefaultSystem (system: let
-      pkgs = import inputs.nixpkgs {
+      pkgs = import nixpkgs {
         inherit system;
         overlays = [
           poetry2nix.overlay
@@ -334,5 +306,32 @@
             LF2107010038 = self.darwinConfigurations.LF2107010038.config.system.build.toplevel;
           };
       });
+
+      homeConfigurations = let
+        configuration = import ./home-manager;
+        stateVersion = "21.11";
+        homeDirectory = "/home/vscode";
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          overlays = [(import ./overlays)];
+        };
+        extraSpecialArgs = inputs;
+      in {
+        # For GitHub Codespaces
+        vscode = home-manager.lib.homeManagerConfiguration {
+          inherit configuration system stateVersion homeDirectory pkgs extraSpecialArgs;
+          username = "vscode";
+        };
+
+        # For GitHub Actions
+        runner = home-manager.lib.homeManagerConfiguration {
+          inherit configuration system stateVersion homeDirectory pkgs extraSpecialArgs;
+          username = "runner";
+        };
+        sakuraba = home-manager.lib.homeManagerConfiguration {
+          inherit configuration system stateVersion homeDirectory pkgs extraSpecialArgs;
+          username = "sakuraba";
+        };
+      };
     });
 }
