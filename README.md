@@ -1,6 +1,6 @@
 # dotfiles
 
-[![NixOS_deploy](https://github.com/raba-jp/dotfiles/actions/workflows/nixos-deploy.yaml/badge.svg)](https://github.com/raba-jp/dotfiles/actions/workflows/nixos-deploy.yaml)
+![NixOS Deploy](https://img.shields.io/github/workflow/status/raba-jp/dotfiles/NixOS_deploy?label=deploy&style=for-the-badge)
 
 ## Installation
 ### NixOS
