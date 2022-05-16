@@ -9,7 +9,7 @@
               echo
               echo
         echo (set_color yellow)"---------- Git status ----------"(set_color normal)
-              git status --short --branch
+              git status --short
               echo
               echo
             end
@@ -70,10 +70,6 @@
       {
         name = "fish-fzf";
         src = args.fish-fzf;
-      }
-      {
-        name = "foreign-env";
-        src = args.fish-foreign-env;
       }
     ];
   };

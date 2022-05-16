@@ -189,10 +189,6 @@
       url = "github:jethrokuan/fzf";
       flake = false;
     };
-    fish-foreign-env = {
-      url = "github:oh-my-fish/plugin-foreign-env";
-      flake = false;
-    };
   };
 
   outputs = {
