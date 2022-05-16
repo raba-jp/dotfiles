@@ -105,7 +105,7 @@ in {
       gparted
     ];
 
-    systemd.services.cachix-agent = {
+    systemd.services.cachix-agent = mkIf (builtins.hasAttr "cachixAgentToken" config.sops.secrets) {
       wantedBy = ["multi-user.target"];
       after = ["network-online.target"];
       path = [config.nix.package];

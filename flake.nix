@@ -205,7 +205,6 @@
     inherit (darwin.lib) darwinSystem;
     inherit (nixpkgs.lib) nixosSystem;
     inherit (flake-utils-plus.lib) eachDefaultSystem;
-    inherit (nixpkgs) lib;
 
     homeManagerConfigModule = {
       home-manager = {
@@ -287,14 +286,6 @@
         };
       };
 
-      packages."x86_64-linux".default = let
-        pkgs = import nixpkgs {system = "x86_64-linux";};
-      in
-        pkgs.writeText "cachix-agents.json" (builtins.toJSON {
-          agents = {
-            define7 = self.nixosConfigurations.define7.config.system.build.toplevel;
-          };
-        });
       packages."x86_64-linux".iso = let
         pkgs = import nixpkgs {
           system = "x86_64-linux";
@@ -311,21 +302,13 @@
           ];
           format = "install-iso";
         };
-
-      packages."aarch64-darwin".default = let
-        pkgs = import nixpkgs {system = "aarch64-darwin";};
-      in
-        pkgs.writeText "cachix-agents.json" (builtins.toJSON {
-          agents = {
-            LF2107010038 = self.darwinConfigurations.LF2107010038.config.system.build.toplevel;
-          };
-        });
     }
     // eachDefaultSystem (system: let
       pkgs = import inputs.nixpkgs {
         inherit system;
         overlays = [
           poetry2nix.overlay
+          (import ./overlays)
           (_final: prev: {
             machinectl = prev.poetry2nix.mkPoetryApplication {
               projectDir = ./bin/machinectl;
@@ -337,6 +320,19 @@
       packages = {
         inherit (pkgs) machinectl;
       };
-      defaultApp = pkgs.machinectl;
+
+      # defaultApp = pkgs.machinectl;
+
+      defaultPackage = pkgs.writeText "cachix-agents.json" (builtins.toJSON {
+        agents =
+          if pkgs.stdenvNoCC.isLinux
+          then {
+            define7 = self.nixosConfigurations.define7.config.system.build.toplevel;
+            air11 = self.nixosConfigurations.air11.config.system.build.toplevel;
+          }
+          else {
+            LF2107010038 = self.darwinConfigurations.LF2107010038.config.system.build.toplevel;
+          };
+      });
     });
 }
