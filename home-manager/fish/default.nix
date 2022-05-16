@@ -2,24 +2,6 @@
   programs.fish = {
     enable = true;
 
-    functions = {
-      __done-enter = ''
-          if [ -z (commandline) ]
-            if git rev-parse --is-inside-work-tree > /dev/null 2>&1
-              echo
-              echo
-        echo (set_color yellow)"---------- Git status ----------"(set_color normal)
-              git status --short
-              echo
-              echo
-            end
-          else
-            commandline -f execute
-          end
-          commandline -f repaint
-      '';
-    };
-
     interactiveShellInit = ''
       bind \ck up-or-search
       bind \cj down-or-search
@@ -27,7 +9,6 @@
       bind \cl forward-char
       bind \cs beginning-of-line
       bind \ce end-of-line
-      bind \cm __done-enter
 
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 

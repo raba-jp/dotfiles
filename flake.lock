@@ -184,22 +184,6 @@
         "type": "github"
       }
     },
-    "fish-foreign-env": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1649621402,
-        "narHash": "sha256-3h03WQrBZmTXZLkQh1oVyhv6zlyYsSDS7HTHr+7WjY8=",
-        "owner": "oh-my-fish",
-        "repo": "plugin-foreign-env",
-        "rev": "b3dd471bcc885b597c3922e4de836e06415e52dd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oh-my-fish",
-        "repo": "plugin-foreign-env",
-        "type": "github"
-      }
-    },
     "fish-fzf": {
       "flake": false,
       "locked": {
@@ -800,7 +784,6 @@
         "dressing-nvim": "dressing-nvim",
         "editorconfig-nvim": "editorconfig-nvim",
         "fish-done": "fish-done",
-        "fish-foreign-env": "fish-foreign-env",
         "fish-fzf": "fish-fzf",
         "fish-ghq": "fish-ghq",
         "flake-compat": "flake-compat",
