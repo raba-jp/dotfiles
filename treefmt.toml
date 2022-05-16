@@ -4,12 +4,6 @@ options = ["-e"]
 includes = [ "*.nix" ]
 excludes = []
 
-[formatter.statix]
-command = "statix"
-options = ["fix"]
-includes = [ "*.nix" ]
-excludes = []
-
 [formatter.nix]
 command = "alejandra"
 options = []
