@@ -56,6 +56,7 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
+      allowBroken = true;
 
       permittedInsecurePackages = [
         "electron-13.6.9"
