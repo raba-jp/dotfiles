@@ -217,16 +217,13 @@
         extraSpecialArgs = inputs;
       };
     };
-    overlays = {
-      nixpkgs.overlays = [(import ./overlays)];
-    };
   in {
     homeConfigurations = let
       configuration = import ./home-manager;
       stateVersion = "21.11";
       pkgs = import nixpkgs {
         system = system.x86_64-linux;
-        overlays = [(import ./overlays)];
+        inherit (self) overlays;
       };
       extraSpecialArgs = inputs;
     in {
@@ -260,7 +257,7 @@
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
           homeManagerConfigModule
-          overlays
+          {nixpkgs.overlays = [(import ./overlays)];}
           ./modules/nixos
           ./hosts/define7
         ];
@@ -272,7 +269,7 @@
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
           homeManagerConfigModule
-          overlays
+          {nixpkgs.overlays = [(import ./overlays)];}
           ./modules/nixos
           ./hosts/air11
         ];
@@ -285,26 +282,29 @@
         modules = [
           home-manager.darwinModules.home-manager
           homeManagerConfigModule
-          overlays
+          {nixpkgs.overlays = [(import ./overlays)];}
           ./modules/darwin
           ./hosts/LF2107010038
         ];
       };
     };
 
+    overlays = [
+      poetry2nix.overlay
+      (import ./overlays)
+      (_final: prev: {
+        machinectl = prev.poetry2nix.mkPoetryApplication {
+          projectDir = ./bin/machinectl;
+        };
+      })
+    ];
+
     packages = {
       "x86_64-linux" = let
         pkgs = import nixpkgs {
+          inherit (self) overlays;
+
           system = system.x86_64-linux;
-          overlays = [
-            poetry2nix.overlay
-            (import ./overlays)
-            (_final: prev: {
-              machinectl = prev.poetry2nix.mkPoetryApplication {
-                projectDir = ./bin/machinectl;
-              };
-            })
-          ];
         };
       in {
         inherit (pkgs) machinectl;
@@ -314,7 +314,7 @@
           modules = [
             home-manager.nixosModules.home-manager
             homeManagerConfigModule
-            overlays
+            {nixpkgs.overlays = [(import ./overlays)];}
             ./hosts/iso
           ];
           format = "install-iso";
@@ -331,15 +331,7 @@
       "aarch64-darwin" = let
         pkgs = import nixpkgs {
           system = system.aarch64-darwin;
-          overlays = [
-            poetry2nix.overlay
-            (import ./overlays)
-            (_final: prev: {
-              machinectl = prev.poetry2nix.mkPoetryApplication {
-                projectDir = ./bin/machinectl;
-              };
-            })
-          ];
+          inherit (self) overlays;
         };
       in {
         inherit (pkgs) machinectl;

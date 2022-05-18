@@ -126,6 +126,7 @@ local function lsp()
 	})
 	local nullls = require("null-ls")
 	nullls.setup({
+		on_attach = lspformat.on_attach,
 		sources = {
 			-- Lua
 			nullls.builtins.formatting.stylua,
