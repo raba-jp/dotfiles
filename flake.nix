@@ -204,7 +204,6 @@
   } @ inputs: let
     inherit (darwin.lib) darwinSystem;
     inherit (nixpkgs.lib) nixosSystem;
-    inherit (flake-utils-plus.lib) eachDefaultSystem;
 
     homeManagerConfigModule = {
       home-manager = {

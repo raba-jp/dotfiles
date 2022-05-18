@@ -1,4 +1,4 @@
-{ ...}: {
+{...}: {
   imports = [./aliases.nix ./ignore.nix];
   programs.git = {
     enable = true;
