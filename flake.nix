@@ -220,29 +220,34 @@
   in
     {
       homeConfigurations = let
-        system = "x86_64-linux";
         configuration = import ./home-manager;
         stateVersion = "21.11";
-        homeDirectory = "/home/vscode";
         pkgs = import nixpkgs {
-          inherit system;
+          system = "x86_64-linux";
           overlays = [(import ./overlays)];
         };
         extraSpecialArgs = inputs;
       in {
         # For GitHub Codespaces
         vscode = home-manager.lib.homeManagerConfiguration {
-          inherit configuration system stateVersion homeDirectory pkgs extraSpecialArgs;
+          inherit configuration stateVersion pkgs extraSpecialArgs;
+          system = "x86_64-linux";
+          homeDirectory = "/home/vscode";
           username = "vscode";
         };
 
         # For GitHub Actions
         runner = home-manager.lib.homeManagerConfiguration {
-          inherit configuration system stateVersion homeDirectory pkgs extraSpecialArgs;
+          inherit configuration stateVersion pkgs extraSpecialArgs;
+          system = "x86_64-linux";
+          homeDirectory = "/home/runner";
           username = "runner";
         };
+
         sakuraba = home-manager.lib.homeManagerConfiguration {
-          inherit configuration system stateVersion homeDirectory pkgs extraSpecialArgs;
+          inherit configuration stateVersion pkgs extraSpecialArgs;
+          system = "x86_64-linux";
+          homeDirectory = "/home/sakuraba";
           username = "sakuraba";
         };
       };
