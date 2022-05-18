@@ -175,6 +175,10 @@
       url = "github:arkav/lualine-lsp-progress";
       flake = false;
     };
+    null-ls-nvim = {
+      url = "github:jose-elias-alvarez/null-ls.nvim";
+      flake = false;
+    };
 
     # fish shell plugins
     fish-done = {
@@ -196,7 +200,6 @@
     nixpkgs,
     darwin,
     home-manager,
-    flake-utils-plus,
     sops-nix,
     nixos-generators,
     poetry2nix,
@@ -308,7 +311,7 @@
         iso = nixos-generators.nixosGenerate {
           inherit pkgs;
           modules = [
-            home-manager.darwinModules.home-manager
+            home-manager.nixosModules.home-manager
             homeManagerConfigModule
             overlays
             ./hosts/iso

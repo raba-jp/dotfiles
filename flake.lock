@@ -624,6 +624,22 @@
         "type": "github"
       }
     },
+    "null-ls-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1652831480,
+        "narHash": "sha256-ncFe5JmaZsT4WWgFIgBzFGaMAYEK+7ZODyew2NzIU7s=",
+        "owner": "jose-elias-alvarez",
+        "repo": "null-ls.nvim",
+        "rev": "78626d55dc293a74128a27c2b3c993e8b9042854",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jose-elias-alvarez",
+        "repo": "null-ls.nvim",
+        "type": "github"
+      }
+    },
     "nvim-cmp": {
       "flake": false,
       "locked": {
@@ -804,6 +820,7 @@
         "nightfox-nvim": "nightfox-nvim",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_2",
+        "null-ls-nvim": "null-ls-nvim",
         "nvim-cmp": "nvim-cmp",
         "nvim-gps": "nvim-gps",
         "nvim-lspconfig": "nvim-lspconfig",

@@ -223,6 +223,12 @@ in {
           src = args.lualine-lsp-progress;
         };
       }
+      {
+        plugin = buildVimPluginFrom2Nix {
+          name = "null-ls.nvim";
+          src = args.null-ls-nvim;
+        };
+      }
     ];
 
     extraConfig =

@@ -124,25 +124,41 @@ local function lsp()
 		},
 		capabilities = capabilities,
 	})
-	lspconfig.efm.setup({
-		on_attach = require("lsp-format").on_attach,
-		init_options = { documentFormatting = true },
-		filetypes = { "lua", "nix" },
-		settings = {
-			languages = {
-				lua = {
-					{
-						formatCommand = [[stylua -]],
-						formatStdin = true,
-					},
-				},
-				nix = {
-					{
-						formatCommand = [[alejandra]],
-						formatStdin = true,
-					},
-				},
-			},
+	local nullls = require("null-ls")
+	nullls.setup({
+		sources = {
+			-- Lua
+			nullls.builtins.formatting.stylua,
+			nullls.builtins.diagnostics.luacheck,
+			-- Nix
+			nullls.builtins.formatting.alejandra,
+			nullls.builtins.code_actions.statix,
+			nullls.builtins.diagnostics.deadnix,
+			-- Python
+			nullls.builtins.formatting.black,
+			-- Protobuf
+			nullls.builtins.formatting.buf,
+			nullls.builtins.diagnostics.buf,
+			nullls.builtins.diagnostics.protolint,
+			-- Bazel
+			nullls.builtins.formatting.buildifier,
+			nullls.builtins.diagnostics.buildifier,
+			-- Cue
+			nullls.builtins.formatting.cue_fmt,
+			nullls.builtins.diagnostics.cue_fmt,
+			-- Shell script
+			nullls.builtins.formatting.shfmt,
+			nullls.builtins.code_actions.shellcheck,
+			-- Git
+			nullls.builtins.code_actions.gitsigns,
+			-- GitHub Actions
+			nullls.builtins.diagnostics.actionlint,
+			-- Make
+			nullls.builtins.diagnostics.checkmake,
+			-- Fish
+			nullls.builtins.diagnostics.fish,
+			-- Dockerfile
+			nullls.builtins.diagnostics.hadolint,
 		},
 	})
 

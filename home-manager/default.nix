@@ -86,6 +86,7 @@
         shfmt
         alejandra
         stylua
+        luajitPackages.luacheck
       ]
       ++ (
         if stdenvNoCC.isLinux
