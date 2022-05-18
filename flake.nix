@@ -217,86 +217,96 @@
     overlays = {
       nixpkgs.overlays = [(import ./overlays)];
     };
-  in
-    {
-      homeConfigurations = let
-        configuration = import ./home-manager;
-        stateVersion = "21.11";
+  in {
+    homeConfigurations = let
+      configuration = import ./home-manager;
+      stateVersion = "21.11";
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        overlays = [(import ./overlays)];
+      };
+      extraSpecialArgs = inputs;
+    in {
+      # For GitHub Codespaces
+      vscode = home-manager.lib.homeManagerConfiguration {
+        inherit configuration stateVersion pkgs extraSpecialArgs;
+        system = "x86_64-linux";
+        homeDirectory = "/home/vscode";
+        username = "vscode";
+      };
+
+      # For GitHub Actions
+      runner = home-manager.lib.homeManagerConfiguration {
+        inherit configuration stateVersion pkgs extraSpecialArgs;
+        system = "x86_64-linux";
+        homeDirectory = "/home/runner";
+        username = "runner";
+      };
+
+      sakuraba = home-manager.lib.homeManagerConfiguration {
+        inherit configuration stateVersion pkgs extraSpecialArgs;
+        system = "x86_64-linux";
+        homeDirectory = "/home/sakuraba";
+        username = "sakuraba";
+      };
+    };
+    nixosConfigurations = {
+      define7 = nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
+          homeManagerConfigModule
+          overlays
+          ./modules/nixos
+          ./hosts/define7
+        ];
+      };
+
+      air11 = nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
+          homeManagerConfigModule
+          overlays
+          ./modules/nixos
+          ./hosts/air11
+        ];
+      };
+    };
+
+    darwinConfigurations = {
+      LF2107010038 = darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          home-manager.darwinModules.home-manager
+          homeManagerConfigModule
+          overlays
+          ./modules/darwin
+          ./hosts/LF2107010038
+        ];
+      };
+    };
+
+    packages = {
+      "x86_64-linux" = let
         pkgs = import nixpkgs {
           system = "x86_64-linux";
-          overlays = [(import ./overlays)];
+          overlays = [
+            poetry2nix.overlay
+            (import ./overlays)
+            (_final: prev: {
+              machinectl = prev.poetry2nix.mkPoetryApplication {
+                projectDir = ./bin/machinectl;
+              };
+            })
+          ];
         };
-        extraSpecialArgs = inputs;
       in {
-        # For GitHub Codespaces
-        vscode = home-manager.lib.homeManagerConfiguration {
-          inherit configuration stateVersion pkgs extraSpecialArgs;
-          system = "x86_64-linux";
-          homeDirectory = "/home/vscode";
-          username = "vscode";
-        };
+        inherit (pkgs) machinectl;
 
-        # For GitHub Actions
-        runner = home-manager.lib.homeManagerConfiguration {
-          inherit configuration stateVersion pkgs extraSpecialArgs;
-          system = "x86_64-linux";
-          homeDirectory = "/home/runner";
-          username = "runner";
-        };
-
-        sakuraba = home-manager.lib.homeManagerConfiguration {
-          inherit configuration stateVersion pkgs extraSpecialArgs;
-          system = "x86_64-linux";
-          homeDirectory = "/home/sakuraba";
-          username = "sakuraba";
-        };
-      };
-      nixosConfigurations = {
-        define7 = nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops
-            homeManagerConfigModule
-            overlays
-            ./modules/nixos
-            ./hosts/define7
-          ];
-        };
-
-        air11 = nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops
-            homeManagerConfigModule
-            overlays
-            ./modules/nixos
-            ./hosts/air11
-          ];
-        };
-      };
-
-      darwinConfigurations = {
-        LF2107010038 = darwinSystem {
-          system = "aarch64-darwin";
-          modules = [
-            home-manager.darwinModules.home-manager
-            homeManagerConfigModule
-            overlays
-            ./modules/darwin
-            ./hosts/LF2107010038
-          ];
-        };
-      };
-
-      packages."x86_64-linux".iso = let
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          overlays = [(import ./overlays)];
-        };
-      in
-        nixos-generators.nixosGenerate {
+        iso = nixos-generators.nixosGenerate {
           inherit pkgs;
           modules = [
             home-manager.darwinModules.home-manager
@@ -306,37 +316,42 @@
           ];
           format = "install-iso";
         };
-    }
-    // eachDefaultSystem (system: let
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [
-          poetry2nix.overlay
-          (import ./overlays)
-          (_final: prev: {
-            machinectl = prev.poetry2nix.mkPoetryApplication {
-              projectDir = ./bin/machinectl;
-            };
-          })
-        ];
-      };
-    in {
-      packages = {
-        inherit (pkgs) machinectl;
-      };
 
-      # defaultApp = pkgs.machinectl;
-
-      defaultPackage = pkgs.writeText "cachix-agents.json" (builtins.toJSON {
-        agents =
-          if pkgs.stdenvNoCC.isLinux
-          then {
+        default = pkgs.writeText "cachix-agents.json" (builtins.toJSON {
+          agents = {
             define7 = self.nixosConfigurations.define7.config.system.build.toplevel;
             air11 = self.nixosConfigurations.air11.config.system.build.toplevel;
-          }
-          else {
+          };
+        });
+      };
+
+      "aarch64-darwin" = let
+        pkgs = import nixpkgs {
+          system = "aarch64-darwin";
+          overlays = [
+            poetry2nix.overlay
+            (import ./overlays)
+            (_final: prev: {
+              machinectl = prev.poetry2nix.mkPoetryApplication {
+                projectDir = ./bin/machinectl;
+              };
+            })
+          ];
+        };
+      in {
+        inherit (pkgs) machinectl;
+
+        default = pkgs.writeText "cachix-agents.json" (builtins.toJSON {
+          agents = {
             LF2107010038 = self.darwinConfigurations.LF2107010038.config.system.build.toplevel;
           };
-      });
-    });
+        });
+      };
+    };
+
+    defaultPackage = {
+      "x86_64-linux" = self.packages."x86_64-linux".default;
+      "aarch64-darwin" = self.packages."aarch64-darwin".default;
+    };
+  };
 }
