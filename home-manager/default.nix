@@ -80,13 +80,15 @@
         # Linter
         golangci-lint
         shellcheck
+        luajitPackages.luacheck
+        actionlint
 
         # Formatter
         treefmt
         shfmt
         alejandra
         stylua
-        luajitPackages.luacheck
+
       ]
       ++ (
         if stdenvNoCC.isLinux
