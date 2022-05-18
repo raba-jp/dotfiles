@@ -207,6 +207,7 @@
   } @ inputs: let
     inherit (darwin.lib) darwinSystem;
     inherit (nixpkgs.lib) nixosSystem;
+    inherit (inputs.flake-utils-plus.lib) system;
 
     homeManagerConfigModule = {
       home-manager = {
@@ -224,7 +225,7 @@
       configuration = import ./home-manager;
       stateVersion = "21.11";
       pkgs = import nixpkgs {
-        system = "x86_64-linux";
+        system = system.x86_64-linux;
         overlays = [(import ./overlays)];
       };
       extraSpecialArgs = inputs;
@@ -232,7 +233,7 @@
       # For GitHub Codespaces
       vscode = home-manager.lib.homeManagerConfiguration {
         inherit configuration stateVersion pkgs extraSpecialArgs;
-        system = "x86_64-linux";
+        system = system.x86_64-linux;
         homeDirectory = "/home/vscode";
         username = "vscode";
       };
@@ -240,7 +241,7 @@
       # For GitHub Actions
       runner = home-manager.lib.homeManagerConfiguration {
         inherit configuration stateVersion pkgs extraSpecialArgs;
-        system = "x86_64-linux";
+        system = system.x86_64-linux;
         homeDirectory = "/home/runner";
         username = "runner";
       };
@@ -254,7 +255,7 @@
     };
     nixosConfigurations = {
       define7 = nixosSystem {
-        system = "x86_64-linux";
+        system = system.x86_64-linux;
         modules = [
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
@@ -266,7 +267,7 @@
       };
 
       air11 = nixosSystem {
-        system = "x86_64-linux";
+        system = system.x86_64-linux;
         modules = [
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
@@ -280,7 +281,7 @@
 
     darwinConfigurations = {
       LF2107010038 = darwinSystem {
-        system = "aarch64-darwin";
+        system = system.aarch64-darwin;
         modules = [
           home-manager.darwinModules.home-manager
           homeManagerConfigModule
@@ -294,7 +295,7 @@
     packages = {
       "x86_64-linux" = let
         pkgs = import nixpkgs {
-          system = "x86_64-linux";
+          system = system.x86_64-linux;
           overlays = [
             poetry2nix.overlay
             (import ./overlays)
@@ -329,7 +330,7 @@
 
       "aarch64-darwin" = let
         pkgs = import nixpkgs {
-          system = "aarch64-darwin";
+          system = system.aarch64-darwin;
           overlays = [
             poetry2nix.overlay
             (import ./overlays)
@@ -352,8 +353,8 @@
     };
 
     defaultPackage = {
-      "x86_64-linux" = self.packages."x86_64-linux".default;
-      "aarch64-darwin" = self.packages."aarch64-darwin".default;
+      "${system.x86_64-linux}" = self.packages."${system.x86_64-linux}".default;
+      "${system.aarch64-darwin}" = self.packages."${system.aarch64-darwin}".default;
     };
   };
 }
