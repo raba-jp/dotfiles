@@ -64,6 +64,7 @@
         black
         poetry
         vim-startuptime
+        doppler
 
         # Kubernetes
         kubectl
