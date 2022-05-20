@@ -86,6 +86,11 @@ in {
           };
         };
       };
+
+      cachix-agent = mkIf (builtins.hasAttr "cachixAgentToken" config.sops.secrets) {
+        enable = true;
+        credentialsFile = config.sops.secrets.cachixAgentToken.path;
+      };
     };
     programs.gnupg.agent.enable = true;
 
@@ -104,18 +109,5 @@ in {
       sidekick
       gparted
     ];
-
-    systemd.services.cachix-agent = mkIf (builtins.hasAttr "cachixAgentToken" config.sops.secrets) {
-      wantedBy = ["multi-user.target"];
-      after = ["network-online.target"];
-      path = [config.nix.package];
-      reloadIfChanged = true;
-      serviceConfig = {
-        Restart = "on-failure";
-        Environment = "USER=root";
-        EnvironmentFile = config.sops.secrets.cachixAgentToken.path;
-        ExecStart = "${pkgs.cachix}/bin/cachix deploy agent ${config.networking.hostName}";
-      };
-    };
   };
 }
