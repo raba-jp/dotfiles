@@ -29,13 +29,16 @@
 
     shellAbbrs = {
       ls = "exa";
-      ll = "exa -alhG";
+      ll = "exa --all --long --grid --header --no-filesize --no-time --no-user --git --icons";
+      gc = "git commit";
+      guc = "git uncommit";
+      gs = "git status --short";
       cat = "bat";
       grep = "rg";
       find = "fd";
-      tree = "exa --tree";
+      tree = "exa --tree --icons --all --git-ignore --ignore-glob=.git";
       ps = "procs";
-      untar = "tar -xzvf";
+      untar = "tar -xvf";
       xclip = "xclip -selection clipboard";
     };
 
