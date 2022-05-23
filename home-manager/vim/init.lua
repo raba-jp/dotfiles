@@ -95,17 +95,17 @@ local function lsp()
 	lspconfig.solargraph.setup(default_lsp_options)
 	lspconfig.terraformls.setup(default_lsp_options)
 	lspconfig.tsserver.setup(default_lsp_options)
-	lspconfig.yamlls.setup({
-		capabilities = capabilities,
-		on_attach = lspformat.on_attach,
-		settings = {
-			yaml = {
-				schemaStore = {
-					enable = true,
-				},
-			},
-		},
-	})
+	-- lspconfig.yamlls.setup({
+	-- 	capabilities = capabilities,
+	-- 	on_attach = lspformat.on_attach,
+	-- 	settings = {
+	-- 		yaml = {
+	-- 			schemaStore = {
+	-- 				enable = true,
+	-- 			},
+	-- 		},
+	-- 	},
+	-- })
 	lspconfig.sumneko_lua.setup({
 		settings = {
 			Lua = {
