@@ -89,7 +89,6 @@
         shfmt
         alejandra
         stylua
-
       ]
       ++ (
         if stdenvNoCC.isLinux
