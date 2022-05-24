@@ -3,6 +3,8 @@ _: {
     ".editorconfig"
     # direnv
     ".envrc"
+    ".direnv"
+    "local.nix"
 
     # macOS
     "*.DS_Store"

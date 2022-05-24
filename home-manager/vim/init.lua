@@ -153,7 +153,7 @@ local function lsp()
 			-- Git
 			nullls.builtins.code_actions.gitsigns,
 			-- GitHub Actions
-			nullls.builtins.diagnostics.actionlint,
+			-- nullls.builtins.diagnostics.actionlint,
 			-- Make
 			nullls.builtins.diagnostics.checkmake,
 			-- Fish
