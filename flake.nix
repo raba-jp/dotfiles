@@ -76,7 +76,7 @@
       flake = false;
     };
     nvim-treesitter-context = {
-      url = "github:lewis6991/nvim-treesitter-context";
+      url = "github:nvim-treesitter/nvim-treesitter-context";
       flake = false;
     };
     telescope-nvim = {
@@ -115,12 +115,12 @@
       url = "github:hrsh7th/cmp-nvim-lsp-signature-help";
       flake = false;
     };
-    luasnip = {
-      url = "github:L3MON4D3/LuaSnip";
+    vim-vsnip = {
+      url = "github:hrsh7th/cmp-vsnip";
       flake = false;
     };
-    cmp-luasnip = {
-      url = "github:saadparwaiz1/cmp_luasnip";
+    cmp-vsnip = {
+      url = "github:hrsh7th/cmp-vsnip";
       flake = false;
     };
     nvim-cmp = {

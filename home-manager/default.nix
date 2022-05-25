@@ -81,7 +81,7 @@
         # Linter
         golangci-lint
         shellcheck
-        luajitPackages.luacheck
+        selene
         actionlint
 
         # Formatter

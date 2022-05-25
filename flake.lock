@@ -32,22 +32,6 @@
         "type": "github"
       }
     },
-    "cmp-luasnip": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1651433493,
-        "narHash": "sha256-8ocJY5qeAJXFSuTnavXX6NvZyAB0EEn2Y+amrWp8B1Y=",
-        "owner": "saadparwaiz1",
-        "repo": "cmp_luasnip",
-        "rev": "a9de941bcbda508d0a45d28ae366bb3f08db2e36",
-        "type": "github"
-      },
-      "original": {
-        "owner": "saadparwaiz1",
-        "repo": "cmp_luasnip",
-        "type": "github"
-      }
-    },
     "cmp-nvim-lsp": {
       "flake": false,
       "locked": {
@@ -93,6 +77,22 @@
       "original": {
         "owner": "hrsh7th",
         "repo": "cmp-nvim-lsp-signature-help",
+        "type": "github"
+      }
+    },
+    "cmp-vsnip": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1636543683,
+        "narHash": "sha256-7K3shsiGK7ISFXj9D9MPK7yRqIxeCrbj1IsggToWHO4=",
+        "owner": "hrsh7th",
+        "repo": "cmp-vsnip",
+        "rev": "0abfa1860f5e095a07c477da940cfcb0d273b700",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-vsnip",
         "type": "github"
       }
     },
@@ -477,22 +477,6 @@
         "type": "github"
       }
     },
-    "luasnip": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1653295806,
-        "narHash": "sha256-kX5CVxM1cEUXhtEZSYLN3esHhpbv8YmxKnfk6q2yd3M=",
-        "owner": "L3MON4D3",
-        "repo": "LuaSnip",
-        "rev": "08b06c3dace531cac7cf297ce407f0f43bfd192b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "L3MON4D3",
-        "repo": "LuaSnip",
-        "type": "github"
-      }
-    },
     "nightfox-nvim": {
       "flake": false,
       "locked": {
@@ -707,15 +691,15 @@
     "nvim-treesitter-context": {
       "flake": false,
       "locked": {
-        "lastModified": 1652175020,
-        "narHash": "sha256-dYw/Y6+Eni7gTSjvCCl7E6ho8xSTxDYAwH3xGEhf54Q=",
-        "owner": "lewis6991",
+        "lastModified": 1652363724,
+        "narHash": "sha256-4TsnUDakK13xrhJc+vB8JHZGHPReK7rmKzhfdH0YDF8=",
+        "owner": "nvim-treesitter",
         "repo": "nvim-treesitter-context",
-        "rev": "c931a3136a696c1827eda78ac678aea542115bd0",
+        "rev": "a7916523e8107a57021cabae51917b7dae844aa6",
         "type": "github"
       },
       "original": {
-        "owner": "lewis6991",
+        "owner": "nvim-treesitter",
         "repo": "nvim-treesitter-context",
         "type": "github"
       }
@@ -791,10 +775,10 @@
       "inputs": {
         "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
-        "cmp-luasnip": "cmp-luasnip",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
         "cmp-nvim-lsp-document-symbol": "cmp-nvim-lsp-document-symbol",
         "cmp-nvim-lsp-signature-help": "cmp-nvim-lsp-signature-help",
+        "cmp-vsnip": "cmp-vsnip",
         "darwin": "darwin",
         "devshell": "devshell",
         "dressing-nvim": "dressing-nvim",
@@ -816,7 +800,6 @@
         "lspsaga-nvim": "lspsaga-nvim",
         "lualine-lsp-progress": "lualine-lsp-progress",
         "lualine-nvim": "lualine-nvim",
-        "luasnip": "luasnip",
         "nightfox-nvim": "nightfox-nvim",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_2",
@@ -835,7 +818,8 @@
         "telescope-ghq-nvim": "telescope-ghq-nvim",
         "telescope-nvim": "telescope-nvim",
         "vim-edgemotion": "vim-edgemotion",
-        "vim-polyglot": "vim-polyglot"
+        "vim-polyglot": "vim-polyglot",
+        "vim-vsnip": "vim-vsnip"
       }
     },
     "sops-nix": {
@@ -934,6 +918,22 @@
       "original": {
         "owner": "sheerun",
         "repo": "vim-polyglot",
+        "type": "github"
+      }
+    },
+    "vim-vsnip": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1636543683,
+        "narHash": "sha256-7K3shsiGK7ISFXj9D9MPK7yRqIxeCrbj1IsggToWHO4=",
+        "owner": "hrsh7th",
+        "repo": "cmp-vsnip",
+        "rev": "0abfa1860f5e095a07c477da940cfcb0d273b700",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-vsnip",
         "type": "github"
       }
     }

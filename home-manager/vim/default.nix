@@ -111,14 +111,14 @@ in {
       }
       {
         plugin = buildVimPluginFrom2Nix {
-          name = "LuaSnip";
-          src = args.luasnip;
+          name = "vim-vsnip";
+          src = args.vim-vsnip;
         };
       }
       {
         plugin = buildVimPluginFrom2Nix {
-          name = "cmp_luasnip";
-          src = args.cmp-luasnip;
+          name = "cmp-vsnip";
+          src = args.cmp-vsnip;
         };
       }
       {
