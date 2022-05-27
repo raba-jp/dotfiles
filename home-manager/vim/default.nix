@@ -15,6 +15,7 @@ in {
       sumneko-lua-language-server
       rnix-lsp
       nodePackages.pyright
+      nodePackages.typescript
       nodePackages.typescript-language-server
       nodePackages.yaml-language-server
       rubyPackages.solargraph

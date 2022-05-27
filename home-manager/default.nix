@@ -65,6 +65,9 @@
         poetry
         vim-startuptime
         doppler
+        clojure
+        leiningen
+        fennel
 
         # Kubernetes
         kubectl
