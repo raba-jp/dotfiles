@@ -23,10 +23,19 @@
     };
 
     # Shell
-    devshell.url = "github:numtide/devshell";
+    devshell = {
+      url = "github:numtide/devshell";
+      inputs = {
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
 
     # Secrets
-    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Utility
     flake-utils.url = "github:numtide/flake-utils";
@@ -40,6 +49,7 @@
     };
     poetry2nix = {
       url = "github:nix-community/poetry2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     ## NeoVim Plugins
