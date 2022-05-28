@@ -96,7 +96,7 @@ in
 
     src = fetchurl {
       url = "https://api.meetsidekick.com/downloads/df/linux/deb";
-      sha256 = "0cm9ig3vxxy3i4xdhfhiwsqpj5xbdgbl7qpadd0zjp3jbz9mi2mm";
+      sha256 = "sha256-LojLNSzChd9X4/ziHrESYe9iSHylWMBN3xoDtk/sJS8=";
     };
 
     dontConfigure = true;
