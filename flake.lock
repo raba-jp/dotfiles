@@ -887,16 +887,16 @@
     "vim-vsnip": {
       "flake": false,
       "locked": {
-        "lastModified": 1636543683,
-        "narHash": "sha256-7K3shsiGK7ISFXj9D9MPK7yRqIxeCrbj1IsggToWHO4=",
+        "lastModified": 1650631622,
+        "narHash": "sha256-USltEc6QGHwMqx7E9wo9qZmq+pm9FLj0CUcKoE7KPLU=",
         "owner": "hrsh7th",
-        "repo": "cmp-vsnip",
-        "rev": "0abfa1860f5e095a07c477da940cfcb0d273b700",
+        "repo": "vim-vsnip",
+        "rev": "8f199ef690ed26dcbb8973d9a6760d1332449ac9",
         "type": "github"
       },
       "original": {
         "owner": "hrsh7th",
-        "repo": "cmp-vsnip",
+        "repo": "vim-vsnip",
         "type": "github"
       }
     }

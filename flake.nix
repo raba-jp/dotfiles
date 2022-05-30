@@ -126,7 +126,7 @@
       flake = false;
     };
     vim-vsnip = {
-      url = "github:hrsh7th/cmp-vsnip";
+      url = "github:hrsh7th/vim-vsnip";
       flake = false;
     };
     cmp-vsnip = {

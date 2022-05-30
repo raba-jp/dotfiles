@@ -16,7 +16,7 @@
   home = {
     stateVersion = "21.11";
 
-    sessionPath = ["$GOPATH/bin"];
+    sessionPath = ["$GOPATH/bin" "$HOME/.yarn/bin"];
 
     sessionVariables = {
       EDITOR = "vim";
