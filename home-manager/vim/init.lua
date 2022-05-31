@@ -94,7 +94,13 @@ local function lsp()
 	lspconfig.dartls.setup(default_lsp_options)
 	lspconfig.solargraph.setup(default_lsp_options)
 	lspconfig.terraformls.setup(default_lsp_options)
-	lspconfig.tsserver.setup(default_lsp_options)
+	lspconfig.tsserver.setup({
+		capabilities = capabilities,
+		on_attach = function(client)
+			client.resolved_capabilities.document_formatting = false
+			lspformat.on_attach(client)
+		end,
+	})
 	-- lspconfig.yamlls.setup({
 	-- 	capabilities = capabilities,
 	-- 	on_attach = lspformat.on_attach,
@@ -160,6 +166,8 @@ local function lsp()
 			nullls.builtins.diagnostics.fish,
 			-- Dockerfile
 			nullls.builtins.diagnostics.hadolint,
+			-- JavaScript and TypeScript
+			nullls.builtins.formatting.prettier,
 		},
 	})
 
