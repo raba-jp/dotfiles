@@ -35,6 +35,7 @@ _: {
         "bettertouchtool"
         "bitwarden"
         "google-chrome"
+        "gather"
         "hammerspoon"
         "obsidian"
         "osxfuse"
