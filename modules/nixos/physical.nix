@@ -108,6 +108,11 @@ in {
       gnomeExtensions.pop-shell
       sidekick
       gparted
+      flutter
+      kube3d
+      xclip
+      dconf2nix
+      libnotify
     ];
   };
 }

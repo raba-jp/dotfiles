@@ -96,12 +96,7 @@
       ++ (
         if stdenvNoCC.isLinux
         then [
-          flutter
-          kube3d
-          xclip
-          dconf2nix
-          libnotify
-          yubikey-personalization-gui
+          # yubikey-personalization-gui
           gcc
           wezterm
         ]
