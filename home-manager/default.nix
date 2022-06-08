@@ -7,10 +7,10 @@
     ./tig
     ./vim
     ./wezterm
-    ./dconf
-    ./gtk
+    # ./dconf
+    # ./gtk
     ./hammerspoon
-    ./sway
+    # ./sway
   ];
 
   home = {
