@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1655975808973,
+  "lastUpdate": 1655986799882,
   "repoUrl": "https://github.com/raba-jp/dotfiles",
   "entries": {
     "Benchmark": [
@@ -4981,6 +4981,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "vim startup time (min)",
             "value": "91.407000",
+            "unit": "msec"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "feath.7615@gmail.com",
+            "name": "Hiroki Sakuraba",
+            "username": "raba-jp"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0b8ac1471ede3c68e9b14ba0c40b783158c50277",
+          "message": "Merge pull request #53 from raba-jp/update_flake_lock_action\n\nflake.lock: Update",
+          "timestamp": "2022-06-23T21:16:41+09:00",
+          "tree_id": "e5023f48e1e536f82fb8b8288c8617155ee6da23",
+          "url": "https://github.com/raba-jp/dotfiles/commit/0b8ac1471ede3c68e9b14ba0c40b783158c50277"
+        },
+        "date": 1655986799055,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "fish startup time (average)",
+            "value": "14.28670883178711",
+            "unit": "msec"
+          },
+          {
+            "name": "vim startup time (average)",
+            "value": "88.674100",
+            "unit": "msec"
+          },
+          {
+            "name": "vim startup time (max)",
+            "value": "90.194000",
+            "unit": "msec"
+          },
+          {
+            "name": "vim startup time (min)",
+            "value": "87.560000",
             "unit": "msec"
           }
         ]
