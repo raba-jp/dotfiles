@@ -53,7 +53,6 @@
         nodejs
         yarn
         rustup
-        awscli2
         aws-vault
         yubikey-manager
         bitwarden-cli
