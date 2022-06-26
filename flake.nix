@@ -333,7 +333,7 @@
         default = pkgs.writeText "cachix-agents.json" (builtins.toJSON {
           agents = {
             define7 = self.nixosConfigurations.define7.config.system.build.toplevel;
-            air11 = self.nixosConfigurations.air11.config.system.build.toplevel;
+            # air11 = self.nixosConfigurations.air11.config.system.build.toplevel;
           };
         });
       };
