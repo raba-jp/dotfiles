@@ -235,11 +235,10 @@
         system = system.x86_64-linux;
         inherit (self) overlays;
       };
-      extraSpecialArgs = inputs;
     in {
       # For GitHub Codespaces
       vscode = home-manager.lib.homeManagerConfiguration {
-        inherit configuration stateVersion pkgs extraSpecialArgs;
+        inherit configuration stateVersion pkgs;
         system = system.x86_64-linux;
         homeDirectory = "/home/vscode";
         username = "vscode";
@@ -247,15 +246,15 @@
 
       # For GitHub Actions
       runner = home-manager.lib.homeManagerConfiguration {
-        inherit configuration stateVersion pkgs extraSpecialArgs;
+        inherit configuration stateVersion pkgs;
         system = system.x86_64-linux;
         homeDirectory = "/home/runner";
         username = "runner";
       };
 
       sakuraba = home-manager.lib.homeManagerConfiguration {
-        inherit configuration stateVersion pkgs extraSpecialArgs;
-        system = "x86_64-linux";
+        inherit configuration stateVersion pkgs;
+        system = system.x86_64-linux;
         homeDirectory = "/home/sakuraba";
         username = "sakuraba";
       };
