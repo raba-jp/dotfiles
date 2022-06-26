@@ -98,6 +98,7 @@
           # yubikey-personalization-gui
           gcc
           wezterm
+          jetbrains.idea-community
         ]
         else []
       );

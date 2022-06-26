@@ -14,6 +14,8 @@ in {
       default = pkgs.linuxPackages_latest;
     };
 
+    boot.loader.useDefault = mkEnableOption "if host uses default boot loader configuration";
+
     timezone = mkOption {
       type = types.str;
       default = "Asia/Tokyo";
@@ -29,7 +31,7 @@ in {
     boot = {
       inherit (cfg) kernelPackages;
 
-      loader = {
+      loader = mkIf cfg.boot.loader.useDefault {
         systemd-boot = {
           enable = true;
           editor = false;
