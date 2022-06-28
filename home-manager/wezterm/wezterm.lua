@@ -28,6 +28,7 @@ return {
 	initial_cols = 64,
 	initial_rows = 24,
 
+	window_background_opacity = 0.8,
 	color_scheme = "nord",
 	colors = {
 		tab_bar = {

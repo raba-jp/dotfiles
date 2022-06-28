@@ -60,7 +60,6 @@ in {
         noto-fonts
         noto-fonts-cjk
         noto-fonts-emoji
-        cica
         jetbrains-mono
         udev-gothic
         udev-gothic-nf
@@ -108,7 +107,6 @@ in {
       papirus-icon-theme
       nordzy-cursor-theme
       gnomeExtensions.pop-shell
-      sidekick
       gparted
       flutter
       kube3d

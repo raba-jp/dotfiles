@@ -43,7 +43,7 @@
           insmod fat
           insmod search_fs_uuid
           insmod chain
-          search --fs-uuid --set-root 6836-FD29
+          search --fs-uuid --set=root 6836-FD29
           chainloader /EFI/Microsoft/Boot/bootmgfw.efi
         }
       '';
@@ -84,6 +84,7 @@
       "video"
       config.users.groups.keys.name
     ];
+    hashedPassword = "$6$pfJbTwMjGKRLZED.$E7VDlAVGg75bOgdnEo11Q9GCHH0M0RQk3VXlTotAxsE0EpypbiOAWbe8AsdwtgDCPbBtrSQ5zqrqYyX28qAO9.";
   };
 
   home-manager.users.sakuraba = import ../../home-manager;
