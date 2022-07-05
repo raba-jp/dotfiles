@@ -21,7 +21,7 @@
 
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [cica udev-gothic udev-gothic-nf];
+    fonts = with pkgs; [udev-gothic udev-gothic-nf];
   };
 
   nix = {
