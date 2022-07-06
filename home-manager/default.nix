@@ -47,7 +47,8 @@
         driftctl
         buf
         any-nix-shell
-        nix-prefetch-github
+        nix-prefetch
+        nix-prefetch-git
         deadnix
         statix
         nodejs
@@ -64,6 +65,7 @@
         poetry
         vim-startuptime
         doppler
+        openjdk
         clojure
         leiningen
         fennel

@@ -19,6 +19,8 @@
     };
   };
 
+  programs.zsh.enable = true;
+
   fonts = {
     fontDir.enable = true;
     fonts = with pkgs; [udev-gothic udev-gothic-nf];
