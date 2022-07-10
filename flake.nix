@@ -229,7 +229,7 @@
     };
   in {
     homeConfigurations = let
-      modules = [./home-manager];
+      modules = [./home-manager/minimal.nix];
       pkgs = import nixpkgs {
         system = system.x86_64-linux;
         inherit (self) overlays;
