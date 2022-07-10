@@ -6,7 +6,19 @@ _: {
     home = "/Users/hiroki.sakuraba";
   };
 
-  home-manager.users."hiroki.sakuraba" = import ../../home-manager;
+  home-manager.users."hiroki.sakuraba" = {
+    imports = [
+      ../../home-manager/minimal.nix
+      ../../home-manager/physical.nix
+      ../../home-manager/kubernetes.nix
+      ../../home-manager/fish
+      ../../home-manager/fzf
+      ../../home-manager/git
+      ../../home-manager/starship
+      ../../home-manager/tig
+      ../../home-manager/vim
+      ../../home-manager/wezterm
+    ];
 
   dotfiles = {
     yabai.enable = false;
