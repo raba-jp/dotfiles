@@ -229,8 +229,7 @@
     };
   in {
     homeConfigurations = let
-      configuration = import ./home-manager;
-      stateVersion = "21.11";
+      modules = [./home-manager];
       pkgs = import nixpkgs {
         system = system.x86_64-linux;
         inherit (self) overlays;
@@ -238,25 +237,16 @@
     in {
       # For GitHub Codespaces
       vscode = home-manager.lib.homeManagerConfiguration {
-        inherit configuration stateVersion pkgs;
-        system = system.x86_64-linux;
-        homeDirectory = "/home/vscode";
-        username = "vscode";
+        inherit modules pkgs;
       };
 
       # For GitHub Actions
       runner = home-manager.lib.homeManagerConfiguration {
-        inherit configuration stateVersion pkgs;
-        system = system.x86_64-linux;
-        homeDirectory = "/home/runner";
-        username = "runner";
+        inherit modules pkgs;
       };
 
       sakuraba = home-manager.lib.homeManagerConfiguration {
-        inherit configuration stateVersion pkgs;
-        system = system.x86_64-linux;
-        homeDirectory = "/home/sakuraba";
-        username = "sakuraba";
+        inherit modules pkgs;
       };
     };
     nixosConfigurations = {
