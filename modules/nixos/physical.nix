@@ -113,6 +113,7 @@ in {
       xclip
       dconf2nix
       libnotify
+      lm_sensors
     ];
   };
 }
