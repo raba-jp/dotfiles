@@ -15,7 +15,6 @@
   freetype,
   gdk-pixbuf,
   glib,
-  gnome,
   gsettings-desktop-schemas,
   gtk3,
   libpulseaudio,

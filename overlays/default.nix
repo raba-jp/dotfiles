@@ -8,6 +8,7 @@ with prev.lib;
       (import ./vim-startuptime.nix)
       (import ./nordic.nix)
       (import ./cljstyle.nix)
+      (_final: prev: {sidekick = (prev.callPackage ./sidekick.nix) {};})
     ]
   )
   final
