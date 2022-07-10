@@ -249,7 +249,7 @@
 
       # For GitHub Actions
       runner = home-manager.lib.homeManagerConfiguration {
-        inherit modules pkgs;
+        inherit pkgs;
         modules = [
           ./home-manager/minimal.nix
           {
@@ -258,11 +258,6 @@
             stateVersion = "22.05";
           }
         ];
-      };
-
-      sakuraba = home-manager.lib.homeManagerConfiguration {
-        inherit modules pkgs;
-        modules = [./home-manager/minimal.nix];
       };
     };
     nixosConfigurations = {
