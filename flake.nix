@@ -229,24 +229,40 @@
     };
   in {
     homeConfigurations = let
-      modules = [./home-manager/minimal.nix];
       pkgs = import nixpkgs {
         system = system.x86_64-linux;
         inherit (self) overlays;
       };
     in {
       # For GitHub Codespaces
-      vscode = home-manager.lib.homeManagerConfiguration {
-        inherit modules pkgs;
+      codespace = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./home-manager/minimal.nix
+          {
+            username = "codespace";
+            homeDirectory = "/home/codespace";
+            stateVersion = "22.05";
+          }
+        ];
       };
 
       # For GitHub Actions
       runner = home-manager.lib.homeManagerConfiguration {
         inherit modules pkgs;
+        modules = [
+          ./home-manager/minimal.nix
+          {
+            username = "runner";
+            homeDirectory = "/home/runner";
+            stateVersion = "22.05";
+          }
+        ];
       };
 
       sakuraba = home-manager.lib.homeManagerConfiguration {
         inherit modules pkgs;
+        modules = [./home-manager/minimal.nix];
       };
     };
     nixosConfigurations = {
