@@ -7,6 +7,7 @@ with prev.lib;
       (import ./popshell.nix)
       (import ./vim-startuptime.nix)
       (import ./nordic.nix)
+      (import ./cljstyle.nix)
     ]
   )
   final

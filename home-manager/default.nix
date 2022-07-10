@@ -67,6 +67,8 @@
         doppler
         openjdk
         clojure
+        clj-kondo
+        cljstyle
         leiningen
         fennel
 
