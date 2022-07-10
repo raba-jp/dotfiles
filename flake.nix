@@ -240,9 +240,11 @@
         modules = [
           ./home-manager/minimal.nix
           {
-            username = "codespace";
-            homeDirectory = "/home/codespace";
-            stateVersion = "22.05";
+            home = {
+              username = "codespace";
+              homeDirectory = "/home/codespace";
+              stateVersion = "22.05";
+            };
           }
         ];
       };
@@ -253,9 +255,11 @@
         modules = [
           ./home-manager/minimal.nix
           {
-            username = "runner";
-            homeDirectory = "/home/runner";
-            stateVersion = "22.05";
+            home = {
+              username = "runner";
+              homeDirectory = "/home/runner";
+              stateVersion = "22.05";
+            };
           }
         ];
       };
