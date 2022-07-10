@@ -87,5 +87,21 @@
     hashedPassword = "$6$pfJbTwMjGKRLZED.$E7VDlAVGg75bOgdnEo11Q9GCHH0M0RQk3VXlTotAxsE0EpypbiOAWbe8AsdwtgDCPbBtrSQ5zqrqYyX28qAO9.";
   };
 
-  home-manager.users.sakuraba = import ../../home-manager;
+  home-manager.users.sakuraba = {
+    imports = [
+      ../../home-manager/minimal.nix
+      ../../home-manager/physical.nix
+      ../../home-manager/kubernetes.nix
+      ../../home-manager/linux.nix
+      ../../home-manager/gtk
+      ../../home-manager/dconf
+      ../../home-manager/fish
+      ../../home-manager/fzf
+      ../../home-manager/git
+      ../../home-manager/starship
+      ../../home-manager/tig
+      ../../home-manager/vim
+      ../../home-manager/wezterm
+    ];
+  };
 }
