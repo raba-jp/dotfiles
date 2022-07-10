@@ -1,4 +1,4 @@
-final: prev: {
+_final: prev: {
   cljstyle = prev.buildGraalvmNativeImage rec {
     pname = "cljstyle";
     version = "0.15.0";
