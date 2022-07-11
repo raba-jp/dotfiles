@@ -5,8 +5,6 @@ SCRIPT_DIR=$(
 	pwd
 )
 
-${SCRIPT_DIR}/scripts/install-nix.sh
-
 if [ "$CODESPACES" = "true" ]; then
 	mkdir -m 0755 /nix
 	chown codespace /nix
@@ -17,8 +15,11 @@ if [ "$CODESPACES" = "true" ]; then
 	done
 
 	curl -o /tmp/nix-install.sh -L https://nixos.org/nix/install
+	chmod +x /tmp/nix-install.sh
 	/tmp/nix-install.sh --no-daemon
 	. /home/codespace/.nix-profile/etc/profile.d/nix.sh
 	nix build --no-link '.#homeConfigurations.codespace.activationPackage'
 	"$(nix path-info '.#homeConfigurations.codespace.activationPackage')"/activate
+else
+	${SCRIPT_DIR}/scripts/install-nix.sh
 fi
