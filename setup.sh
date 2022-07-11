@@ -5,6 +5,11 @@ SCRIPT_DIR=$(
 	pwd
 )
 
+# Configure Nix
+add_config() {
+	echo "$1" | tee -a "$workdir/nix.conf" >/dev/null
+}
+
 if [ "$CODESPACES" = "true" ]; then
 	mkdir -m 0755 /nix
 	chown codespace /nix
@@ -13,6 +18,10 @@ if [ "$CODESPACES" = "true" ]; then
 	for n in $(seq 1 10); do
 		useradd -c "Nix build user $n" -d /var/empty -g nixbld -G nixbld -M -N -r -s "$(command -v nologin)" "nixbld$n"
 	done
+
+	add_config "max-jobs = auto"
+	add_config "trusted-users = root $USER"
+	add_config "experimental-features = nix-command flakes"
 
 	curl -o /tmp/nix-install.sh -L https://nixos.org/nix/install
 	chmod +x /tmp/nix-install.sh
