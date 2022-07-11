@@ -100,6 +100,7 @@ in {
       appimage-run
       google-chrome
       obsidian
+      logseq
       vscode
       papirus-icon-theme
       nordic
