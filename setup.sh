@@ -22,8 +22,8 @@ if [ "$CODESPACES" = "true" ]; then
 	chmod +x /tmp/nix-install.sh
 	/tmp/nix-install.sh --no-daemon
 	. /home/codespace/.nix-profile/etc/profile.d/nix.sh
-	nix build --no-link --extra-experimental-features nix-command '.#homeConfigurations.codespace.activationPackage'
-	"$(nix path-info --extra-experimental-features nix-command '.#homeConfigurations.codespace.activationPackage')"/activate
+	nix build --no-link --extra-experimental-features flakes nix-command '.#homeConfigurations.codespace.activationPackage'
+	"$(nix path-info --extra-experimental-features flakes nix-command '.#homeConfigurations.codespace.activationPackage')"/activate
 else
 	${SCRIPT_DIR}/scripts/install-nix.sh
 fi
