@@ -10,12 +10,12 @@ trap 'rm -rf "$workdir"' EXIT
 
 if [ "$CODESPACES" = "true" ]; then
 
-	mkdir -m 0755 /nix
-	chown codespace /nix
-	groupadd nixbld
+	su codespace -c "mkdir -m 0755 /nix"
+	su codespace -c "chown codespace /nix"
+	su codespace -c "groupadd nixbld"
 
 	for n in $(seq 1 10); do
-		useradd -c "Nix build user $n" -d /var/empty -g nixbld -G nixbld -M -N -r -s "$(command -v nologin)" "nixbld$n"
+		su codespace -c 'useradd -c "Nix build user $n" -d /var/empty -g nixbld -G nixbld -M -N -r -s "$(command -v nologin)" "nixbld$n"'
 	done
 
 	echo "max-jobs = auto" | tee -a "$workdir/nix.conf" >/dev/null
