@@ -90,7 +90,8 @@
   home-manager.users.sakuraba = {
     imports = [
       ../../home-manager/minimal.nix
-      ../../home-manager/physical.nix
+      ../../home-manager/base.nix
+      ../../home-manager/extends.nix
       ../../home-manager/kubernetes.nix
       ../../home-manager/linux.nix
       ../../home-manager/gtk

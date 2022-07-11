@@ -9,7 +9,8 @@ _: {
   home-manager.users."hiroki.sakuraba" = {
     imports = [
       ../../home-manager/minimal.nix
-      ../../home-manager/physical.nix
+      ../../home-manager/base.nix
+      ../../home-manager/extends.nix
       ../../home-manager/kubernetes.nix
       ../../home-manager/fish
       ../../home-manager/fzf
