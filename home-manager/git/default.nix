@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [./aliases.nix ./ignore.nix];
   programs.git = {
     enable = true;
@@ -10,7 +10,7 @@
       core = {
         editor = "vim";
         preloadindex = true;
-        fsmonitor = "rs-git-fsmonitor";
+        fsmonitor = "${pkgs.rs-git-fsmonitor}/bin/rs-git-fsmonitor";
       };
 
       user = {useConfigOnly = true;};

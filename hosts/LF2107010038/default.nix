@@ -51,6 +51,7 @@ _: {
         "gather"
         "hammerspoon"
         "jetbrains-gateway"
+        "logseq"
         "obsidian"
         "osxfuse"
         "pushplaylabs-sidekick"
