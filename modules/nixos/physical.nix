@@ -116,6 +116,7 @@ in {
       libnotify
       lm_sensors
       heptabase
+      sidekick
     ];
   };
 }
