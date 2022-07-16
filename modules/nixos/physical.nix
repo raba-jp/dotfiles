@@ -115,6 +115,7 @@ in {
       dconf2nix
       libnotify
       lm_sensors
+      heptabase
     ];
   };
 }
