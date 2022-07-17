@@ -74,6 +74,10 @@ in {
     console.useXkbConfig = true;
 
     services = {
+      udev.extraRules = ''
+        KERNEL=="hidraw*", ATTRS{idVendor}=="bb01", MODE="0664", GROUP="users"
+      '';
+
       openssh.enable = true;
 
       greetd = {
