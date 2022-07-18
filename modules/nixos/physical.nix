@@ -76,6 +76,7 @@ in {
     services = {
       udev.extraRules = ''
         KERNEL=="hidraw*", ATTRS{idVendor}=="bb01", MODE="0664", GROUP="users"
+        KERNEL=="hidraw*", ATTRS{idVendor}=="4653", MODE="0664", GROUP="users"
       '';
 
       openssh.enable = true;
