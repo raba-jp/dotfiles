@@ -45,7 +45,7 @@
   wrapGAppsHook,
   commandLineArgs ? "",
 }: let
-  version = "20220413";
+  version = "20220814";
 
   rpath = lib.makeLibraryPath [
     alsa-lib
@@ -95,7 +95,7 @@ in
 
     src = fetchurl {
       url = "https://api.meetsidekick.com/downloads/df/linux/deb";
-      sha256 = "sha256-LojLNSzChd9X4/ziHrESYe9iSHylWMBN3xoDtk/sJS8=";
+      sha256 = "0xim6kxx5wigq5596686nb0b1xvg7kz2dqiaj1w77krxjw03wfkm";
     };
 
     dontConfigure = true;
