@@ -2,7 +2,7 @@
   home = {
     sessionPath = ["$GOPATH/bin" "$HOME/.yarn/bin"];
     sessionVariables = {
-      EDITOR = "vim";
+      EDITOR = "hx";
       PAGER = "bat";
     };
 
