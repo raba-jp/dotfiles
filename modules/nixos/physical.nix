@@ -98,7 +98,15 @@ in {
         credentialsFile = config.sops.secrets.cachixAgentToken.path;
       };
     };
-    programs.gnupg.agent.enable = true;
+    programs = {
+      gnupg.agent.enable = true;
+
+      _1password.enable = true;
+      _1password-gui = {
+        enable = true;
+        polkitPolicyOwners = ["sakuraba"];
+      };
+    };
 
     environment.systemPackages = with pkgs; [
       appimagekit

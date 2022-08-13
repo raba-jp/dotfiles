@@ -52,6 +52,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ## NeoVim Plugins
     vim-polyglot = {
       url = "github:sheerun/vim-polyglot";
@@ -271,7 +276,9 @@
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
           homeManagerConfigModule
-          {nixpkgs.overlays = [(import ./overlays)];}
+          {
+            nixpkgs.overlays = self.overlays;
+          }
           ./modules/nixos
           ./hosts/define7
         ];
@@ -310,6 +317,9 @@
         machinectl = prev.poetry2nix.mkPoetryApplication {
           projectDir = ./bin/machinectl;
         };
+      })
+      (final: prev: {
+        helix-latest = inputs.helix.packages."x86_64-linux".default;
       })
     ];
 
