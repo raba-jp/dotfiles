@@ -318,7 +318,7 @@
           projectDir = ./bin/machinectl;
         };
       })
-      (final: prev: {
+      (_final: prev: {
         helix-latest = inputs.helix.packages.${prev.system}.default;
       })
     ];

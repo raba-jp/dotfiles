@@ -1,29 +1,35 @@
 [formatter.deadnix]
 command = "deadnix"
 options = ["-e"]
-includes = [ "*.nix" ]
+includes = ["*.nix"]
 excludes = []
 
 [formatter.nix]
 command = "alejandra"
 options = []
-includes = [ "*.nix" ]
+includes = ["*.nix"]
 excludes = []
 
 [formatter.lua]
 command = "stylua"
 options = []
-includes = [ "*.lua" ]
+includes = ["*.lua"]
 excludes = []
 
 [formatter.sh]
 command = "shfmt"
 options = ["-w"]
-includes = [ "*.sh" ]
+includes = ["*.sh"]
 excludes = []
 
 [formatter.python]
 command = "black"
 options = []
-includes = [ "*.py" ]
+includes = ["*.py"]
+excludes = []
+
+[formatter.toml]
+command = "taplo"
+options = ["fmt"]
+includes = ["*.toml"]
 excludes = []
