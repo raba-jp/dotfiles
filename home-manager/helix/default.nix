@@ -7,7 +7,7 @@
     rnix-lsp
     terraform-ls
     sumneko-lua-language-server
-    # cuelsp
+    cuelsp
   ];
   programs.helix = {
     enable = true;

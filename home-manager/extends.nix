@@ -25,5 +25,6 @@
     leiningen
     golangci-lint
     actionlint
+    taplo
   ];
 }
