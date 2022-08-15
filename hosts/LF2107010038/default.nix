@@ -19,7 +19,9 @@ _: {
       ../../home-manager/tig
       ../../home-manager/vim
       ../../home-manager/wezterm
+      ../../home-manager/helix
     ];
+  };
 
   dotfiles = {
     yabai.enable = false;

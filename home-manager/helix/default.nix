@@ -30,6 +30,9 @@
       editor = {
         shell = ["${pkgs.fish}/bin/fish" "-c"];
         lsp.display-messages = true;
+        true-color = true;
+        cursorline = true;
+        color-modes = true;
 
         cursor-shape = {
           normal = "block";
@@ -58,7 +61,7 @@
         };
         insert = {
           "C-." = "normal_mode";
-          t.n = "normal_mode";
+          j.j = "normal_mode";
         };
       };
     };

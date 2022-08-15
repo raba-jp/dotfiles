@@ -21,7 +21,7 @@
     openjdk
     clojure
     clj-kondo
-    cljstyle
+    # cljstyle
     leiningen
     golangci-lint
     actionlint

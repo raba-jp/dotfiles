@@ -303,7 +303,7 @@
         modules = [
           home-manager.darwinModules.home-manager
           homeManagerConfigModule
-          {nixpkgs.overlays = [(import ./overlays)];}
+          {nixpkgs.overlays = self.overlays;}
           ./modules/darwin
           ./hosts/LF2107010038
         ];
@@ -319,7 +319,7 @@
         };
       })
       (final: prev: {
-        helix-latest = inputs.helix.packages."x86_64-linux".default;
+        helix-latest = inputs.helix.packages.${prev.system}.default;
       })
     ];
 
