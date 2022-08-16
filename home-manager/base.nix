@@ -12,7 +12,6 @@
       watchman
       rs-git-fsmonitor
       tig
-      lazygit
       procs
       ghq
       gh
