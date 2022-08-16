@@ -30,6 +30,9 @@
       shfmt
       alejandra
       stylua
+      gping
+      xplr
+      gitui
     ];
   };
 
