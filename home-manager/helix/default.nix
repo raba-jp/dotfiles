@@ -57,7 +57,6 @@
           J = "search_prev";
           h = "no_op";
           k = "no_op";
-          ";" = "command_mode";
         };
         insert = {
           "C-." = "normal_mode";
