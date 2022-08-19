@@ -8,7 +8,7 @@
 
     extraConfig = {
       core = {
-        editor = "vim";
+        editor = "hx";
         preloadindex = true;
         fsmonitor = "${pkgs.rs-git-fsmonitor}/bin/rs-git-fsmonitor";
       };
