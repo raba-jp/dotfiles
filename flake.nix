@@ -121,14 +121,14 @@
               ];
             };
 
-            air11 = cachix-deploy-lib.nixos {
-              imports = [
-                home-manager.nixosModules.home-manager
-                commonModules
-                ./modules/nixos
-                ./hosts/air11
-              ];
-            };
+            #air11 = cachix-deploy-lib.nixos {
+            #  imports = [
+            #    home-manager.nixosModules.home-manager
+            #    commonModules
+            #    ./modules/nixos
+            #    ./hosts/air11
+            #  ];
+            #};
 
             LF2107010038 = cachix-deploy-lib.darwin (
               {...}: {
