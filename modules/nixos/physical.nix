@@ -93,9 +93,8 @@ in {
         };
       };
 
-      cachix-agent = mkIf (builtins.hasAttr "cachixAgentToken" config.sops.secrets) {
+      cachix-agent = {
         enable = true;
-        credentialsFile = config.sops.secrets.cachixAgentToken.path;
       };
     };
     programs = {

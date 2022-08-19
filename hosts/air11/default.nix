@@ -31,11 +31,6 @@ in {
 
   networking.hostName = "air11";
 
-  sops.secrets."cachix-agent-token" = {
-    format = "binary";
-    sopsFile = ../../secrets/cachix-agent-token;
-  };
-
   users.users.sakuraba = {
     isNormalUser = true;
     createHome = false;
@@ -49,6 +44,4 @@ in {
       config.users.groups.keys.name
     ];
   };
-
-  home-manager.users.sakuraba = import ../../home-manager;
 }

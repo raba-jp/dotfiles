@@ -12,7 +12,7 @@
         game.enable = true;
         gnome.enable = true;
         nextdns = {
-          enable = true;
+          enable = false;
           filePath = config.sops.secrets.nextdnsConfiguration.path;
         };
         trackpad.enable = false;
@@ -52,27 +52,6 @@
 
   networking.hostName = "define7";
 
-  security.pam = {
-    u2f = {
-      enable = true;
-      control = "sufficient";
-    };
-  };
-
-  sops = {
-    secrets = {
-      nextdnsConfiguration = {
-        format = "binary";
-        sopsFile = ../../secrets/nextdns-configuration;
-      };
-
-      cachixAgentToken = {
-        format = "binary";
-        sopsFile = ../../secrets/cachix-agent-token;
-      };
-    };
-  };
-
   users.users.sakuraba = {
     isNormalUser = true;
     createHome = true;
@@ -101,7 +80,6 @@
       ../../home-manager/git
       ../../home-manager/starship
       ../../home-manager/tig
-      ../../home-manager/vim
       ../../home-manager/wezterm
       ../../home-manager/helix
     ];
