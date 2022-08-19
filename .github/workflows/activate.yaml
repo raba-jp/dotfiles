@@ -1,9 +1,12 @@
 name: Activate 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - Build
+    types:
+      - completed
     branches:
       - main
-  workflow_dispatch:
 
 concurrency: 
   group: ${{ github.ref }}-activate
