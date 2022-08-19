@@ -29,6 +29,7 @@ jobs:
         with:
           name: raba-jp
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+      - run: cat ./result
       - uses: dawidd6/action-download-artifact@v2
         with:
           workflow: build.yaml
