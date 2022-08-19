@@ -1,0 +1,32 @@
+name: Activate 
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency: 
+  group: ${{ github.ref }}-activate
+  cancel-in-progress: true
+
+jobs:
+  activate:
+    name: Activate deployment
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cachix/cachix-action@v10
+        with:
+          name: raba-jp
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+      - uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: build.yaml
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          workflow_conclusion: success
+          branch: main
+          name: result
+      - name: Activate
+        run: cachix deploy activate ./result
+        env:
+          CACHIX_ACTIVATE_TOKEN: ${{ secrets.CACHIX_ACTIVATE_TOKEN }}
