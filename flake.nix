@@ -111,7 +111,7 @@
         cachix-deploy-lib = cachix-deploy-flake.lib pkgs;
       in
         cachix-deploy-lib.spec {
-          agent = {
+          agents = {
             define7 = cachix-deploy-lib.nixos {
               imports = [
                 home-manager.nixosModules.home-manager
