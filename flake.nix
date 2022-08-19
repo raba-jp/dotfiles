@@ -78,13 +78,9 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     darwin,
     home-manager,
-    sops-nix,
-    nixos-generators,
-    poetry2nix,
     cachix-deploy-flake,
     flake-utils-plus,
     ...
