@@ -1,14 +1,13 @@
 # dotfiles
 
-![NixOS Deploy](https://img.shields.io/github/workflow/status/raba-jp/dotfiles/NixOS_deploy?label=deploy&style=for-the-badge)
+[![Build](https://github.com/raba-jp/dotfiles/actions/workflows/build.yaml/badge.svg)](https://github.com/raba-jp/dotfiles/actions/workflows/build.yaml)
+[![Activate](https://github.com/raba-jp/dotfiles/actions/workflows/activate.yaml/badge.svg)](https://github.com/raba-jp/dotfiles/actions/workflows/activate.yaml)
 
-## Installation
-### NixOS
+## Prerequirement
+- cachix
+
+## Setup
 
 ```bash
-sudo nixos-install --flake github:raba-jp/dotfiles#define7
+sudo CACHIX_AGENT_TOKEN=xxxxx cachix deploy agent ${hostName}
 ```
-
-## Benchmark
-
-https://dotfiles.raba.me/dev/bench
