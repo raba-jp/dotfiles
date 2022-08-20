@@ -23,6 +23,7 @@ jobs:
       - uses: cachix/cachix-action@v10
         with:
           name: raba-jp
+          extraPullNames: helix
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
       - run: nix build -L
       - uses: actions/upload-artifact@v2
