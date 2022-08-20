@@ -25,10 +25,12 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+
       - uses: cachix/cachix-action@v10
         with:
           name: raba-jp
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
       - uses: dawidd6/action-download-artifact@v2
         with:
           workflow: build.yaml
@@ -36,8 +38,27 @@ jobs:
           workflow_conclusion: success
           branch: main
           name: result
-      - run: cat ./result
+
+      - name: start deployment
+        uses: bobheadxi/deployments@v1
+        id: deployment
+        with:
+          step: start
+          token: ${{ secrets.GITHUB_TOKEN }}
+          env: release
+
       - name: Activate
         run: cachix deploy activate ./result
         env:
           CACHIX_ACTIVATE_TOKEN: ${{ secrets.CACHIX_ACTIVATE_TOKEN }}
+
+      - name: update deployment status
+        uses: bobheadxi/deployments@v1
+        if: always()
+        with:
+          step: finish
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          env: ${{ steps.deployment.outputs.env }}
+          env_url: https://app.cachix.org/deploy/workspace/raba-jp
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
