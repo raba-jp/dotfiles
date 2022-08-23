@@ -26,5 +26,6 @@
     golangci-lint
     actionlint
     taplo
+    rclone
   ];
 }
