@@ -13,7 +13,6 @@
         gnome.enable = true;
         nextdns = {
           enable = false;
-          filePath = config.sops.secrets.nextdnsConfiguration.path;
         };
         trackpad.enable = false;
         lxqt.enable = false;

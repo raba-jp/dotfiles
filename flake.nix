@@ -22,36 +22,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Shell
-    devshell = {
-      url = "github:numtide/devshell";
-      inputs = {
-        flake-utils.follows = "flake-utils";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-
-    # Secrets
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Utility
     flake-utils.url = "github:numtide/flake-utils";
-    flake-utils-plus = {
-      url = "github:gytis-ivaskevicius/flake-utils-plus";
-      inputs.flake-utils.follows = "flake-utils";
-    };
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
     };
-    poetry2nix = {
-      url = "github:nix-community/poetry2nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     cachix-deploy-flake = {
       url = "github:cachix/cachix-deploy-flake";
       inputs.darwin.follows = "darwin";
@@ -78,16 +54,16 @@
 
   outputs = {
     nixpkgs,
-    darwin,
     home-manager,
     cachix-deploy-flake,
-    flake-utils-plus,
+    flake-utils,
+    helix,
     ...
   } @ inputs: let
     overlays = [
       (import ./overlays)
       (_final: prev: {
-        helix-latest = inputs.helix.packages.${prev.system}.default;
+        helix-latest = helix.packages.${prev.system}.default;
       })
     ];
     commonModules = {
@@ -101,7 +77,7 @@
       nixpkgs.overlays = overlays;
     };
   in
-    flake-utils-plus.lib.eachDefaultSystem (system: {
+    flake-utils.lib.eachDefaultSystem (system: {
       defaultPackage = let
         pkgs = import nixpkgs {
           inherit system overlays;
