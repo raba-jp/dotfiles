@@ -1,0 +1,164 @@
+{
+  "entries": {
+    "tap": {
+      "homebrew/bundle": {
+        "revision": "2e38269fe756295375640628b2ef788edc42c312"
+      },
+      "homebrew/cask": {
+        "revision": "04305d200256c041b5e2cb2b4e86c9e8786040e5"
+      },
+      "homebrew/cask-fonts": {
+        "revision": "a8e6cf6d9226d1f0c9d2d0562419d48759e84318"
+      },
+      "homebrew/cask-versions": {
+        "revision": "584043a16e5dc78a59711112f73bcef243e64a24"
+      },
+      "homebrew/core": {
+        "revision": "08444116f4472540d4738e1c85b338e534fa86f0"
+      },
+      "homebrew/services": {
+        "revision": "a8f4e6d6d30386a5fbb70ba271886dcc1f3ca0f7"
+      }
+    },
+    "cask": {
+      "1password": {
+        "version": "8.8.0",
+        "options": {
+          "full_name": "1password"
+        }
+      },
+      "appcleaner": {
+        "version": "3.6.4,4270",
+        "options": {
+          "full_name": "appcleaner"
+        }
+      },
+      "bartender": {
+        "version": "4.2.0,42000",
+        "options": {
+          "full_name": "bartender"
+        }
+      },
+      "betterdummy": {
+        "version": "1.1.24",
+        "options": {
+          "full_name": "betterdummy"
+        }
+      },
+      "bettertouchtool": {
+        "version": "3.839,1986",
+        "options": {
+          "full_name": "bettertouchtool"
+        }
+      },
+      "gather": {
+        "version": "0.3.6",
+        "options": {
+          "full_name": "gather"
+        }
+      },
+      "google-chrome": {
+        "version": "104.0.5112.101",
+        "options": {
+          "full_name": "google-chrome"
+        }
+      },
+      "hammerspoon": {
+        "version": "0.9.97",
+        "options": {
+          "full_name": "hammerspoon"
+        }
+      },
+      "jetbrains-gateway": {
+        "version": "222.3739.54",
+        "options": {
+          "full_name": "jetbrains-gateway"
+        }
+      },
+      "logseq": {
+        "version": "0.8.2",
+        "options": {
+          "full_name": "logseq"
+        }
+      },
+      "osxfuse": {
+        "version": "3.11.2",
+        "options": {
+          "full_name": "osxfuse"
+        }
+      },
+      "pushplaylabs-sidekick": {
+        "version": "102.26.1.22869,d19fa02",
+        "options": {
+          "full_name": "pushplaylabs-sidekick"
+        }
+      },
+      "qlmarkdown": {
+        "version": "1.0.15",
+        "options": {
+          "full_name": "qlmarkdown"
+        }
+      },
+      "quicklook-csv": {
+        "version": "1.3",
+        "options": {
+          "full_name": "quicklook-csv"
+        }
+      },
+      "raycast": {
+        "version": "1.39.1",
+        "options": {
+          "full_name": "raycast"
+        }
+      },
+      "tableplus": {
+        "version": "4.8.2,436",
+        "options": {
+          "full_name": "tableplus"
+        }
+      },
+      "the-unarchiver": {
+        "version": "4.3.5,139,1652457131",
+        "options": {
+          "full_name": "the-unarchiver"
+        }
+      },
+      "utm": {
+        "version": "3.2.4",
+        "options": {
+          "full_name": "utm"
+        }
+      },
+      "visual-studio-code": {
+        "version": "1.70.2",
+        "options": {
+          "full_name": "visual-studio-code"
+        }
+      },
+      "wezterm": {
+        "version": "20220807-113146,c2fee766",
+        "options": {
+          "full_name": "wezterm"
+        }
+      },
+      "zoom": {
+        "version": "5.11.9.10046",
+        "options": {
+          "full_name": "zoom"
+        }
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "monterey": {
+        "HOMEBREW_VERSION": "3.5.10",
+        "HOMEBREW_PREFIX": "/opt/homebrew",
+        "Homebrew/homebrew-core": "08444116f4472540d4738e1c85b338e534fa86f0",
+        "CLT": "",
+        "Xcode": "13.4.1",
+        "macOS": "12.5.1"
+      }
+    }
+  }
+}

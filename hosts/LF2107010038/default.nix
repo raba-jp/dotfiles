@@ -25,48 +25,6 @@ _: {
   dotfiles = {
     yabai.enable = false;
     skhd.enable = false;
-
-    homebrew = {
-      enable = true;
-
-      taps = [
-        "bufbuild/buf"
-        "buildpacks/tap"
-        "homebrew/cask"
-        "homebrew/cask-fonts"
-        "homebrew/cask-versions"
-        "homebrew/core"
-        "homebrew/services"
-        "reviewdog/tap"
-        "tilt-dev/tap"
-      ];
-
-      casks = [
-        "alacritty"
-        "appcleaner"
-        "bartender"
-        "betterdummy"
-        "bettertouchtool"
-        "bitwarden"
-        "google-chrome"
-        "gather"
-        "hammerspoon"
-        "jetbrains-gateway"
-        "logseq"
-        "obsidian"
-        "osxfuse"
-        "pushplaylabs-sidekick"
-        "qlmarkdown"
-        "quicklook-csv"
-        "raycast"
-        "tableplus"
-        "the-unarchiver"
-        "utm"
-        "visual-studio-code"
-        "wezterm"
-        "zoom"
-      ];
-    };
   };
 
   system = {

@@ -76,11 +76,35 @@
 
       nixpkgs.overlays = overlays;
     };
-  in
-    flake-utils.lib.eachDefaultSystem (system: {
-      defaultPackage = let
+  in {
+    defaultPackage = {
+      "aarch64-darwin" = let
         pkgs = import nixpkgs {
-          inherit system overlays;
+          inherit overlays;
+          system = "aarch64-darwin";
+          config.allowUnfree = true;
+        };
+        cachix-deploy-lib = cachix-deploy-flake.lib pkgs;
+      in
+        cachix-deploy-lib.spec {
+          agents = {
+            LF2107010038 = cachix-deploy-lib.darwin (
+              {...}: {
+                imports = [
+                  home-manager.darwinModules.home-manager
+                  commonModules
+                  ./modules/darwin
+                  ./hosts/LF2107010038
+                ];
+              }
+            );
+          };
+        };
+
+      "x86_64-linux" = let
+        pkgs = import nixpkgs {
+          inherit overlays;
+          system = "x86_64-linux";
           config.allowUnfree = true;
         };
         cachix-deploy-lib = cachix-deploy-flake.lib pkgs;
@@ -95,27 +119,8 @@
                 ./hosts/define7
               ];
             };
-
-            #air11 = cachix-deploy-lib.nixos {
-            #  imports = [
-            #    home-manager.nixosModules.home-manager
-            #    commonModules
-            #    ./modules/nixos
-            #    ./hosts/air11
-            #  ];
-            #};
-
-            LF2107010038 = cachix-deploy-lib.darwin (
-              {...}: {
-                imports = [
-                  home-manager.darwinModules.home-manager
-                  commonModules
-                  ./modules/darwin
-                  ./hosts/LF2107010038
-                ];
-              }
-            );
           };
         };
-    });
+    };
+  };
 }
