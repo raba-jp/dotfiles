@@ -27,5 +27,7 @@
     actionlint
     taplo
     rclone
+    bun
+    deno
   ];
 }
