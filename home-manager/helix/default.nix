@@ -8,6 +8,7 @@
     terraform-ls
     sumneko-lua-language-server
     cuelsp
+    nodePackages.typescript-language-server
   ];
   programs.helix = {
     enable = true;
