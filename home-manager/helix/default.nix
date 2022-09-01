@@ -34,6 +34,7 @@
         true-color = true;
         cursorline = true;
         color-modes = true;
+        completion-trigger-len = 1;
 
         cursor-shape = {
           normal = "block";
@@ -43,6 +44,22 @@
 
         file-picker = {
           hidden = false;
+        };
+
+        statusline = {
+          left = ["mode" "spinner" "file-name"];
+          center = [];
+          right = ["diagnostics" "file-type" "position"];
+        };
+
+        whitespace = {
+          render = {
+            newline = "all";
+          };
+        };
+
+        indent-guides = {
+          render = true;
         };
       };
 
@@ -58,6 +75,10 @@
           J = "search_prev";
           h = "no_op";
           k = "no_op";
+          g.b = "goto_line_start";
+          g.r = "goto_line_end";
+          g.h = "no_op";
+          g.l = "no_op";
         };
         insert = {
           "C-." = "normal_mode";
