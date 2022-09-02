@@ -47,9 +47,9 @@
         };
 
         statusline = {
-          left = ["mode" "spinner" "file-name"];
-          center = [];
-          right = ["diagnostics" "file-type" "position"];
+          left = ["mode" "spinner" "diagnostics"];
+          center = ["file-name"];
+          right = ["selections" "position" "file-type"];
         };
 
         whitespace = {
