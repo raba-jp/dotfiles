@@ -48,7 +48,7 @@ _: {
         "com.apple.swipescrolldirection" = true;
         # 音量を変更した時にフィードバックを再生しない
         "com.apple.sound.beep.feedback" = 0;
-        "com.apple.trackpad.scaling" = "3";
+        "com.apple.trackpad.scaling" = 3.0;
         # ダークモード
         AppleInterfaceStyle = "Dark";
       };
