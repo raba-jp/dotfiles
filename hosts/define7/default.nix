@@ -18,36 +18,36 @@
         lxqt.enable = false;
         physical = {
           enable = true;
-          boot.loader.useDefault = false;
+          boot.loader.useDefault = true;
           kernelPackages = pkgs.linuxPackages_5_15;
         };
       };
     }
   ];
 
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
-    };
+  # boot.loader = {
+  #   efi = {
+  #     canTouchEfiVariables = true;
+  #     efiSysMountPoint = "/boot";
+  #   };
 
-    grub = {
-      efiSupport = true;
-      enable = true;
-      version = 2;
-      devices = ["nodev"];
-      extraEntries = ''
-        menuentry "Windows" {
-          insmod part_gpt
-          insmod fat
-          insmod search_fs_uuid
-          insmod chain
-          search --fs-uuid --set=root 6836-FD29
-          chainloader /EFI/Microsoft/Boot/bootmgfw.efi
-        }
-      '';
-    };
-  };
+  #   grub = {
+  #     efiSupport = true;
+  #     enable = true;
+  #     version = 2;
+  #     devices = ["nodev"];
+  #     extraEntries = ''
+  #       menuentry "Windows" {
+  #         insmod part_gpt
+  #         insmod fat
+  #         insmod search_fs_uuid
+  #         insmod chain
+  #         search --fs-uuid --set=root 6836-FD29
+  #         chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+  #       }
+  #     '';
+  #   };
+  # };
 
   networking.hostName = "define7";
 
