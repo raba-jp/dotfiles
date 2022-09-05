@@ -65,20 +65,6 @@
 
       keys = {
         normal = {
-          n = "move_line_down"; # swap j
-          t = "move_line_up"; # swap l
-          b = "move_char_left";
-          r = "move_char_right";
-          l = "find_till_char"; # swap t
-          L = "till_prev_char";
-          j = "search_next"; # swap n
-          J = "search_prev";
-          h = "no_op";
-          k = "no_op";
-          g.b = "goto_line_start";
-          g.r = "goto_line_end";
-          g.h = "no_op";
-          g.l = "no_op";
         };
         insert = {
           "C-." = "normal_mode";
