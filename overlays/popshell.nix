@@ -5,7 +5,7 @@ _final: prev: {
       owner = "pop-os";
       repo = "shell";
       rev = "811201b37a6dafa51539f26cf7da029d4ccdbafb";
-      sha256 = "4dzck/idSE+VCMCahRKW6LJ/tF+taraT2qDk9v7vBnM=";
+      sha256 = "sha256-PUreQ+eNqZfAWb100M9psG5Wo9b7CRx2uO7XEGma6kE=";
     };
   });
 }

@@ -38,7 +38,10 @@ in {
           consoleMode = "auto";
         };
 
-        efi.canTouchEfiVariables = true;
+        efi = {
+          canTouchEfiVariables = true;
+          efiSysMountPoint = "/boot/efi";
+        };
       };
     };
 
@@ -131,8 +134,11 @@ in {
       dconf2nix
       libnotify
       lm_sensors
-      heptabase
+      # heptabase
       sidekick
+      flatpak
+      timeshift
+      lutris
     ];
   };
 }
