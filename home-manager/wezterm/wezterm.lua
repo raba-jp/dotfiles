@@ -10,7 +10,11 @@ local modNone = "NONE"
 wezterm.on("update-right-status", function(window, _)
 	local leader = ""
 	if window:leader_is_active() then
-		leader = "LEADER"
+		leader = wezterm.format({
+			{ Foreground = { Color = "#434C5E" } },
+			{ Background = { Color = "#8FBCBB" } },
+			{ Text = "  LEADER" },
+		})
 	end
 	window:set_right_status(leader)
 end)

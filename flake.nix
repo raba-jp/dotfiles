@@ -56,7 +56,6 @@
     nixpkgs,
     home-manager,
     cachix-deploy-flake,
-    flake-utils,
     helix,
     ...
   } @ inputs: let
