@@ -19,7 +19,7 @@
         physical = {
           enable = true;
           boot.loader.useDefault = true;
-          kernelPackages = pkgs.linuxPackages_5_15;
+          kernelPackages = pkgs.linuxPackages_5_19;
         };
       };
     }
