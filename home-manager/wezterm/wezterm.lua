@@ -63,7 +63,7 @@ return {
 	show_update_window = false,
 
 	disable_default_key_bindings = true,
-	leader = { key = "q", mods = modCtrl },
+	leader = { key = ",", mods = modCtrl },
 	keys = {
 		-- Split pane
 		{
