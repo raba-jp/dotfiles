@@ -137,8 +137,8 @@ in {
       # heptabase
       sidekick
       flatpak
-      timeshift
       lutris
+      bottles
     ];
   };
 }
