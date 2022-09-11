@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.dotfiles.gnome;
+  cfg = config.dotfiles.desktop.gnome;
 in {
-  options.dotfiles.gnome = {
+  options.dotfiles.desktop.gnome = {
     enable = mkEnableOption "if you use Gnome Desktop";
     autoLogin = {
       enable = mkEnableOption "Automatically log in as autoLogin.user.";
@@ -67,7 +67,11 @@ in {
         gnome-connections
       ];
 
-      systemPackages = [pkgs.gnome.gnome-tweaks];
+      systemPackages = with pkgs; [
+        gnome.gnome-tweaks
+        gnomeExtensions.pop-shell
+        dconf2nix
+      ];
     };
   };
 }

@@ -4,10 +4,10 @@
   ...
 }:
 with lib; let
-  cfg = config.dotfiles.nextdns;
+  cfg = config.dotfiles.services.nextdns;
 in {
-  options.dotfiles.nextdns = {
-    enable = mkEnableOption "if you use NextDNS";
+  options.dotfiles.services.nextdns = {
+    enable = mkEnableOption "whether enable NextDNS";
     filePath = mkOption {
       type = types.path;
       default = "";

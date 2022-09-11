@@ -4,9 +4,9 @@
   ...
 }:
 with lib; let
-  cfg = config.dotfiles.lxqt;
+  cfg = config.dotfiles.desktop.lxqt;
 in {
-  options.dotfiles.lxqt = {
+  options.dotfiles.desktop.lxqt = {
     enable = mkEnableOption "if you use LXQt";
   };
 
