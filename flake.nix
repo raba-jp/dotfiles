@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+
     # Darwin
     darwin = {
       url = "github:LnL7/nix-darwin/master";
@@ -55,6 +57,7 @@
     home-manager,
     cachix-deploy-flake,
     helix,
+    nixos-hardware,
     ...
   } @ inputs: let
     overlays = [
@@ -121,6 +124,10 @@
               imports = [
                 home-manager.nixosModules.home-manager
                 commonModules
+                nixos-hardware.nixosModules.common-cpu-intel
+                nixos-hardware.nixosModules.common-gpu-intel
+                nixos-hardware.nixosModules.common-pc-laptop
+                nixos-hardware.nixosModules.common-pc-laptop-ssd
                 ./modules/nixos
                 ./hosts/xps13
               ];
