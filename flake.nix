@@ -33,9 +33,7 @@
       inputs.darwin.follows = "darwin";
     };
 
-    helix = {
-      url = "github:helix-editor/helix";
-    };
+    helix.url = "github:helix-editor/helix";
 
     # fish shell plugins
     fish-done = {
@@ -116,6 +114,15 @@
                 commonModules
                 ./modules/nixos
                 ./hosts/define7
+              ];
+            };
+
+            xps13 = cachix-deploy-lib.nixos {
+              imports = [
+                home-manager.nixosModules.home-manager
+                commonModules
+                ./modules/nixos
+                ./hosts/xps13
               ];
             };
           };
