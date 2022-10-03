@@ -115,6 +115,11 @@ in {
       cachix-agent = {
         enable = true;
       };
+
+      jellyfin = {
+        enable = true;
+        openFirewall = true;
+      };
     };
     programs = {
       gnupg.agent.enable = true;

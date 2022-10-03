@@ -29,5 +29,6 @@
     rclone
     bun
     deno
+    cue
   ];
 }
