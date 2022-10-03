@@ -4,8 +4,7 @@
   pkgs,
   ...
 }:
-with lib; let
-in {
+with lib; {
   config = {
     nix = {
       settings = {

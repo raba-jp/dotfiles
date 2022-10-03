@@ -1,17 +1,24 @@
 {pkgs, ...}: {
   imports = [
+    # common
+    ./nix
     ./boot
     ./network
-    ./media-server
-    ./cachix-agent
-    ./nix
+
+    # Services
+    ./services
+
+    # devices
+    ./trackpad
+
+    # GPU
     ./amd
+
     ./docker
     ./game
     ./gnome
     ./nextdns.nix
     ./physical.nix
-    ./trackpad.nix
     ./lxqt.nix
   ];
 

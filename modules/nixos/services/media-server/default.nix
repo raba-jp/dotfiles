@@ -1,13 +1,12 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }:
 with lib; let
-  cfg = config.dotfiles.mediaServer;
+  cfg = config.dotfiles.services.mediaServer;
 in {
-  options.dotfiles.mediaServer = {
+  options.dotfiles.services.mediaServer = {
     enable = mkEnableOption "whether enable media server";
   };
 

@@ -8,7 +8,10 @@
     {
       dotfiles = {
         network.hostName = "xps13";
-        cachixAgent.enable = true;
+        services = {
+          cachixAgent.enable = true;
+          mediaServer.enable = false;
+        };
         amd.enable = false;
         docker.enable = false;
         game.enable = false;
