@@ -128,7 +128,6 @@
                 nixos-hardware.nixosModules.common-gpu-intel
                 nixos-hardware.nixosModules.common-pc-laptop
                 nixos-hardware.nixosModules.common-pc-laptop-ssd
-                nixos-hardware.nixosModules.common-gpu-nvidia-disable
                 ./modules/nixos
                 ./hosts/xps13
               ];

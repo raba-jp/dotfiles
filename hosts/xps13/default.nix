@@ -42,6 +42,8 @@
     ];
   };
 
+  services.xserver.videoDrivers = ["modesetting"];
+
   users.users.sakuraba = {
     isNormalUser = true;
     createHome = true;
