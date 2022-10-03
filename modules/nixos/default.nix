@@ -3,6 +3,7 @@
     ./boot
     ./network
     ./media-server
+    ./cachix-agent
     ./nix
     ./amd
     ./docker
@@ -26,8 +27,6 @@
     layout = "us";
     xkbOptions = "ctrl:nocaps";
   };
-
-  environment.systemPackages = with pkgs; [cachix];
 
   system = {
     autoUpgrade.enable = true;

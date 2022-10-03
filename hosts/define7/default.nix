@@ -9,6 +9,7 @@
       dotfiles = {
         network.hostName = "define7";
         mediaServer.enable = true;
+        cachixAgent.enable = true;
         amd.enable = true;
         docker.enable = true;
         game.enable = true;
