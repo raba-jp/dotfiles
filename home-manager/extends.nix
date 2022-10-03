@@ -11,13 +11,9 @@
     yarn
     aws-vault
     yubikey-manager
-    sops
-    age
-    ssh-to-age
     python
     black
     poetry
-    vim-startuptime
     openjdk
     clojure
     clj-kondo
@@ -30,5 +26,7 @@
     bun
     deno
     cue
+    ecspresso
+    tfmigrate
   ];
 }
