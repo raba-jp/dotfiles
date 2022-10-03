@@ -19,6 +19,7 @@
         physical = {
           enable = true;
         };
+        boot.blacklistedKernelModules = ["psmouse"];
       };
     }
   ];
@@ -26,7 +27,6 @@
   networking.hostName = "xps13";
 
   hardware.enableRedistributableFirmware = true;
-  boot.blacklistedKernelModules = ["psmouse"];
   services.fwupd.enable = true;
 
   nixpkgs.config.packageOverrides = pkgs: {

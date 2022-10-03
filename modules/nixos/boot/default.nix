@@ -20,7 +20,7 @@ in {
 
   config = {
     boot = {
-      inherit (cfg) kernelPackages;
+      inherit (cfg) kernelPackages blacklistedKernelModules;
 
       loader = {
         systemd-boot = {
