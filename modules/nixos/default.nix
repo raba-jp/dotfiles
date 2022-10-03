@@ -1,9 +1,10 @@
 {pkgs, ...}: {
   imports = [
-    ./amd.nix
-    ./docker.nix
-    ./game.nix
-    ./gnome.nix
+    ./boot
+    ./amd
+    ./docker
+    ./game
+    ./gnome
     ./nextdns.nix
     ./physical.nix
     ./trackpad.nix

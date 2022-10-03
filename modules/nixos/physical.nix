@@ -14,8 +14,6 @@ in {
       default = pkgs.linuxPackages_latest;
     };
 
-    boot.loader.useDefault = mkEnableOption "if host uses default boot loader configuration";
-
     timezone = mkOption {
       type = types.str;
       default = "Asia/Tokyo";
@@ -28,23 +26,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    boot = {
-      inherit (cfg) kernelPackages;
-
-      loader = mkIf cfg.boot.loader.useDefault {
-        systemd-boot = {
-          enable = true;
-          editor = false;
-          consoleMode = "auto";
-        };
-
-        efi = {
-          canTouchEfiVariables = true;
-          efiSysMountPoint = "/boot/efi";
-        };
-      };
-    };
-
     time.timeZone = cfg.timezone;
     i18n.defaultLocale = cfg.locale;
 

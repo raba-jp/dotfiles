@@ -18,8 +18,6 @@
         lxqt.enable = false;
         physical = {
           enable = true;
-          boot.loader.useDefault = true;
-          kernelPackages = pkgs.linuxPackages_5_19;
         };
       };
     }
