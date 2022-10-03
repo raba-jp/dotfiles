@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   imports = [
     ./boot
+    ./network
+    ./media-server
     ./amd
     ./docker
     ./game

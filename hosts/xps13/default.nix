@@ -7,6 +7,7 @@
     ./hardware-configuration.nix
     {
       dotfiles = {
+        network.hostName = "xps13";
         amd.enable = false;
         docker.enable = false;
         game.enable = false;
@@ -23,8 +24,6 @@
       };
     }
   ];
-
-  networking.hostName = "xps13";
 
   hardware.enableRedistributableFirmware = true;
   services.fwupd.enable = true;

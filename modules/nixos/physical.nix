@@ -29,15 +29,6 @@ in {
     time.timeZone = cfg.timezone;
     i18n.defaultLocale = cfg.locale;
 
-    networking = {
-      networkmanager.enable = true;
-      useDHCP = false;
-      firewall = {
-        allowedTCPPorts = [8080];
-        allowedUDPPorts = [8080];
-      };
-    };
-
     # Sound
     sound.enable = true;
     hardware.pulseaudio.enable = false;
@@ -95,11 +86,6 @@ in {
 
       cachix-agent = {
         enable = true;
-      };
-
-      jellyfin = {
-        enable = true;
-        openFirewall = true;
       };
     };
     programs = {

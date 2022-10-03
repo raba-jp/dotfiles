@@ -7,6 +7,8 @@
     ./hardware-configuration.nix
     {
       dotfiles = {
+        network.hostName = "define7";
+        mediaServer.enable = true;
         amd.enable = true;
         docker.enable = true;
         game.enable = true;
@@ -46,8 +48,6 @@
   #     '';
   #   };
   # };
-
-  networking.hostName = "define7";
 
   users.users.sakuraba = {
     isNormalUser = true;
