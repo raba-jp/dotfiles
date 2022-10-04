@@ -11,9 +11,6 @@
     yarn
     aws-vault
     yubikey-manager
-    python
-    black
-    poetry
     openjdk
     clojure
     clj-kondo
