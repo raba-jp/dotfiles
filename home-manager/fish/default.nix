@@ -19,7 +19,7 @@
 
     # https://github.com/LnL7/nix-darwin/issues/122
     loginShellInit = ''
-      fish_add_path --move --prepend --path $HOME/.nix-profile/bin /run/wrappers/bin /etc/profiles/per-user/$USER/bin /nix/var/nix/profiles/default/bin /run/current-system/sw/bin
+      fish_add_path --move --prepend --path $HOME/.nix-profile/bin /run/wrappers/bin /etc/profiles/per-user/$USER/bin /run/current-system/sw/bin
 
       set -U FZF_LEGACY_KEYBINDINGS 0
       set -U GHQ_SELECTOR "fzf-tmux"
