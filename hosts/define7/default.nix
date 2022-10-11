@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: {
+{config, ...}: {
   imports = [
     ./hardware-configuration.nix
     {
@@ -81,6 +78,8 @@
       ../../home-manager/tig
       ../../home-manager/wezterm
       ../../home-manager/helix
+      ../../home-manager/gitui
+      ../../home-manager/espanso
     ];
   };
 }

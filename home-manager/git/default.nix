@@ -13,6 +13,16 @@
         fsmonitor = "${pkgs.rs-git-fsmonitor}/bin/rs-git-fsmonitor";
       };
 
+      add.interactive.useBuiltin = false;
+      delta = {
+        navigate = true;
+        light = false;
+        side-by-side = true;
+        line-numbers = true;
+      };
+      merge.conflictstyle = "diff3";
+      diff.colorMoved = "default";
+
       user.useConfigOnly = true;
 
       color = {
