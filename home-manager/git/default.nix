@@ -9,9 +9,32 @@
     extraConfig = {
       core = {
         editor = "hx";
-        preloadindex = true;
         fsmonitor = "${pkgs.rs-git-fsmonitor}/bin/rs-git-fsmonitor";
+
+        multipackindex = true;
+        preloadindex = true;
+        untrackedcache = true;
       };
+
+      gc.auto = 0;
+      gui.gcwarning = false;
+      index.threads = true;
+      index.version = 4;
+      merge.stat = false;
+      merge.renames = true;
+      pack.usebitmaps = false;
+      pack.usesparse = true;
+      receive.autogc = false;
+      feature.manyfiles = false;
+      feature.experimental = false;
+      fetch.unpacklimit = 1;
+      fetch.writecommitgraph = false;
+      fetch.showforcedupdates = false;
+      status.aheadbehind = false;
+      commitgraph.generationversion = 1;
+      log.excludedecoration = "refs/prefetch/*";
+      maintenance.auto = false;
+      maintenance.strategy = incremental;
 
       add.interactive.useBuiltin = false;
       delta = {
