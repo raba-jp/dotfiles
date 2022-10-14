@@ -34,7 +34,7 @@
       commitgraph.generationversion = 1;
       log.excludedecoration = "refs/prefetch/*";
       maintenance.auto = false;
-      maintenance.strategy = incremental;
+      maintenance.strategy = "incremental";
 
       add.interactive.useBuiltin = false;
       delta = {
