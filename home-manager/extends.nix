@@ -25,5 +25,6 @@
     cue
     ecspresso
     tfmigrate
+    colima
   ];
 }
