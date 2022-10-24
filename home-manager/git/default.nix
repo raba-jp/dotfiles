@@ -29,7 +29,7 @@
       feature.experimental = false;
       fetch.unpacklimit = 1;
       fetch.writecommitgraph = false;
-      fetch.showforcedupdates = false;
+      fetch.showforcedupdates = true;
       status.aheadbehind = false;
       commitgraph.generationversion = 1;
       log.excludedecoration = "refs/prefetch/*";
