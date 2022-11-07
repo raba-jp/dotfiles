@@ -59,15 +59,6 @@
       pull.ff = "only";
 
       push.autoSetupRemote = true;
-
-      # https://github.com/NixOS/nixpkgs/pull/193454
-      # user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHrmIHH+Jzr3fj6KorpZoV9XfOGE2T557Ti4R5/Ax92T";
-      # gpg.format = "ssh";
-      # "gpg \"ssh\"".program =
-      #   if pkgs.stdenvNoCC.isDarwin
-      #   then "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-      #   else "/run/current-system/sw/share/1password/op-ssh-sign";
-      # commit.gpgsign = true;
     };
   };
 }
