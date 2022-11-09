@@ -43,6 +43,7 @@
   };
 
   services.xserver.videoDrivers = ["modesetting"];
+  services.thermald.enable = true;
 
   users.users.sakuraba = {
     isNormalUser = true;
