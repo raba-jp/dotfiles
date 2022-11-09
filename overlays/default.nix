@@ -10,6 +10,7 @@ with prev.lib;
       (import ./heptabase.nix)
       (import ./ecspresso.nix)
       (import ./tfmigrate.nix)
+      (import ./brave.nix)
       (_final: prev: {sidekick = (prev.callPackage ./sidekick.nix) {};})
     ]
   )
