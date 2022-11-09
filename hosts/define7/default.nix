@@ -1,12 +1,13 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   imports = [
     ./hardware-configuration.nix
     {
       dotfiles = {
+        network.hostName = "define7";
+        services = {
+          mediaServer.enable = true;
+          cachixAgent.enable = true;
+        };
         amd.enable = true;
         docker.enable = true;
         game.enable = true;
@@ -47,8 +48,6 @@
   #   };
   # };
 
-  networking.hostName = "define7";
-
   users.users.sakuraba = {
     isNormalUser = true;
     createHome = true;
@@ -79,6 +78,8 @@
       ../../home-manager/tig
       ../../home-manager/wezterm
       ../../home-manager/helix
+      ../../home-manager/gitui
+      ../../home-manager/espanso
     ];
   };
 }

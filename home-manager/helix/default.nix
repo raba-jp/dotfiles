@@ -26,8 +26,7 @@
     ];
 
     settings = {
-      theme = "nord";
-
+      theme = "catppuccin_mocha";
       editor = {
         shell = ["${pkgs.fish}/bin/fish" "-c"];
         lsp.display-messages = true;

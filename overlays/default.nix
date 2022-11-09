@@ -5,10 +5,11 @@ with prev.lib;
     [
       (import ./udev-gothic.nix)
       (import ./popshell.nix)
-      (import ./vim-startuptime.nix)
       (import ./nordic.nix)
       (import ./cljstyle.nix)
       (import ./heptabase.nix)
+      (import ./ecspresso.nix)
+      (import ./tfmigrate.nix)
       (_final: prev: {sidekick = (prev.callPackage ./sidekick.nix) {};})
     ]
   )

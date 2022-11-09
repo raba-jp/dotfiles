@@ -35,7 +35,10 @@
       inputs.darwin.follows = "darwin";
     };
 
-    helix.url = "github:helix-editor/helix";
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # fish shell plugins
     fish-done = {
@@ -58,8 +61,11 @@
     cachix-deploy-flake,
     helix,
     nixos-hardware,
+    flake-utils,
     ...
   } @ inputs: let
+    inherit (flake-utils.lib) system;
+
     overlays = [
       (import ./overlays)
       (_final: prev: {
@@ -77,63 +83,60 @@
       nixpkgs.overlays = overlays;
     };
   in {
-    defaultPackage = {
-      "aarch64-darwin" = let
-        pkgs = import nixpkgs {
-          inherit overlays;
-          system = "aarch64-darwin";
-          config.allowUnfree = true;
-        };
-        cachix-deploy-lib = cachix-deploy-flake.lib pkgs;
-      in
-        cachix-deploy-lib.spec {
-          agents = {
-            LF2107010038 = cachix-deploy-lib.darwin (
-              {...}: {
-                imports = [
-                  home-manager.darwinModules.home-manager
-                  commonModules
-                  ./modules/darwin
-                  ./hosts/LF2107010038
-                ];
-              }
-            );
+    packages.${system.aarch64-darwin}.default = let
+      pkgs = import nixpkgs {
+        inherit overlays;
+        system = system.aarch64-darwin;
+        config.allowUnfree = true;
+      };
+      cachix-deploy-lib = cachix-deploy-flake.lib pkgs;
+    in
+      cachix-deploy-lib.spec {
+        agents.LF2107010038 = cachix-deploy-lib.darwin (
+          {...}: {
+            imports = [
+              home-manager.darwinModules.home-manager
+              commonModules
+              ./modules/darwin
+              ./hosts/LF2107010038
+            ];
+          }
+        );
+      };
+
+    packages.${system.x86_64-linux}.default = let
+      pkgs = import nixpkgs {
+        inherit overlays;
+        system = system.x86_64-linux;
+        config.allowUnfree = true;
+      };
+      cachix-deploy-lib = cachix-deploy-flake.lib pkgs;
+    in
+      cachix-deploy-lib.spec {
+        agents = {
+          define7 = cachix-deploy-lib.nixos {
+            imports = [
+              home-manager.nixosModules.home-manager
+              commonModules
+              ./modules/nixos
+              ./hosts/define7
+            ];
+          };
+
+          xps13 = cachix-deploy-lib.nixos {
+            imports = [
+              home-manager.nixosModules.home-manager
+              commonModules
+              nixos-hardware.nixosModules.common-cpu-intel
+              nixos-hardware.nixosModules.common-gpu-intel
+              nixos-hardware.nixosModules.common-pc-laptop
+              nixos-hardware.nixosModules.common-pc-laptop-ssd
+              nixos-hardware.nixosModules.common-gpu-nvidia-disable
+              ./modules/nixos
+              ./hosts/xps13
+            ];
           };
         };
-
-      "x86_64-linux" = let
-        pkgs = import nixpkgs {
-          inherit overlays;
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
-        cachix-deploy-lib = cachix-deploy-flake.lib pkgs;
-      in
-        cachix-deploy-lib.spec {
-          agents = {
-            define7 = cachix-deploy-lib.nixos {
-              imports = [
-                home-manager.nixosModules.home-manager
-                commonModules
-                ./modules/nixos
-                ./hosts/define7
-              ];
-            };
-
-            xps13 = cachix-deploy-lib.nixos {
-              imports = [
-                home-manager.nixosModules.home-manager
-                commonModules
-                nixos-hardware.nixosModules.common-cpu-intel
-                nixos-hardware.nixosModules.common-gpu-intel
-                nixos-hardware.nixosModules.common-pc-laptop
-                nixos-hardware.nixosModules.common-pc-laptop-ssd
-                ./modules/nixos
-                ./hosts/xps13
-              ];
-            };
-          };
-        };
-    };
+      };
   };
 }

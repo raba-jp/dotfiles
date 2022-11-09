@@ -19,6 +19,7 @@ _: {
       ../../home-manager/tig
       ../../home-manager/wezterm
       ../../home-manager/helix
+      ../../home-manager/gitui
     ];
   };
 

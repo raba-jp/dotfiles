@@ -7,6 +7,11 @@
     ./hardware-configuration.nix
     {
       dotfiles = {
+        network.hostName = "xps13";
+        services = {
+          cachixAgent.enable = true;
+          mediaServer.enable = false;
+        };
         amd.enable = false;
         docker.enable = false;
         game.enable = false;
@@ -23,8 +28,6 @@
       };
     }
   ];
-
-  networking.hostName = "xps13";
 
   hardware.enableRedistributableFirmware = true;
   services.fwupd.enable = true;
@@ -75,6 +78,8 @@
       ../../home-manager/tig
       ../../home-manager/wezterm
       ../../home-manager/helix
+      ../../home-manager/gitui
+      ../../home-manager/espanso
     ];
   };
 }
