@@ -113,6 +113,7 @@ in {
       flatpak
       lutris
       bottles
+      brave
     ];
   };
 }
