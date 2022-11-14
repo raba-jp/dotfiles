@@ -2,25 +2,25 @@
   "entries": {
     "tap": {
       "homebrew/bundle": {
-        "revision": "cf8a86177665825a7f30780e8fe1af333a0527c6"
+        "revision": "5216bbdd9d47b1cb01c0d2cb656de32540ada95d"
       },
       "homebrew/cask": {
-        "revision": "792adf8294330b5c30987a585b1fcc4cfbd830ad"
+        "revision": "cc64c0def0e8fa5cd702b42e20884732937cd188"
       },
       "homebrew/cask-fonts": {
-        "revision": "fe200fafe831bbc24e30af5687a3f3f8dc87afae"
+        "revision": "6da25fd74498a7054bc0a7268859b386e7d796cc"
       },
       "homebrew/cask-versions": {
-        "revision": "1d74ee5ec891388e3cd7a0f6d17925e80ddecdaa"
+        "revision": "4fa746cd08d58b992ec8d19e27a8b98d5823e137"
       },
       "homebrew/core": {
-        "revision": "215df6baae48ef02da8c96013efd6ad03df4b370"
+        "revision": "87877f1a581df6aeae7caccddf0394d211a804f0"
       },
       "homebrew/services": {
-        "revision": "4fe8e3c38c9a38f1d76c9d741f32bdfe8c59e340"
+        "revision": "88788e6314506b662f971f43af119c641190a4c8"
       },
       "espanso/espanso": {
-        "revision": "be5d52a7e55580a18416c7943fe79910347d03aa"
+        "revision": "750cb3607abb6e8a1a8ccf0a93f875409ffe3d2e"
       }
     },
     "cask": {
@@ -37,7 +37,7 @@
         }
       },
       "bartender": {
-        "version": "4.2.11,42011",
+        "version": "4.2.12,42012",
         "options": {
           "full_name": "bartender"
         }
@@ -49,19 +49,19 @@
         }
       },
       "bettertouchtool": {
-        "version": "3.891,2046",
+        "version": "3.939,2103",
         "options": {
           "full_name": "bettertouchtool"
         }
       },
       "gather": {
-        "version": "0.3.14",
+        "version": "0.3.20",
         "options": {
           "full_name": "gather"
         }
       },
       "google-chrome": {
-        "version": "106.0.5249.103",
+        "version": "107.0.5304.110",
         "options": {
           "full_name": "google-chrome"
         }
@@ -73,13 +73,13 @@
         }
       },
       "jetbrains-gateway": {
-        "version": "222.4345.14",
+        "version": "222.4459.11",
         "options": {
           "full_name": "jetbrains-gateway"
         }
       },
       "logseq": {
-        "version": "0.8.8",
+        "version": "0.8.10",
         "options": {
           "full_name": "logseq"
         }
@@ -91,7 +91,7 @@
         }
       },
       "pushplaylabs-sidekick": {
-        "version": "104.29.3.24852,ebd959c",
+        "version": "1.0.68",
         "options": {
           "full_name": "pushplaylabs-sidekick"
         }
@@ -109,13 +109,13 @@
         }
       },
       "raycast": {
-        "version": "1.40.3",
+        "version": "1.43.2",
         "options": {
           "full_name": "raycast"
         }
       },
       "tableplus": {
-        "version": "5.0.0,454",
+        "version": "5.1.0,468",
         "options": {
           "full_name": "tableplus"
         }
@@ -127,13 +127,13 @@
         }
       },
       "utm": {
-        "version": "3.2.4",
+        "version": "4.0.9",
         "options": {
           "full_name": "utm"
         }
       },
       "visual-studio-code": {
-        "version": "1.72.0",
+        "version": "1.73.1",
         "options": {
           "full_name": "visual-studio-code"
         }
@@ -145,13 +145,13 @@
         }
       },
       "zoom": {
-        "version": "5.12.2.11434",
+        "version": "5.12.8.12565",
         "options": {
           "full_name": "zoom"
         }
       },
       "espanso": {
-        "version": "2.1.7-beta",
+        "version": "2.1.8",
         "options": {
           "full_name": "espanso"
         }
@@ -167,15 +167,21 @@
         "options": {
           "full_name": "font-udev-gothic-nf"
         }
+      },
+      "brave-browser": {
+        "version": "1.45.123.0,145.123",
+        "options": {
+          "full_name": "brave-browser"
+        }
       }
     }
   },
   "system": {
     "macos": {
       "monterey": {
-        "HOMEBREW_VERSION": "3.6.5",
+        "HOMEBREW_VERSION": "3.6.10",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "215df6baae48ef02da8c96013efd6ad03df4b370",
+        "Homebrew/homebrew-core": "87877f1a581df6aeae7caccddf0394d211a804f0",
         "CLT": "",
         "Xcode": "13.4.1",
         "macOS": "12.6"
