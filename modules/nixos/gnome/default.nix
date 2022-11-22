@@ -67,7 +67,11 @@ in {
         gnome-connections
       ];
 
-      systemPackages = [pkgs.gnome.gnome-tweaks];
+      systemPackages = with pkgs; [
+        gnome.gnome-tweaks
+        catppuccin-gtk
+        catppuccin-cursors
+      ];
     };
   };
 }
