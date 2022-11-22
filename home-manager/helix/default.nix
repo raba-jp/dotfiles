@@ -9,6 +9,10 @@
     sumneko-lua-language-server
     cuelsp
     nodePackages.typescript-language-server
+    nodePackages.vscode-json-languageserver
+    nodePackages.yaml-language-server
+    jsonnet-language-server
+    zls
   ];
   programs.helix = {
     enable = true;
