@@ -37,7 +37,7 @@ in {
         desktopManager.gnome.enable = true;
       };
 
-      gnome.chrome-gnome-shell.enable = true;
+      gnome.gnome-browser-connector.enable = true;
     };
 
     programs.dconf.enable = true;
