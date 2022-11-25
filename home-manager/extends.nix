@@ -26,5 +26,6 @@
     ecspresso
     tfmigrate
     colima
+    pueue
   ];
 }

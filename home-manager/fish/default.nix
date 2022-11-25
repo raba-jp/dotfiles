@@ -40,6 +40,7 @@
       ps = "procs";
       untar = "tar -xvf";
       xclip = "xclip -selection clipboard";
+      q = "pueue";
     };
 
     plugins = [
