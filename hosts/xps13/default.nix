@@ -31,6 +31,7 @@
 
   hardware.enableRedistributableFirmware = true;
   services.fwupd.enable = true;
+  services.fprintd.enable = true;
 
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
