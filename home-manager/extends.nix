@@ -27,5 +27,6 @@
     tfmigrate
     colima
     pueue
+    dotenv-linter
   ];
 }
