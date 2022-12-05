@@ -114,6 +114,7 @@ in {
       lutris
       bottles
       brave
+      slack
     ];
   };
 }

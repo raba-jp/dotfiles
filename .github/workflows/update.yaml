@@ -17,3 +17,16 @@ jobs:
         uses: DeterminateSystems/update-flake-lock@v12
         with:
           token: ${{ secrets.PAT }}
+  brave-browser:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+      - run: go run scripts/brave-updater/main.go
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v4
+        with:
+          branch: bump-brave-version
+          delete-branch: true
+          title: Bump Brave browser version
+          token: ${{ secrets.PAT }}
