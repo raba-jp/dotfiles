@@ -103,9 +103,10 @@ func getHash(url string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	fmt.Printf("SHA256: %s\n", string(out))
+	hash := strings.Trim(string(out), "\n")
+	fmt.Printf("SHA256: %s\n", hash)
 
-	return string(out), nil
+	return hash, nil
 }
 
 func createFile(wd string, release *Release, asset *Asset, hash string) error {

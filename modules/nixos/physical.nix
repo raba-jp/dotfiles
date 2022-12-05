@@ -115,6 +115,7 @@ in {
       bottles
       brave
       slack
+      discord
     ];
   };
 }
