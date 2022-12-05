@@ -20,7 +20,7 @@ wezterm.on("update-right-status", function(window, _)
 end)
 
 return {
-	default_prog = { "fish", "-l" },
+	default_prog = { "$SHELL", "-l" },
 
 	font = wezterm.font_with_fallback({
 		"UDEV Gothic 35NFLG",
