@@ -27,16 +27,19 @@
       set -U FZF_TMUX_OPTS "-w 80% -h 50%"
     '';
 
-    shellAbbrs = {
+    shellAliases = {
       ls = "exa";
       ll = "exa --all --long --grid --header --no-filesize --no-time --no-user --git --icons";
+      tree = "exa --tree --icons --all --git-ignore --ignore-glob=.git";
+      cat = "bat";
+    };
+
+    shellAbbrs = {
       gc = "git commit";
       guc = "git uncommit";
       gs = "git status --short";
-      cat = "bat";
       grep = "rg";
       find = "fd";
-      tree = "exa --tree --icons --all --git-ignore --ignore-glob=.git";
       ps = "procs";
       untar = "tar -xvf";
       xclip = "xclip -selection clipboard";
