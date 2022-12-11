@@ -33,3 +33,9 @@ command = "taplo"
 options = ["fmt"]
 includes = ["*.toml"]
 excludes = []
+
+[formatter.go]
+command = "go"
+options = ["fmt"]
+includes = ["*.go"]
+excludes = []
