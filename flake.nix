@@ -54,44 +54,48 @@
     inherit (self) outputs;
 
     supportedSystems = [system.x86_64-linux system.aarch64-linux];
-  in {
-    overlays = import ./overlays;
 
-    packages = eachSystem supportedSystems (system: let
+    specialArgs = {inherit inputs outputs;};
+  in
+    eachSystem supportedSystems (system: let
       pkgs = import nixpkgs {
         inherit system;
       };
-    in
-      (import ./pkgs {inherit pkgs;})
-      // {
-        vm = nixos-generators.nixosGenerate {
-          inherit system;
-          format = "vm";
+    in {
+      packages =
+        (import ./pkgs {inherit pkgs;})
+        // {
+          vm = nixos-generators.nixosGenerate {
+            inherit system specialArgs;
+            format = "vm";
+            modules = [./images/vm];
+          };
         };
-      });
+    })
+    // {
+      overlays = import ./overlays;
 
-    homeConfigurations = {
-      "sakuraba@generic" = let
-        pkgs = nixpkgs {system = system.x86_64-linux;};
-      in
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {inherit inputs outputs;};
-          modules = [];
-        };
+      homeConfigurations = {
+        "sakuraba@generic" = let
+          pkgs = nixpkgs {system = system.x86_64-linux;};
+        in
+          home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            extraSpecialArgs = specialArgs;
+            modules = [];
+          };
+      };
+      nixConfig = {
+        extra-substituers = [
+          "https://raba-jp.cachix.org"
+          "https://helix.cachix.org"
+          "https://nix-community.cachix.org"
+        ];
+        extra-trusted-public-keys = [
+          "raba-jp.cachix.org-1:NgVIMhL5fUaEclOsEtMnCBbyrYDG+qvPPldf2pqklu8="
+          "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        ];
+      };
     };
-
-    nixConfig = {
-      extra-substituers = [
-        "https://raba-jp.cachix.org"
-        "https://helix.cachix.org"
-        "https://nix-community.cachix.org"
-      ];
-      extra-trusted-public-keys = [
-        "raba-jp.cachix.org-1:NgVIMhL5fUaEclOsEtMnCBbyrYDG+qvPPldf2pqklu8="
-        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      ];
-    };
-  };
 }
