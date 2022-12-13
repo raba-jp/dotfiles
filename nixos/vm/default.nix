@@ -7,7 +7,7 @@
   networking.hostName = "vm";
 
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
     binfmt.emulatedSystems = ["aarch64-linux"];
   };
 

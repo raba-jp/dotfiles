@@ -22,12 +22,6 @@ options = ["-w"]
 includes = ["*.sh"]
 excludes = []
 
-[formatter.python]
-command = "black"
-options = []
-includes = ["*.py"]
-excludes = []
-
 [formatter.toml]
 command = "taplo"
 options = ["fmt"]

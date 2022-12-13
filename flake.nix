@@ -47,10 +47,9 @@
     nixos-generators,
     flake-utils,
     home-manager,
-    helix,
     ...
   } @ inputs: let
-    inherit (flake-utils.lib) system eachSystem flattenTree;
+    inherit (flake-utils.lib) system eachSystem;
     inherit (self) outputs;
 
     supportedSystems = [system.x86_64-linux system.aarch64-linux];

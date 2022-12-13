@@ -1,10 +1,7 @@
 {
-  pkgs,
   config,
-  lib,
   ...
 }: let
-  ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
   hmConfigPath = ../../../home/sakuraba/${config.networking.hostName}.nix;
   pathExists = builtins.pathExists hmConfigPath;
 in {
@@ -29,5 +26,10 @@ in {
       ];
   };
 
-  home-manager.users.sakuraba = lib.mkIf pathExists import hmConfigPath;
+  home-manager.users.sakuraba =
+    if pathExists
+    then import hmConfigPath
+    else {
+      home.stateVersion = "22.11";
+    };
 }
