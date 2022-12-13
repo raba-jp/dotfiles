@@ -68,15 +68,18 @@
           vm = nixos-generators.nixosGenerate {
             inherit system specialArgs;
             format = "vm";
-            modules = [./images/vm];
+            modules = [./nixos/vm];
           };
         };
     })
     // {
       overlays = import ./overlays;
 
+      nixosModules = import ./modules/nixos;
+      homeManagerModules = import ./modules/home-manager;
+
       homeConfigurations = {
-        "sakuraba@generic" = let
+        sakuraba = let
           pkgs = nixpkgs {system = system.x86_64-linux;};
         in
           home-manager.lib.homeManagerConfiguration {
