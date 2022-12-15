@@ -50,7 +50,6 @@
 
     exa = {
       enable = true;
-      enableAliases = true;
     };
 
     go = {

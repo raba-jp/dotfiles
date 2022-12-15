@@ -13,6 +13,7 @@
     nodePackages.yaml-language-server
     jsonnet-language-server
     zls
+    nil
   ];
   programs.helix = {
     enable = true;
@@ -25,6 +26,10 @@
         formatter = {
           command = "alejandra";
           args = ["--quiet" "-"];
+        };
+        language-server = {
+          command = "nil";
+          args = [];
         };
       }
     ];
