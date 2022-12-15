@@ -5,7 +5,6 @@
 }: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    inputs.hyprland.homeManagerModules.default
   ];
 
   home-manager = {

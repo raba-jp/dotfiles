@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  system,
+  ...
+}: {
   # LSP
   home.packages = with pkgs; [
     clojure-lsp
@@ -18,7 +23,7 @@
 
   programs.helix = {
     enable = true;
-    package = pkgs.helix-latest;
+    package = inputs.helix.packages.${pkgs.system}.default;
 
     languages = [
       {
@@ -27,7 +32,7 @@
         language-server = {
           command = "nil";
           args = [];
-        }
+        };
         formatter = {
           command = "alejandra";
           args = ["--quiet" "-"];

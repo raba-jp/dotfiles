@@ -1,8 +1,5 @@
-{
-  config,
-  ...
-}: let
-  hmConfigPath = ../../../home/sakuraba/${config.networking.hostName}.nix;
+{config, ...}: let
+  hmConfigPath = ../../../home/users/sakuraba/${config.networking.hostName}.nix;
   pathExists = builtins.pathExists hmConfigPath;
 in {
   # TODO

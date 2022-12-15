@@ -58,8 +58,6 @@
     inherit (self) outputs;
 
     supportedSystems = [system.x86_64-linux system.aarch64-linux];
-
-    specialArgs = {inherit inputs outputs;};
   in
     eachSystem supportedSystems (system: let
       pkgs = import nixpkgs {
@@ -70,9 +68,12 @@
         (import ./pkgs {inherit pkgs;})
         // {
           iso = nixos-generators.nixosGenerate {
-            inherit system specialArgs;
+            inherit system;
             format = "iso";
-            modules = [./nixos/vm];
+            modules = [./nixos/iso];
+            specialArgs = {
+              inherit inputs outputs system;
+            };
           };
         };
     })
@@ -88,8 +89,10 @@
         in
           home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
-            extraSpecialArgs = specialArgs;
-            modules = [];
+            extraSpecialArgs = {
+              inherit inputs outputs system;
+            };
+            modules = [./home/users/sakuraba/home.nix];
           };
       };
       nixConfig = {

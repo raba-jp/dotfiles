@@ -4,7 +4,7 @@
     ../common/users/sakuraba.nix
   ];
 
-  networking.hostName = "vm";
+  networking.hostName = "iso";
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
