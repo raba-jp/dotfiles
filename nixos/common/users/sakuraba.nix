@@ -21,6 +21,9 @@ in {
         "git"
         "libvirtd"
       ];
+
+    # TODO: dummy password
+    password = "zxcvhjkl";
   };
 
   home-manager.users.sakuraba =
