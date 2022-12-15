@@ -79,7 +79,7 @@
 
       homeConfigurations = {
         sakuraba = let
-          pkgs = nixpkgs {system = system.x86_64-linux;};
+          pkgs = import nixpkgs {system = system.x86_64-linux;};
         in
           home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
