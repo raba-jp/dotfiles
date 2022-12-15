@@ -116,6 +116,8 @@ in {
       brave
       slack
       discord
+      gnome.gnome-boxes
+      virt-manager
     ];
   };
 }
