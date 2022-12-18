@@ -23,4 +23,10 @@
       lm_sensors
     ];
   };
+
+  system = {
+    autoUpgrade.enable = true;
+
+    stateVersion = "21.11";
+  };
 }

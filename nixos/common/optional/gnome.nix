@@ -11,6 +11,9 @@
         enable = true;
         autoSuspend = false;
       };
+
+      layout = "us";
+      xkbOptions = "ctrl:nocaps";
     };
 
     gnome = {

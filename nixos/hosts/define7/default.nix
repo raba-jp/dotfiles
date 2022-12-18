@@ -6,6 +6,7 @@
     ../../common/optional/gamemode.nix
     ../../common/optional/pipewire.nix
     ../../common/optional/systemd-boot.nix
+    ../../common/optional/cachix.nix
   ];
 
   boot.initrd.kernelModules = ["amdgpu"];

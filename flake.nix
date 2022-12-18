@@ -104,21 +104,6 @@
           };
         };
 
-      nixosConfigurations = {
-        define7 = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            nixos-hardware.nixosModules.common-cpu-amd
-            nixos-hardware.nixosModules.common-cpu-amd-pstate
-            nixos-hardware.nixosModules.common-gpu-amd
-            nixos-hardware.nixosModules.common-pc-ssd
-          ];
-          specialArgs = {
-            inherit inputs outputs;
-          };
-        };
-      };
-
       homeConfigurations = {
         sakuraba = let
           pkgs = import nixpkgs {
@@ -139,6 +124,22 @@
 
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
+
+      nixosConfigurations = {
+        define7 = nixpkgs.lib.nixosSystem {
+          system = system.x86_64-linux;
+          modules = [
+            nixos-hardware.nixosModules.common-cpu-amd
+            nixos-hardware.nixosModules.common-cpu-amd-pstate
+            nixos-hardware.nixosModules.common-gpu-amd
+            nixos-hardware.nixosModules.common-pc-ssd
+            ./nixos/hosts/define7
+          ];
+          specialArgs = {
+            inherit inputs outputs;
+          };
+        };
+      };
 
       nixConfig = {
         extra-substituers = [
