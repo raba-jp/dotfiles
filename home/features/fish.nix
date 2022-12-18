@@ -63,6 +63,10 @@
         name = "fish-fzf";
         src = inputs.fish-fzf;
       }
+      {
+        name = "catppuccin-fish";
+        src = inputs.catppuccin-fish;
+      }
     ];
   };
 }

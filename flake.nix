@@ -44,6 +44,21 @@
       url = "github:jethrokuan/fzf";
       flake = false;
     };
+
+    catppuccin-fish = {
+      url = "github:catppuccin/fish";
+      flake = false;
+    };
+
+    catppuccin-gitui = {
+      url = "github:catppuccin/gitui";
+      flake = false;
+    };
+
+    catppuccin-bat = {
+      url = "github:catppuccin/bat";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -70,7 +85,7 @@
           iso = nixos-generators.nixosGenerate {
             inherit system;
             format = "iso";
-            modules = [./nixos/iso];
+            modules = [./nixos/hosts/iso];
             specialArgs = {
               inherit inputs outputs system;
             };

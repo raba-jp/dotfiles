@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
-    ../common/global
-    ../common/users/sakuraba.nix
+    ../../common/global
+    ../../common/users/sakuraba.nix
   ];
 
   networking.hostName = "iso";
