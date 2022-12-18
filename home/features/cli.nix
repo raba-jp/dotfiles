@@ -30,23 +30,54 @@
       alejandra
       stylua
       gping
+      kubectl
+      kubectx
+      skaffold
+      tilt
+      kustomize
+      kubernetes-helm
+      stern
+      kind
+      conftest
+      dive
+      cue
+      bazelisk
+      terraform
+      terraformer
+      terragrunt
+      driftctl
+      buf
+      nodejs
+      yarn
+      aws-vault
+      golangci-lint
+      actionlint
+      taplo
+      rclone
+      bun
+      deno
+      ecspresso
+      tfmigrate
+      colima
+      pueue
+      dotenv-linter
     ];
+  };
 
-    programs = {
-      direnv = {
-        enable = true;
-        nix-direnv.enable = true;
-      };
+  programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
 
-      exa.enable = true;
-      go.enable = true;
-      jq.enable = true;
+    exa.enable = true;
+    go.enable = true;
+    jq.enable = true;
 
-      zoxide = {
-        enable = true;
-        enableZshIntegration = true;
-        enableFishIntegration = true;
-      };
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+      enableFishIntegration = true;
     };
   };
 }
