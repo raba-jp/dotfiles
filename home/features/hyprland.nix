@@ -5,6 +5,10 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    extraConfig = '''';
+    extraConfig =
+      ''
+
+      ''
+      + builtins.readFile (inputs.catppuccin-hyprland + "/themes/mocha.conf");
   };
 }

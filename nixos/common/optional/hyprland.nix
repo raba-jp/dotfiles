@@ -1,6 +1,4 @@
-{
-  ...
-}: {
+{...}: {
   programs.hyprland = {
     enable = true;
   };

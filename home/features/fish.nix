@@ -49,6 +49,7 @@
       untar = "tar -xvf";
       xclip = "xclip -selection clipboard";
       q = "pueue";
+      man = "batman";
     };
 
     plugins = [
