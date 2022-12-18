@@ -79,5 +79,7 @@
       enableZshIntegration = true;
       enableFishIntegration = true;
     };
+
+    home-manager.enable = true;
   };
 }
