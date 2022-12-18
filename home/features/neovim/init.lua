@@ -1,4 +1,2 @@
-vim.cmd('packadd vim-jetpack')
-require('jetpack.paq') {
-  
-}
+vim.cmd("packadd vim-jetpack")
+require("jetpack.paq")({})
