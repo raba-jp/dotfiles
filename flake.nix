@@ -115,6 +115,7 @@
             modules = [./home/users/sakuraba/home.nix];
           };
       };
+
       nixConfig = {
         extra-substituers = [
           "https://raba-jp.cachix.org"
