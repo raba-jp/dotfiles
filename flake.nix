@@ -21,6 +21,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    cachix-deploy-flake = {
+      url = "github:cachix/cachix-deploy-flake";
+      # inputs.darwin.follows = "darwin";
+    };
+
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -78,6 +83,7 @@
     nixos-generators,
     nixos-hardware,
     flake-utils,
+    cachix-deploy-flake,
     home-manager,
     ...
   } @ inputs: let
@@ -102,6 +108,10 @@
               inherit inputs outputs;
             };
           };
+
+          deploy = pkgs.writeText "cachix-deploy.json" (builtins.toJSON {
+            agents = {};
+          });
         };
 
       homeConfigurations = {

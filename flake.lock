@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "cachix-deploy-flake": {
+      "inputs": {
+        "darwin": "darwin"
+      },
+      "locked": {
+        "lastModified": 1658928181,
+        "narHash": "sha256-NrsEthiR/JyjNXl5u9n1x9FyFomBOShboZ1Y0ynp0ZE=",
+        "owner": "cachix",
+        "repo": "cachix-deploy-flake",
+        "rev": "0afa224e57675abb8a4bc16a4209b2c2a0df16e7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cachix",
+        "repo": "cachix-deploy-flake",
+        "type": "github"
+      }
+    },
     "catppuccin-bat": {
       "flake": false,
       "locked": {
@@ -77,6 +95,24 @@
       "original": {
         "owner": "ipetkov",
         "repo": "crane",
+        "type": "github"
+      }
+    },
+    "darwin": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1657835815,
+        "narHash": "sha256-CnZszAYpNKydh6N7+xg+eRtWNVoAAGqc6bg+Lpgq1xc=",
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "rev": "54a24f042f93c79f5679f133faddedec61955cf2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LnL7",
+        "repo": "nix-darwin",
         "type": "github"
       }
     },
@@ -428,6 +464,20 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1602411953,
+        "narHash": "sha256-gbupmxRpoQZqL5NBQCJN2GI5G7XDEHHHYKhVwEj5+Ps=",
+        "owner": "LnL7",
+        "repo": "nixpkgs",
+        "rev": "f780534ea2d0c12e62607ff254b6b45f46653f7a",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1670152712,
         "narHash": "sha256-LJttwIvJqsZIj8u1LxVRv82vwUtkzVqQVi7Wb8gxPS4=",
         "owner": "nixos",
@@ -444,6 +494,7 @@
     },
     "root": {
       "inputs": {
+        "cachix-deploy-flake": "cachix-deploy-flake",
         "catppuccin-bat": "catppuccin-bat",
         "catppuccin-fish": "catppuccin-fish",
         "catppuccin-gitui": "catppuccin-gitui",
@@ -458,7 +509,7 @@
         "hyprland": "hyprland",
         "nixos-generators": "nixos-generators",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "vim-jetpack": "vim-jetpack"
       }
     },
