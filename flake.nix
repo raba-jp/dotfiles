@@ -59,6 +59,11 @@
       url = "github:catppuccin/bat";
       flake = false;
     };
+
+    catppuccin-hyprland = {
+      url = "github:catppuccin/hyprland";
+      flake = false;
+    };
   };
 
   outputs = {

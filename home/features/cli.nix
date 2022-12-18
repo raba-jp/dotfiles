@@ -33,28 +33,13 @@
     ];
 
     programs = {
-      bat = {
-        enable = true;
-        config = {
-          theme = "Nord";
-          style = "changes,header";
-        };
-      };
-
       direnv = {
         enable = true;
         nix-direnv.enable = true;
       };
 
-      exa = {
-        enable = true;
-      };
-
-      go = {
-        enable = true;
-        goPath = "go";
-      };
-
+      exa.enable = true;
+      go.enable = true;
       jq.enable = true;
 
       zoxide = {

@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ../../features/cli.nix
     ../../features/espanso.nix
     ../../features/fish.nix
     ../../features/fzf.nix

@@ -48,6 +48,22 @@
         "type": "github"
       }
     },
+    "catppuccin-hyprland": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1669689131,
+        "narHash": "sha256-P0D/9ANuQjz5oqIH3w5BdzPM8CQAtOtBsLsqDN8Mq5s=",
+        "owner": "catppuccin",
+        "repo": "hyprland",
+        "rev": "15383218340309cd77d1dc501bfa82c30c45067f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "hyprland",
+        "type": "github"
+      }
+    },
     "crane": {
       "flake": false,
       "locked": {
@@ -416,6 +432,7 @@
         "catppuccin-bat": "catppuccin-bat",
         "catppuccin-fish": "catppuccin-fish",
         "catppuccin-gitui": "catppuccin-gitui",
+        "catppuccin-hyprland": "catppuccin-hyprland",
         "fish-done": "fish-done",
         "fish-fzf": "fish-fzf",
         "fish-ghq": "fish-ghq",
