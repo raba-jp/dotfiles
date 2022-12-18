@@ -9,10 +9,11 @@
       flake = false;
     };
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
 
     nixos-generators = {
@@ -28,6 +29,11 @@
     helix = {
       url = "github:helix-editor/helix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    vim-jetpack = {
+      url = "github:tani/vim-jetpack";
+      flake = false;
     };
 
     fish-done = {
@@ -70,6 +76,7 @@
     self,
     nixpkgs,
     nixos-generators,
+    nixos-hardware,
     flake-utils,
     home-manager,
     ...
@@ -92,29 +99,46 @@
             format = "iso";
             modules = [./nixos/hosts/iso];
             specialArgs = {
-              inherit inputs outputs system;
+              inherit inputs outputs;
             };
           };
         };
+
+      nixosConfigurations = {
+        define7 = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            nixos-hardware.nixosModules.common-cpu-amd
+            nixos-hardware.nixosModules.common-cpu-amd-pstate
+            nixos-hardware.nixosModules.common-gpu-amd
+            nixos-hardware.nixosModules.common-pc-ssd
+          ];
+          specialArgs = {
+            inherit inputs outputs;
+          };
+        };
+      };
+
+      homeConfigurations = {
+        sakuraba = let
+          pkgs = import nixpkgs {
+            inherit system;
+          };
+        in
+          home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            extraSpecialArgs = {
+              inherit inputs outputs;
+            };
+            modules = [./home/users/sakuraba/home.nix];
+          };
+      };
     })
     // {
       overlays = import ./overlays;
 
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
-
-      homeConfigurations = {
-        sakuraba = let
-          pkgs = import nixpkgs {system = system.x86_64-linux;};
-        in
-          home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = {
-              inherit inputs outputs system;
-            };
-            modules = [./home/users/sakuraba/home.nix];
-          };
-      };
 
       nixConfig = {
         extra-substituers = [

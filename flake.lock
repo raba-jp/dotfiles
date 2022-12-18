@@ -411,6 +411,21 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1671228065,
+        "narHash": "sha256-Az/ig9LVL5xdqtyl4/CVKJIH1G7sP/9Ott2XnNyie0E=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "e462a4baf75eeac639b4942481759de08a3bc94e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1670152712,
@@ -442,7 +457,9 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nixos-generators": "nixos-generators",
-        "nixpkgs": "nixpkgs"
+        "nixos-hardware": "nixos-hardware",
+        "nixpkgs": "nixpkgs",
+        "vim-jetpack": "vim-jetpack"
       }
     },
     "rust-overlay": {
@@ -479,6 +496,22 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "vim-jetpack": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1670825194,
+        "narHash": "sha256-rR319+T/80RlGqi7gsH66MW/nZ4Qfx3N1QDKZUxe2VQ=",
+        "owner": "tani",
+        "repo": "vim-jetpack",
+        "rev": "257307f46c6767f9a54660a5b5e61e6160a58317",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tani",
+        "repo": "vim-jetpack",
         "type": "github"
       }
     },

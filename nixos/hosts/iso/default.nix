@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ../../common/global
+    ../../common/optional/hyprland.nix
     ../../common/users/sakuraba.nix
   ];
 
