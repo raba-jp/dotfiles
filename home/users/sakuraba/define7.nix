@@ -1,5 +1,8 @@
 {...}: {
   imports = [
+    ../../features/wezterm
+    ../../features/neovim
+
     ../../features/cli.nix
     ../../features/espanso.nix
     ../../features/fish.nix
@@ -7,7 +10,6 @@
     ../../features/git.nix
     ../../features/gitui.nix
     ../../features/helix.nix
-    ../../features/wezterm
     ../../features/starship.nix
   ];
 

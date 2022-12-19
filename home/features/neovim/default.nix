@@ -17,7 +17,7 @@
 
     extraConfig =
       "lua <<EOF"
-      + (builtins.readFile "./init.lua")
+      + (builtins.readFile ./init.lua)
       + "EOF";
   };
 }
