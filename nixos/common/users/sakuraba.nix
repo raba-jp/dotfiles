@@ -1,9 +1,5 @@
-{config, ...}: let
-  hmConfigPath = ../../../home/users/sakuraba/${config.networking.hostName}.nix;
-  pathExists = builtins.pathExists hmConfigPath;
-in {
-  # TODO
-  users.mutableUsers = true;
+{config, ...}: {
+  users.mutableUsers = false;
   users.users.sakuraba = {
     isNormalUser = true;
     createHome = true;
@@ -21,15 +17,8 @@ in {
         "git"
         "libvirtd"
       ];
-
-    # TODO: dummy password
-    password = "zxcvhjkl";
+    hashedPassword = "$6$pfJbTwMjGKRLZED.$E7VDlAVGg75bOgdnEo11Q9GCHH0M0RQk3VXlTotAxsE0EpypbiOAWbe8AsdwtgDCPbBtrSQ5zqrqYyX28qAO9.";
   };
 
-  home-manager.users.sakuraba =
-    if pathExists
-    then import hmConfigPath
-    else {
-      home.stateVersion = "22.11";
-    };
+  home-manager.users.sakuraba = import ../../../home/users/sakuraba/${config.networking.hostName}.nix;
 }
