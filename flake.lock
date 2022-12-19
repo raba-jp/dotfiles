@@ -82,6 +82,22 @@
         "type": "github"
       }
     },
+    "catppuccin-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1671218978,
+        "narHash": "sha256-Y3rJsjVGHYDEBKQOBTPmOc71PBNOwTiPEPXw6T8UM/k=",
+        "owner": "catppuccin",
+        "repo": "nvim",
+        "rev": "55f43a952856bc0029e6cef066297c6cfab3451d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "nvim",
+        "type": "github"
+      }
+    },
     "crane": {
       "flake": false,
       "locked": {
@@ -384,6 +400,22 @@
         "type": "github"
       }
     },
+    "lualine-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1669646907,
+        "narHash": "sha256-DiSbSGfCe8h/7Bu48jbYQfwFXhlHmJnGG5R6oBG4JPs=",
+        "owner": "nvim-lualine",
+        "repo": "lualine.nvim",
+        "rev": "bfa0d99ba6f98d077dd91779841f1c88b7b5c165",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-lualine",
+        "repo": "lualine.nvim",
+        "type": "github"
+      }
+    },
     "nci": {
       "inputs": {
         "devshell": "devshell",
@@ -499,6 +531,7 @@
         "catppuccin-fish": "catppuccin-fish",
         "catppuccin-gitui": "catppuccin-gitui",
         "catppuccin-hyprland": "catppuccin-hyprland",
+        "catppuccin-nvim": "catppuccin-nvim",
         "fish-done": "fish-done",
         "fish-fzf": "fish-fzf",
         "fish-ghq": "fish-ghq",
@@ -507,10 +540,10 @@
         "helix": "helix",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "lualine-nvim": "lualine-nvim",
         "nixos-generators": "nixos-generators",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2",
-        "vim-jetpack": "vim-jetpack"
+        "nixpkgs": "nixpkgs_2"
       }
     },
     "rust-overlay": {
@@ -547,22 +580,6 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "vim-jetpack": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1670825194,
-        "narHash": "sha256-rR319+T/80RlGqi7gsH66MW/nZ4Qfx3N1QDKZUxe2VQ=",
-        "owner": "tani",
-        "repo": "vim-jetpack",
-        "rev": "257307f46c6767f9a54660a5b5e61e6160a58317",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tani",
-        "repo": "vim-jetpack",
         "type": "github"
       }
     },

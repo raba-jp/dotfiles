@@ -36,11 +36,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    vim-jetpack = {
-      url = "github:tani/vim-jetpack";
-      flake = false;
-    };
-
     fish-done = {
       url = "github:franciscolourenco/done";
       flake = false;
@@ -75,8 +70,37 @@
       url = "github:catppuccin/hyprland";
       flake = false;
     };
-  };
 
+    catppuccin-nvim = {
+      url = "github:catppuccin/nvim";
+      flake = false;
+    };
+
+    lualine-nvim = {
+      url = "github:nvim-lualine/lualine.nvim";
+      flake = false;
+    };
+
+    nvim-lspconfig = {
+      url = "github:neovim/nvim-lspconfig";
+      flake = false;
+    };
+    cmp-nvim-lsp = {
+      url = "github:hrsh7th/cmp-nvim-lsp";
+      flake = false;
+    };
+    cmp-buffer = {
+      url = "github:hrsh7th/cmp-buffer";
+      flake = false;
+    };
+    cmp-path = {
+      url = "github:hrsh7th/cmp-path";
+      flake = false;
+    };
+
+    #  'hrsh7th/cmp-cmdline'
+    #  'hrsh7th/nvim-cmp'
+  };
   outputs = {
     self,
     nixpkgs,
