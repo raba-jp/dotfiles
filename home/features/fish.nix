@@ -3,6 +3,13 @@
   inputs,
   ...
 }: {
+  xdg.configFile = {
+    "fish/themes/Catppuccin Mocha.theme" = {
+      text = builtins.readFile (inputs.catppuccin-fish + "/themes/Catppuccin Mocha.theme");
+      onChange = ''fish_config theme save "Catppuccin Mocha"'';
+    };
+  };
+
   programs.fish = {
     enable = true;
 
@@ -24,7 +31,6 @@
     # https://github.com/LnL7/nix-darwin/issues/122
     loginShellInit = ''
       fish_add_path --move --prepend --path $HOME/.nix-profile/bin /run/wrappers/bin /etc/profiles/per-user/$USER/bin /run/current-system/sw/bin
-      fish_config theme save "Catppuccin Mocha"
 
       set -U FZF_LEGACY_KEYBINDINGS 0
       set -U GHQ_SELECTOR "fzf-tmux"
@@ -64,10 +70,6 @@
       {
         name = "fish-fzf";
         src = inputs.fish-fzf;
-      }
-      {
-        name = "catppuccin-fish";
-        src = inputs.catppuccin-fish;
       }
     ];
   };

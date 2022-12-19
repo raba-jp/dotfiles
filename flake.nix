@@ -87,10 +87,17 @@
     home-manager,
     ...
   } @ inputs: let
-    inherit (flake-utils.lib) system eachSystem;
+    inherit (flake-utils.lib) eachSystem;
     inherit (self) outputs;
 
-    supportedSystems = [system.x86_64-linux system.aarch64-linux];
+    supportedSystems = ["x86_64-linux" "aarch64-linux"];
+    define7Modules = [
+      nixos-hardware.nixosModules.common-cpu-amd
+      nixos-hardware.nixosModules.common-cpu-amd-pstate
+      nixos-hardware.nixosModules.common-gpu-amd
+      nixos-hardware.nixosModules.common-pc-ssd
+      ./nixos/hosts/define7
+    ];
   in
     eachSystem supportedSystems (system: let
       pkgs = import nixpkgs {
@@ -110,7 +117,21 @@
           };
 
           deploy = pkgs.writeText "cachix-deploy.json" (builtins.toJSON {
-            agents = {};
+            agents = {
+              define7 =
+                (nixpkgs.lib.nixosSystem
+                  {
+                    system = "x86_64-linux";
+                    modules = define7Modules;
+                    specialArgs = {
+                      inherit inputs outputs;
+                    };
+                  })
+                .config
+                .system
+                .build
+                .toplevel;
+            };
           });
         };
 
@@ -137,13 +158,8 @@
 
       nixosConfigurations = {
         define7 = nixpkgs.lib.nixosSystem {
-          system = system.x86_64-linux;
+          system = "x86_64-linux";
           modules = [
-            nixos-hardware.nixosModules.common-cpu-amd
-            nixos-hardware.nixosModules.common-cpu-amd-pstate
-            nixos-hardware.nixosModules.common-gpu-amd
-            nixos-hardware.nixosModules.common-pc-ssd
-            ./nixos/hosts/define7
           ];
           specialArgs = {
             inherit inputs outputs;

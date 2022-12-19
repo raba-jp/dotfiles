@@ -7,7 +7,12 @@
     ../../common/optional/pipewire.nix
     ../../common/optional/systemd-boot.nix
     ../../common/optional/cachix.nix
+    ../../common/users/sakuraba.nix
   ];
+
+  networking.hostName = "define7";
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.initrd.kernelModules = ["amdgpu"];
 
