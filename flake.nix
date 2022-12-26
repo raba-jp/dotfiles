@@ -85,6 +85,11 @@
       url = "github:neovim/nvim-lspconfig";
       flake = false;
     };
+
+    nvim-cmp = {
+      url = "github:hrsh7th/nvim-cmp";
+      flake = false;
+    };
     cmp-nvim-lsp = {
       url = "github:hrsh7th/cmp-nvim-lsp";
       flake = false;
@@ -97,9 +102,14 @@
       url = "github:hrsh7th/cmp-path";
       flake = false;
     };
-
-    #  'hrsh7th/cmp-cmdline'
-    #  'hrsh7th/nvim-cmp'
+    cmp-cmdline = {
+      url = "github:hrsh7th/cmp-cmdline";
+      flake = false;
+    };
+    vim-vsnip = {
+      url = "github:hrsh7th/vim-vsnip";
+      flake = false;
+    };
   };
   outputs = {
     self,

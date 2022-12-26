@@ -98,6 +98,70 @@
         "type": "github"
       }
     },
+    "cmp-buffer": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1660101488,
+        "narHash": "sha256-dG4U7MtnXThoa/PD+qFtCt76MQ14V1wX8GMYcvxEnbM=",
+        "owner": "hrsh7th",
+        "repo": "cmp-buffer",
+        "rev": "3022dbc9166796b644a841a02de8dd1cc1d311fa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-buffer",
+        "type": "github"
+      }
+    },
+    "cmp-cmdline": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1669558641,
+        "narHash": "sha256-hzLiqPMU0tDQ4MTwKxvb3gY2JdD5KwqltGYckuSOzm0=",
+        "owner": "hrsh7th",
+        "repo": "cmp-cmdline",
+        "rev": "23c51b2a3c00f6abc4e922dbd7c3b9aca6992063",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-cmdline",
+        "type": "github"
+      }
+    },
+    "cmp-nvim-lsp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668566979,
+        "narHash": "sha256-Mqkp8IH/laUx0cK7S0BjusTT+OtOOJOamZM4+93RHdU=",
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp",
+        "rev": "59224771f91b86d1de12570b4070fe4ad7cd1eeb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp",
+        "type": "github"
+      }
+    },
+    "cmp-path": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664784283,
+        "narHash": "sha256-thppiiV3wjIaZnAXmsh7j3DUc6ceSCvGzviwFUnoPaI=",
+        "owner": "hrsh7th",
+        "repo": "cmp-path",
+        "rev": "91ff86cd9c29299a64f968ebb45846c485725f23",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-path",
+        "type": "github"
+      }
+    },
     "crane": {
       "flake": false,
       "locked": {
@@ -524,6 +588,38 @@
         "type": "github"
       }
     },
+    "nvim-cmp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1671781435,
+        "narHash": "sha256-8Ehq6hvwudOY24/+f60rb5PgX+JThzZ+k4OtWEGQwe0=",
+        "owner": "hrsh7th",
+        "repo": "nvim-cmp",
+        "rev": "d09b0c396aaa078cdfe78316ec06940971136e85",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "nvim-cmp",
+        "type": "github"
+      }
+    },
+    "nvim-lspconfig": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1671969222,
+        "narHash": "sha256-KfgRREgs9WSziZhiW0tNXp9xlZFwaylGU48pVXAc0fs=",
+        "owner": "neovim",
+        "repo": "nvim-lspconfig",
+        "rev": "212b99bc12a5416df8b2a610711ba399e2fc388a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "neovim",
+        "repo": "nvim-lspconfig",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "cachix-deploy-flake": "cachix-deploy-flake",
@@ -532,6 +628,10 @@
         "catppuccin-gitui": "catppuccin-gitui",
         "catppuccin-hyprland": "catppuccin-hyprland",
         "catppuccin-nvim": "catppuccin-nvim",
+        "cmp-buffer": "cmp-buffer",
+        "cmp-cmdline": "cmp-cmdline",
+        "cmp-nvim-lsp": "cmp-nvim-lsp",
+        "cmp-path": "cmp-path",
         "fish-done": "fish-done",
         "fish-fzf": "fish-fzf",
         "fish-ghq": "fish-ghq",
@@ -543,7 +643,10 @@
         "lualine-nvim": "lualine-nvim",
         "nixos-generators": "nixos-generators",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "nvim-cmp": "nvim-cmp",
+        "nvim-lspconfig": "nvim-lspconfig",
+        "vim-vsnip": "vim-vsnip"
       }
     },
     "rust-overlay": {
@@ -580,6 +683,22 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "vim-vsnip": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1671546474,
+        "narHash": "sha256-vFYn5fAM7AAuvTI5behiYM08sV2qQyV7zZ++jgpZfSc=",
+        "owner": "hrsh7th",
+        "repo": "vim-vsnip",
+        "rev": "8dde8c0ef10bb1afdbb301e2bd7eb1c153dd558e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "vim-vsnip",
         "type": "github"
       }
     },
