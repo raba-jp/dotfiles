@@ -58,7 +58,5 @@ in [
       name = "nvim-cmp";
       src = inputs.nvim-cmp;
     };
-    config = builtins.readFile ./lsp.lua;
-    type = "lua";
   }
 ]

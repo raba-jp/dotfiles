@@ -152,6 +152,10 @@ in {
     extraConfig =
       "lua <<EOF\n"
       + (builtins.readFile ./init.lua)
+      + ''
+        require("lsp")
+        require("fuzzyfinder")
+      ''
       + "\nEOF";
   };
 }
