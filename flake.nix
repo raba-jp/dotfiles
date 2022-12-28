@@ -71,6 +71,11 @@
       flake = false;
     };
 
+    plenary-nvim = {
+      url = "github:nvim-lua/plenary.nvim";
+      flake = false;
+    };
+
     catppuccin-nvim = {
       url = "github:catppuccin/nvim";
       flake = false;
@@ -106,8 +111,32 @@
       url = "github:hrsh7th/cmp-cmdline";
       flake = false;
     };
+    cmp-nvim-lsp-signature-help = {
+      url = "github:hrsh7th/cmp-nvim-lsp-signature-help";
+      flake = false;
+    };
     vim-vsnip = {
       url = "github:hrsh7th/vim-vsnip";
+      flake = false;
+    };
+
+    lsp-inlayhints-nvim = {
+      url = "github:lvimuser/lsp-inlayhints.nvim";
+      flake = false;
+    };
+
+    noice-nvim = {
+      url = "github:folke/noice.nvim";
+      flake = false;
+    };
+
+    nui-nvim = {
+      url = "github:MunifTanjim/nui.nvim";
+      flake = false;
+    };
+
+    nvim-notify = {
+      url = "github:rcarriga/nvim-notify";
       flake = false;
     };
   };
@@ -117,7 +146,6 @@
     nixos-generators,
     nixos-hardware,
     flake-utils,
-    cachix-deploy-flake,
     home-manager,
     ...
   } @ inputs: let
@@ -193,8 +221,7 @@
       nixosConfigurations = {
         define7 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [
-          ];
+          modules = define7Modules;
           specialArgs = {
             inherit inputs outputs;
           };

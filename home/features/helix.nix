@@ -6,6 +6,7 @@
 }: {
   # LSP
   home.packages = with pkgs; [
+    buf-language-server
     clojure-lsp
     solargraph
     gopls
@@ -16,6 +17,9 @@
     nodePackages.typescript-language-server
     nodePackages.vscode-json-languageserver
     nodePackages.yaml-language-server
+    nodePackages.bash-language-server
+    nodePackages.dockerfile-language-server-nodejs
+    nodePackages.graphql-language-service-cli
     jsonnet-language-server
     zls
     nil

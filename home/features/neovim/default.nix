@@ -13,6 +13,12 @@ in {
       [
         {
           plugin = buildVimPluginFrom2Nix {
+            name = "plenary.nvim";
+            src = inputs.plenary-nvim;
+          };
+        }
+        {
+          plugin = buildVimPluginFrom2Nix {
             name = "catppuccin";
             src = inputs.catppuccin-nvim;
           };
@@ -48,6 +54,46 @@ in {
             		highlight_current_scope = { enable = true },
             	},
             	rainbow = { enable = true },
+            })
+          '';
+          type = "lua";
+        }
+        {
+          plugin = buildVimPluginFrom2Nix {
+            name = "nui.nvim";
+            src = inputs.nui-nvim;
+          };
+        }
+        {
+          plugin = buildVimPluginFrom2Nix {
+            name = "nvim-notify";
+            src = inputs.nvim-notify;
+          };
+        }
+        {
+          plugin = buildVimPluginFrom2Nix {
+            name = "noice.nvim";
+            src = inputs.noice-nvim;
+          };
+          config = ''
+            -- Recommended config from https://github.com/folke/noice.nvim
+            require("noice").setup({
+              lsp = {
+                -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+                override = {
+                  ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                  ["vim.lsp.util.stylize_markdown"] = true,
+                  ["cmp.entry.get_documentation"] = true,
+                },
+              },
+              -- you can enable a preset for easier configuration
+              presets = {
+                bottom_search = true, -- use a classic bottom cmdline for search
+                command_palette = true, -- position the cmdline and popupmenu together
+                long_message_to_split = true, -- long messages will be sent to a split
+                inc_rename = false, -- enables an input dialog for inc-rename.nvim
+                lsp_doc_border = false, -- add a border to hover docs and signature help
+              },
             })
           '';
           type = "lua";

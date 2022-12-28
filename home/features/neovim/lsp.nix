@@ -7,14 +7,14 @@
 in [
   {
     plugin = buildVimPluginFrom2Nix {
-      name = "nvim-lspconfig";
-      src = inputs.nvim-lspconfig;
+      name = "lsp-inlayhints.nvim";
+      src = inputs.lsp-inlayhints-nvim;
     };
   }
   {
     plugin = buildVimPluginFrom2Nix {
-      name = "nvim-cmp";
-      src = inputs.nvim-cmp;
+      name = "nvim-lspconfig";
+      src = inputs.nvim-lspconfig;
     };
   }
   {
@@ -46,5 +46,19 @@ in [
       name = "vim-vsnip";
       src = inputs.vim-vsnip;
     };
+  }
+  {
+    plugin = buildVimPluginFrom2Nix {
+      name = "cmp-nvim-lsp-signature-help";
+      src = inputs.cmp-nvim-lsp-signature-help;
+    };
+  }
+  {
+    plugin = buildVimPluginFrom2Nix {
+      name = "nvim-cmp";
+      src = inputs.nvim-cmp;
+    };
+    config = builtins.readFile ./lsp.lua;
+    type = "lua";
   }
 ]
