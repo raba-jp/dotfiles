@@ -1,7 +1,6 @@
 {
   pkgs,
-  inputs,
-  system,
+  outputs,
   ...
 }: {
   # LSP
@@ -27,7 +26,7 @@
 
   programs.helix = {
     enable = true;
-    package = inputs.helix.packages.${pkgs.system}.default;
+    package = outputs.packages.${pkgs.system}.helix;
 
     languages = [
       {

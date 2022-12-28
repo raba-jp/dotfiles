@@ -406,6 +406,21 @@
         "type": "github"
       }
     },
+    "flake-utils_3": {
+      "locked": {
+        "lastModified": 1667395993,
+        "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "helix": {
       "inputs": {
         "nci": "nci",
@@ -579,6 +594,29 @@
       "original": {
         "owner": "yusdacra",
         "repo": "nix-cargo-integration",
+        "type": "github"
+      }
+    },
+    "neovim": {
+      "inputs": {
+        "flake-utils": "flake-utils_3",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "contrib",
+        "lastModified": 1672193103,
+        "narHash": "sha256-XhQ2Xl1MBjE+Bg0UZXD3pZ+pwEoHtskO2yG8+RfA6UM=",
+        "owner": "neovim",
+        "repo": "neovim",
+        "rev": "bf459641a85ff1b4f24196ba6345de7bb8159884",
+        "type": "github"
+      },
+      "original": {
+        "dir": "contrib",
+        "owner": "neovim",
+        "repo": "neovim",
         "type": "github"
       }
     },
@@ -816,6 +854,7 @@
         "hyprland": "hyprland",
         "lsp-inlayhints-nvim": "lsp-inlayhints-nvim",
         "lualine-nvim": "lualine-nvim",
+        "neovim": "neovim",
         "nixos-generators": "nixos-generators",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",

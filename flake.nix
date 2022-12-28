@@ -36,6 +36,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    neovim = {
+      url = "github:neovim/neovim?dir=contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     fish-done = {
       url = "github:franciscolourenco/done";
       flake = false;
@@ -169,6 +174,10 @@
       packages =
         (import ./pkgs {inherit pkgs;})
         // {
+          helix = inputs.helix.packages.${system}.default;
+
+          neovim = inputs.neovim.packages.${system}.default;
+
           iso = nixos-generators.nixosGenerate {
             inherit system;
             format = "iso";

@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  outputs,
   ...
 }: let
   inherit (pkgs.vimUtils) buildVimPluginFrom2Nix;
@@ -8,6 +9,7 @@
 in {
   programs.neovim = {
     enable = true;
+    package = outputs.packages.${pkgs.system}.neovim;
 
     plugins = with pkgs.vimPlugins;
       [
