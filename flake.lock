@@ -421,6 +421,22 @@
         "type": "github"
       }
     },
+    "gitsigns-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1671461498,
+        "narHash": "sha256-QsG4gYeHyabrb2XxwagHydXXA9C+5phRS52R0nJlRY4=",
+        "owner": "lewis6991",
+        "repo": "gitsigns.nvim",
+        "rev": "2ab3bdf0a40bab53033048c6be75bda86316b55d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lewis6991",
+        "repo": "gitsigns.nvim",
+        "type": "github"
+      }
+    },
     "helix": {
       "inputs": {
         "nci": "nci",
@@ -606,11 +622,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1672193103,
-        "narHash": "sha256-XhQ2Xl1MBjE+Bg0UZXD3pZ+pwEoHtskO2yG8+RfA6UM=",
+        "lastModified": 1672215132,
+        "narHash": "sha256-KygNY7mTxySQ40zEsWh7p3toGM64ViHf8q3NXaZ4ENY=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "bf459641a85ff1b4f24196ba6345de7bb8159884",
+        "rev": "a731a40f78a407387fd60589e39bda960bdf5f1b",
         "type": "github"
       },
       "original": {
@@ -849,6 +865,7 @@
         "fish-ghq": "fish-ghq",
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
+        "gitsigns-nvim": "gitsigns-nvim",
         "helix": "helix",
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",

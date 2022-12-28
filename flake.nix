@@ -144,6 +144,10 @@
       url = "github:rcarriga/nvim-notify";
       flake = false;
     };
+    gitsigns-nvim = {
+      url = "github:lewis6991/gitsigns.nvim";
+      flake = false;
+    };
   };
   outputs = {
     self,

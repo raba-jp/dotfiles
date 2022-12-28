@@ -100,6 +100,12 @@ in {
           '';
           type = "lua";
         }
+        {
+          plugin = buildVimPluginFrom2Nix {
+            name = "gitsigns.nvim";
+            src = inputs.gitsigns-nvim;
+          };
+        }
       ]
       ++ lspPlugins;
 
