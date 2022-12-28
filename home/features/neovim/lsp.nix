@@ -43,12 +43,6 @@ in [
   }
   {
     plugin = buildVimPluginFrom2Nix {
-      name = "vim-vsnip";
-      src = inputs.vim-vsnip;
-    };
-  }
-  {
-    plugin = buildVimPluginFrom2Nix {
       name = "cmp-nvim-lsp-signature-help";
       src = inputs.cmp-nvim-lsp-signature-help;
     };

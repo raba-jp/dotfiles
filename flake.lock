@@ -931,8 +931,7 @@
         "nvim-notify": "nvim-notify",
         "nvim-treesitter-context": "nvim-treesitter-context",
         "nvim-web-devicons": "nvim-web-devicons",
-        "plenary-nvim": "plenary-nvim",
-        "vim-vsnip": "vim-vsnip"
+        "plenary-nvim": "plenary-nvim"
       }
     },
     "rust-overlay": {
@@ -984,22 +983,6 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "vim-vsnip": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1671546474,
-        "narHash": "sha256-vFYn5fAM7AAuvTI5behiYM08sV2qQyV7zZ++jgpZfSc=",
-        "owner": "hrsh7th",
-        "repo": "vim-vsnip",
-        "rev": "8dde8c0ef10bb1afdbb301e2bd7eb1c153dd558e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hrsh7th",
-        "repo": "vim-vsnip",
         "type": "github"
       }
     },

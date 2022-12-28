@@ -21,10 +21,6 @@ local has_words_before = function()
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-local feedkey = function(key, mode)
-	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
-
 local lspconfig = require("lspconfig")
 
 lspconfig["bashls"].setup({
@@ -161,38 +157,55 @@ lspconfig["zls"].setup({
 	capaabilities = capabilities,
 })
 cmp.setup({
-	snippet = {
-		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body)
+	mapping = {
+		["<C-Space>"] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Insert,
+			select = true,
+		}),
+
+		["<Tab>"] = function(fallback)
+			if not cmp.select_next_item() then
+				if vim.bo.buftype ~= "prompt" and has_words_before() then
+					cmp.complete()
+				else
+					fallback()
+				end
+			end
+		end,
+
+		["<S-Tab>"] = function(fallback)
+			if not cmp.select_prev_item() then
+				if vim.bo.buftype ~= "prompt" and has_words_before() then
+					cmp.complete()
+				else
+					fallback()
+				end
+			end
 		end,
 	},
 
-	mapping = cmp.mapping.preset.insert({
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif vim.fn["vsnip#available"](1) == 1 then
-				feedkey("<Plug>(vsnip-expand-or-jump)", "")
-			elseif has_words_before() then
-				cmp.complete()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
+	snippet = {
+		-- We recommend using *actual* snippet engine.
+		-- It's a simple implementation so it might not work in some of the cases.
+		expand = function(args)
+			local line_num, col = unpack(vim.api.nvim_win_get_cursor(0))
+			local line_text = vim.api.nvim_buf_get_lines(0, line_num - 1, line_num, true)[1]
+			local indent = string.match(line_text, "^%s*")
+			local replace = vim.split(args.body, "\n", true)
+			local surround = string.match(line_text, "%S.*") or ""
+			local surround_end = surround:sub(col)
 
-		["<S-Tab>"] = cmp.mapping(function()
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-				feedkey("<Plug>(vsnip-jump-prev)", "")
+			replace[1] = surround:sub(0, col - 1) .. replace[1]
+			replace[#replace] = replace[#replace] .. (#surround_end > 1 and " " or "") .. surround_end
+			if indent ~= "" then
+				for i, line in ipairs(replace) do
+					replace[i] = indent .. line
+				end
 			end
-		end, { "i", "s" }),
-		["<C-n>"] = cmp.mapping.scroll_docs(-4),
-		["<C-t>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-	}),
+
+			vim.api.nvim_buf_set_lines(0, line_num - 1, line_num, true, replace)
+		end,
+	},
 
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },

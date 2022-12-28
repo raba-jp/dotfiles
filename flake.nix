@@ -135,10 +135,6 @@
       url = "github:hrsh7th/cmp-nvim-lsp-signature-help";
       flake = false;
     };
-    vim-vsnip = {
-      url = "github:hrsh7th/vim-vsnip";
-      flake = false;
-    };
 
     lsp-inlayhints-nvim = {
       url = "github:lvimuser/lsp-inlayhints.nvim";

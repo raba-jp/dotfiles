@@ -12,7 +12,7 @@ in {
   xdg.configFile = let
     inherit (lib.attrsets) filterAttrs nameValuePair mapAttrs';
 
-    filterFiles = name: value: (value == "regular") || (value == "symlink");
+    filterFiles = _name: value: (value == "regular") || (value == "symlink");
     configFiles = filterAttrs filterFiles (builtins.readDir ./lua);
     toAttrs = f: _:
       nameValuePair
@@ -22,7 +22,7 @@ in {
         executable = false;
       };
   in
-    mapAttrs' toAttrs configFiles;
+    mapAttrs' toAttrs configFiles // {"nvim/init.lua".source = ./init.lua;};
 
   programs.neovim = {
     enable = true;
@@ -35,11 +35,6 @@ in {
             name = "impatient.nvim";
             src = inputs.impatient-nvim;
           };
-          # TODO: disable profiling
-          config = ''
-            require('impatient').enable_profile()
-          '';
-          type = "lua";
         }
         {
           plugin = buildVimPluginFrom2Nix {
@@ -58,23 +53,12 @@ in {
             name = "catppuccin";
             src = inputs.catppuccin-nvim;
           };
-          config = ''
-            colorscheme catppuccin-mocha
-          '';
         }
         {
           plugin = buildVimPluginFrom2Nix {
             name = "lualine";
             src = inputs.lualine-nvim;
           };
-          config = ''
-            require('lualine').setup({
-              options = {
-                theme = "catppuccin"
-              }
-            })
-          '';
-          type = "lua";
         }
         {
           plugin = buildVimPluginFrom2Nix {
@@ -84,21 +68,6 @@ in {
         }
         {
           plugin = nvim-treesitter.withAllGrammars;
-          config = ''
-            require("nvim-treesitter.configs").setup({
-            	sync_install = false,
-            	highlight = { enable = true },
-            	indent = { enable = true },
-            	lsp_interop = { enable = true },
-            	refactor = {
-            		navigation = { enable = true },
-            		highlight_definitions = { enable = true },
-            		highlight_current_scope = { enable = true },
-            	},
-            	rainbow = { enable = true },
-            })
-          '';
-          type = "lua";
         }
         {
           plugin = buildVimPluginFrom2Nix {
@@ -117,28 +86,6 @@ in {
             name = "noice.nvim";
             src = inputs.noice-nvim;
           };
-          config = ''
-            -- Recommended config from https://github.com/folke/noice.nvim
-            require("noice").setup({
-              lsp = {
-                -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-                override = {
-                  ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-                  ["vim.lsp.util.stylize_markdown"] = true,
-                  ["cmp.entry.get_documentation"] = true,
-                },
-              },
-              -- you can enable a preset for easier configuration
-              presets = {
-                bottom_search = true, -- use a classic bottom cmdline for search
-                command_palette = true, -- position the cmdline and popupmenu together
-                long_message_to_split = true, -- long messages will be sent to a split
-                inc_rename = false, -- enables an input dialog for inc-rename.nvim
-                lsp_doc_border = false, -- add a border to hover docs and signature help
-              },
-            })
-          '';
-          type = "lua";
         }
         {
           plugin = buildVimPluginFrom2Nix {
@@ -148,14 +95,5 @@ in {
         }
       ]
       ++ lspPlugins;
-
-    extraConfig =
-      "lua <<EOF\n"
-      + (builtins.readFile ./init.lua)
-      + ''
-        require("lsp")
-        require("fuzzyfinder")
-      ''
-      + "\nEOF";
   };
 }
