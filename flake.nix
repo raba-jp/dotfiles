@@ -36,11 +36,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neovim = {
-      url = "github:neovim/neovim?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     fish-done = {
       url = "github:franciscolourenco/done";
       flake = false;
@@ -81,8 +76,28 @@
       flake = false;
     };
 
+    neovim = {
+      url = "github:neovim/neovim?dir=contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    impatient-nvim = {
+      url = "github:lewis6991/impatient.nvim";
+      flake = false;
+    };
+
     catppuccin-nvim = {
       url = "github:catppuccin/nvim";
+      flake = false;
+    };
+
+    nvim-treesitter-context = {
+      url = "github:nvim-treesitter/nvim-treesitter-context";
+      flake = false;
+    };
+
+    nvim-web-devicons = {
+      url = "github:kyazdani42/nvim-web-devicons";
       flake = false;
     };
 

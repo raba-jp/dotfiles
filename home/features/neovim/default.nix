@@ -1,12 +1,29 @@
 {
+  lib,
   pkgs,
   inputs,
   outputs,
   ...
 }: let
   inherit (pkgs.vimUtils) buildVimPluginFrom2Nix;
+
   lspPlugins = import ./lsp.nix {inherit pkgs inputs;};
 in {
+  xdg.configFile = let
+    inherit (lib.attrsets) filterAttrs nameValuePair mapAttrs';
+
+    filterFiles = name: value: (value == "regular") || (value == "symlink");
+    configFiles = filterAttrs filterFiles (builtins.readDir ./lua);
+    toAttrs = f: _:
+      nameValuePair
+      ("nvim/lua/" + f)
+      {
+        source = ./lua + ("/" + f);
+        executable = false;
+      };
+  in
+    mapAttrs' toAttrs configFiles;
+
   programs.neovim = {
     enable = true;
     package = outputs.packages.${pkgs.system}.neovim;
@@ -15,8 +32,25 @@ in {
       [
         {
           plugin = buildVimPluginFrom2Nix {
+            name = "impatient.nvim";
+            src = inputs.impatient-nvim;
+          };
+          # TODO: disable profiling
+          config = ''
+            require('impatient').enable_profile()
+          '';
+          type = "lua";
+        }
+        {
+          plugin = buildVimPluginFrom2Nix {
             name = "plenary.nvim";
             src = inputs.plenary-nvim;
+          };
+        }
+        {
+          plugin = buildVimPluginFrom2Nix {
+            name = "nvim-web-devicons";
+            src = inputs.nvim-web-devicons;
           };
         }
         {
@@ -41,6 +75,12 @@ in {
             })
           '';
           type = "lua";
+        }
+        {
+          plugin = buildVimPluginFrom2Nix {
+            name = "nvim-treesitter-context";
+            src = inputs.nvim-treesitter-context;
+          };
         }
         {
           plugin = nvim-treesitter.withAllGrammars;
