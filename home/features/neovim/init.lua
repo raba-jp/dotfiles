@@ -66,7 +66,7 @@ require("lazy").setup({
 			"onsails/lspkind.nvim",
 		},
 		config = function()
-			require("lsp")
+			require("plugins.lsp")
 		end,
 	},
 	{
@@ -216,4 +216,4 @@ require("lazy").setup({
 	},
 })
 
-require("global")
+require("core.global")

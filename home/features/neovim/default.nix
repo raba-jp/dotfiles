@@ -10,17 +10,23 @@ in {
   xdg.configFile = let
     inherit (lib.attrsets) filterAttrs nameValuePair mapAttrs';
 
-    filterFiles = _name: value: (value == "regular") || (value == "symlink");
-    configFiles = filterAttrs filterFiles (builtins.readDir ./lua);
-    toAttrs = f: _:
-      nameValuePair
-      ("nvim/lua/" + f)
-      {
-        source = ./lua + ("/" + f);
-        executable = false;
-      };
+    configFiles =
+      filterAttrs
+      (name: value: (value == "regular") || (value == "symlink"))
+      (
+        (mapAttrs' (f: v: nameValuePair ("lua/core/" + f) v) (builtins.readDir ./lua/core))
+        // (mapAttrs' (f: v: nameValuePair ("lua/plugins/" + f) v) (builtins.readDir ./lua/plugins))
+        // {"init.lua" = "regular";}
+      );
   in
-    mapAttrs' toAttrs configFiles // {"nvim/init.lua".source = ./init.lua;};
+    mapAttrs' (f: _:
+      nameValuePair
+      ("nvim/" + f)
+      {
+        source = ./. + ("/" + f);
+        executable = false;
+      })
+    configFiles;
 
   programs.neovim = {
     enable = true;
