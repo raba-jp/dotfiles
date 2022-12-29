@@ -205,6 +205,11 @@ require("lazy").setup({
 			require("which-key").setup({})
 		end,
 	},
+	{
+	"nvim-telescope/telescope.nvim",
+		config = function()
+		end,
+	},
 }, {
 	defaults = {
 		lazy = true,

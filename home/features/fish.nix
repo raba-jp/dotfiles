@@ -43,6 +43,7 @@
       ll = "exa --all --long --grid --header --no-filesize --no-time --no-user --git --icons";
       tree = "exa --tree --icons --all --git-ignore --ignore-glob=.git";
       cat = "bat";
+      vim = "nvim";
     };
 
     shellAbbrs = {
