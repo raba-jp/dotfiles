@@ -61,6 +61,7 @@
       colima
       pueue
       dotenv-linter
+      zig
     ];
   };
 

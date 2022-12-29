@@ -1,27 +1,5 @@
-require("lsp-inlayhints").setup()
-vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
-vim.api.nvim_create_autocmd("LspAttach", {
-	group = "LspAttach_inlayhints",
-	callback = function(args)
-		if not (args.data and args.data.client_id) then
-			return
-		end
-
-		local bufnr = args.buf
-		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		require("lsp-inlayhints").on_attach(client, bufnr)
-	end,
-})
-
-local cmp = require("cmp")
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-local has_words_before = function()
-	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
 local lspconfig = require("lspconfig")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 lspconfig["bashls"].setup({
 	capabilities = capabilities,
@@ -156,6 +134,14 @@ lspconfig["yamlls"].setup({
 lspconfig["zls"].setup({
 	capaabilities = capabilities,
 })
+
+local cmp = require("cmp")
+
+local has_words_before = function()
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 cmp.setup({
 	mapping = {
 		["<C-Space>"] = cmp.mapping.confirm({
@@ -191,7 +177,7 @@ cmp.setup({
 			local line_num, col = unpack(vim.api.nvim_win_get_cursor(0))
 			local line_text = vim.api.nvim_buf_get_lines(0, line_num - 1, line_num, true)[1]
 			local indent = string.match(line_text, "^%s*")
-			local replace = vim.split(args.body, "\n", true)
+			local replace = vim.split(args.body, "\n", { trimempty = true })
 			local surround = string.match(line_text, "%S.*") or ""
 			local surround_end = surround:sub(col)
 
@@ -214,6 +200,18 @@ cmp.setup({
 	}, {
 		{ name = "buffer" },
 	}),
+
+	formatting = {
+		fields = { "kind", "abbr", "menu" },
+		format = function(entry, vim_item)
+			local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+			local strings = vim.split(kind.kind, "%s", { trimempty = true })
+			kind.kind = " " .. strings[1] .. " "
+			kind.menu = "    (" .. strings[2] .. ")"
+
+			return kind
+		end,
+	},
 })
 
 cmp.setup.cmdline({ "/", "?" }, {

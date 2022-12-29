@@ -71,11 +71,6 @@
       flake = false;
     };
 
-    plenary-nvim = {
-      url = "github:nvim-lua/plenary.nvim";
-      flake = false;
-    };
-
     neovim = {
       url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -86,77 +81,8 @@
       flake = false;
     };
 
-    catppuccin-nvim = {
-      url = "github:catppuccin/nvim";
-      flake = false;
-    };
-
-    nvim-treesitter-context = {
-      url = "github:nvim-treesitter/nvim-treesitter-context";
-      flake = false;
-    };
-
-    nvim-web-devicons = {
-      url = "github:kyazdani42/nvim-web-devicons";
-      flake = false;
-    };
-
-    lualine-nvim = {
-      url = "github:nvim-lualine/lualine.nvim";
-      flake = false;
-    };
-
-    nvim-lspconfig = {
-      url = "github:neovim/nvim-lspconfig";
-      flake = false;
-    };
-
-    nvim-cmp = {
-      url = "github:hrsh7th/nvim-cmp";
-      flake = false;
-    };
-    cmp-nvim-lsp = {
-      url = "github:hrsh7th/cmp-nvim-lsp";
-      flake = false;
-    };
-    cmp-buffer = {
-      url = "github:hrsh7th/cmp-buffer";
-      flake = false;
-    };
-    cmp-path = {
-      url = "github:hrsh7th/cmp-path";
-      flake = false;
-    };
-    cmp-cmdline = {
-      url = "github:hrsh7th/cmp-cmdline";
-      flake = false;
-    };
-    cmp-nvim-lsp-signature-help = {
-      url = "github:hrsh7th/cmp-nvim-lsp-signature-help";
-      flake = false;
-    };
-
-    lsp-inlayhints-nvim = {
-      url = "github:lvimuser/lsp-inlayhints.nvim";
-      flake = false;
-    };
-
-    noice-nvim = {
-      url = "github:folke/noice.nvim";
-      flake = false;
-    };
-
-    nui-nvim = {
-      url = "github:MunifTanjim/nui.nvim";
-      flake = false;
-    };
-
-    nvim-notify = {
-      url = "github:rcarriga/nvim-notify";
-      flake = false;
-    };
-    gitsigns-nvim = {
-      url = "github:lewis6991/gitsigns.nvim";
+    lazy-nvim = {
+      url = "github:folke/lazy.nvim";
       flake = false;
     };
   };

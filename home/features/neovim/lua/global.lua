@@ -14,15 +14,26 @@ vim.g.loaded_tutor_mode_plugin = 1
 vim.g.loaded_zipPlugin = 1
 vim.g.skip_loading_mswin = 1
 
-require("nvim-treesitter.configs").setup({
-	sync_install = false,
-	highlight = { enable = true },
-	indent = { enable = true },
-	lsp_interop = { enable = true },
-	refactor = {
-		navigation = { enable = true },
-		highlight_definitions = { enable = true },
-		highlight_current_scope = { enable = true },
-	},
-	rainbow = { enable = true },
-})
+-- vim.opt.inccommand = "split"
+
+vim.api.nvim_set_keymap("i", "jj", "<ESC>", { silent = true })
+
+if vim.fn.has("mac") then
+	vim.opt.clipboard = "unnamedplus"
+end
+if vim.fn.has("unix") == 1 then
+	vim.opt.clipboard = "unnamed"
+end
+vim.g.mapleader = " "
+-- vim.opt.encoding = "UTF-8"
+-- vim.opt.swapfile = false
+-- vim.opt.smartindent = true
+-- vim.opt.smarttab = true
+-- vim.opt.visualbell = true
+-- vim.opt.hlsearch = true
+-- vim.opt.signcolumn = "yes"
+-- vim.opt.smartcase = true
+-- vim.opt.ignorecase = true
+-- vim.opt.completeopt = "menuone,noinsert,noselect"
+-- vim.opt.termguicolors = true
+-- vim.opt.background = "dark"
