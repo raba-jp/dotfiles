@@ -10,29 +10,7 @@ require("lazy").setup({
 		"catppuccin/nvim",
 		lazy = false,
 		priority = 1000,
-		config = function()
-			require("catppuccin").setup({
-				integrations = {
-					native_lsp = {
-						enabled = true,
-						virtual_text = {
-							errors = { "italic" },
-							hints = { "italic" },
-							warnings = { "italic" },
-							information = { "italic" },
-						},
-						underlines = {
-							errors = { "underline" },
-							hints = { "underline" },
-							warnings = { "underline" },
-							information = { "underline" },
-						},
-					},
-				},
-			})
-
-			vim.cmd.colorscheme("catppuccin-mocha")
-		end,
+		config = require("plugins.catppuccin").config,
 	},
 	{
 		"nvim-lualine/lualine.nvim",
@@ -124,47 +102,8 @@ require("lazy").setup({
 	{
 		"folke/noice.nvim",
 		keys = { ":" },
-		init = function()
-			vim.opt.cmdheight = 0
-		end,
-		config = function()
-			require("noice").setup({
-				views = {
-					cmdline_popup = {
-						position = {
-							row = "40%",
-							col = "50%",
-						},
-						size = {
-							width = 60,
-							height = "auto",
-						},
-						border = {
-							style = "none",
-							padding = { 2, 3 },
-						},
-						filter_options = {},
-						win_options = {
-							winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
-						},
-					},
-					popupmenu = {
-						relative = "editor",
-						position = {
-							row = 8,
-							col = "50%",
-						},
-						size = {
-							width = 60,
-							height = 10,
-						},
-						win_options = {
-							winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
-						},
-					},
-				},
-			})
-		end,
+		init = require("plugins.noice").init,
+		config = require("plugins.noice").config,
 	},
 	"MunifTanjim/nui.nvim",
 	"rcarriga/nvim-notify",
@@ -206,9 +145,8 @@ require("lazy").setup({
 		end,
 	},
 	{
-	"nvim-telescope/telescope.nvim",
-		config = function()
-		end,
+		"nvim-telescope/telescope.nvim",
+		config = function() end,
 	},
 }, {
 	defaults = {

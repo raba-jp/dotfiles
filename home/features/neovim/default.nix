@@ -12,7 +12,7 @@ in {
 
     configFiles =
       filterAttrs
-      (name: value: (value == "regular") || (value == "symlink"))
+      (_name: value: (value == "regular") || (value == "symlink"))
       (
         (mapAttrs' (f: v: nameValuePair ("lua/core/" + f) v) (builtins.readDir ./lua/core))
         // (mapAttrs' (f: v: nameValuePair ("lua/plugins/" + f) v) (builtins.readDir ./lua/plugins))
