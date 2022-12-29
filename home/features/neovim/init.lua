@@ -2,8 +2,9 @@ require("impatient").enable_profile()
 require("lazy").setup({
 	"nvim-lua/plenary.nvim",
 	{
-		"sheerun/vim-polyglot",
-		event = "BufEnter",
+		"gpanders/editorconfig.nvim",
+		lazy = false,
+		priority = 200,
 	},
 	{
 		"catppuccin/nvim",

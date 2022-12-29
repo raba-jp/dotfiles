@@ -75,7 +75,6 @@
     };
 
     ignores = [
-      ".editorconfig"
       # direnv
       ".envrc"
       ".direnv"
