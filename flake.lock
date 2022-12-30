@@ -442,22 +442,6 @@
         "type": "github"
       }
     },
-    "impatient-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1671117035,
-        "narHash": "sha256-kjXO1DiGnuNLaDSaIb+73Do5/uQbxGDrUjKrFheG708=",
-        "owner": "lewis6991",
-        "repo": "impatient.nvim",
-        "rev": "9f7eed8133d62457f7ad2ca250eb9b837a4adeb7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lewis6991",
-        "repo": "impatient.nvim",
-        "type": "github"
-      }
-    },
     "lazy-nvim": {
       "flake": false,
       "locked": {
@@ -654,7 +638,6 @@
         "helix": "helix",
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",
-        "impatient-nvim": "impatient-nvim",
         "lazy-nvim": "lazy-nvim",
         "neovim": "neovim",
         "nixos-generators": "nixos-generators",

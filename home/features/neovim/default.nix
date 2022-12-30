@@ -35,12 +35,6 @@ in {
     plugins = [
       {
         plugin = buildVimPluginFrom2Nix {
-          name = "impatient.nvim";
-          src = inputs.impatient-nvim;
-        };
-      }
-      {
-        plugin = buildVimPluginFrom2Nix {
           name = "lazy.nvim";
           src = inputs.lazy-nvim;
         };

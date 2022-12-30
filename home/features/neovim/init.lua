@@ -1,11 +1,5 @@
-require("impatient").enable_profile()
 require("lazy").setup({
-	"nvim-lua/plenary.nvim",
-	{
-		"gpanders/editorconfig.nvim",
-		lazy = false,
-		priority = 200,
-	},
+	{ "gpanders/editorconfig.nvim", lazy = false, },
 	{
 		"catppuccin/nvim",
 		lazy = false,
@@ -15,26 +9,21 @@ require("lazy").setup({
 	{
 		"nvim-lualine/lualine.nvim",
 		lazy = false,
-		priority = 900,
-		config = function()
-			require("lualine").setup({
-				options = {
-					theme = "catppuccin",
-				},
-			})
-		end,
+		config = require("plugins.lualine").config,
 	},
-	"neovim/nvim-lspconfig",
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-buffer",
-	"hrsh7th/cmp-path",
-	"hrsh7th/cmp-cmdline",
-	"hrsh7th/cmp-nvim-lsp-signature-help",
-	"onsails/lspkind.nvim",
+	{
+		"neovim/nvim-lspconfig",
+		lazy = false;
+		dependencies = {
+			"lukas-reineke/lsp-format.nvim",
+			"hrsh7th/cmp-nvim-lsp",
+		},
+		init = require("plugins.lspconfig").init,
+		config = require("plugins.lspconfig").config,
+	},
 	{
 		"hrsh7th/nvim-cmp",
 		lazy = false,
-		priority = 998,
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -42,16 +31,11 @@ require("lazy").setup({
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
 			"onsails/lspkind.nvim",
+			"saadparwaiz1/cmp_luasnip",
+			"L3MON4D3/LuaSnip",
 		},
-		config = function()
-			require("plugins.lsp")
-		end,
+		config = require("plugins.nvim-cmp").config,
 	},
-	{
-		"hrsh7th/cmp-nvim-lsp-signature-help",
-		event = "BufEnter",
-	},
-	"kyazdani42/nvim-web-devicons",
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = "BufEnter",
@@ -79,34 +63,20 @@ require("lazy").setup({
 	{
 		"lvimuser/lsp-inlayhints.nvim",
 		event = "BufEnter",
-		init = function()
-			vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
-			vim.api.nvim_create_autocmd("LspAttach", {
-				group = "LspAttach_inlayhints",
-				callback = function(args)
-					if not (args.data and args.data.client_id) then
-						return
-					end
-
-					local bufnr = args.buf
-					local client = vim.lsp.get_client_by_id(args.data.client_id)
-					require("lsp-inlayhints").on_attach(client, bufnr)
-				end,
-			})
-		end,
-		config = function()
-			require("lsp-inlayhints").setup()
-		end,
+		init = require("plugins.lsp-inlayhints").init,
+		config = require("plugins.lsp-inlayhints").config,
 	},
 
 	{
 		"folke/noice.nvim",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
 		keys = { ":" },
 		init = require("plugins.noice").init,
 		config = require("plugins.noice").config,
 	},
-	"MunifTanjim/nui.nvim",
-	"rcarriga/nvim-notify",
 	{
 		"lewis6991/gitsigns.nvim",
 		event = "BufEnter",
@@ -146,7 +116,16 @@ require("lazy").setup({
 	},
 	{
 		"nvim-telescope/telescope.nvim",
-		config = function() end,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+	"kyazdani42/nvim-web-devicons",
+	{
+		'nvim-telescope/telescope-fzf-native.nvim', 
+		build = 'make',
+	 },
+		},
+		cmd = "Telescope",
+		config = require("plugins.telescope").config,
 	},
 }, {
 	defaults = {

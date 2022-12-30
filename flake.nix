@@ -76,11 +76,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    impatient-nvim = {
-      url = "github:lewis6991/impatient.nvim";
-      flake = false;
-    };
-
     lazy-nvim = {
       url = "github:folke/lazy.nvim";
       flake = false;
