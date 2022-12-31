@@ -39,26 +39,15 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = "BufEnter",
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				sync_install = false,
-				highlight = { enable = true },
-				indent = { enable = true },
-				lsp_interop = { enable = true },
-				refactor = {
-					navigation = { enable = true },
-					highlight_definitions = { enable = true },
-					highlight_current_scope = { enable = true },
-				},
-				rainbow = { enable = true },
-			})
-		end,
+		config = require("plugins.nvim-treesitter").config,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
+		event = "BufEnter",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 		},
+		config = require("plugins.nvim-treesitter-context").config,
 	},
 	{
 		"lvimuser/lsp-inlayhints.nvim",
@@ -97,14 +86,8 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
-		config = function()
-			local null_ls = require("null-ls")
-			null_ls.setup({
-				source = {
-					null_ls.builtins.formatting.stylua,
-				},
-			})
-		end,
+		event = "BufEnter",
+		config = require("plugins.null-ls").config,
 	},
 	{
 		"folke/which-key.nvim",
@@ -118,14 +101,21 @@ require("lazy").setup({
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-	"kyazdani42/nvim-web-devicons",
-	{
-		'nvim-telescope/telescope-fzf-native.nvim', 
-		build = 'make',
-	 },
+			"kyazdani42/nvim-web-devicons",
+			{
+				'nvim-telescope/telescope-fzf-native.nvim',
+				build = 'make',
+			},
+			"nvim-telescope/telescope-file-browser.nvim",
+			"nvim-telescope/telescope-ghq.nvim",
 		},
 		cmd = "Telescope",
 		config = require("plugins.telescope").config,
+	},
+	{
+		"akinsho/bufferline.nvim",
+		lazy = false,
+		config = require("plugins.bufferline").config,
 	},
 }, {
 	defaults = {
