@@ -81,6 +81,7 @@ require("lazy").setup({
 		"jose-elias-alvarez/null-ls.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
+			"lukas-reineke/lsp-format.nvim",
 		},
 		event = "BufEnter",
 		config = require("plugins.null-ls").config,
