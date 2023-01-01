@@ -1,4 +1,5 @@
 require("lazy").setup({
+	"MunifTanjim/nui.nvim",
 	{ "gpanders/editorconfig.nvim", lazy = false },
 	{
 		"catppuccin/nvim",
@@ -93,7 +94,7 @@ require("lazy").setup({
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"kyazdani42/nvim-web-devicons",
+			"nvim-tree/nvim-web-devicons",
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = 'nix-shell -p gnumake clang --run "make"',
@@ -117,6 +118,16 @@ require("lazy").setup({
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = require("plugins.nvim-autopairs").config,
+	},
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		cmd = "Neotree",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+		config = require("plugins.neo-tree").config,
 	},
 }, {
 	defaults = {
