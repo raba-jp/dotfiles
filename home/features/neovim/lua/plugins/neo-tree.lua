@@ -20,6 +20,8 @@ M.config = function()
 		window = {
 			position = "float",
 		},
+		use_libuv_file_watcher = true,
+		follow_current_file = true,
 	})
 end
 
