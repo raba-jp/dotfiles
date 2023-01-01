@@ -129,6 +129,11 @@ require("lazy").setup({
 		},
 		config = require("plugins.neo-tree").config,
 	},
+	{
+		"folke/trouble.nvim",
+		cmd = "Trouble",
+		config = require("plugins.trouble").config,
+	},
 }, {
 	defaults = {
 		lazy = true,
