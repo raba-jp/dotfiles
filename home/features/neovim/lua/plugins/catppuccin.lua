@@ -6,7 +6,7 @@ local function telescopeBorderless(flavor)
 		TelescopeBorder = { fg = cp.mantle, bg = cp.mantle },
 		TelescopeSelectionCaret = { fg = cp.flamingo, bg = cp.mantle },
 		TelescopeMatching = { fg = cp.peach },
-		TelescopeNormal = { bg = cp.mantle },
+		TelescopeNormal = { fg = cp.text, bg = cp.mantle },
 		TelescopeSelection = { fg = cp.text, bg = cp.surface1 },
 		TelescopeMultiSelection = { fg = cp.text, bg = cp.surface2 },
 

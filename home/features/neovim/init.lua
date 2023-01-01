@@ -106,7 +106,6 @@ require("lazy").setup({
 				'nvim-telescope/telescope-fzf-native.nvim',
 				build = 'make',
 			},
-			"nvim-telescope/telescope-file-browser.nvim",
 			"nvim-telescope/telescope-ghq.nvim",
 		},
 		cmd = "Telescope",
@@ -116,6 +115,11 @@ require("lazy").setup({
 		"akinsho/bufferline.nvim",
 		lazy = false,
 		config = require("plugins.bufferline").config,
+	},
+	{
+		"ggandor/leap.nvim",
+		event = "BufEnter",
+		config = require("plugins.leap").config,
 	},
 }, {
 	defaults = {

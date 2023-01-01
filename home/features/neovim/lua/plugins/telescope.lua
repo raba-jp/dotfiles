@@ -46,7 +46,6 @@ M.config = function()
 
 	require("telescope").load_extension("ghq")
 	require("telescope").load_extension("fzf")
-	require("telescope").load_extension("file_browser")
 end
 
 return M
