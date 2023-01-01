@@ -62,7 +62,6 @@
       pueue
       dotenv-linter
       zig
-      clang
       gnumake
     ];
   };

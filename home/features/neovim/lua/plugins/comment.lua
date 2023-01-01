@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-	require("leap").add_default_mappings()
+	require("Comment").setup({})
 end
 
 return M

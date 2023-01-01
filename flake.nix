@@ -94,13 +94,22 @@
     inherit (self) outputs;
 
     supportedSystems = ["x86_64-linux" "aarch64-linux"];
-    define7Modules = [
-      nixos-hardware.nixosModules.common-cpu-amd
-      nixos-hardware.nixosModules.common-cpu-amd-pstate
-      nixos-hardware.nixosModules.common-gpu-amd
-      nixos-hardware.nixosModules.common-pc-ssd
-      ./nixos/hosts/define7
-    ];
+
+    define7System =
+      nixpkgs.lib.nixosSystem
+      {
+        system = "x86_64-linux";
+        modules = [
+          nixos-hardware.nixosModules.common-cpu-amd
+          nixos-hardware.nixosModules.common-cpu-amd-pstate
+          nixos-hardware.nixosModules.common-gpu-amd
+          nixos-hardware.nixosModules.common-pc-ssd
+          ./nixos/hosts/define7
+        ];
+        specialArgs = {
+          inherit inputs outputs;
+        };
+      };
   in
     eachSystem supportedSystems (system: let
       pkgs = import nixpkgs {
@@ -123,21 +132,9 @@
             };
           };
 
-          deploy = pkgs.writeText "cachix-deploy.json" (builtins.toJSON {
+          deploySpec = pkgs.writeText "cachix-deploy.json" (builtins.toJSON {
             agents = {
-              define7 =
-                (nixpkgs.lib.nixosSystem
-                  {
-                    system = "x86_64-linux";
-                    modules = define7Modules;
-                    specialArgs = {
-                      inherit inputs outputs;
-                    };
-                  })
-                .config
-                .system
-                .build
-                .toplevel;
+              define7 = define7System.config.system.build.toplevel;
             };
           });
         };
@@ -164,13 +161,7 @@
       homeManagerModules = import ./modules/home-manager;
 
       nixosConfigurations = {
-        define7 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = define7Modules;
-          specialArgs = {
-            inherit inputs outputs;
-          };
-        };
+        define7 = define7System;
       };
 
       nixConfig = {

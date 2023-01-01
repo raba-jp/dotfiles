@@ -22,10 +22,10 @@ end
 M.config = function()
 	require("catppuccin").setup({
 		highlight_overrides = {
-			latte = telescopeBorderless('latte'),
-			frappe = telescopeBorderless('frappe'),
-			macchiato = telescopeBorderless('macchiato'),
-			mocha = telescopeBorderless('mocha'),
+			latte = telescopeBorderless("latte"),
+			frappe = telescopeBorderless("frappe"),
+			macchiato = telescopeBorderless("macchiato"),
+			mocha = telescopeBorderless("mocha"),
 		},
 		integrations = {
 			cmp = true,
