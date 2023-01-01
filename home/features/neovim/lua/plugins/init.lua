@@ -112,7 +112,17 @@ require("lazy").setup({
 	{
 		"ggandor/leap.nvim",
 		event = "BufEnter",
+		dependencies = {
+			"tpope/vim-repeat",
+		},
 		config = require("plugins.leap").config,
+	},
+	{
+		"ggandor/flit.nvim",
+		dependencies = {
+			"ggandor/leap.nvim",
+		},
+		config = require("plugins.flit").config,
 	},
 	{
 		"windwp/nvim-autopairs",
