@@ -25,15 +25,15 @@ if vim.fn.has("unix") == 1 then
 	vim.opt.clipboard = "unnamed"
 end
 vim.g.mapleader = " "
--- vim.opt.encoding = "UTF-8"
--- vim.opt.swapfile = false
--- vim.opt.smartindent = true
--- vim.opt.smarttab = true
--- vim.opt.visualbell = true
--- vim.opt.hlsearch = true
--- vim.opt.signcolumn = "yes"
--- vim.opt.smartcase = true
--- vim.opt.ignorecase = true
--- vim.opt.completeopt = "menuone,noinsert,noselect"
--- vim.opt.termguicolors = true
--- vim.opt.background = "dark"
+vim.opt.encoding = "UTF-8"
+vim.opt.swapfile = false
+vim.opt.smartindent = true
+vim.opt.smarttab = true
+vim.opt.visualbell = true
+vim.opt.hlsearch = true
+vim.opt.signcolumn = "yes"
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
+vim.opt.completeopt = "menuone,noinsert,noselect"
+vim.opt.termguicolors = true
+vim.opt.background = "dark"
