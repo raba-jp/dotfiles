@@ -37,3 +37,5 @@ vim.opt.ignorecase = true
 vim.opt.completeopt = "menuone,noinsert,noselect"
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
+vim.opt.number = true
+vim.opt.cursorline = true
