@@ -6,3 +6,6 @@ insert_final_newline = true
 
 [*.lua]
 indent_size = 2
+
+[*.nix]
+indent_size = 2
