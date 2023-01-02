@@ -110,6 +110,14 @@
           inherit inputs outputs;
         };
       };
+
+    vmSystem = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [];
+      specialArgs = {
+        inherit inputs outputs;
+      };
+    };
   in
     eachSystem supportedSystems (system: let
       pkgs = import nixpkgs {
@@ -162,6 +170,7 @@
 
       nixosConfigurations = {
         define7 = define7System;
+        vm = vmSystem;
       };
 
       nixConfig = {

@@ -7,6 +7,7 @@
     ../../common/optional/pipewire.nix
     ../../common/optional/systemd-boot.nix
     ../../common/optional/cachix.nix
+    ../../common/optional/libvirtd.nix
     ../../common/users/sakuraba.nix
   ];
 
@@ -16,7 +17,14 @@
 
   boot.initrd.kernelModules = ["amdgpu"];
 
-  services.xserver.videoDrivers = ["amdgpu"];
+  services = {
+    xserver.videoDrivers = ["amdgpu"];
+
+    udev.extraRules = ''
+      KERNEL=="hidraw*", ATTRS{idVendor}=="bb01", MODE="0664", GROUP="users"
+      KERNEL=="hidraw*", ATTRS{idVendor}=="4653", MODE="0664", GROUP="users"
+    '';
+  };
 
   environment.systemPackages = with pkgs; [
     glxinfo
