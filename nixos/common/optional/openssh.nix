@@ -3,6 +3,7 @@
     enable = true;
 
     passwordAuthentication = false;
+    kbdInteractiveAuthentication = false;
     permitRootLogin = "no";
     gatewayPorts = "clientspecified";
     extraConfig = ''
