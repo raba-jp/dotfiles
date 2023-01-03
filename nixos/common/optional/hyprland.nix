@@ -3,10 +3,6 @@
     inputs.hyprland.nixosModules.default
   ];
 
-  programs.hyprland = {
-    enable = true;
-  };
-
   # services.xserver = {
   #   enable = true;
   #
@@ -20,5 +16,9 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
+  };
+
+  programs.hyprland = {
+    enable = true;
   };
 }

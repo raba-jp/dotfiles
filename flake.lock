@@ -83,6 +83,22 @@
         "type": "github"
       }
     },
+    "catppuccin-waybar": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1666096610,
+        "narHash": "sha256-DalT8UUEfLY1cWWwF/Z40W2I78y+Ie20SUig1ynQcN4=",
+        "owner": "catppuccin",
+        "repo": "waybar",
+        "rev": "eed752647a042093d68053953a17bef0912d067e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "waybar",
+        "type": "github"
+      }
+    },
     "crane": {
       "flake": false,
       "locked": {
@@ -662,6 +678,7 @@
         "catppuccin-fish": "catppuccin-fish",
         "catppuccin-gitui": "catppuccin-gitui",
         "catppuccin-hyprland": "catppuccin-hyprland",
+        "catppuccin-waybar": "catppuccin-waybar",
         "darwin": "darwin_2",
         "fish-done": "fish-done",
         "fish-fzf": "fish-fzf",
