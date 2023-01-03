@@ -7,15 +7,15 @@
     enable = true;
   };
 
-  services.xserver = {
-    enable = true;
-
-    displayManager = {
-      gdm.enable = true;
-
-      defaultSession = "hyprland";
-    };
-  };
+  # services.xserver = {
+  #   enable = true;
+  #
+  #   displayManager = {
+  #     gdm.enable = true;
+  #
+  #     defaultSession = "hyprland";
+  #   };
+  # };
 
   xdg.portal = {
     enable = true;

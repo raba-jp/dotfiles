@@ -8,6 +8,7 @@
     ../../common/optional/systemd-boot.nix
     ../../common/optional/cachix.nix
     ../../common/optional/libvirtd.nix
+    ../../common/optional/hyprland.nix
     ../../common/users/sakuraba.nix
   ];
 
@@ -44,7 +45,6 @@
     brave
     slack
     discord
-    gnome.gnome-boxes
     virt-manager
   ];
 
