@@ -4,8 +4,8 @@
   ...
 }: {
   imports = [
-    "${toString modulePath}/profiles/qemu-guest.nix"
     ../../common/global
+    ../../common/optional/systemd-boot.nix
     ../../common/optional/hyprland.nix
     ../../common/users/sakuraba.nix
   ];
