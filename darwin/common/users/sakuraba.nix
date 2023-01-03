@@ -4,5 +4,5 @@
     home = "/Users/hiroki.sakuraba";
   };
 
-  home-manager.users."hiroki.sakuraba" = import "../../../home/users/sakuraba/${config.networking.hostName}.nix";
+  home-manager.users."hiroki.sakuraba" = import ../../../home/users/sakuraba/${config.networking.hostName}.nix;
 }
