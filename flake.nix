@@ -113,7 +113,9 @@
 
     vmSystem = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      modules = [];
+      modules = [
+        ./nixos/hosts/vm
+      ];
       specialArgs = {
         inherit inputs outputs;
       };

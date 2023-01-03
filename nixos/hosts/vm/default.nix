@@ -1,6 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  modulePath,
+  ...
+}: {
   imports = [
+    "${toString modulePath}/profiles/qemu-guest.nix"
     ../../common/global
+    ../../common/optional/hyprland.nix
     ../../common/users/sakuraba.nix
   ];
 
