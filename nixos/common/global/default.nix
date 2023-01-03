@@ -5,11 +5,11 @@
 }: {
   imports =
     [
-      ./home-manager.nix
+      ../../../shared/common/global/nix.nix
+      ../../../shared/common/global/nixpkgs.nix
 
+      ./home-manager.nix
       ./locale.nix
-      ./nix.nix
-      ./nixpkgs.nix
     ]
     ++ (builtins.attrValues outputs.nixosModules);
 

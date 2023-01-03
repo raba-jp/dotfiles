@@ -117,6 +117,24 @@
         "type": "github"
       }
     },
+    "darwin_2": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1671891118,
+        "narHash": "sha256-+GJYiT7QbfA306ex4sGMlFB8Ts297pn3OdQ9kTd4aDw=",
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "rev": "267040e7a2b8644f1fdfcf57b7e808c286dbdc7b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
     "devshell": {
       "flake": false,
       "locked": {
@@ -609,6 +627,20 @@
     },
     "nixpkgs_3": {
       "locked": {
+        "lastModified": 1668650906,
+        "narHash": "sha256-JuiYfDO23O8oxUUOmhQflmOoJovyC5G4RjcYQMQjrRE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "3a86856a13c88c8c64ea32082a851fefc79aa700",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1671983799,
         "narHash": "sha256-Z2Ro6hFPZHkBqkVXY5/aBUzxi5xizQGvuHQ9+T5B/ks=",
         "owner": "nixos",
@@ -630,6 +662,7 @@
         "catppuccin-fish": "catppuccin-fish",
         "catppuccin-gitui": "catppuccin-gitui",
         "catppuccin-hyprland": "catppuccin-hyprland",
+        "darwin": "darwin_2",
         "fish-done": "fish-done",
         "fish-fzf": "fish-fzf",
         "fish-ghq": "fish-ghq",
@@ -642,7 +675,7 @@
         "neovim": "neovim",
         "nixos-generators": "nixos-generators",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_4"
       }
     },
     "rust-overlay": {

@@ -11,6 +11,8 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
+    darwin.url = "github:LnL7/nix-darwin";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -88,6 +90,7 @@
     nixos-hardware,
     flake-utils,
     home-manager,
+    darwin,
     ...
   } @ inputs: let
     inherit (flake-utils.lib) eachSystem;
@@ -133,9 +136,9 @@
 
           neovim = inputs.neovim.packages.${system}.default;
 
-          iso = nixos-generators.nixosGenerate {
+          vmware = nixos-generators.nixosGenerate {
             inherit system;
-            format = "iso";
+            format = "vmware";
             modules = [./nixos/hosts/iso];
             specialArgs = {
               inherit inputs outputs;
@@ -173,6 +176,14 @@
       nixosConfigurations = {
         define7 = define7System;
         vm = vmSystem;
+      };
+
+      darwinConfigurations = {
+        "QN63HFT2NY" = darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          modules = [];
+          inputs = {inherit inputs outputs;};
+        };
       };
 
       nixConfig = {
