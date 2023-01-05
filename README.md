@@ -14,7 +14,7 @@ My NixOS and macOS configurations.
 - Uses the [Catppuccin](https://github.com/catppuccin/catppuccin) theme
 
 ## Prerequirement
-- [Nix](https://nixos.org/download.html#download-nix) latest
+- [Nix](https://nixos.org/download.html#download-nix)
 
 ## Setup
 
