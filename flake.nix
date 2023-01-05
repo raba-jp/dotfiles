@@ -1,38 +1,36 @@
 {
-  description = "Nix system configurations";
+  description = "My system configurations";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
-
-    # Darwin
-    darwin = {
-      url = "github:LnL7/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Home Manager
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # ISO images and VMs
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Utility
     flake-utils.url = "github:numtide/flake-utils";
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
     };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+
+    darwin.url = "github:LnL7/nix-darwin";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     cachix-deploy-flake = {
       url = "github:cachix/cachix-deploy-flake";
-      inputs.darwin.follows = "darwin";
+      # inputs.darwin.follows = "darwin";
+    };
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     helix = {
@@ -40,102 +38,174 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # fish shell plugins
     fish-done = {
       url = "github:franciscolourenco/done";
       flake = false;
     };
+
     fish-ghq = {
       url = "github:decors/fish-ghq";
       flake = false;
     };
+
     fish-fzf = {
       url = "github:jethrokuan/fzf";
       flake = false;
     };
-  };
 
+    catppuccin-fish = {
+      url = "github:catppuccin/fish";
+      flake = false;
+    };
+
+    catppuccin-gitui = {
+      url = "github:catppuccin/gitui";
+      flake = false;
+    };
+
+    catppuccin-bat = {
+      url = "github:catppuccin/bat";
+      flake = false;
+    };
+
+    catppuccin-hyprland = {
+      url = "github:catppuccin/hyprland";
+      flake = false;
+    };
+
+    catppuccin-waybar = {
+      url = "github:catppuccin/waybar";
+      flake = false;
+    };
+
+    neovim = {
+      url = "github:neovim/neovim?dir=contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lazy-nvim = {
+      url = "github:folke/lazy.nvim";
+      flake = false;
+    };
+  };
   outputs = {
+    self,
     nixpkgs,
-    home-manager,
-    cachix-deploy-flake,
-    helix,
+    nixos-generators,
     nixos-hardware,
     flake-utils,
+    home-manager,
+    darwin,
     ...
   } @ inputs: let
-    inherit (flake-utils.lib) system;
+    inherit (flake-utils.lib) eachSystem;
+    inherit (self) outputs;
 
-    overlays = [
-      (import ./overlays)
-      (_final: prev: {
-        helix-latest = helix.packages.${prev.system}.default;
-      })
-    ];
-    commonModules = {
-      home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        backupFileExtension = "backup";
-        extraSpecialArgs = inputs;
-      };
+    supportedSystems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin"];
 
-      nixpkgs.overlays = overlays;
-    };
-  in {
-    packages.${system.aarch64-darwin}.default = let
-      pkgs = import nixpkgs {
-        inherit overlays;
-        system = system.aarch64-darwin;
-        config.allowUnfree = true;
-      };
-      cachix-deploy-lib = cachix-deploy-flake.lib pkgs;
-    in
-      cachix-deploy-lib.spec {
-        agents.LF2107010038 = cachix-deploy-lib.darwin (
-          {...}: {
-            imports = [
-              home-manager.darwinModules.home-manager
-              commonModules
-              ./modules/darwin
-              ./hosts/LF2107010038
-            ];
-          }
-        );
-      };
-
-    packages.${system.x86_64-linux}.default = let
-      pkgs = import nixpkgs {
-        inherit overlays;
-        system = system.x86_64-linux;
-        config.allowUnfree = true;
-      };
-      cachix-deploy-lib = cachix-deploy-flake.lib pkgs;
-    in
-      cachix-deploy-lib.spec {
-        agents = {
-          define7 = cachix-deploy-lib.nixos {
-            imports = [
-              home-manager.nixosModules.home-manager
-              commonModules
-              ./modules/nixos
-              ./hosts/define7
-            ];
-          };
-
-          xps13 = cachix-deploy-lib.nixos {
-            imports = [
-              home-manager.nixosModules.home-manager
-              commonModules
-              nixos-hardware.nixosModules.common-cpu-intel
-              nixos-hardware.nixosModules.common-gpu-intel
-              nixos-hardware.nixosModules.common-pc-laptop
-              nixos-hardware.nixosModules.common-pc-laptop-ssd
-              ./modules/nixos
-              ./hosts/xps13
-            ];
-          };
+    define7System =
+      nixpkgs.lib.nixosSystem
+      {
+        system = "x86_64-linux";
+        modules = [
+          nixos-hardware.nixosModules.common-cpu-amd
+          nixos-hardware.nixosModules.common-cpu-amd-pstate
+          nixos-hardware.nixosModules.common-gpu-amd
+          nixos-hardware.nixosModules.common-pc-ssd
+          ./nixos/hosts/define7
+        ];
+        specialArgs = {
+          inherit inputs outputs;
         };
       };
-  };
+
+    vmSystem = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [
+        ./nixos/hosts/vm
+      ];
+      specialArgs = {
+        inherit inputs outputs;
+      };
+    };
+  in
+    eachSystem supportedSystems (system: let
+      pkgs = import nixpkgs {
+        inherit system;
+      };
+    in {
+      packages =
+        (import ./pkgs {inherit pkgs;})
+        // {
+          helix = inputs.helix.packages.${system}.default;
+
+          neovim = inputs.neovim.packages.${system}.default;
+
+          vmware = nixos-generators.nixosGenerate {
+            inherit system;
+            format = "vmware";
+            modules = [./nixos/hosts/iso];
+            specialArgs = {
+              inherit inputs outputs;
+            };
+          };
+
+          deploySpec = pkgs.writeText "cachix-deploy.json" (builtins.toJSON {
+            agents = {
+              define7 = define7System.config.system.build.toplevel;
+            };
+          });
+        };
+
+      homeConfigurations = {
+        sakuraba = let
+          pkgs = import nixpkgs {
+            inherit system;
+          };
+        in
+          home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            extraSpecialArgs = {
+              inherit inputs outputs;
+            };
+            modules = [./home/users/sakuraba/home.nix];
+          };
+      };
+    })
+    // {
+      overlays = import ./overlays;
+
+      nixosModules = import ./modules/nixos;
+      homeManagerModules = import ./modules/home-manager;
+
+      nixosConfigurations = {
+        define7 = define7System;
+        vm = vmSystem;
+      };
+
+      darwinConfigurations = {
+        "QN63HFT2NY" = darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          modules = [
+            ./darwin/hosts/QN63HFT2NY
+          ];
+          specialArgs = {inherit inputs outputs;};
+        };
+      };
+
+      nixConfig = {
+        extra-substituers = [
+          "https://raba-jp.cachix.org"
+          "https://helix.cachix.org"
+          "https://hyprland.cachix.org"
+          "https://nix-community.cachix.org"
+        ];
+        extra-trusted-public-keys = [
+          "raba-jp.cachix.org-1:NgVIMhL5fUaEclOsEtMnCBbyrYDG+qvPPldf2pqklu8="
+          "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+          "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        ];
+      };
+    };
 }

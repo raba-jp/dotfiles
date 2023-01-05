@@ -1,17 +1,12 @@
-final: prev:
-with prev.lib;
-  (
-    foldl' (flip extends) (_: prev)
-    [
-      (import ./udev-gothic.nix)
-      (import ./popshell.nix)
-      (import ./nordic.nix)
-      (import ./cljstyle.nix)
-      (import ./heptabase.nix)
-      (import ./ecspresso.nix)
-      (import ./tfmigrate.nix)
-      (import ./brave.nix)
-      (_final: prev: {sidekick = (prev.callPackage ./sidekick.nix) {};})
-    ]
-  )
-  final
+{
+  additions = final: _prev: import ../pkgs {pkgs = final;};
+  modifications = final: prev:
+    with prev.lib;
+      (
+        foldl' (flip extends) (_: prev)
+        [
+          (import ./brave.nix)
+        ]
+      )
+      final;
+}

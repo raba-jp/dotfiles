@@ -1,0 +1,3 @@
+{
+  services.espanso.enable = true;
+}
