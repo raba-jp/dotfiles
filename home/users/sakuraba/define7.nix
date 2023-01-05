@@ -16,5 +16,11 @@
     ../../features/waybar.nix
   ];
 
+  programs.git.extraConfig = {
+    user.signingKey = "/home/sakuraba/.ssh/id_ed25519.pub";
+    gpg.ssh.allowedSignersFile = "/home/sakuraba/.ssh/id_ed25519";
+    commit.gpgsign = true;
+  };
+
   home.stateVersion = "22.11";
 }
