@@ -1,7 +1,7 @@
 # dotfiles
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/raba-jp/dotfiles/Build?style=for-the-badge)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/raba-jp/dotfiles/Activate?label=Deploy&style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/raba-jp/dotfiles/build.yaml?branch=main&style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/raba-jp/dotfiles/activate.yaml?branch=main&label=Deploy&style=for-the-badge)
 
 ## Prerequirement
 - cachix
