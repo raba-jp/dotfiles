@@ -61,7 +61,6 @@
       colima
       pueue
       dotenv-linter
-      zig
       gnumake
     ];
   };

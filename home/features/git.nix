@@ -58,6 +58,8 @@
       pull.ff = "only";
 
       push.autoSetupRemote = true;
+
+      gpg.format = "ssh";
     };
 
     aliases = {

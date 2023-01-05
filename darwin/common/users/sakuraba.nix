@@ -1,8 +1,8 @@
 {config, ...}: {
   users.users."hiroki.sakuraba" = {
     name = "Hiroki Sakuraba";
-    home = "/Users/hiroki.sakuraba";
+    home = "/Users/sakuraba";
   };
 
-  home-manager.users."hiroki.sakuraba" = import ../../../home/users/sakuraba/${config.networking.hostName}.nix;
+  home-manager.users."sakuraba" = import ../../../home/users/sakuraba/${config.networking.hostName}.nix;
 }

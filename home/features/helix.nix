@@ -20,7 +20,6 @@
     nodePackages.dockerfile-language-server-nodejs
     nodePackages.graphql-language-service-cli
     jsonnet-language-server
-    zls
     nil
   ];
 

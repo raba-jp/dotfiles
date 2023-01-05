@@ -1,7 +1,8 @@
 {...}: {
   imports = [
-    ../../../shared/common/global/nix.nix
-    ../../../shared/common/global/nixpkgs.nix
+    ./nix.nix
+    ./nixpkgs.nix
+    ./home-manager.nix
   ];
 
   environment.pathsToLink = ["/Applications"];

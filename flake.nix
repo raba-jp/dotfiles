@@ -101,7 +101,7 @@
     inherit (flake-utils.lib) eachSystem;
     inherit (self) outputs;
 
-    supportedSystems = ["x86_64-linux" "aarch64-linux"];
+    supportedSystems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin"];
 
     define7System =
       nixpkgs.lib.nixosSystem
@@ -186,8 +186,10 @@
       darwinConfigurations = {
         "QN63HFT2NY" = darwin.lib.darwinSystem {
           system = "aarch64-darwin";
-          modules = [];
-          inputs = {inherit inputs outputs;};
+          modules = [
+            ./darwin/hosts/QN63HFT2NY
+          ];
+          specialArgs = {inherit inputs outputs;};
         };
       };
 
