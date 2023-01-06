@@ -18,11 +18,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     cachix-deploy-flake = {
       url = "github:cachix/cachix-deploy-flake";
       # inputs.darwin.follows = "darwin";
@@ -91,7 +86,6 @@
   outputs = {
     self,
     nixpkgs,
-    nixos-generators,
     nixos-hardware,
     flake-utils,
     home-manager,
@@ -118,16 +112,6 @@
           inherit inputs outputs;
         };
       };
-
-    vmSystem = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
-      modules = [
-        ./nixos/hosts/vm
-      ];
-      specialArgs = {
-        inherit inputs outputs;
-      };
-    };
   in
     eachSystem supportedSystems (system: let
       pkgs = import nixpkgs {
@@ -140,15 +124,6 @@
           helix = inputs.helix.packages.${system}.default;
 
           neovim = inputs.neovim.packages.${system}.default;
-
-          vmware = nixos-generators.nixosGenerate {
-            inherit system;
-            format = "vmware";
-            modules = [./nixos/hosts/iso];
-            specialArgs = {
-              inherit inputs outputs;
-            };
-          };
 
           deploySpec = pkgs.writeText "cachix-deploy.json" (builtins.toJSON {
             agents = {
@@ -180,7 +155,6 @@
 
       nixosConfigurations = {
         define7 = define7System;
-        vm = vmSystem;
       };
 
       darwinConfigurations = {
