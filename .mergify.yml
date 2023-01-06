@@ -1,0 +1,25 @@
+pull_request_rules:
+  - name: Merge using the merge queue
+    conditions:
+      - and:
+        - or:
+            - "author=renovate[bot]"
+            - "author=raba-jp"
+        - "base=main"
+        - "check-success=build"
+    actions:
+      queue:
+        name: default
+        method: merge
+        update_method: merge
+  - name: Automatic update
+    conditions:
+      - -conflict
+      - -draft
+    actions:
+      update:
+
+queue_rules:
+  - name: default
+    conditions:
+      - "check-success=build"
