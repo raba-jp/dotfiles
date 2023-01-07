@@ -23,15 +23,9 @@
       # inputs.darwin.follows = "darwin";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    helix = {
-      url = "github:helix-editor/helix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    hyprland.url = "github:hyprwm/Hyprland";
+    helix.url = "github:helix-editor/helix";
+    neovim.url = "github:neovim/neovim?dir=contrib";
 
     fish-done = {
       url = "github:franciscolourenco/done";
@@ -71,11 +65,6 @@
     catppuccin-waybar = {
       url = "github:catppuccin/waybar";
       flake = false;
-    };
-
-    neovim = {
-      url = "github:neovim/neovim?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     lazy-nvim = {

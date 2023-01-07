@@ -386,9 +386,7 @@
     "helix": {
       "inputs": {
         "nci": "nci",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs_4",
         "rust-overlay": "rust-overlay"
       },
       "locked": {
@@ -451,9 +449,7 @@
     "hyprland": {
       "inputs": {
         "hyprland-protocols": "hyprland-protocols",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs_5",
         "wlroots": "wlroots",
         "xdph": "xdph"
       },
@@ -549,9 +545,7 @@
     "neovim": {
       "inputs": {
         "flake-utils": "flake-utils_3",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs_6"
       },
       "locked": {
         "dir": "contrib",
@@ -737,6 +731,54 @@
         "type": "github"
       }
     },
+    "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1672953546,
+        "narHash": "sha256-oz757DnJ1ITvwyTovuwG3l9cX6j9j6/DH9eH+cXFJmc=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a518c77148585023ff56022f09c4b2c418a51ef5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_6": {
+      "locked": {
+        "lastModified": 1672953546,
+        "narHash": "sha256-oz757DnJ1ITvwyTovuwG3l9cX6j9j6/DH9eH+cXFJmc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "a518c77148585023ff56022f09c4b2c418a51ef5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_7": {
+      "locked": {
+        "lastModified": 1672953546,
+        "narHash": "sha256-oz757DnJ1ITvwyTovuwG3l9cX6j9j6/DH9eH+cXFJmc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "a518c77148585023ff56022f09c4b2c418a51ef5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "cachix-deploy-flake": "cachix-deploy-flake",
@@ -757,7 +799,7 @@
         "lazy-nvim": "lazy-nvim",
         "neovim": "neovim",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_7"
       }
     },
     "rust-overlay": {
