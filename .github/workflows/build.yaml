@@ -37,7 +37,7 @@ jobs:
             2> >(tee -a build.log >&2) || true
           
           OUTPUT="$(jq '.[].outputs.out' --raw-output build.json | tr -d '\n')"
-          nix copy --from eu.nixbuild.net "$OUTPUT"
+          nix copy --from ssh-ng://eu.nixbuild.net "$OUTPUT"
           cp "$OUTPUT" ./spec.json
       - uses: actions/upload-artifact@v3
         with:
