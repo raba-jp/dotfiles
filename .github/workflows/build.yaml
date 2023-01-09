@@ -35,7 +35,7 @@ jobs:
             --json > build.json
       - name: Create deploy spec file
         run: |
-          jq '.[0].outputs.out | { agents: define7: .}' build.json > spec.json
+          jq '.[0].outputs.out | { agents: {define7: .}}' build.json > spec.json
       - uses: actions/upload-artifact@v3
         with:
           name: result
