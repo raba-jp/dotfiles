@@ -33,7 +33,7 @@ jobs:
             --builders '' --max-jobs 2 \
             .#deploySpec \
             --json > build.json
-          
+      - run: |          
           OUTPUT="$(jq '.[0].outputs.out' --raw-output build.json | tr -d '\n')"
           nix copy --from ssh-ng://eu.nixbuild.net "$OUTPUT"
           cp "$OUTPUT" ./spec.json
