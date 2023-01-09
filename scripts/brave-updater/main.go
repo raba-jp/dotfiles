@@ -14,7 +14,7 @@ import (
 
 const fileTemplate = `
 # Auto generated
-final: prev: {
+_: prev: {
   brave = prev.brave.overrideAttrs (old: rec {
     version = "{{.Version}}";
 
@@ -61,7 +61,7 @@ func main() {
 }
 
 func getLatestStableRelease() (*Release, error) {
-	res, err := http.Get("https://api.github.com/repos/brave/brave-browser/releases")
+	res, err := http.Get("https://api.github.com/repos/brave/brave-browser/releases/latest")
 	if err != nil {
 		panic(err)
 	}
@@ -72,19 +72,12 @@ func getLatestStableRelease() (*Release, error) {
 		panic(err)
 	}
 
-	var releases []*Release
-	if err := json.Unmarshal(b, &releases); err != nil {
+	var release *Release
+	if err := json.Unmarshal(b, &release); err != nil {
 		panic(err)
 	}
 
-	for _, release := range releases {
-		if strings.HasPrefix(release.Name, "Release") {
-			fmt.Printf("Latest version: %s\n", release.TagName)
-			return release, nil
-		}
-	}
-
-	return nil, fmt.Errorf("Failed to get latest stable release")
+	return release, nil
 }
 
 func getAsset(release *Release) (*Asset, error) {
