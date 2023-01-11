@@ -2,11 +2,11 @@
 # Auto generated
 _: prev: {
   brave = prev.brave.overrideAttrs (old: rec {
-    version = "1.46.153";
+    version = "1.49.14";
 
     src = prev.fetchurl {
-      url = "https://github.com/brave/brave-browser/releases/download/v1.46.153/brave-browser_1.46.153_amd64.deb";
-      sha256 = "08i36yc51hy9b3vk2320n75zalvg3sm46v57rp2yxf7izssbjd8f";
+      url = "https://github.com/brave/brave-browser/releases/download/v1.49.14/brave-browser-nightly_1.49.14_amd64.deb";
+      sha256 = "02jd244plpcv4qfklh6ra9cjk5kvfkym2dxqxgfhmk0vcswydzdg";
     };
   });
 }
