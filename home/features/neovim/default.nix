@@ -8,25 +8,22 @@
   inherit (pkgs.vimUtils) buildVimPluginFrom2Nix;
 in {
   xdg.configFile = let
-    inherit (lib.attrsets) filterAttrs nameValuePair mapAttrs';
-
-    configFiles =
-      filterAttrs
-      (_name: value: (value == "regular") || (value == "symlink"))
+    getConfigFiles = dir:
+      lib.filterAttrs
+      (n: _v: lib.hasSuffix ".lua" n)
       (
-        (mapAttrs' (f: v: nameValuePair ("lua/core/" + f) v) (builtins.readDir ./lua/core))
-        // (mapAttrs' (f: v: nameValuePair ("lua/plugins/" + f) v) (builtins.readDir ./lua/plugins))
-        // {"init.lua" = "regular";}
+        lib.listToAttrs (map
+          (file:
+            lib.nameValuePair
+            ("nvim/" + (lib.removePrefix ("${toString dir}" + "/") (toString file)))
+            {
+              source = file;
+              executable = false;
+            })
+          (lib.filesystem.listFilesRecursive dir))
       );
   in
-    mapAttrs' (f: _:
-      nameValuePair
-      ("nvim/" + f)
-      {
-        source = ./. + ("/" + f);
-        executable = false;
-      })
-    configFiles;
+    getConfigFiles ./.;
 
   programs.neovim = {
     enable = true;
