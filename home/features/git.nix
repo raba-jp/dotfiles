@@ -8,7 +8,6 @@
     extraConfig = {
       core = {
         editor = "hx";
-        fsmonitor = "${pkgs.rs-git-fsmonitor}/bin/rs-git-fsmonitor";
 
         multipackindex = true;
         preloadindex = true;
