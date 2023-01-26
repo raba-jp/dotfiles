@@ -9,8 +9,6 @@
     packages = with pkgs; [
       ripgrep
       fd
-      watchman
-      rs-git-fsmonitor
       tig
       procs
       ghq
