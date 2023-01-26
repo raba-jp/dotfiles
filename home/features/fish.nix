@@ -6,7 +6,7 @@
   xdg.configFile = {
     "fish/themes/Catppuccin Mocha.theme" = {
       text = builtins.readFile (inputs.catppuccin-fish + "/themes/Catppuccin Mocha.theme");
-      onChange = ''fish_config theme save "Catppuccin Mocha"'';
+      onChange = "${pkgs.fish}/bin/fish -c 'yes | fish_config theme save \"Catppuccin Mocha\"'";
     };
   };
 
