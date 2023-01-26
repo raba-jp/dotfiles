@@ -66,11 +66,6 @@
       url = "github:catppuccin/waybar";
       flake = false;
     };
-
-    lazy-nvim = {
-      url = "github:folke/lazy.nvim";
-      flake = false;
-    };
   };
   outputs = {
     self,

@@ -488,22 +488,6 @@
         "type": "github"
       }
     },
-    "lazy-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1674635241,
-        "narHash": "sha256-WTKO912KCYOYdNNVGsHqXCIS7XIH0x9FcoZvdNwLYwk=",
-        "owner": "folke",
-        "repo": "lazy.nvim",
-        "rev": "b64ebb71d4e573a34b0b83801eee60cc6d86a06e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "folke",
-        "repo": "lazy.nvim",
-        "type": "github"
-      }
-    },
     "nci": {
       "inputs": {
         "devshell": "devshell",
@@ -785,7 +769,6 @@
         "helix": "helix",
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",
-        "lazy-nvim": "lazy-nvim",
         "neovim": "neovim",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_7"

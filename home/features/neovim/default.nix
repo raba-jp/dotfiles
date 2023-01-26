@@ -1,12 +1,9 @@
 {
   lib,
   pkgs,
-  inputs,
   outputs,
   ...
-}: let
-  inherit (pkgs.vimUtils) buildVimPluginFrom2Nix;
-in {
+}: {
   xdg.configFile = let
     getConfigFiles = dir:
       lib.filterAttrs
@@ -28,14 +25,5 @@ in {
   programs.neovim = {
     enable = true;
     package = outputs.packages.${pkgs.system}.neovim;
-
-    plugins = [
-      {
-        plugin = buildVimPluginFrom2Nix {
-          name = "lazy.nvim";
-          src = inputs.lazy-nvim;
-        };
-      }
-    ];
   };
 }

@@ -22,8 +22,6 @@ end)
 return {
 	default_prog = { "/usr/local/bin/fish", "-l" },
 
-	front_end = "WebGpu",
-
 	font = wezterm.font_with_fallback({
 		"UDEV Gothic 35NFLG",
 	}),
