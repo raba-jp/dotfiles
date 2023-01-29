@@ -390,11 +390,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1674861383,
-        "narHash": "sha256-qQsUrccR2VDReDiMFb2wFYPlt7iCXo199/Tgm7SPzTE=",
+        "lastModified": 1674936953,
+        "narHash": "sha256-aNpkajziqvFlbZwn2yhODHly3yWh3ZLy05jOrhHT1uk=",
         "owner": "helix-editor",
         "repo": "helix",
-        "rev": "2c6bf6fca60a21f39939f5ae027ed3f56cf92dbd",
+        "rev": "482cc22fecc109773882d3e0fd6251c33862e89e",
         "type": "github"
       },
       "original": {
@@ -454,11 +454,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1674928454,
-        "narHash": "sha256-jtuq90kM5zt5HPPjCjQjS/iKiYdhojjSyzufoJM+gUQ=",
+        "lastModified": 1675011775,
+        "narHash": "sha256-kMQxMitimccnW5DW8xVjxmtCGKPcx8z15UQ4qS8d6u0=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "1c1e688564500ac0a4938d8dcc77382b370dacd6",
+        "rev": "32381fe6c4e33232401d7a74f587ee7296a61fcf",
         "type": "github"
       },
       "original": {
@@ -522,11 +522,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1674882405,
-        "narHash": "sha256-GnP517tetJRrwEGpzKPmb4n/aoh66XVuj4o1WsZgSAk=",
+        "lastModified": 1675008233,
+        "narHash": "sha256-JFf3sbopecj2N3NznDQMW3IwsYt//tl8f8rQAAyypuQ=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "b4c4c232ba6fe3df5c6f12faff4405a16e4d40df",
+        "rev": "9cb3b276bdb39f28fad51ce2a61cd5db6fb9a03b",
         "type": "github"
       },
       "original": {
