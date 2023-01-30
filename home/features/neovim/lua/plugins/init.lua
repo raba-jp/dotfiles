@@ -1,6 +1,5 @@
 require("lazy").setup({
 	"MunifTanjim/nui.nvim",
-	{ "gpanders/editorconfig.nvim", lazy = false },
 	{
 		"catppuccin/nvim",
 		lazy = false,
@@ -63,7 +62,7 @@ require("lazy").setup({
 			"MunifTanjim/nui.nvim",
 			"rcarriga/nvim-notify",
 		},
-		keys = { ":" },
+		keys = { ":", "/" },
 		init = require("plugins.noice").init,
 		config = require("plugins.noice").config,
 	},
