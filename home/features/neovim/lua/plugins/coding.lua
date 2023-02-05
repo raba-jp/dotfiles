@@ -33,7 +33,7 @@ return {
 			local has_words_before = function()
 				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 				return col ~= 0
-						and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+					and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 			end
 
 			return {
@@ -81,7 +81,7 @@ return {
 					fields = { "kind", "abbr", "menu" },
 					format = function(entry, vim_item)
 						local kind =
-						require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+							require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
 						local strings = vim.split(kind.kind, "%s", { trimempty = true })
 						kind.kind = " " .. strings[1] .. " "
 						kind.menu = "    (" .. strings[2] .. ")"
@@ -110,6 +110,13 @@ return {
 					{ name = "cmdline" },
 				}),
 			})
+		end,
+	},
+	{
+		"echasnovski/mini.pairs",
+		event = "VeryLazy",
+		config = function(_, opts)
+			require("mini.pairs").setup(opts)
 		end,
 	},
 }

@@ -1,7 +1,6 @@
-
 # Auto generated
 _: prev: {
-  brave = prev.brave.overrideAttrs (old: rec {
+  brave = prev.brave.overrideAttrs (_old: rec {
     version = "1.47.186";
 
     src = prev.fetchurl {
