@@ -1,5 +1,6 @@
 return {
 	"catppuccin/nvim",
+	name = "catppuccin",
 	config = function()
 		local telescopeBorderless = function(flavor)
 			local cp = require("catppuccin.palettes").get_palette(flavor)
