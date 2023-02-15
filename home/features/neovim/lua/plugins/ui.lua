@@ -64,7 +64,12 @@ return {
 					lualine_a = { "mode" },
 					lualine_b = { "branch", "diff" },
 					lualine_c = {
-						{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+						{
+							"filetype",
+							icon_only = true,
+							separator = "",
+							padding = { left = 1, right = 0 },
+						},
 						{ "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
 						{
 							function()
@@ -108,7 +113,6 @@ return {
 		"lukas-reineke/indent-blankline.nvim",
 		event = "BufReadPost",
 		opts = {
-			-- char = "▏",
 			char = "│",
 			filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
 			show_trailing_blankline_indent = false,

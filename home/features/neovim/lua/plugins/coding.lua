@@ -62,13 +62,11 @@ return {
 						end
 					end, { "i", "s" }),
 				},
-
 				snippet = {
 					expand = function(args)
 						require("luasnip").lsp_expand(args.body)
 					end,
 				},
-
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "nvim_lsp_signature_help" },
@@ -76,7 +74,6 @@ return {
 				}, {
 					{ name = "buffer" },
 				}),
-
 				formatting = {
 					fields = { "kind", "abbr", "menu" },
 					format = function(entry, vim_item)
@@ -118,5 +115,40 @@ return {
 		config = function(_, opts)
 			require("mini.pairs").setup(opts)
 		end,
+	},
+	{
+		"nvim-neotest/neotest",
+		event = "VeryLazy",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-neotest/neotest-go",
+			"rouge8/neotest-rust",
+		},
+		opts = function()
+			return {
+				adapters = {
+					require("neotest-go"),
+					require("neotest-rust"),
+				},
+			}
+		end,
+	},
+	{
+		"NMAC427/guess-indent.nvim",
+		event = "VeryLazy",
+		opts = {
+			filetype_exclude = {
+				"dashboard",
+				"lazy",
+				"alpha",
+				"help",
+				"neo-tree",
+				"Trouble",
+				"netrw",
+				"tutor",
+			},
+		},
 	},
 }
