@@ -60,6 +60,7 @@
       pueue
       dotenv-linter
       gnumake
+      clang
     ];
   };
 
