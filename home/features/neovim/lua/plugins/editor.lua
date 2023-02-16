@@ -11,7 +11,6 @@ return {
 			wk.register({
 				mode = { "n", "v" },
 				["g"] = { name = "+goto" },
-				["gz"] = { name = "+surround" },
 				["]"] = { name = "+next" },
 				["["] = { name = "+prev" },
 				["<leader><tab>"] = { name = "+tabs" },
@@ -140,6 +139,29 @@ return {
 			require("telescope").load_extension("ghq")
 			require("telescope").load_extension("fzf")
 		end,
+		keys = {
+			{
+				"<leader>fb",
+				function()
+					require("telescope.builtin").buffers()
+				end,
+				desc = "Find buffer",
+			},
+			{
+				"<leader>ff",
+				function()
+					require("telescope.builtin").find_files()
+				end,
+				desc = "Find file in current working directory",
+			},
+			{
+				"<leader>fg",
+				function()
+					require("telescope.builtin").git_files()
+				end,
+				desc = "Find file through the output of git ls-files command",
+			},
+		},
 	},
 	{
 		"echasnovski/mini.bufremove",
