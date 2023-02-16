@@ -39,7 +39,7 @@ return {
 					nil_ls = {},
 					rust_analyzer = {},
 					solargraph = {},
-					sumneko_lua = {
+					lua_ls = {
 						settings = {
 							Lua = {
 								runtime = {
