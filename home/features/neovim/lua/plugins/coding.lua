@@ -86,6 +86,11 @@ return {
 						return kind
 					end,
 				},
+				preselect = cmp.PreselectMode.None,
+				matching = {
+					disallow_fuzzy_matching = false,
+					disallow_partial_matching = false,
+				},
 			}
 		end,
 		config = function(_, opts)
@@ -134,6 +139,22 @@ return {
 				},
 			}
 		end,
+		keys = {
+			{
+				"<leader>tt",
+				function()
+					require("neotest").run.run()
+				end,
+				desc = "Run nearest test",
+			},
+			{
+				"<leader>tc",
+				function()
+					require("neotest").run.run(vim.fn.expand("%"))
+				end,
+				desc = "Run current file",
+			},
+		},
 	},
 	{
 		"NMAC427/guess-indent.nvim",
