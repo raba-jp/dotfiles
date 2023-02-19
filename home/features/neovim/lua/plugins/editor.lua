@@ -100,16 +100,6 @@ return {
 							["jj"] = actions.close,
 						},
 					},
-					vimgrep_arguments = {
-						"rg",
-						"--color=never",
-						"--ne-heading",
-						"--with-filename",
-						"--line-number",
-						"--column",
-						"--smart-case",
-						"--trim",
-					},
 					prompt_prefix = " ",
 					selection_caret = " ",
 					entry_prefix = " ",
@@ -160,6 +150,13 @@ return {
 					require("telescope.builtin").git_files()
 				end,
 				desc = "Find file through the output of git ls-files command",
+			},
+			{
+				"<leader>fr",
+				function()
+					require("telescope.builtin").live_grep()
+				end,
+				desc = "Search for a string in current working directory",
 			},
 		},
 	},
