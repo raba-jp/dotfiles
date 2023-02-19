@@ -37,9 +37,6 @@ return {
 	{
 		"akinsho/bufferline.nvim",
 		event = "VeryLazy",
-		dependencies = {
-			"catppuccin/nvim",
-		},
 		opts = {
 			options = {
 				diagnostics = "nvim_lsp",
