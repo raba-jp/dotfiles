@@ -33,6 +33,9 @@ return {
 			"toml",
 			"zig",
 			"nix",
+			"regex",
+			"markdown",
+			"markdown_inline",
 		},
 	},
 	config = function(_, opts)
