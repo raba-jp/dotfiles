@@ -141,7 +141,7 @@ return {
 		end,
 		keys = {
 			{
-				"<leader>tt",
+				"<leader>tx",
 				function()
 					require("neotest").run.run()
 				end,

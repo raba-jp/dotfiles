@@ -22,7 +22,7 @@ return {
 				["<leader>f"] = { name = "+file/find" },
 				["<leader>g"] = { name = "+git" },
 				["<leader>w"] = { name = "+window" },
-				["<leader>t"] = { name = "+test" },
+				["<leader>t"] = { name = "+term/test" },
 			})
 		end,
 	},
