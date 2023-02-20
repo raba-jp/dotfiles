@@ -60,8 +60,8 @@
       pueue
       dotenv-linter
       gnumake
-      clang
       tree-sitter
+      gcc
     ];
   };
 
