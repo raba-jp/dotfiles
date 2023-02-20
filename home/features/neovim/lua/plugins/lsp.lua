@@ -182,10 +182,52 @@ return {
 	},
 	{
 		"glepnir/lspsaga.nvim",
-		event = "VeryLazy",
+		cmd = "Lspsaga",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 			"nvim-treesitter/nvim-treesitter",
+			"catppuccin/nvim",
+		},
+		opts = function()
+			return {
+				ui = {
+					title = false,
+					border = "solid",
+					winblend = 0,
+					expand = "",
+					collapse = "",
+					code_action = "",
+					incoming = " ",
+					outgoing = " ",
+					hover = " ",
+					kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+				},
+				symbol_in_winbar = {
+					enable = false,
+				},
+			}
+		end,
+		keys = {
+			{
+				"<leader>na",
+				"<cmd>Lspsaga code_actions<CR>",
+				desc = "Run code actions",
+			},
+			{
+				"<leader>nn",
+				"<cmd>Lspsaga lsp_finder<CR>",
+				desc = "Show the defintion, reference and implementation",
+			},
+			{
+				"<leader>nr",
+				"<cmd>Lspsaga rename<CR>",
+				desc = "Rename",
+			},
+			{
+				"<leader>no",
+				"<cmd>Lspsaga outline",
+				desc = "Show outline",
+			},
 		},
 	},
 }

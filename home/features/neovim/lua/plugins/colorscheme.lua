@@ -2,9 +2,10 @@ return {
 	"catppuccin/nvim",
 	name = "catppuccin",
 	config = function()
-		local telescopeBorderless = function(flavor)
+		local highlightOverrides = function(flavor)
 			local cp = require("catppuccin.palettes").get_palette(flavor)
 			return {
+				-- Telescope
 				TelescopeBorder = { fg = cp.mantle, bg = cp.mantle },
 				TelescopeSelectionCaret = { fg = cp.flamingo, bg = cp.mantle },
 				TelescopeMatching = { fg = cp.peach },
@@ -16,15 +17,18 @@ return {
 				TelescopePromptTitle = { fg = cp.surface0, bg = cp.surface0 },
 				TelescopePromptNormal = { fg = cp.text, bg = cp.surface0 },
 				TelescopePromptBorder = { fg = cp.surface0, bg = cp.surface0 },
+				-- Lspsaga
+				SagaNormal = { bg = cp.mantle },
+				SagaBorder = { bg = cp.mantle },
 			}
 		end
 
 		require("catppuccin").setup({
 			highlight_overrides = {
-				latte = telescopeBorderless("latte"),
-				frappe = telescopeBorderless("frappe"),
-				macchiato = telescopeBorderless("macchiato"),
-				mocha = telescopeBorderless("mocha"),
+				latte = highlightOverrides("latte"),
+				frappe = highlightOverrides("frappe"),
+				macchiato = highlightOverrides("macchiato"),
+				mocha = highlightOverrides("mocha"),
 			},
 			integrations = {
 				cmp = true,
@@ -38,6 +42,7 @@ return {
 				neotree = true,
 				neotest = true,
 				noice = true,
+				lsp_saga = true,
 				mini = true,
 				indent_blankline = {
 					enabled = true,
