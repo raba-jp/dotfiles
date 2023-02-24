@@ -9,6 +9,7 @@
       ./nixpkgs.nix
       ./home-manager.nix
       ./locale.nix
+      ./networking.nix
     ]
     ++ (builtins.attrValues outputs.nixosModules);
 
