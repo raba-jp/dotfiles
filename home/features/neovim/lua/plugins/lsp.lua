@@ -210,7 +210,7 @@ return {
 		keys = {
 			{
 				"<leader>na",
-				"<cmd>Lspsaga code_actions<CR>",
+				"<cmd>Lspsaga code_action<CR>",
 				desc = "Run code actions",
 			},
 			{
