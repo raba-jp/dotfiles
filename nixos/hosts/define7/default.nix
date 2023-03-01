@@ -8,6 +8,8 @@
     inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
     inputs.nixos-hardware.nixosModules.common-gpu-amd
     inputs.nixos-hardware.nixosModules.common-pc-ssd
+    inputs.disko.nixosModules.disko
+    inputs.impermanence.nixosModules.impermanence
     ./hardware-configuration.nix
     ../../common/global
     ../../common/optional/gnome.nix
