@@ -18,9 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    cachix-deploy-flake = {
-      url = "github:cachix/cachix-deploy-flake";
-      # inputs.darwin.follows = "darwin";
+    impermanence.url = "github:nix-community/impermanence";
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
@@ -70,7 +72,6 @@
   outputs = {
     self,
     nixpkgs,
-    nixos-hardware,
     flake-utils,
     home-manager,
     darwin,
@@ -85,17 +86,21 @@
       nixpkgs.lib.nixosSystem
       {
         system = "x86_64-linux";
-        modules = [
-          nixos-hardware.nixosModules.common-cpu-amd
-          nixos-hardware.nixosModules.common-cpu-amd-pstate
-          nixos-hardware.nixosModules.common-gpu-amd
-          nixos-hardware.nixosModules.common-pc-ssd
-          ./nixos/hosts/define7
-        ];
+        modules = [./nixos/hosts/define7];
         specialArgs = {
           inherit inputs outputs;
         };
       };
+
+    xpsSystem = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./nixos/hosts/xps13
+      ];
+      specialArgs = {
+        inherit inputs outputs;
+      };
+    };
   in
     eachSystem supportedSystems (system: let
       pkgs = import nixpkgs {
@@ -112,6 +117,7 @@
           deploySpec = pkgs.writeText "cachix-deploy.json" (builtins.toJSON {
             agents = {
               define7 = define7System.config.system.build.toplevel;
+              xps = xpsSystem.config.system.build.toplevel;
             };
           });
         };
@@ -139,6 +145,7 @@
 
       nixosConfigurations = {
         define7 = define7System;
+        xps = xpsSystem;
       };
 
       darwinConfigurations = {

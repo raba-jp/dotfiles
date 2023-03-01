@@ -9,9 +9,9 @@ return {
 		},
 		keys = {
 			{
-				"<leader>tf",
+				"<leader>tt",
 				"<cmd>ToggleTerm direction=float<CR>",
-				desc = "Toggle terminal (float)",
+				desc = "Toggle terminal",
 			},
 		},
 	},
