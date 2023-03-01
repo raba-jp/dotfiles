@@ -31,7 +31,15 @@ return {
 									parameterNames = true,
 									rangeVariableTypes = true,
 								},
+								analyses = {
+									unusedparams = true,
+									shadow = true,
+								},
+								staticcheck = true,
 							},
+						},
+						init_options = {
+							usePlaceholders = true,
 						},
 					},
 					graphql = {},
