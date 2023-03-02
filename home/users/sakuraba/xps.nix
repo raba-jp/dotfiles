@@ -1,5 +1,7 @@
-{...}: {
+{inputs, ...}: {
   imports = [
+    inputs.impermanence.nixosModules.home-manager.impermanence
+
     ../../features/wezterm
     ../../features/neovim
 
@@ -22,5 +24,35 @@
     commit.gpgsign = true;
   };
 
-  home.stateVersion = "22.11";
+  home = {
+    persistence."/persistent/home/sakuraba" = {
+      directories = [
+        "ghq"
+        "dotfiles"
+        "go"
+        "pCloud"
+        "Downloads"
+        "Games"
+        "Music"
+        "Pictures"
+        "Documents"
+        "Videos"
+        ".aws"
+        ".cache"
+        ".local"
+        ".factorio"
+        ".gnupg"
+        ".mozc"
+        ".ssh"
+        ".steam"
+        ".wine"
+      ];
+
+      files = [];
+
+      allowOther = true;
+    };
+
+    stateVersion = "22.11";
+  };
 }

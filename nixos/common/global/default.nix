@@ -13,6 +13,8 @@
     ]
     ++ (builtins.attrValues outputs.nixosModules);
 
+  programs.fuse.userAllowOther = true;
+
   environment = {
     enableAllTerminfo = true;
 
