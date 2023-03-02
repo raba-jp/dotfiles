@@ -160,6 +160,13 @@ return {
 		"NMAC427/guess-indent.nvim",
 		event = "VeryLazy",
 		opts = {
+			auto_cmd = true,
+			buftype_exclude = {
+				"help",
+				"nofile",
+				"terminal",
+				"prompt",
+			},
 			filetype_exclude = {
 				"dashboard",
 				"lazy",
