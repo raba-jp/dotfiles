@@ -234,12 +234,12 @@ return {
 			},
 			{
 				"<leader>no",
-				"<cmd>Lspsaga outline",
+				"<cmd>Lspsaga outline<CR>",
 				desc = "Show outline",
 			},
 			{
 				"<leader>nd",
-				"<cmd>Lspsaga hover_doc",
+				"<cmd>Lspsaga hover_doc<CR>",
 				desc = "Show document",
 			},
 		},
