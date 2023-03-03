@@ -41,7 +41,7 @@ return {
 		},
 		opts = {
 			close_if_last_window = false,
-			popup_border_style = "rounded",
+			popup_border_style = "solid",
 			enable_git_status = true,
 			enable_diagnostics = true,
 			sort_case_insensitive = false,
@@ -49,7 +49,17 @@ return {
 				position = "float",
 			},
 			use_libuv_file_watcher = true,
-			follow_current_file = true,
+			filesystem = {
+				filtered_items = {
+					hide_by_name = {
+						"node_modules",
+						"vendor",
+					},
+				},
+			},
+			buffers = {
+				follow_current_file = true,
+			},
 		},
 		config = function(_, opts)
 			require("neo-tree").setup(opts)
