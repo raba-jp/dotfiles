@@ -20,6 +20,8 @@ return {
 				-- Lspsaga
 				SagaNormal = { bg = cp.mantle },
 				SagaBorder = { bg = cp.mantle },
+				-- neo-tree.nvim
+				NeoTreeFloatBorder = { fg = cp.mantle },
 			}
 		end
 
