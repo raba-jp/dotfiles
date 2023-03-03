@@ -154,6 +154,20 @@ return {
 				end,
 				desc = "Run current file",
 			},
+			{
+				"<leader>ts",
+				function()
+					require("neotest").summary.toggle()
+				end,
+				desc = "Toggle test summary",
+			},
+			{
+				"<loader>to",
+				function()
+					require("neotest").output_panel.toggle()
+				end,
+				desc = "Toggle test output",
+			},
 		},
 	},
 	{
