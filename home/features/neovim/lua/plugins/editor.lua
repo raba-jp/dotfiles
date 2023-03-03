@@ -23,6 +23,7 @@ return {
 				["<leader>g"] = { name = "+git" },
 				["<leader>w"] = { name = "+window" },
 				["<leader>t"] = { name = "+term/test" },
+				["<leader>s"] = { name = "+select" },
 			})
 		end,
 	},
