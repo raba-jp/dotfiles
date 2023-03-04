@@ -25,6 +25,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.darwin.follows = "darwin";
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
     helix.url = "github:helix-editor/helix";
     neovim.url = "github:neovim/neovim?dir=contrib";
