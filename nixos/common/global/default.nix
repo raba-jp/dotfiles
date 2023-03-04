@@ -1,10 +1,13 @@
 {
   pkgs,
+  inputs,
   outputs,
   ...
 }: {
   imports =
     [
+      inputs.agenix.nixosModules.default
+
       ./nix.nix
       ./nixpkgs.nix
       ./home-manager.nix
@@ -23,6 +26,7 @@
       appimage-run
       libnotify
       lm_sensors
+      inputs.agenix.packages.${system}.default
     ];
   };
 
