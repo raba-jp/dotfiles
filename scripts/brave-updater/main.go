@@ -15,7 +15,7 @@ import (
 const fileTemplate = `
 # Auto generated
 _: prev: {
-  brave = prev.brave.overrideAttrs (_old: rec {
+  brave = prev.brave.overrideAttrs (_old: {
     version = "{{.Version}}";
 
     src = prev.fetchurl {
