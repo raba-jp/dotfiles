@@ -1,4 +1,3 @@
-
 # Auto generated
 _: prev: {
   brave = prev.brave.overrideAttrs (_old: {

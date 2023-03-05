@@ -12,8 +12,7 @@ import (
 	"strings"
 )
 
-const fileTemplate = `
-# Auto generated
+const fileTemplate = `# Auto generated
 _: prev: {
   brave = prev.brave.overrideAttrs (_old: {
     version = "{{.Version}}";
