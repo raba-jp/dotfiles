@@ -31,6 +31,12 @@
       inputs.darwin.follows = "darwin";
     };
 
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
     helix.url = "github:helix-editor/helix";
     neovim.url = "github:neovim/neovim?dir=contrib";
@@ -141,6 +147,27 @@
             };
             modules = [./home/users/sakuraba/home.nix];
           };
+      };
+
+      checks = {
+        pre-commit = inputs.pre-commit-hooks.lib.${system}.run {
+          src = ./.;
+
+          hooks = {
+            alejandra.enable = true;
+            deadnix.enable = true;
+
+            stylua.enable = true;
+            shfmt.enable = true;
+
+            actionlint.enable = true;
+          };
+        };
+      };
+
+      devShell = pkgs.callPackage ./shell.nix {
+        inherit pkgs;
+        inherit (self.checks.${system}.pre-commit) shellHook;
       };
     })
     // {
