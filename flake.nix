@@ -172,9 +172,19 @@
         };
       };
 
-      devShell = pkgs.callPackage ./shell.nix {
-        inherit pkgs;
+      devShell = pkgs.mkShell {
         inherit (self.checks.${system}.pre-commit) shellHook;
+
+        packages = with pkgs; [
+          treefmt
+          deadnix
+          alejandra
+          stylua
+          shfmt
+          taplo
+          go
+          gitleaks
+        ];
       };
     })
     // {
