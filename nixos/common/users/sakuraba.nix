@@ -1,5 +1,5 @@
 {config, ...}: {
-  age.secrets.passwordfile_sakuraba.file = ../../../secrets/passwordfile_sakuraba.age;
+  age.secrets.passwordfile_sakuraba.file = ../../../secrets/passwordfile-sakuraba.age;
 
   users.mutableUsers = false;
   users.users.sakuraba = {

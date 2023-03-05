@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  age.secrets.cachix-agent-token.flie = ../../../secrets/cachix-agent-token.age;
+  age.secrets.cachix-agent-token.file = ../../../secrets/cachix-agent-token.age;
 
   services.cachix-agent = {
     enable = true;
