@@ -8,6 +8,7 @@
     [
       inputs.agenix.nixosModules.default
 
+      ./age.nix
       ./nix.nix
       ./nixpkgs.nix
       ./home-manager.nix
