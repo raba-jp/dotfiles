@@ -161,6 +161,13 @@
             shfmt.enable = true;
 
             actionlint.enable = true;
+
+            gitleaks = {
+              enable = true;
+              name = "gitleaks";
+              entry = "gitleaks detect --no-git --source . -v";
+              language = "system";
+            };
           };
         };
       };

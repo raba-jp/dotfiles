@@ -14,5 +14,6 @@ pkgs.mkShell {
     shfmt
     taplo
     go
+    gitleaks
   ];
 }
