@@ -1,4 +1,6 @@
 {config, ...}: {
+  age.secrets.passwordfile_sakuraba.file = ../../../secrets/passwordfile_sakuraba.age;
+
   users.mutableUsers = false;
   users.users.sakuraba = {
     isNormalUser = true;
@@ -14,7 +16,8 @@
       "git"
       "libvirtd"
     ];
-    hashedPassword = "$6$pfJbTwMjGKRLZED.$E7VDlAVGg75bOgdnEo11Q9GCHH0M0RQk3VXlTotAxsE0EpypbiOAWbe8AsdwtgDCPbBtrSQ5zqrqYyX28qAO9.";
+
+    passwordFile = config.age.secrets.passwordfile_sakuraba.path;
 
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIO3XXec588RHW99sDhZjQoWs4OzexPGvu1zDTErUB4J"
