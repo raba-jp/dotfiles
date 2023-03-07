@@ -53,7 +53,7 @@
       lvs = {
         nix = {
           type = "lvm_lv";
-          size = "265G";
+          size = "270G";
           content = {
             type = "filesystem";
             format = "ext4";
@@ -69,14 +69,6 @@
             format = "ext4";
             mountpoint = "/persistent";
             extraArgs = ["-L" "persistent"];
-          };
-        };
-        swap = {
-          type = "lvm_lv";
-          size = "8G";
-          extraArgs = ["-L" "swap"];
-          content = {
-            type = "swap";
           };
         };
       };

@@ -107,7 +107,7 @@
     xpsSystem = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./nixos/hosts/xps13
+        ./nixos/hosts/xps
       ];
       specialArgs = {
         inherit inputs outputs;
@@ -184,6 +184,7 @@
           taplo
           go
           gitleaks
+          cargo-make
         ];
       };
     })

@@ -53,9 +53,7 @@
       virt-manager
     ];
 
-    disko.devices = pkgs.callPackage ./disk.nix {};
-
-    persistence."/persistent" = {
+    persistence."/nix/persist" = {
       hideMounts = true;
       directories = [
         "/var/log"
@@ -74,6 +72,8 @@
     };
   };
 
+  disko.devices = import ./disk.nix;
+
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -86,5 +86,4 @@
       preLVM = true;
     };
   };
-  swapDevices = [{device = "/dev/disk/by-label/swap";}];
 }
