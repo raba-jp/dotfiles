@@ -15,7 +15,7 @@
           content = {
             type = "filesystem";
             format = "vfat";
-            mountpoint = "/boot";
+            mountpoint = "/boot/efi";
             mountOptions = [
               "defaults"
             ];
@@ -29,6 +29,7 @@
           content = {
             type = "luks";
             name = "crypted";
+            extraArgs = ["--label" "root"];
             content = {
               type = "lvm_pv";
               vg = "pool";
@@ -52,11 +53,12 @@
       lvs = {
         nix = {
           type = "lvm_lv";
-          size = "290G";
+          size = "265G";
           content = {
             type = "filesystem";
             format = "ext4";
             mountpoint = "/nix";
+            extraArgs = ["-L" "nix"];
           };
         };
         persistent = {
@@ -66,11 +68,13 @@
             type = "filesystem";
             format = "ext4";
             mountpoint = "/persistent";
+            extraArgs = ["-L" "persistent"];
           };
         };
         swap = {
           type = "lvm_lv";
           size = "8G";
+          extraArgs = ["-L" "swap"];
           content = {
             type = "swap";
           };
