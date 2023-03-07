@@ -185,6 +185,7 @@
           go
           gitleaks
           cargo-make
+          inputs.disko.packages.${system}.default
         ];
       };
     })
