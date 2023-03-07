@@ -62,6 +62,7 @@
       gnumake
       tree-sitter
       gcc
+      cargo-make
     ];
   };
 
