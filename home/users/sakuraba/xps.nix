@@ -25,7 +25,7 @@
   };
 
   home = {
-    persistence."/persistent/home/sakuraba" = {
+    persistence."/nix/persist/home/sakuraba" = {
       directories = [
         "ghq"
         "dotfiles"
