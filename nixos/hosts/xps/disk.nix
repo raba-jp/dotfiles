@@ -67,7 +67,7 @@
           content = {
             type = "filesystem";
             format = "ext4";
-            mountpoint = "/persistent";
+            mountpoint = "/nix/persist";
             extraArgs = ["-L" "persistent"];
           };
         };
