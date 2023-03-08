@@ -16,6 +16,7 @@
     ../../common/optional/cachix.nix
     # ../../common/optional/libvirtd.nix
     ../../common/optional/hyprland.nix
+    ../../common/optional/network-manager.nix
     ../../common/optional/nm-applet.nix
     ../../common/optional/blueman.nix
     ../../common/users/sakuraba.nix

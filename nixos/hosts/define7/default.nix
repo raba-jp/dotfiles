@@ -18,6 +18,7 @@
     ../../common/optional/systemd-boot.nix
     ../../common/optional/cachix.nix
     ../../common/optional/libvirtd.nix
+    ../../common/optional/network-manager.nix
     # ../../common/optional/hyprland.nix
     # ../../common/optional/nm-applet.nix
     # ../../common/optional/blueman.nix
