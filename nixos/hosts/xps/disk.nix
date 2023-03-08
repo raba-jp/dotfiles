@@ -53,22 +53,12 @@
       lvs = {
         nix = {
           type = "lvm_lv";
-          size = "270G";
+          size = "100%";
           content = {
             type = "filesystem";
             format = "ext4";
             mountpoint = "/nix";
             extraArgs = ["-L" "nix"];
-          };
-        };
-        persistent = {
-          type = "lvm_lv";
-          size = "200G";
-          content = {
-            type = "filesystem";
-            format = "ext4";
-            mountpoint = "/nix/persist";
-            extraArgs = ["-L" "persistent"];
           };
         };
       };

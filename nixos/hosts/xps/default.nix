@@ -27,7 +27,6 @@
 
   powerManagement = {
     enable = true;
-    cpuFreqGovernor = "ondemand";
     powertop.enable = true;
   };
 
