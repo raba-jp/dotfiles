@@ -53,7 +53,7 @@
       lvs = {
         nix = {
           type = "lvm_lv";
-          size = "%100%FREE";
+          size = "100%FREE";
           content = {
             type = "filesystem";
             format = "ext4";
