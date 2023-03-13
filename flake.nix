@@ -175,6 +175,7 @@
       devShell = pkgs.mkShell {
         inherit (self.checks.${system}.pre-commit) shellHook;
 
+        NIX_CONFIG = "extra-experimental-features = nix-command flakes repl-flake";
         packages = with pkgs; [
           treefmt
           deadnix
