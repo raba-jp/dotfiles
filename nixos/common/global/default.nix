@@ -14,6 +14,8 @@
       ./home-manager.nix
       ./locale.nix
       ./networking.nix
+      ./gnupg.nix
+      ./openssh.nix
     ]
     ++ (builtins.attrValues outputs.nixosModules);
 
