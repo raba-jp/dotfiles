@@ -2,7 +2,7 @@ name: Update Dependencies
 on:
   workflow_dispatch: # allows manual triggering
   schedule:
-    - cron:  '0 18 * * *' # runs daily at JST 00:00
+    - cron:  '0 15 * * 5'
 
 jobs:
   lockfile:
