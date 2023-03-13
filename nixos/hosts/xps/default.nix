@@ -79,11 +79,4 @@
     driSupport = true;
     driSupport32Bit = true;
   };
-
-  boot.initrd.luks.devices = {
-    root = {
-      device = "/dev/disk/by-label/root";
-      preLVM = true;
-    };
-  };
 }
