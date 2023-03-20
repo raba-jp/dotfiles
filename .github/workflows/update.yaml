@@ -27,7 +27,7 @@ jobs:
           extra_nix_config: |
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - run: nix-env -i nix-prefetch -f '<nixpkgs>'
-      - uses: actions/setup-go@v3
+      - uses: actions/setup-go@v4
       - run: go run scripts/brave-updater/main.go
       - name: Create PR
         uses: peter-evans/create-pull-request@v4
