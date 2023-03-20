@@ -21,7 +21,7 @@ jobs:
             experimental-features = nix-command flakes
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
             system-features = kvm
-      - uses: nixbuild/nixbuild-action@v15
+      - uses: nixbuild/nixbuild-action@v16
         with:
           nixbuild_ssh_key: ${{ secrets.NIXBUILD_NET_SSH_KEY }}
       - name: Build
