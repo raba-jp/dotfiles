@@ -63,6 +63,7 @@
       tree-sitter
       gcc
       cargo-make
+      findex
     ];
   };
 
