@@ -9,6 +9,8 @@ setkeymap("n", "<leader>w-", "<C-W>s", { desc = "Split window below" })
 setkeymap("n", "<leader>w|", "<C-W>v", { desc = "Split window right" })
 setkeymap("n", "<leader>-", "<C-W>s", { desc = "Split window below" })
 setkeymap("n", "<leader>|", "<C-W>v", { desc = "Split window right" })
+setkeymap("n", "<leader>wn", "<C-W>w", { desc = "Move next window" })
+setkeymap("n", "<leader>wp", "<C-W>W", { desc = "Moce previous window" })
 
 -- buffers
 setkeymap("n", "<leader>bn", "<cmd>bnext<cr>", { desc = "Next buffer" })
