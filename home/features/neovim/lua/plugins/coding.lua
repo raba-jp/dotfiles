@@ -130,10 +130,27 @@ return {
 		opts = function()
 			return {
 				adapters = {
-					require("neotest-go"),
+					require("neotest-go")({
+						experimental = {
+							test_table = true,
+						},
+						args = { "-count=1", "-timeout=60s" },
+					}),
 					require("neotest-rust"),
 				},
 			}
+		end,
+		config = function(_, opts)
+			require("neotest").setup(opts)
+			local neotest_ns = vim.api.nvim_create_namespace("neotest")
+			vim.diagnostic.config({
+				virtual_text = {
+					format = function(diagnostic)
+						local message = diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
+						return message
+					end,
+				},
+			}, neotest_ns)
 		end,
 		keys = {
 			{
