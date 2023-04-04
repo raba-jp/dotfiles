@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  outputs,
+  pkgs,
+  ...
+}: {
   home = {
     sessionPath = ["$HOME/go/bin" "$HOME/.yarn/bin"];
     sessionVariables = {
@@ -64,6 +68,7 @@
       gcc
       cargo-make
       findex
+      outputs.packages.${pkgs.system}.devenv
     ];
   };
 
