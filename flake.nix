@@ -37,6 +37,11 @@
       inputs.flake-utils.follows = "flake-utils";
     };
 
+    devenv = {
+      url = "github:cachix/devenv/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
     helix.url = "github:helix-editor/helix";
     neovim.url = "github:neovim/neovim?dir=contrib";
@@ -122,6 +127,8 @@
       packages =
         (import ./pkgs {inherit pkgs;})
         // {
+          inherit (inputs.devenv.packages.${system}) devenv;
+
           helix = inputs.helix.packages.${system}.default;
 
           neovim = inputs.neovim.packages.${system}.default;
