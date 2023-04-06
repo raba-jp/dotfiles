@@ -6,7 +6,7 @@
   home = {
     sessionPath = ["$HOME/go/bin" "$HOME/.yarn/bin"];
     sessionVariables = {
-      EDITOR = "hx";
+      EDITOR = "nvim";
       PAGER = "bat";
     };
 
@@ -67,7 +67,6 @@
       tree-sitter
       gcc
       cargo-make
-      findex
       outputs.packages.${pkgs.system}.devenv
     ];
   };
