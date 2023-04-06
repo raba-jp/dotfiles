@@ -29,6 +29,7 @@
       appimage-run
       libnotify
       lm_sensors
+      findex
       inputs.agenix.packages.${system}.default
     ];
   };
