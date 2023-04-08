@@ -30,7 +30,7 @@ jobs:
       - uses: actions/setup-go@v4
       - run: go run scripts/brave-updater/main.go
       - name: Create PR
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           branch: bump-brave-version
           delete-branch: true
