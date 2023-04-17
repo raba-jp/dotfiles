@@ -44,7 +44,10 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
     helix.url = "github:helix-editor/helix";
-    neovim.url = "github:neovim/neovim?dir=contrib";
+    neovim = {
+      url = "github:neovim/neovim?dir=contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     fish-done = {
       url = "github:franciscolourenco/done";
