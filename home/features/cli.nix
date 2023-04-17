@@ -23,7 +23,6 @@
       deadnix
       statix
       rustup
-      bitwarden-cli
       doppler
       shellcheck
       selene
