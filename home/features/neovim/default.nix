@@ -24,6 +24,12 @@
 
   programs.neovim = {
     enable = true;
+
     package = outputs.packages.${pkgs.system}.neovim;
+    extraPackages = with pkgs; [
+      gcc
+    ];
+
+    defaultEditor = true;
   };
 }

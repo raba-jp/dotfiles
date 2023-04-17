@@ -6,7 +6,6 @@
   home = {
     sessionPath = ["$HOME/go/bin" "$HOME/.yarn/bin"];
     sessionVariables = {
-      EDITOR = "nvim";
       PAGER = "bat";
     };
 
@@ -64,8 +63,6 @@
       dotenv-linter
       gnumake
       tree-sitter
-      gcc
-      cargo-make
       outputs.packages.${pkgs.system}.devenv
     ];
   };
