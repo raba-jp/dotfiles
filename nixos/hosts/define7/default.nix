@@ -20,6 +20,7 @@
     ../../common/optional/libvirtd.nix
     ../../common/optional/network-manager.nix
     ../../common/optional/yubikey.nix
+    ../../common/optional/qmk.nix
     # ../../common/optional/hyprland.nix
     # ../../common/optional/nm-applet.nix
     # ../../common/optional/blueman.nix
@@ -38,7 +39,7 @@
     udev.extraRules = ''
       KERNEL=="hidraw*", ATTRS{idVendor}=="bb01", MODE="0664", GROUP="users"
       KERNEL=="hidraw*", ATTRS{idVendor}=="4653", MODE="0664", GROUP="users"
-      SUBSYSTEM="usb", ATTRS{idVendor}=="3434", TAG+="uaccess"
+      KERNEL=="hidraw*", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0181", TAG+="uaccess", MODE="0664", GROUP="users"
     '';
   };
 
