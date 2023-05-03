@@ -1,8 +1,4 @@
-{
-  pkgs,
-  outputs,
-  ...
-}: {
+{pkgs, ...}: {
   # LSP
   home.packages = with pkgs; [
     buf-language-server
@@ -25,7 +21,6 @@
 
   programs.helix = {
     enable = true;
-    package = outputs.packages.${pkgs.system}.helix;
 
     languages = [
       {
