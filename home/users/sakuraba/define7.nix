@@ -12,8 +12,6 @@
     ../../features/gitui.nix
     ../../features/helix.nix
     ../../features/starship.nix
-    ../../features/hyprland.nix
-    ../../features/waybar.nix
   ];
 
   programs.git.extraConfig = {
