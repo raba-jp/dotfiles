@@ -182,21 +182,41 @@
         };
       };
 
-      devShell = pkgs.mkShell {
-        inherit (self.checks.${system}.pre-commit) shellHook;
+      devShell = inputs.devenv.lib.mkShell {
+        inherit inputs pkgs;
+        modules = [
+          ({pkgs, ...}: {
+            packages = [
+              inputs.disko.packages.${system}.default
+            ];
 
-        NIX_CONFIG = "extra-experimental-features = nix-command flakes repl-flake";
-        packages = with pkgs; [
-          treefmt
-          deadnix
-          alejandra
-          stylua
-          shfmt
-          taplo
-          go
-          gitleaks
-          cargo-make
-          inputs.disko.packages.${system}.default
+            languages.go.enable = true;
+            languages.nix.enable = true;
+
+            pre-commit.hooks = {
+              shfmt.enable = true;
+              alejandra.enable = true;
+              deadnix.enable = true;
+              stylua.enable = true;
+              gofmt.enable = true;
+            };
+
+            scripts = {
+              rebuild.exec = let
+                linux = ''
+                  sudo nixos-rebuild switch --flake .#$(hostname)
+                '';
+                darwin = ''
+                '';
+                script = pkgs.writeShellScript "build" (
+                  if pkgs.stdenv.isLinux
+                  then linux
+                  else darwin
+                );
+              in
+                builtins.toString script;
+            };
+          })
         ];
       };
     })
