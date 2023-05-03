@@ -1,3 +1,4 @@
 result
 *.pyc
 .pre-commit-config.yaml
+.devenv
