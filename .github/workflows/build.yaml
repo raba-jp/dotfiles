@@ -14,30 +14,17 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-      - uses: nixbuild/nix-quick-install-action@v22
+      - uses: cachix/install-nix-action@v20
         with:
-          nix_on_tmpfs: true
-          nix_conf: |
+          extra_nix_config: |
             experimental-features = nix-command flakes
-            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
             system-features = kvm
-      - uses: nixbuild/nixbuild-action@v16
-        with:
-          nixbuild_ssh_key: ${{ secrets.NIXBUILD_NET_SSH_KEY }}
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Build
         run: |
-          touch build.json
-          nix build \
-            --eval-store auto \
-            --store ssh-ng://eu.nixbuild.net \
-            --builders '' --max-jobs 2 \
-            .#nixosConfigurations.define7.config.system.build.toplevel \
-            --json > build.json
-      - name: Create deploy spec file
-        run: |
-          jq '.[0].outputs.out | { agents: {define7: .}}' build.json > spec.json
+          nix build .#deploySpec 
       - uses: actions/upload-artifact@v3
         with:
           name: result
           path: |
-            spec.json
+            result

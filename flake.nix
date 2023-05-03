@@ -139,7 +139,7 @@
           deploySpec = pkgs.writeText "cachix-deploy.json" (builtins.toJSON {
             agents = {
               define7 = define7System.config.system.build.toplevel;
-              xps = xpsSystem.config.system.build.toplevel;
+              # xps = xpsSystem.config.system.build.toplevel;
             };
           });
         };
@@ -159,29 +159,6 @@
           };
       };
 
-      checks = {
-        pre-commit = inputs.pre-commit-hooks.lib.${system}.run {
-          src = ./.;
-
-          hooks = {
-            alejandra.enable = true;
-            deadnix.enable = true;
-
-            stylua.enable = true;
-            shfmt.enable = true;
-
-            actionlint.enable = true;
-
-            gitleaks = {
-              enable = true;
-              name = "gitleaks";
-              entry = "gitleaks detect --no-git --source . -v";
-              language = "system";
-            };
-          };
-        };
-      };
-
       devShell = inputs.devenv.lib.mkShell {
         inherit inputs pkgs;
         modules = [
@@ -194,11 +171,18 @@
             languages.nix.enable = true;
 
             pre-commit.hooks = {
-              shfmt.enable = true;
+              gofmt.enable = true;
+
               alejandra.enable = true;
               deadnix.enable = true;
               stylua.enable = true;
-              gofmt.enable = true;
+              shfmt.enable = true;
+              actionlint.enable = true;
+              gitleaks = {
+                enable = true;
+                name = "gitleaks";
+                entry = "${pkgs.gitleaks}/bin/gitleaks detect --no-git --source . -v";
+              };
             };
 
             scripts = {
