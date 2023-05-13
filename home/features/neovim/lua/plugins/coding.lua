@@ -181,6 +181,13 @@ return {
 				end,
 				desc = "Toggle test output",
 			},
+			{
+				"<leader>tw",
+				function()
+					require("neotest").output_panel.toggle()
+				end,
+				desc = "Toggle test output window",
+			},
 		},
 	},
 	{
