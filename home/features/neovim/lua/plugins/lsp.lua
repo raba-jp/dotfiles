@@ -1,3 +1,13 @@
+function on_attach(on_attach)
+	vim.api.nvim_create_autocmd("LspAttach", {
+		callback = function(args)
+			local buffer = args.buf
+			local client = vim.lsp.get_client_by_id(args.data.client_id)
+			on_attach(client, buffer)
+		end,
+	})
+end
+
 return {
 	{
 		"neovim/nvim-lspconfig",
@@ -109,22 +119,21 @@ return {
 		config = function(_, opts)
 			local lspconfig = require("lspconfig")
 
-			local on_attach = function(client, buf)
+			on_attach(function(client, buf)
 				require("lsp-format").on_attach(client, buf)
 
 				if client.server_capabilities.documentSymbolProvider then
 					require("nvim-navic").attach(client, buf)
 				end
-			end
+
+				vim.cmd([[cabbrev wq execute "Format sync" <bar> wq]])
+			end)
 
 			for server, server_opts in pairs(opts.servers) do
-				server_opts.on_attach = on_attach
 				server_opts.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 				lspconfig[server].setup(server_opts)
 			end
-
-			vim.cmd([[cabbrev wq execute "Format sync" <bar> wq]])
 		end,
 	},
 	{
@@ -138,7 +147,7 @@ return {
 			local null_ls = require("null-ls")
 
 			null_ls.setup({
-				on_attach = require("lsp-format").on_attach,
+				-- on_attach = require("lsp-format").on_attach,
 				sources = {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.alejandra,
