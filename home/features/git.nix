@@ -7,7 +7,7 @@
 
     extraConfig = {
       core = {
-        editor = "hx";
+        editor = "nvim";
 
         multipackindex = true;
         preloadindex = true;

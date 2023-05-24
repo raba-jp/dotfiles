@@ -111,7 +111,13 @@ return {
 							},
 						},
 					},
-					yamlls = {},
+					yamlls = {
+						settings = {
+							yaml = {
+								keyOrdering = false,
+							},
+						},
+					},
 					zls = {},
 				},
 			}
@@ -151,7 +157,6 @@ return {
 				sources = {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.alejandra,
-					null_ls.builtins.formatting.buf,
 					null_ls.builtins.formatting.buildifier,
 					null_ls.builtins.formatting.cljstyle,
 					null_ls.builtins.formatting.cueimports,
@@ -162,7 +167,6 @@ return {
 					null_ls.builtins.formatting.taplo,
 					null_ls.builtins.formatting.yamlfmt,
 					null_ls.builtins.formatting.zigfmt,
-					null_ls.builtins.code_actions.gitsigns,
 					null_ls.builtins.code_actions.statix,
 					null_ls.builtins.diagnostics.selene,
 					null_ls.builtins.diagnostics.actionlint,
