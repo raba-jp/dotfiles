@@ -9,7 +9,6 @@
     ../../features/fzf.nix
     ../../features/git.nix
     ../../features/gitui.nix
-    ../../features/helix.nix
     ../../features/starship.nix
   ];
 

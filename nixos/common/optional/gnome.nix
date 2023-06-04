@@ -51,8 +51,11 @@
 
     systemPackages = with pkgs; [
       gnome.gnome-tweaks
-      catppuccin-gtk
       catppuccin-cursors
+      (catppuccin-gtk.override {
+        accents = ["lavender"];
+        variant = "mocha";
+      })
     ];
   };
 }
