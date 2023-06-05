@@ -37,6 +37,6 @@
   system = {
     autoUpgrade.enable = true;
 
-    stateVersion = "21.11";
+    stateVersion = "23.05";
   };
 }

@@ -1,6 +1,6 @@
 {config, ...}: {
-  users.users."hiroki.sakuraba" = {
-    name = "Hiroki Sakuraba";
+  users.users.sakuraba = {
+    name = "sakuraba";
     home = "/Users/sakuraba";
   };
 
