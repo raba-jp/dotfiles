@@ -13,14 +13,13 @@ return {
 			wk.setup(opts)
 			wk.register({
 				mode = { "n", "v" },
-				["g"] = { name = "+goto" },
 				["]"] = { name = "+next" },
 				["["] = { name = "+prev" },
 				["<leader><tab>"] = { name = "+tabs" },
 				["<leader>b"] = { name = "+buffer" },
 				["<leader>n"] = { name = "+code" },
 				["<leader>f"] = { name = "+file/find" },
-				["<leader>g"] = { name = "+git" },
+				["<leader>g"] = { name = "+goto" },
 				["<leader>w"] = { name = "+window" },
 				["<leader>t"] = { name = "+term/test" },
 				["<leader>s"] = { name = "+select" },
@@ -75,21 +74,6 @@ return {
 		"lewis6991/gitsigns.nvim",
 		event = "BufReadPre",
 		config = true,
-	},
-	{
-		"ggandor/leap.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			{ "ggandor/flit.nvim", opts = { labeled_modes = "nv" } },
-			"tpope/vim-repeat",
-		},
-		config = function(_, opts)
-			local leap = require("leap")
-			for k, v in pairs(opts) do
-				leap.opts[k] = v
-			end
-			leap.add_default_mappings(true)
-		end,
 	},
 	{
 		"nvim-telescope/telescope.nvim",
@@ -241,6 +225,45 @@ return {
 			{ "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]] },
 			{ "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]] },
 			{ "<ESC>", "<Cmd>noh<CR>" },
+		},
+	},
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		opts = {},
+		keys = {
+			{
+				"<leader>gn",
+				mode = { "n", "x", "o" },
+				function()
+					require("flash").jump()
+				end,
+				desc = "Jump",
+			},
+			{
+				"<leader>gt",
+				mode = { "n", "o", "x" },
+				function()
+					require("flash").treesitter()
+				end,
+				desc = "Jump to treesitter node",
+			},
+			{
+				"<leader>gm",
+				mode = "o",
+				function()
+					require("flash").remote()
+				end,
+				desc = "Remote operator",
+			},
+			{
+				"<leader>gr",
+				mode = { "n", "o", "x" },
+				function()
+					require("flash").treesitter_search()
+				end,
+				desc = "Search uses treesitter",
+			},
 		},
 	},
 }
