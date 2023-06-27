@@ -65,6 +65,7 @@
       tree-sitter
       outputs.packages.${pkgs.system}.devenv
       nil
+      gobang
     ];
   };
 
