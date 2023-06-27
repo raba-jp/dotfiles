@@ -128,9 +128,7 @@
       "inputs": {
         "flake-compat": "flake-compat",
         "nix": "nix",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs",
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
@@ -402,7 +400,7 @@
     "hyprland": {
       "inputs": {
         "hyprland-protocols": "hyprland-protocols",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "wlroots": "wlroots",
         "xdph": "xdph"
       },
@@ -536,16 +534,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1686592866,
-        "narHash": "sha256-riGg89eWhXJcPNrQGcSwTEEm7CGxWC06oSX44hajeMw=",
+        "lastModified": 1687793116,
+        "narHash": "sha256-6xRgZ2E9r/BNam87vMkHJ/0EPTTKzeNwhw3abKilEE4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "0eeebd64de89e4163f4d3cf34ffe925a5cf67a05",
+        "rev": "9e4e0807d2142d17f463b26a8b796b3fe20a3011",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -599,6 +597,22 @@
       }
     },
     "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1686592866,
+        "narHash": "sha256-riGg89eWhXJcPNrQGcSwTEEm7CGxWC06oSX44hajeMw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "0eeebd64de89e4163f4d3cf34ffe925a5cf67a05",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1687412861,
         "narHash": "sha256-Z/g0wbL68C+mSGerYS2quv9FXQ1RRP082cAC0Bh4vcs=",
@@ -689,7 +703,7 @@
         "impermanence": "impermanence",
         "neovim": "neovim",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "pre-commit-hooks": "pre-commit-hooks_2"
       }
     },
