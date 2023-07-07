@@ -23,22 +23,14 @@ return {
 				["<leader>w"] = { name = "+window" },
 				["<leader>t"] = { name = "+term/test" },
 				["<leader>s"] = { name = "+select" },
+				["<leader>x"] = { name = "+none" },
 			})
 		end,
 	},
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		cmd = "Neotree",
-		keys = {
-			{
-				"<leader>fe",
-				function()
-					require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd(), reveal = true })
-				end,
-				desc = "Explorer NeoTree (cwd)",
-			},
-			{ "<leader>e", "<leader>fe", desc = "Explorer NeoTree (cwd)", remap = true },
-		},
+		keys = {},
 		opts = {
 			close_if_last_window = false,
 			popup_border_style = "solid",
@@ -86,10 +78,11 @@ return {
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = 'nix-shell -p gnumake clang --run "make"',
 			},
-			"nvim-telescope/telescope-ghq.nvim",
+			"nvim-telescope/telescope-file-browser.nvim",
 		},
 		opts = function()
 			local actions = require("telescope.actions")
+			local fb_actions = require("telescope").extensions.file_browser.actions
 
 			return {
 				defaults = {
@@ -119,13 +112,23 @@ return {
 						override_file_sorter = true,
 						case_mode = "smart_case",
 					},
+					file_browser = {
+						mappings = {
+							["i"] = {
+								["<C-o>"] = fb_actions.open,
+								["<C-s>"] = fb_actions.toggle_all,
+								["<C-h>"] = fb_actions.toggle_hidden,
+								["<C-g>"] = fb_actions.goto_parent_dir,
+							},
+						},
+					},
 				},
 			}
 		end,
 		config = function(_, opts)
 			require("telescope").setup(opts)
-			require("telescope").load_extension("ghq")
 			require("telescope").load_extension("fzf")
+			require("telescope").load_extension("file_browser")
 		end,
 		keys = {
 			{
@@ -155,6 +158,13 @@ return {
 					require("telescope.builtin").live_grep()
 				end,
 				desc = "Search for a string in current working directory",
+			},
+			{
+				"<leader>fe",
+				function()
+					require("telescope").extensions.file_browser.file_browser()
+				end,
+				desc = "File browser",
 			},
 		},
 	},
@@ -198,10 +208,6 @@ return {
 		"folke/trouble.nvim",
 		cmd = { "TroubleToggle", "Trouble" },
 		opts = { use_diagnostic_signs = true },
-		keys = {
-			{ "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
-			{ "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
-		},
 	},
 	{
 		"petertriho/nvim-scrollbar",

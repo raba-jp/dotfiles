@@ -263,4 +263,13 @@ return {
 		event = "VeryLazy",
 		opts = {},
 	},
+	{
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		event = "VeryLazy",
+		opts = {},
+		config = function(_, opts)
+			vim.diagnostic.config({ virtual_text = false })
+			require("lsp_lines").setup(opts)
+		end,
+	},
 }

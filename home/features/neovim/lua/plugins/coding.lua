@@ -10,6 +10,7 @@ return {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"hrsh7th/cmp-nvim-lsp-document-symbol",
 			"onsails/lspkind.nvim",
 			"saadparwaiz1/cmp_luasnip",
 			{
@@ -67,6 +68,8 @@ return {
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "nvim_lsp_signature_help" },
+					{ name = "nvim_lsp_signature_symbols" },
+					{ name = "copilot" },
 					{ name = "luasnip" },
 				}, {
 					{ name = "buffer" },
@@ -220,10 +223,23 @@ return {
 	},
 	{
 		"zbirenbaum/copilot.lua",
+		name = "copilot",
 		event = "VeryLazy",
 		cmd = "Copilot",
-		config = function()
-			require("copilot").setup({})
-		end,
+		opts = {
+			suggestion = {
+				enabled = true,
+				auto_trigger = true,
+				debounce = 50,
+				keymap = {
+					accept = "<C-l>",
+					accept_word = false,
+					accept_line = false,
+					next = "<C-n>",
+					prev = "<C-t>",
+					dismiss = "<C-s>",
+				},
+			},
+		},
 	},
 }
