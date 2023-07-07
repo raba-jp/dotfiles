@@ -203,7 +203,7 @@ return {
 		end,
 	},
 	{
-		"glepnir/lspsaga.nvim",
+		"nvimdev/lspsaga.nvim",
 		cmd = "Lspsaga",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
