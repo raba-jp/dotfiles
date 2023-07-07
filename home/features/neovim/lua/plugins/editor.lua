@@ -28,41 +28,6 @@ return {
 		end,
 	},
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		cmd = "Neotree",
-		keys = {},
-		opts = {
-			close_if_last_window = false,
-			popup_border_style = "solid",
-			enable_git_status = true,
-			enable_diagnostics = true,
-			sort_case_insensitive = false,
-			window = {
-				position = "float",
-			},
-			use_libuv_file_watcher = true,
-			filesystem = {
-				filtered_items = {
-					hide_by_name = {
-						"node_modules",
-						"vendor",
-					},
-				},
-			},
-			buffers = {
-				follow_current_file = true,
-			},
-		},
-		config = function(_, opts)
-			require("neo-tree").setup(opts)
-			vim.g.neo_tree_remove_legacy_commands = 1
-			vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
-			vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
-			vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
-			vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
-		end,
-	},
-	{
 		"lewis6991/gitsigns.nvim",
 		event = "BufReadPre",
 		config = true,
@@ -119,6 +84,7 @@ return {
 								["<C-s>"] = fb_actions.toggle_all,
 								["<C-h>"] = fb_actions.toggle_hidden,
 								["<C-g>"] = fb_actions.goto_parent_dir,
+								["<C-f>"] = fb_actions.toggle_browser,
 							},
 						},
 					},
@@ -161,9 +127,7 @@ return {
 			},
 			{
 				"<leader>fe",
-				function()
-					require("telescope").extensions.file_browser.file_browser()
-				end,
+				":Telescope file_browser path=%:p:h select_buffer=true<CR>",
 				desc = "File browser",
 			},
 		},

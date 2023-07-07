@@ -1,9 +1,9 @@
-function on_attach(on_attach)
+function on_attach(fn)
 	vim.api.nvim_create_autocmd("LspAttach", {
 		callback = function(args)
 			local buffer = args.buf
 			local client = vim.lsp.get_client_by_id(args.data.client_id)
-			on_attach(client, buffer)
+			fn(client, buffer)
 		end,
 	})
 end
@@ -131,8 +131,6 @@ return {
 				if client.server_capabilities.documentSymbolProvider then
 					require("nvim-navic").attach(client, buf)
 				end
-
-				vim.cmd([[cabbrev wq execute "Format sync" <bar> wq]])
 			end)
 
 			for server, server_opts in pairs(opts.servers) do
