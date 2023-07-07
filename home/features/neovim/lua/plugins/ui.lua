@@ -103,9 +103,14 @@ return {
 						},
 					},
 					lualine_y = {
-						{ "progress", separator = "", padding = { left = 1, right = 0 } },
+						{
+							"diagnostics",
+							source = { "nvim-lsp" },
+							symbols = { error = " ", warn = " ", info = " " },
+						},
 					},
 					lualine_z = {
+						{ "progress", separator = "", padding = { left = 1, right = 0 } },
 						{ "location", padding = { left = 0, right = 1 } },
 					},
 				},
