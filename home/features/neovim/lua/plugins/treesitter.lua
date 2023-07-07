@@ -46,14 +46,14 @@ return {
 	end,
 	keys = {
 		{
-			"gss",
+			"<leader>ss",
 			function()
 				require("nvim-treesitter.incremental_selection").init_selection()
 			end,
 			desc = "Start incremental selection",
 		},
 		{
-			"<leader>sn",
+			"<leader>si",
 			function()
 				require("nvim-treesitter.incremental_selection").node_incremental()
 			end,
