@@ -15,7 +15,7 @@
     ../../common/optional/gnome.nix
     ../../common/optional/gamemode.nix
     ../../common/optional/pipewire.nix
-    ../../common/optional/systemd-boot.nix
+    ../../common/optional/grub.nix
     ../../common/optional/cachix.nix
     ../../common/optional/libvirtd.nix
     ../../common/optional/network-manager.nix

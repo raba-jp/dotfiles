@@ -11,6 +11,7 @@
     ../../features/git.nix
     ../../features/gitui.nix
     ../../features/starship.nix
+    ../../features/fcitx5.nix
   ];
 
   programs.git.extraConfig = {

@@ -40,6 +40,22 @@
         "type": "github"
       }
     },
+    "catppuccin-fcitx5": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664946380,
+        "narHash": "sha256-uFaCbyrEjv4oiKUzLVFzw+UY54/h7wh2cntqeyYwGps=",
+        "owner": "catppuccin",
+        "repo": "fcitx5",
+        "rev": "ce244cfdf43a648d984719fdfd1d60aab09f5c97",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "fcitx5",
+        "type": "github"
+      }
+    },
     "catppuccin-fish": {
       "flake": false,
       "locked": {
@@ -72,6 +88,22 @@
         "type": "github"
       }
     },
+    "catppuccin-grub": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1672329233,
+        "narHash": "sha256-/bSolCta8GCZ4lP0u5NVqYQ9Y3ZooYCNdTwORNvR7M0=",
+        "owner": "catppuccin",
+        "repo": "grub",
+        "rev": "803c5df0e83aba61668777bb96d90ab8f6847106",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "grub",
+        "type": "github"
+      }
+    },
     "catppuccin-hyprland": {
       "flake": false,
       "locked": {
@@ -85,6 +117,22 @@
       "original": {
         "owner": "catppuccin",
         "repo": "hyprland",
+        "type": "github"
+      }
+    },
+    "catppuccin-starship": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1677037128,
+        "narHash": "sha256-soEBVlq3ULeiZFAdQYMRFuswIIhI9bclIU8WXjxd7oY=",
+        "owner": "catppuccin",
+        "repo": "starship",
+        "rev": "3e3e54410c3189053f4da7a7043261361a1ed1bc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "starship",
         "type": "github"
       }
     },
@@ -672,9 +720,12 @@
       "inputs": {
         "agenix": "agenix",
         "catppuccin-bat": "catppuccin-bat",
+        "catppuccin-fcitx5": "catppuccin-fcitx5",
         "catppuccin-fish": "catppuccin-fish",
         "catppuccin-gitui": "catppuccin-gitui",
+        "catppuccin-grub": "catppuccin-grub",
         "catppuccin-hyprland": "catppuccin-hyprland",
+        "catppuccin-starship": "catppuccin-starship",
         "catppuccin-waybar": "catppuccin-waybar",
         "darwin": "darwin",
         "devenv": "devenv",

@@ -90,6 +90,21 @@
       url = "github:catppuccin/waybar";
       flake = false;
     };
+
+    catppuccin-starship = {
+      url = "github:catppuccin/starship";
+      flake = false;
+    };
+
+    catppuccin-fcitx5 = {
+      url = "github:catppuccin/fcitx5";
+      flake = false;
+    };
+
+    catppuccin-grub = {
+      url = "github:catppuccin/grub";
+      flake = false;
+    };
   };
   outputs = {
     self,
@@ -163,6 +178,10 @@
         inherit inputs pkgs;
         modules = [
           ({pkgs, ...}: {
+            env = {
+              NVIM_APP_NAME = "nvim-eval";
+            };
+
             packages = [
               inputs.disko.packages.${system}.default
             ];
@@ -199,6 +218,9 @@
                 );
               in
                 builtins.toString script;
+
+              copy-from-nvim-eval.exec = "cp -r $HOME/.config/nvim-eval $DEVENV_ROOT/home/features/neovim";
+              copy-to-nvim-eval.exec = "cp -r $DEVENV_ROOT/home/features/neovim $HOME/.config/nvim-eval";
             };
           })
         ];
