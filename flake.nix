@@ -179,7 +179,7 @@
         modules = [
           ({pkgs, ...}: {
             env = {
-              NVIM_APP_NAME = "nvim-eval";
+              NVIM_APPNAME = "nvim-eval";
             };
 
             packages = [
