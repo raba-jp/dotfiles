@@ -1,71 +1,48 @@
 return {
-	"nvim-treesitter/nvim-treesitter",
-	version = false,
-	build = ":TSUpdate",
-	event = "VeryLazy",
-	dependencies = {},
-	opts = {
-		highlight = { enable = true },
-		indent = { enable = true },
-		context_commentstring = {
-			enable = true,
+	{
+		"nvim-treesitter/nvim-treesitter",
+		version = false,
+		build = ":TSUpdate",
+		event = { "BufReadPost", "BufNewFile" },
+		cmd = { "TSUpdateSync" },
+		dependencies = {},
+		opts = {
+			highlight = { enable = true },
+			indent = { enable = true },
+			context_commentstring = { enable = true },
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					init_selection = "<C-space>",
+					node_incremental = "<C-space>",
+					scope_incremental = false,
+					node_decremental = "<bs>",
+				},
+			},
+			ensure_installed = {
+				"bash",
+				"html",
+				"javascript",
+				"typescript",
+				"lua",
+				"json",
+				"terraform",
+				"go",
+				"rust",
+				"tsx",
+				"vim",
+				"yaml",
+				"toml",
+				"zig",
+				"nix",
+				"regex",
+				"markdown",
+				"markdown_inline",
+			},
 		},
-		ensure_installed = {
-			"bash",
-			"html",
-			"javascript",
-			"typescript",
-			"lua",
-			"json",
-			"terraform",
-			"go",
-			"rust",
-			"tsx",
-			"vim",
-			"yaml",
-			"toml",
-			"zig",
-			"nix",
-			"regex",
-			"markdown",
-			"markdown_inline",
-		},
-		incremental_selection = {
-			enable = true,
-		},
-	},
-	config = function(_, opts)
-		require("nvim-treesitter.configs").setup(opts)
-	end,
-	keys = {
-		{
-			"<leader>ss",
-			function()
-				require("nvim-treesitter.incremental_selection").init_selection()
-			end,
-			desc = "Start incremental selection",
-		},
-		{
-			"<leader>si",
-			function()
-				require("nvim-treesitter.incremental_selection").node_incremental()
-			end,
-			desc = "Incremental selection for node",
-		},
-		{
-			"<leader>sc",
-			function()
-				require("nvim-treesitter.incremental_selection").scope_incremental()
-			end,
-			desc = "Incremental selection for scope",
-		},
-		{
-			"<leader>sd",
-			function()
-				require("nvim-treesitter.incremental_selection").node_decremental()
-			end,
-			desc = "Decremental selection for node",
-		},
+		config = function(_, opts)
+			require("nvim-treesitter.configs").setup(opts)
+		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
