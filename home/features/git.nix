@@ -6,6 +6,8 @@
     userName = "Hiroki Sakuraba";
 
     extraConfig = {
+      credential."https://github.com".helper = "!gh auth git-credential";
+
       core = {
         editor = "nvim";
 
