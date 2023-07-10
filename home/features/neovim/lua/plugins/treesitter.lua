@@ -2,15 +2,8 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	version = false,
 	build = ":TSUpdate",
-	event = "BufReadPost",
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter-context",
-		config = function()
-			require("treesitter-context").setup({
-				enable = true,
-			})
-		end,
-	},
+	event = "VeryLazy",
+	dependencies = {},
 	opts = {
 		highlight = { enable = true },
 		indent = { enable = true },
@@ -72,6 +65,17 @@ return {
 				require("nvim-treesitter.incremental_selection").node_decremental()
 			end,
 			desc = "Decremental selection for node",
+		},
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		name = "treesitter-context",
+		event = "VeryLazy",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+		opts = {
+			enable = true,
 		},
 	},
 }
