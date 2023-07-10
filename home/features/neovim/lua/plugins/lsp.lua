@@ -23,6 +23,17 @@ return {
 		opts = function()
 			return {
 				servers = {
+					efm = {
+						init_options = { documentFormatting = true },
+						settings = {
+							rootMarkers = { ".git/" },
+							languages = {
+								lua = {
+									{ formatCommand = "stylua -", formatStdin = true },
+								},
+							},
+						},
+					},
 					bashls = {},
 					bufls = {},
 					clojure_lsp = {},
@@ -153,7 +164,6 @@ return {
 			null_ls.setup({
 				-- on_attach = require("lsp-format").on_attach,
 				sources = {
-					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.alejandra,
 					null_ls.builtins.formatting.buildifier,
 					null_ls.builtins.formatting.cljstyle,

@@ -66,6 +66,7 @@
       outputs.packages.${pkgs.system}.devenv
       nil
       gobang
+      efm-langserver
     ];
   };
 
