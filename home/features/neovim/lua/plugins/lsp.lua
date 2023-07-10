@@ -235,17 +235,16 @@ return {
 				symbol_in_winbar = {
 					enable = false,
 				},
+				finder = {
+					default = "def+ref+imp",
+					silent = true,
+				},
 			}
 		end,
 		keys = {
 			{
-				"<leader>na",
-				"<cmd>Lspsaga code_action<CR>",
-				desc = "Run code actions",
-			},
-			{
 				"<leader>nn",
-				"<cmd>Lspsaga lsp_finder<CR>",
+				"<cmd>Lspsaga finder<CR>",
 				desc = "Show the defintion, reference and implementation",
 			},
 			{
@@ -272,12 +271,45 @@ return {
 		opts = {},
 	},
 	{
-		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		"aznhe21/actions-preview.nvim",
 		event = "VeryLazy",
-		opts = {},
-		config = function(_, opts)
-			vim.diagnostic.config({ virtual_text = false })
-			require("lsp_lines").setup(opts)
-		end,
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"MunifTanjim/nui.nvim",
+		},
+		opts = {
+			backend = { "nui" },
+			diff = {
+				algorithm = "histogram",
+				ctxlen = 2,
+				ignore_whitespace = true,
+				ignore_whitespace_change = true,
+				ignore_whitespace_change_at_eol = true,
+				ignore_cr_at_eol = true,
+				ignore_blank_lines = true,
+				indent_heuristic = true,
+			},
+			nui = {
+				dir = "row",
+				anchor = "NW",
+				keymap = nil,
+				layout = {
+					relative = "cursor",
+					position = 0,
+					size = "20%",
+					min_width = 40,
+					min_height = 10,
+				},
+			},
+		},
+		keys = {
+			{
+				"<leader>na",
+				function()
+					require("actions-preview").code_actions()
+				end,
+				desc = "Show code actions",
+			},
+		},
 	},
 }
