@@ -219,8 +219,8 @@
               in
                 builtins.toString script;
 
-              copy-from-nvim-eval.exec = "cp -r $HOME/.config/nvim-eval $DEVENV_ROOT/home/features/neovim";
-              copy-to-nvim-eval.exec = "cp -r $DEVENV_ROOT/home/features/neovim $HOME/.config/nvim-eval";
+              copy-from-nvim-eval.exec = "cp -r $HOME/.config/nvim-eval/* $DEVENV_ROOT/home/features/neovim/";
+              copy-to-nvim-eval.exec = "cp -r $DEVENV_ROOT/home/features/neovim/* $HOME/.config/nvim-eval/";
             };
           })
         ];

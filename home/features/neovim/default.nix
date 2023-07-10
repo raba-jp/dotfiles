@@ -7,7 +7,7 @@
   xdg.configFile = let
     getConfigFiles = dir:
       lib.filterAttrs
-      (n: _v: lib.hasSuffix ".lua" n)
+      (n: _v: (lib.hasSuffix ".lua" n) || (lib.hasSuffix "lazy-lock.json" n))
       (
         lib.listToAttrs (map
           (file:
