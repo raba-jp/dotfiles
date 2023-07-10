@@ -67,6 +67,7 @@
       nil
       gobang
       efm-langserver
+      lua-language-server
     ];
   };
 
