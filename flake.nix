@@ -182,10 +182,6 @@
               NVIM_APPNAME = "nvim-eval";
             };
 
-            packages = [
-              inputs.disko.packages.${system}.default
-            ];
-
             languages.go.enable = true;
             languages.nix.enable = true;
 
