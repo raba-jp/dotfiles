@@ -218,6 +218,10 @@
               copy-from-nvim-eval.exec = "cp -r $HOME/.config/nvim-eval/* $DEVENV_ROOT/home/features/neovim/";
               copy-to-nvim-eval.exec = "cp -r $DEVENV_ROOT/home/features/neovim/* $HOME/.config/nvim-eval/";
             };
+
+            processes = {
+              filesync.exec = "${pkgs.lsyncd}/bin/lsyncd -nodaemon -direct $DEVENV_ROOT/home/features/neovim/ $HOME/.config/nvim-eval/";
+            };
           })
         ];
       };
