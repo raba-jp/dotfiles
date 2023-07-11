@@ -44,6 +44,7 @@
       tree = "exa --tree --icons --all --git-ignore --ignore-glob=.git";
       cat = "bat";
       vim = "nvim";
+      _vim = "env NVIM_APPNAME=nvim-eval nvim";
     };
 
     shellAbbrs = {
