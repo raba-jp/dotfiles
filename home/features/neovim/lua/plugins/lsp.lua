@@ -211,104 +211,45 @@ return {
 		end,
 	},
 	{
-		"nvimdev/lspsaga.nvim",
-		cmd = "Lspsaga",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-			"nvim-treesitter/nvim-treesitter",
-			"catppuccin/nvim",
-		},
-		opts = function()
-			return {
-				ui = {
-					title = false,
-					border = "solid",
-					winblend = 0,
-					expand = "",
-					collapse = "",
-					code_action = "",
-					incoming = " ",
-					outgoing = " ",
-					hover = " ",
-					kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
-				},
-				symbol_in_winbar = {
-					enable = false,
-				},
-				finder = {
-					default = "def+ref+imp",
-					silent = true,
-				},
-			}
-		end,
-		keys = {
-			{
-				"<leader>nn",
-				"<cmd>Lspsaga finder<CR>",
-				desc = "Show the defintion, reference and implementation",
-			},
-			{
-				"<leader>nr",
-				"<cmd>Lspsaga rename<CR>",
-				desc = "Rename",
-			},
-			{
-				"<leader>no",
-				"<cmd>Lspsaga outline<CR>",
-				desc = "Show outline",
-			},
-			{
-				"<leader>nd",
-				"<cmd>Lspsaga hover_doc<CR>",
-				desc = "Show document",
-			},
-		},
-	},
-	{
 		"pmizio/typescript-tools.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 		event = "VeryLazy",
 		opts = {},
 	},
 	{
-		"aznhe21/actions-preview.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-			"MunifTanjim/nui.nvim",
-		},
+		"dnlhc/glance.nvim",
+		cmd = "Glance",
 		opts = {
-			backend = { "nui" },
-			diff = {
-				algorithm = "histogram",
-				ctxlen = 2,
-				ignore_whitespace = true,
-				ignore_whitespace_change = true,
-				ignore_whitespace_change_at_eol = true,
-				ignore_cr_at_eol = true,
-				ignore_blank_lines = true,
-				indent_heuristic = true,
+			folds = {
+				fold_closed = "",
+				fold_open = "",
+				folded = false,
 			},
-			nui = {
-				dir = "row",
-				anchor = "NW",
-				keymap = nil,
-				layout = {
-					relative = "cursor",
-					position = 0,
-					size = "20%",
-					min_width = 40,
-					min_height = 10,
-				},
+			hooks = {
+				before_open = function(results, open, jump, _method)
+					if #results == 1 then
+						jump(results[1]) -- argument is optional
+					else
+						open(results) -- argument is optional
+					end
+				end,
 			},
 		},
 		keys = {
 			{
-				"<leader>na",
-				function()
-					require("actions-preview").code_actions()
-				end,
-				desc = "Show code actions",
+				"<leader>nd",
+				"<cmd>Glance definitions<CR>",
+				desc = "Show definitions",
+			},
+			{
+				"<leader>nr",
+				"<cmd>Glance references<CR>",
+				desc = "Show references",
+			},
+			{
+				"<leader>ni",
+				"<cmd>Glance implementations<CR>",
+				desc = "Show implementations",
 			},
 		},
 	},
