@@ -152,9 +152,24 @@ return {
 		event = "VeryLazy",
 		dependencies = {
 			"rcarriga/nvim-notify",
+			"MunifTanjim/nui.nvim",
+			"nvim-treesitter/nvim-treesitter",
 		},
 		opts = function()
 			return {
+				notify = {
+					view = "mini",
+				},
+				messages = {
+					view = "mini",
+				},
+				lsp = {
+					override = {
+						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+						["vim.lsp.util.stylize_markdown"] = true,
+						["cmp.entry.get_documentation"] = true,
+					},
+				},
 				views = {
 					cmdline_popup = {
 						position = {
