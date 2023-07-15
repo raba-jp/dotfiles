@@ -217,39 +217,42 @@ return {
 		opts = {},
 	},
 	{
-		"dnlhc/glance.nvim",
-		cmd = "Glance",
+		"folke/trouble.nvim",
+		cmd = { "TroubleToggle", "Trouble" },
 		opts = {
-			folds = {
-				fold_closed = "",
-				fold_open = "",
-				folded = false,
-			},
-			hooks = {
-				before_open = function(results, open, jump, _method)
-					if #results == 1 then
-						jump(results[1])
-					else
-						open(results)
-					end
-				end,
-			},
+			use_diagnostic_signs = true,
+			cycle_results = false,
 		},
 		keys = {
 			{
 				"<leader>nd",
-				"<cmd>Glance definitions<CR>",
+				"<cmd>TroubleToggle lsp_difinitions<CR>",
 				desc = "Show definitions",
 			},
 			{
 				"<leader>nr",
-				"<cmd>Glance references<CR>",
+				"<cmd>TroubleToggle lsp_references<CR>",
 				desc = "Show references",
 			},
 			{
 				"<leader>ni",
-				"<cmd>Glance implementations<CR>",
+				"<cmd>TroubleToggle lsp_implementations<CR>",
 				desc = "Show implementations",
+			},
+			{
+				"<leader>nw",
+				"<cmd>TroubleToggle workspace_diagnostics<CR>",
+				desc = "Show workspace diagnostics",
+			},
+			{
+				"<leader>nc",
+				"<cmd>TroubleToggle document_diagnostics",
+				desc = "Show document diagnostics",
+			},
+			{
+				"<leader>nq",
+				"<cmd>TroubleToggle quickfix<CR>",
+				desc = "Show quickfix items",
 			},
 		},
 	},
