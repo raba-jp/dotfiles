@@ -169,11 +169,6 @@ return {
 		end,
 	},
 	{
-		"folke/trouble.nvim",
-		cmd = { "TroubleToggle", "Trouble" },
-		opts = { use_diagnostic_signs = true },
-	},
-	{
 		"petertriho/nvim-scrollbar",
 		event = "VeryLazy",
 		dependencies = {

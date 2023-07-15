@@ -20,3 +20,8 @@ map("n", "<leader>bn", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "<leader>bp", "<cmd>bprev<cr>", { desc = "Previous buffer" })
 map("n", "<leader>bf", "<cmd>bfirst<cr>", { desc = "First buffer" })
 map("n", "<leader>bl", "<cmd>blast<cr>", { desc = "Last buffer" })
+
+-- LSP
+map("n", "<leader>na", function()
+	vim.lsp.buf.code_action()
+end, { desc = "Run code action" })
