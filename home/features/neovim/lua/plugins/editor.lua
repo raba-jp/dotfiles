@@ -42,8 +42,16 @@ return {
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = 'nix-shell -p gnumake clang --run "make"',
+				config = function()
+					require("telescope").load_extension("fzf")
+				end,
 			},
-			"nvim-telescope/telescope-file-browser.nvim",
+			{
+				"nvim-telescope/telescope-file-browser.nvim",
+				config = function()
+					require("telescope").load_extension("file_browser")
+				end,
+			},
 		},
 		opts = function()
 			local actions = require("telescope.actions")
@@ -114,11 +122,6 @@ return {
 					},
 				},
 			}
-		end,
-		config = function(_, opts)
-			require("telescope").setup(opts)
-			require("telescope").load_extension("fzf")
-			require("telescope").load_extension("file_browser")
 		end,
 		keys = {
 			{
@@ -254,5 +257,13 @@ return {
 				desc = "Search uses treesitter",
 			},
 		},
+	},
+	{
+		"simrat39/symbols-outline.nvim",
+		cmd = "SymbolsOutline",
+		keys = {
+			{ "<leader>ns", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" },
+		},
+		config = true,
 	},
 }
