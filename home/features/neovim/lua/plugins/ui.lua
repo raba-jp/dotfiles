@@ -37,6 +37,9 @@ return {
 	{
 		"akinsho/bufferline.nvim",
 		event = "VeryLazy",
+		dependencies = {
+			"catppuccin/nvim",
+		},
 		opts = {
 			options = {
 				diagnostics = "nvim_lsp",
@@ -50,80 +53,84 @@ return {
 		dependencies = {
 			"catppuccin/nvim",
 		},
-		opts = function()
-			return {
-				lsp = {
-					override = {
-						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-						["vim.lsp.util.stylize_markdown"] = true,
-						["cmp.entry.get_documentation"] = true,
+		opts = {
+			lsp = {
+				override = {
+					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+					["vim.lsp.util.stylize_markdown"] = true,
+					["cmp.entry.get_documentation"] = true,
+				},
+			},
+			options = {
+				theme = "catppuccin",
+				globalstatus = true,
+				disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
+			},
+			sections = {
+				lualine_a = { "mode" },
+				lualine_b = { "branch", "diff" },
+				lualine_c = {
+					{
+						function()
+							return require("nvim-navic").get_location()
+						end,
+						cond = function()
+							return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
+						end,
 					},
 				},
-				options = {
-					theme = "catppuccin",
-					globalstatus = true,
-					disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
-				},
-				sections = {
-					lualine_a = { "mode" },
-					lualine_b = { "branch", "diff" },
-					lualine_c = {
-						{
-							"filetype",
-							icon_only = true,
-							separator = "",
-							padding = { left = 1, right = 0 },
-						},
-						{ "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
-						{
-							function()
-								return require("nvim-navic").get_location()
-							end,
-							cond = function()
-								return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-							end,
-						},
+				lualine_x = {
+					{
+						function()
+							return require("noice").api.status.command.get()
+						end,
+						cond = function()
+							return package.loaded["noice"] and require("noice").api.status.command.has()
+						end,
 					},
-					lualine_x = {
-						{
-							function()
-								return require("noice").api.status.command.get()
-							end,
-							cond = function()
-								return package.loaded["noice"] and require("noice").api.status.command.has()
-							end,
-						},
-						{
-							function()
-								return require("noice").api.status.mode.get()
-							end,
-							cond = function()
-								return package.loaded["noice"] and require("noice").api.status.mode.has()
-							end,
-						},
-					},
-					lualine_y = {
-						{
-							"diagnostics",
-							source = { "nvim-lsp" },
-							symbols = { error = " ", warn = " ", info = " " },
-						},
-					},
-					lualine_z = {
-						{ "progress", separator = "", padding = { left = 1, right = 0 } },
-						{ "location", padding = { left = 0, right = 1 } },
+					{
+						function()
+							return require("noice").api.status.mode.get()
+						end,
+						cond = function()
+							return package.loaded["noice"] and require("noice").api.status.mode.has()
+						end,
 					},
 				},
-				extensions = { "neo-tree" },
-			}
-		end,
+				lualine_y = {
+					{
+						"diagnostics",
+						source = { "nvim-lsp" },
+						symbols = { error = " ", warn = " ", info = " " },
+					},
+				},
+				lualine_z = {
+					"progress",
+					"location",
+					-- { "progress", separator = "", padding = { left = 1, right = 1 } },
+					-- { "location", padding = { left = 0, right = 1 } },
+				},
+			},
+			extensions = { "neo-tree" },
+		},
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "BufReadPost",
 		opts = {
 			char = "│",
-			filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
+			filetype_exclude = {
+				"help",
+				"alpha",
+				"dashboard",
+				"neo-tree",
+				"Trouble",
+				"lazy",
+				"terminal",
+				"TelescopePrompt",
+				"TelescopeResults",
+				"lspinfo",
+			},
 			show_trailing_blankline_indent = false,
 			show_current_context = false,
 		},
@@ -181,8 +188,8 @@ return {
 							height = "auto",
 						},
 						border = {
-							style = "none",
-							padding = { 2, 3 },
+							style = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+							padding = { 0, 0 },
 						},
 						filter_options = {},
 						win_options = {

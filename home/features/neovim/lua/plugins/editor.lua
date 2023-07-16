@@ -52,15 +52,39 @@ return {
 			return {
 				defaults = {
 					mappings = {
-						i = {
-							["jj"] = actions.close,
-						},
+						i = { ["jj"] = actions.close },
+						n = { ["q"] = actions.close },
 					},
 					prompt_prefix = " ",
 					selection_caret = " ",
 					entry_prefix = " ",
 					set_env = { ["COLORTERM"] = "truecolor" },
+					initial_mode = "insert",
+					selection_strategy = "reset",
+					sorting_strategy = "descending",
+					layout_strategy = "horizontal",
+					layout_config = {
+						horizontal = {
+							prompt_position = "bottom",
+							preview_width = 0.55,
+							results_width = 0.7,
+						},
+						vertical = {
+							mirror = false,
+						},
+						width = 0.70,
+						height = 0.80,
+						preview_cutoff = 120,
+					},
 				},
+				file_sorter = require("telescope.sorters").get_fuzzy_file,
+				file_ignore_patterns = { "node_modules" },
+				generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+				path_display = { "truncate" },
+				winblend = 5,
+				border = {},
+				borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+				color_devicons = true,
 				pickers = {
 					buffers = {
 						mappings = {

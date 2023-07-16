@@ -5,9 +5,20 @@ return {
 		build = ":TSUpdate",
 		event = { "BufReadPost", "BufNewFile" },
 		cmd = { "TSUpdateSync" },
-		dependencies = {},
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+		},
 		opts = {
-			highlight = { enable = true },
+			highlight = {
+				enable = true,
+				use_languagetree = true,
+				additional_vim_regex_highlighting = false,
+			},
+			textobjects = {
+				select = {
+					enable = true,
+				},
+			},
 			indent = { enable = true },
 			context_commentstring = { enable = true },
 			incremental_selection = {

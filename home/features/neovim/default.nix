@@ -28,6 +28,7 @@
     package = outputs.packages.${pkgs.system}.neovim;
     extraPackages = with pkgs; [
       gcc
+      gnumake
     ];
 
     defaultEditor = true;
