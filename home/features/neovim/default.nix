@@ -25,7 +25,8 @@
   programs.neovim = {
     enable = true;
 
-    package = outputs.packages.${pkgs.system}.neovim;
+    # TODO: ref: https://github.com/NixOS/nixpkgs/issues/229275
+    package = lib.mkIf pkgs.stdenvNoCC.isLinux outputs.packages.${pkgs.system}.neovim;
     extraPackages = with pkgs; [
       gcc
       gnumake
