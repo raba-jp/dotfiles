@@ -226,7 +226,7 @@ return {
 		keys = {
 			{
 				"<leader>nd",
-				"<cmd>TroubleToggle lsp_difinitions<CR>",
+				"<cmd>TroubleToggle lsp_definitions<CR>",
 				desc = "Show definitions",
 			},
 			{
