@@ -220,7 +220,7 @@
             };
 
             processes = {
-              filesync.exec = "${pkgs.lsyncd}/bin/lsyncd -nodaemon -direct $DEVENV_ROOT/home/features/neovim/ $HOME/.config/nvim-eval/";
+              watchfile.exec = "${pkgs.watchexec}/bin/watchexec -r -e lua -- cp -r $DEVENV_ROOT/home/features/neovim/ $HOME/.config/nvim-eval/";
             };
           })
         ];
