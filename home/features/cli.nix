@@ -66,8 +66,23 @@
       outputs.packages.${pkgs.system}.devenv
       nil
       gobang
+      # LSP
+      buf-language-server
+      clojure-lsp
+      solargraph
+      gopls
+      terraform-ls
+      cuelsp
       efm-langserver
       lua-language-server
+      nodePackages.typescript-language-server
+      nodePackages.vscode-json-languageserver
+      nodePackages.yaml-language-server
+      nodePackages.bash-language-server
+      nodePackages.dockerfile-language-server-nodejs
+      nodePackages.graphql-language-service-cli
+      jsonnet-language-server
+      nil
     ];
   };
 
