@@ -92,7 +92,7 @@
       nix-direnv.enable = true;
     };
 
-    exa.enable = true;
+    eza.enable = true;
     go.enable = true;
     jq.enable = true;
 

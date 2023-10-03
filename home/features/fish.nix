@@ -39,9 +39,9 @@
     '';
 
     shellAliases = {
-      ls = "exa";
-      ll = "exa --all --long --grid --header --no-filesize --no-time --no-user --git --icons";
-      tree = "exa --tree --icons --all --git-ignore --ignore-glob=.git";
+      ls = "eza";
+      ll = "eza --all --long --grid --header --no-filesize --no-time --no-user --git --icons";
+      tree = "eza --tree --icons --all --git-ignore --ignore-glob=.git";
       cat = "bat";
       vim = "nvim";
       _vim = "env NVIM_APPNAME=nvim-eval nvim";
