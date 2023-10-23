@@ -12,7 +12,10 @@
     };
 
     themes = {
-      Catppuccin-mocha = builtins.readFile (inputs.catppuccin-bat + "/Catppuccin-mocha.tmTheme");
+      Catppuccin-mocha = {
+        src = inputs.catppuccin-bat;
+        file = "Catppuccin-mocha.tmTheme";
+      };
     };
 
     extraPackages = with pkgs.bat-extras; [
