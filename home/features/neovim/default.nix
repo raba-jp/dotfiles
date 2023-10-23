@@ -34,4 +34,8 @@
 
     defaultEditor = true;
   };
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 }
