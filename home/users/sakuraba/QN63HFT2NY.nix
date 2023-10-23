@@ -10,6 +10,8 @@
     ../../features/git.nix
     ../../features/gitui.nix
     ../../features/starship.nix
+    ../../features/xplr.nix
+    ../../features/atuin.nix
   ];
 
   programs.git.extraConfig = {

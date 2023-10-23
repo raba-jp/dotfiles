@@ -15,6 +15,7 @@
     ../../features/starship.nix
     ../../features/hyprland.nix
     ../../features/waybar.nix
+    ../../features/xplr.nix
   ];
 
   programs.git.extraConfig = {

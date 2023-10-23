@@ -46,6 +46,7 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+
     neovim = {
       url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
