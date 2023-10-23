@@ -83,6 +83,7 @@
       nodePackages.graphql-language-service-cli
       jsonnet-language-server
       nil
+      walk
     ];
   };
 
