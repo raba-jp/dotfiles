@@ -40,8 +40,6 @@
       kind
       conftest
       dive
-      cue
-      bazelisk
       terraform
       terraformer
       terragrunt
@@ -72,7 +70,6 @@
       solargraph
       gopls
       terraform-ls
-      cuelsp
       efm-langserver
       lua-language-server
       nodePackages.typescript-language-server
