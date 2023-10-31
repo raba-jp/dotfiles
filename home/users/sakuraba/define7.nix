@@ -14,6 +14,7 @@
     ../../features/fcitx5.nix
     ../../features/xplr.nix
     ../../features/atuin.nix
+    ../../features/desktop.nix
   ];
 
   programs.git.extraConfig = {
