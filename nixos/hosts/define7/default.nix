@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   inputs,
   ...
@@ -21,9 +22,6 @@
     ../../common/optional/network-manager.nix
     ../../common/optional/yubikey.nix
     ../../common/optional/qmk.nix
-    # ../../common/optional/hyprland.nix
-    # ../../common/optional/nm-applet.nix
-    # ../../common/optional/blueman.nix
     ../../common/users/sakuraba.nix
   ];
 
@@ -31,10 +29,8 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.initrd.kernelModules = ["amdgpu"];
-
   services = {
-    xserver.videoDrivers = ["amdgpu"];
+    xserver.videoDrivers = ["nvidia"];
 
     udev.extraRules = ''
       KERNEL=="hidraw*", ATTRS{idVendor}=="bb01", MODE="0664", GROUP="users"
@@ -44,31 +40,24 @@
   };
 
   environment.systemPackages = with pkgs; [
-    glxinfo
-    libva-utils
-    vulkan-tools
-    google-chrome
-    obsidian
-    vscode
     papirus-icon-theme
-    gparted
-    flutter
     xclip
-    dconf2nix
     libnotify
     lm_sensors
-    bottles
-    brave
-    slack
-    discord
     virt-manager
   ];
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-    extraPackages = with pkgs; [amdvlk];
-    extraPackages32 = with pkgs; [driversi686Linux.amdvlk];
+  hardware = {
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+
+    nvidia = {
+      modesetting.enable = true;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
   };
 }
