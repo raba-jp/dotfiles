@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   scripts = {
-    rebuild.exec = let
+    rebuild-define7.exec = let
       linux = ''
-        sudo nixos-rebuild switch --flake .#$(hostname)
+        sudo nixos-rebuild switch --flake .#nixosConfigurations.define7.config.system.build.toplevel
       '';
       darwin = ''
       '';
