@@ -178,52 +178,9 @@
       devShell = inputs.devenv.lib.mkShell {
         inherit inputs pkgs;
         modules = [
-          ({pkgs, ...}: {
-            env = {
-              NVIM_APPNAME = "nvim-eval";
-            };
-
-            languages.go.enable = true;
-            languages.nix.enable = true;
-
-            pre-commit.hooks = {
-              gofmt.enable = true;
-
-              alejandra.enable = true;
-              deadnix.enable = true;
-              stylua.enable = true;
-              shfmt.enable = true;
-              actionlint.enable = true;
-              gitleaks = {
-                enable = true;
-                name = "gitleaks";
-                entry = "${pkgs.gitleaks}/bin/gitleaks detect --no-git --source . -v";
-              };
-            };
-
-            scripts = {
-              rebuild.exec = let
-                linux = ''
-                  sudo nixos-rebuild switch --flake .#$(hostname)
-                '';
-                darwin = ''
-                '';
-                script = pkgs.writeShellScript "build" (
-                  if pkgs.stdenv.isLinux
-                  then linux
-                  else darwin
-                );
-              in
-                builtins.toString script;
-
-              copy-from-nvim-eval.exec = "cp -r $HOME/.config/nvim-eval/* $DEVENV_ROOT/home/features/neovim/";
-              copy-to-nvim-eval.exec = "cp -r $DEVENV_ROOT/home/features/neovim/* $HOME/.config/nvim-eval/";
-            };
-
-            processes = {
-              watchfile.exec = "${pkgs.watchexec}/bin/watchexec -r -e lua -- cp -r $DEVENV_ROOT/home/features/neovim/ $HOME/.config/nvim-eval/";
-            };
-          })
+          ./shell/language.nix
+          ./shell/pre-commit.nix
+          ./shell/script.nix
         ];
       };
     })
