@@ -21,24 +21,16 @@
           };
         }
         {
-          name = "nix";
+          name = "root";
           start = "512MiB";
           end = "100%";
           content = {
             type = "filesystem";
             format = "ext4";
-            mountpoint = "/nix";
+            mountpoint = "/";
           };
         }
       ];
     };
-  };
-  nodev."/" = {
-    fsType = "tmpfs";
-    mountOptions = [
-      "size=2G"
-      "defaults"
-      "mode=755"
-    ];
   };
 }
