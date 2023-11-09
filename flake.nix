@@ -67,43 +67,13 @@
       flake = false;
     };
 
-    catppuccin-fish = {
-      url = "github:catppuccin/fish";
+    rose-pine-fish = {
+      url = "github:rose-pine/fish";
       flake = false;
     };
 
-    catppuccin-gitui = {
-      url = "github:catppuccin/gitui";
-      flake = false;
-    };
-
-    catppuccin-bat = {
-      url = "github:catppuccin/bat";
-      flake = false;
-    };
-
-    catppuccin-hyprland = {
-      url = "github:catppuccin/hyprland";
-      flake = false;
-    };
-
-    catppuccin-waybar = {
-      url = "github:catppuccin/waybar";
-      flake = false;
-    };
-
-    catppuccin-starship = {
-      url = "github:catppuccin/starship";
-      flake = false;
-    };
-
-    catppuccin-fcitx5 = {
-      url = "github:catppuccin/fcitx5";
-      flake = false;
-    };
-
-    catppuccin-grub = {
-      url = "github:catppuccin/grub";
+    rose-pine-fcitx5 = {
+      url = "github:rose-pine/fcitx5";
       flake = false;
     };
   };

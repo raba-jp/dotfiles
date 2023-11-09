@@ -9,7 +9,6 @@
     ../../features/fish.nix
     ../../features/fzf.nix
     ../../features/git.nix
-    ../../features/gitui.nix
     ../../features/starship.nix
     ../../features/fcitx5.nix
     ../../features/xplr.nix

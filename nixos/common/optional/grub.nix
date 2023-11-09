@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
   boot.loader = {
@@ -21,7 +21,6 @@
           chainloader /EFI/Microsoft/Boot/bootmgfw.efi
         }
       '';
-      theme = inputs.catppuccin-grub + "/src/catppuccin-mocha-grub-theme";
     };
   };
 }

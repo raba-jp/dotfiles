@@ -4,9 +4,9 @@
   ...
 }: {
   xdg.configFile = {
-    "fish/themes/Catppuccin Mocha.theme" = {
-      text = builtins.readFile (inputs.catppuccin-fish + "/themes/Catppuccin Mocha.theme");
-      onChange = "${pkgs.fish}/bin/fish -c 'yes | fish_config theme save \"Catppuccin Mocha\"'";
+    "fish/themes/Rosé Pine Moon.theme" = {
+      text = builtins.readFile (inputs.rose-pine-fish + "/themes/Rosé Pine Moon.theme");
+      onChange = "${pkgs.fish}/bin/fish -c 'yes | fish_config theme save \"Rosé Pine Moon\"'";
     };
   };
 

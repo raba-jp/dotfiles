@@ -1,8 +1,8 @@
 {inputs, ...}: {
-  xdg.dataFile."fcitx5/themes/catppuccin-mocha" = {
-    source = inputs.catppuccin-fcitx5 + "/src/catppuccin-mocha";
+  xdg.dataFile."fcitx5/themes/rose-pine-moon" = {
+    source = inputs.rose-pine-fcitx5 + "/rose-pine-moon";
   };
   xdg.configFile."fcitx5/conf/classicui.conf" = {
-    text = "Theme=catppuccin-mocha";
+    text = "Theme=rose-pine-moon";
   };
 }
