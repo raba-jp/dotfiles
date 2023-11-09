@@ -1,13 +1,7 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.waybar = {
     enable = true;
     # systemd.enable = true;
-
-    style = builtins.readFile (inputs.catppuccin-waybar + "/themes/mocha.css");
 
     settings = [
       {

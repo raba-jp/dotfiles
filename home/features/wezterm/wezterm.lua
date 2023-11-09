@@ -33,7 +33,7 @@ return {
 	initial_rows = 24,
 
 	-- window_background_opacity = 0.8,
-	color_scheme = "Catppuccin Mocha",
+	color_scheme = "Rosé Pine Moon (base16)",
 
 	inactive_pane_hsb = {
 		saturation = 0.8,

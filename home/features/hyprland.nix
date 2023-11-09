@@ -17,8 +17,6 @@
 
       exec-once=${pkgs.waybar}/bin/waybar
 
-      source=${inputs.catppuccin-hyprland}/themes/mocha.conf
-
       animations {
         enabled = true
       }
