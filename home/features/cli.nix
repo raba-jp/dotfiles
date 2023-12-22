@@ -21,6 +21,7 @@
       terraform
       gnumake
       nil
+      rtx
     ];
   };
 
