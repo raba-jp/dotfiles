@@ -9,7 +9,7 @@
     ../../features/fzf.nix
     ../../features/git.nix
     ../../features/starship.nix
-    ../../features/xplr.nix
+    # ../../features/xplr.nix
     ../../features/atuin.nix
   ];
 
