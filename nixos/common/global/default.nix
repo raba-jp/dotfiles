@@ -6,9 +6,6 @@
 }: {
   imports =
     [
-      inputs.agenix.nixosModules.default
-
-      ./age.nix
       ./nix.nix
       ./nixpkgs.nix
       ./home-manager.nix
@@ -37,6 +34,6 @@
   system = {
     autoUpgrade.enable = true;
 
-    stateVersion = "23.05";
+    stateVersion = "23.11";
   };
 }
