@@ -173,6 +173,13 @@
           ];
           specialArgs = {inherit inputs outputs;};
         };
+	"BVA769AW6V" = darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          modules = [
+            ./darwin/hosts/BVA769AW6V
+          ];
+          specialArgs = {inherit inputs outputs;};
+};
       };
 
       nixConfig = {
