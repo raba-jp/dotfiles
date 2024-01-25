@@ -4,9 +4,7 @@
     with prev.lib;
       (
         foldl' (flip extends) (_: prev)
-        [
-          (import ./brave.nix)
-        ]
+        []
       )
       final;
 }
