@@ -9,8 +9,9 @@
     ../../features/fzf.nix
     ../../features/git.nix
     ../../features/starship.nix
-    # ../../features/xplr.nix
+    ../../features/xplr.nix
     ../../features/atuin.nix
+    ../../features/helix.nix
   ];
 
   programs.git.extraConfig = {
@@ -19,7 +20,7 @@
     # commit.gpgsign = true;
   };
 
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 
   manual.manpages.enable = false;
 }
