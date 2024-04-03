@@ -4,6 +4,7 @@
     package = outputs.packages.${pkgs.system}.helix;
     defaultEditor = true;
     settings = {
+      theme = "rose_pine_moon";
     };
   };
 }
