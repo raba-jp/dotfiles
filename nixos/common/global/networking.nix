@@ -1,3 +1,0 @@
-{...}: {
-  networking.dhcpcd.wait = "background";
-}
