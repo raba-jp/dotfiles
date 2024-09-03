@@ -10,7 +10,7 @@
     ../../features/starship.nix
     ../../features/xplr.nix
     ../../features/atuin.nix
-    ../../features/helix.nix
+    ../../features/zed
   ];
 
   home.stateVersion = "23.05";

@@ -9,6 +9,7 @@
     ../../features/git.nix
     ../../features/starship.nix
     ../../features/atuin.nix
+    ../../features/zed
   ];
 
   programs.git.extraConfig = {
