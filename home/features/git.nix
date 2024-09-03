@@ -9,7 +9,7 @@
       credential."https://github.com".helper = "!gh auth git-credential";
 
       core = {
-        editor = "hx";
+        editor = "zed";
 
         multipackindex = true;
         preloadindex = true;

@@ -10,8 +10,6 @@ in
   lib.mkIf pkgs.stdenvNoCC.isDarwin {
     home.file = {
       ".hammerspoon/init.lua".text = initFile;
-      ".hammerspoon/Spoons/CMDKanaEng.spoon/init.lua".text =
-        cmdKanaEngFile;
       ".hammerspoon/Spoons/CtrlMate.spoon/init.lua".text = ctrlMateFile;
     };
   }
