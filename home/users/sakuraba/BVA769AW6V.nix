@@ -1,7 +1,6 @@
 {...}: {
   imports = [
     ../../features/wezterm
-    # ../../features/neovim
 
     ../../features/bat.nix
     ../../features/cli.nix
@@ -9,9 +8,7 @@
     ../../features/fzf.nix
     ../../features/git.nix
     ../../features/starship.nix
-    ../../features/xplr.nix
     ../../features/atuin.nix
-    ../../features/helix.nix
   ];
 
   programs.git.extraConfig = {
@@ -21,6 +18,4 @@
   };
 
   home.stateVersion = "23.11";
-
-  manual.manpages.enable = false;
 }
