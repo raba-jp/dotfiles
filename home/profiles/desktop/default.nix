@@ -1,0 +1,8 @@
+{
+imports =[
+../minimal
+
+./zed
+./wezterm
+];
+}

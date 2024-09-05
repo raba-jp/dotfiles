@@ -68,7 +68,7 @@
             extraSpecialArgs = {
               inherit inputs outputs;
             };
-            modules = [./home/users/sakuraba/home.nix];
+            modules = [./home/hosts/standalone.nix];
           };
       };
     })
