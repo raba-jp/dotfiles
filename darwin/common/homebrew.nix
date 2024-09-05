@@ -23,7 +23,7 @@
       "the-unarchiver"
       "visual-studio-code"
       "raycast"
-      "wezterm-nightly"
+      "wezterm@nightly"
       "zoom"
       "macfuse"
       "obsidian"

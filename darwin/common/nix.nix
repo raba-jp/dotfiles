@@ -13,7 +13,7 @@
       trusted-public-keys = outputs.nixConfig.extra-trusted-public-keys;
 
       experimental-features = ["nix-command" "flakes" "repl-flake"];
-      auto-optimise-store = lib.mkDefault true;
+      auto-optimise-store = false;
       warn-dirty = false;
     };
 

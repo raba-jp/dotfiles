@@ -1,9 +1,18 @@
-{...}: {
+{...}: let
+    hostName = "QN63HFT2NY";
+in {
   imports = [
-    ../../common/global
-    ../../common/users/sakuraba.nix
+    ../../common
   ];
 
-  nix.settings.auto-optimise-store = false;
-  networking.hostName = "QN63HFT2NY";
+  networking.hostName = hostName;
+
+  users.users.sakuraba.name = "sakuraba";
+  users.users.sakuraba.home = "/Users/sakuraba";
+  home-manager.users.sakuraba = {
+  imports = [
+  ../../../home/profiles/desktop
+  ];
+    home.stateVersion = "24.11";
+  };
 }
