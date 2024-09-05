@@ -18,5 +18,5 @@
     # commit.gpgsign = true;
   };
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.11";
 }
