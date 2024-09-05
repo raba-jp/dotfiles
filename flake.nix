@@ -71,6 +71,19 @@
             modules = [./home/hosts/standalone.nix];
           };
       };
+
+      devShell = with pkgs;
+        mkShell {
+          packages = [
+            nil
+            alejandra
+            deadnix
+            taplo
+            shfmt
+            treefmt
+            stylua
+          ];
+        };
     })
     // {
       darwinConfigurations = {
