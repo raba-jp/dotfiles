@@ -17,6 +17,11 @@
   programs.eza.enable = true;
   programs.home-manager.enable = true;
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   programs.atuin = {
     enable = true;
     enableFishIntegration = true;
