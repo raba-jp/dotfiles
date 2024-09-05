@@ -1,5 +1,5 @@
 {...}: let
-    hostName = "BVA769AW6V";
+  hostName = "BVA769AW6V";
 in {
   imports = [
     ../../common
@@ -10,9 +10,9 @@ in {
   users.users.sakuraba.name = "sakuraba";
   users.users.sakuraba.home = "/Users/sakuraba";
   home-manager.users.sakuraba = {
-  imports = [
-  ../../../home/profiles/desktop
-  ];
+    imports = [
+      ../../../home/profiles/desktop
+    ];
     home.stateVersion = "24.11";
   };
 }

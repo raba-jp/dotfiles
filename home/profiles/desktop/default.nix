@@ -1,8 +1,8 @@
 {
-imports =[
-../minimal
+  imports = [
+    ../minimal
 
-./zed
-./wezterm
-];
+    ./zed
+    ./wezterm
+  ];
 }

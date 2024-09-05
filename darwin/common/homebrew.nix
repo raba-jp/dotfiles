@@ -19,7 +19,6 @@
       "discord"
       "espanso"
       "gitkraken"
-      "hammerspoon"
       "the-unarchiver"
       "visual-studio-code"
       "raycast"
