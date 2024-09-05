@@ -13,7 +13,7 @@
     ../../features/zed
   ];
 
-  home.stateVersion = "23.05";
+  home.stateVersion = "24.11";
 
   manual.manpages.enable = false;
 }
