@@ -58,7 +58,7 @@
       };
     in {
       homeConfigurations = {
-        sakuraba = let
+        devcontainer = let
           pkgs = import nixpkgs {
             inherit system;
           };
@@ -68,7 +68,7 @@
             extraSpecialArgs = {
               inherit inputs outputs;
             };
-            modules = [./home/hosts/standalone.nix];
+            modules = [./home/hosts/devcontainer];
           };
       };
 
