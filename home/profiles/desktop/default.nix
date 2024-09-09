@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [
     ../minimal
 
@@ -7,6 +7,10 @@
   ];
 
   home.sessionVariables.EDITOR = "zed";
+
+  home.packages = with pkgs; [
+    devcontainer
+  ];
 
   programs.atuin = {
     enable = true;
