@@ -20,6 +20,11 @@
     ];
   };
 
+  programs.mise = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
   programs.git = {
     enable = true;
     delta.enable = true;

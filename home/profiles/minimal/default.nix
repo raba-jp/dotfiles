@@ -87,6 +87,7 @@
       fish_add_path --move --prepend --path $HOME/.nix-profile/bin /run/wrappers/bin /etc/profiles/per-user/$USER/bin /run/current-system/sw/bin
 
       set -U FZF_LEGACY_KEYBINDINGS 0
+      set -U FZF_DISABLE_KEYBINDINGS 1
     '';
 
     shellAliases = {

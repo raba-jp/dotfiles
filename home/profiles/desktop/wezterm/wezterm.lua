@@ -44,8 +44,6 @@ return {
 
 	exit_behavior = "Close",
 
-	show_update_window = false,
-
 	disable_default_key_bindings = true,
 	leader = { key = ",", mods = modCtrl },
 	keys = {
