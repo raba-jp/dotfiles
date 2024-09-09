@@ -23,8 +23,6 @@
       "visual-studio-code"
       "raycast"
       "wezterm@nightly"
-      "zoom"
-      "macfuse"
       "obsidian"
       "qlmarkdown"
       "font-udev-gothic"
