@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ./nix.nix
     ./nixpkgs.nix
@@ -8,6 +8,7 @@
   ];
 
   environment.pathsToLink = ["/Applications"];
+  environment.shells = with pkgs; [zsh];
 
   programs.zsh.enable = true;
 

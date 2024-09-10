@@ -74,9 +74,6 @@
       bind \cs beginning-of-line
       bind \ce end-of-line
 
-      ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
-      ${pkgs.mise}/bin/mise activate fish | source
-
       if test -e /opt/homebrew/bin/brew
         eval (/opt/homebrew/bin/brew shellenv)
       end
