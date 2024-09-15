@@ -10,6 +10,7 @@
 
   home.packages = with pkgs; [
     devcontainer
+    ghq
   ];
 
   programs.atuin = {

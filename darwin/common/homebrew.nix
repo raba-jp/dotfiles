@@ -28,5 +28,8 @@
       "font-udev-gothic"
       "font-udev-gothic-nf"
     ];
+
+    masApps = {
+    };
   };
 }
