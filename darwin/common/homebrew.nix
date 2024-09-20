@@ -25,6 +25,7 @@
       "obsidian"
       "qlmarkdown"
       "keyclu"
+      "reader"
       "font-udev-gothic"
       "font-udev-gothic-nf"
     ];
