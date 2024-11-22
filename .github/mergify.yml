@@ -1,25 +1,25 @@
+
 pull_request_rules:
-  - name: Merge using the merge queue
-    conditions:
-      - and:
-        - or:
-            - "author=renovate[bot]"
-            - "author=raba-jp"
-        - "base=main"
-        - "check-success=build"
-    actions:
-      queue:
-        name: default
-        merge_method: squash
-        update_method: merge
   - name: Automatic update
     conditions:
       - -conflict
       - -draft
     actions:
       update:
-
+  - name: Merge using the merge queue
+    conditions: []
+    actions:
+      queue:
 queue_rules:
   - name: default
+    queue_conditions:
+      - and:
+          - or:
+              - "author=renovate[bot]"
+              - "author=raba-jp"
+          - "base=main"
+          - "check-success=build"
     merge_conditions:
       - "check-success=build"
+    merge_method: squash
+    update_method: merge
