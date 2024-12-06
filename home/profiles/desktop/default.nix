@@ -100,6 +100,15 @@
       amend = "commit --amend";
       precommit = "diff --cached --diff-algorithm=minimal -w";
       remotes = "remote -v";
+      delete-merged-branches = ''
+        !git checkout -q main && \
+          git for-each-ref refs/heads/ "--format=%(refname:short)" | \
+          while read branch; do
+            mergeBase=$(git merge-base main $branch) && \
+              [[ $(git cherry main $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && \
+              git branch -D $branch;
+        done
+      '';
     };
 
     ignores = [
