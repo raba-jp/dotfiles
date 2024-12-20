@@ -28,6 +28,12 @@
       "reader"
       "font-udev-gothic"
       "font-udev-gothic-nf"
+      "font-moralerspace"
+      "font-moralerspace-nf"
+      "font-moralerspace-hw"
+      "font-moralerspace-hw-nf"
+      "font-moralerspace-hw-jpdoc"
+      "font-moralerspace-jpdoc"
     ];
 
     masApps = {
