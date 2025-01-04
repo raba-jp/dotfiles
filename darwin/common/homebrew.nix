@@ -18,6 +18,7 @@
       "bartender"
       "discord"
       "gitkraken"
+      "ghostty"
       "the-unarchiver"
       "visual-studio-code"
       "raycast"
