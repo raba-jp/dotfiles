@@ -82,6 +82,7 @@
             shfmt
             treefmt
             stylua
+            nixd
           ];
         };
     })
