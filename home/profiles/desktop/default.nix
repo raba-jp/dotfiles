@@ -32,7 +32,7 @@
       "font-size" = 14;
       "font-family" ="UDEV Gothic 35NFLG";
       "shell-integration" = "fish";
-      "command" ="${pkgs.fish}/bin/fish -c";
+      "command" ="${pkgs.fish}/bin/fish";
       "keybind" = "global:alt+t=toggle_quick_terminal";
     };
   };
