@@ -11,7 +11,12 @@
     packages = with pkgs; [
       ripgrep
       gh
+      rustup
     ];
+  };
+
+  programs.mise = {
+    enable = true;
   };
 
   programs.eza.enable = true;
