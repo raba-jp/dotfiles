@@ -1,8 +1,10 @@
 {...}: {
   homebrew = {
     enable = true;
-    brews = [
-    ];
+
+    onActivation.autoUpdate = true;
+
+    brews = [];
 
     taps = [
       "homebrew/bundle"
