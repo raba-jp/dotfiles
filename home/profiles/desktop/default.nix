@@ -34,6 +34,7 @@
       "shell-integration" = "fish";
       "command" ="${pkgs.fish}/bin/fish";
       "keybind" = "global:alt+t=toggle_quick_terminal";
+      "macos-titlebar-style" = "transparent";
     };
   };
 
