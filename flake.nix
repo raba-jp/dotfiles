@@ -72,6 +72,8 @@
           };
       };
 
+      packages = (import ./pkgs {inherit pkgs;});
+
       devShell = with pkgs;
         mkShell {
           packages = [
@@ -82,10 +84,13 @@
             shfmt
             treefmt
             stylua
+            nixd
           ];
         };
     })
     // {
+      overlays = import ./overlays;
+
       darwinConfigurations = {
         "QN63HFT2NY" = darwin.lib.darwinSystem {
           system = "aarch64-darwin";

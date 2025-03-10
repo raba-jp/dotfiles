@@ -1,8 +1,10 @@
 {...}: {
   homebrew = {
     enable = true;
-    brews = [
-    ];
+
+    onActivation.autoUpdate = true;
+
+    brews = [];
 
     taps = [
       "homebrew/bundle"
@@ -18,14 +20,15 @@
       "bartender"
       "discord"
       "gitkraken"
+      "ghostty"
       "the-unarchiver"
       "visual-studio-code"
       "raycast"
       "wezterm"
       "obsidian"
       "qlmarkdown"
+      "readdle-spark"
       "keyclu"
-      "reader"
       "font-udev-gothic"
       "font-udev-gothic-nf"
       "font-moralerspace"

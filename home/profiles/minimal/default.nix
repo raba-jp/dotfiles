@@ -11,7 +11,12 @@
     packages = with pkgs; [
       ripgrep
       gh
+      rustup
     ];
+  };
+
+  programs.mise = {
+    enable = true;
   };
 
   programs.eza.enable = true;
@@ -25,9 +30,6 @@
   programs.bat = {
     enable = true;
     config.style = "changes,header";
-    extraPackages = with pkgs.bat-extras; [
-      batman
-    ];
   };
 
   programs.fzf = {
