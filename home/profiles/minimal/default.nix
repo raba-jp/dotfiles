@@ -19,9 +19,9 @@
     enable = true;
     enableFishIntegration = true;
     globalConfig = {
-      tools = [
+      tools = {
         node = "lts";
-      ];
+      };
     };
     settings = {
       experimental = true;
