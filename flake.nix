@@ -92,10 +92,10 @@
       overlays = import ./overlays;
 
       darwinConfigurations = {
-        "QN63HFT2NY" = darwin.lib.darwinSystem {
+        "VXTFUDL4SB" = darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           modules = [
-            ./darwin/hosts/QN63HFT2NY
+            ./darwin/hosts/VXTFUDL4SB
           ];
           specialArgs = {inherit inputs outputs;};
         };
