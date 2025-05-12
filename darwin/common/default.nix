@@ -12,9 +12,7 @@
 
   programs.zsh.enable = true;
 
-  services.nix-daemon.enable = true;
-
   documentation.enable = false;
 
-  system.stateVersion = 4;
+  system.stateVersion = 6;
 }
