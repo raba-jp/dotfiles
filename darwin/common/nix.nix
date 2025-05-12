@@ -7,6 +7,7 @@
   ...
 }: {
   nix = {
+    enable = true;
     settings = {
       trusted-users = ["root" "@wheel"];
       substituters = outputs.nixConfig.extra-substituers;
