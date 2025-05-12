@@ -8,27 +8,21 @@
 
     taps = [
       "homebrew/bundle"
-      "homebrew/cask-fonts"
-      "homebrew/cask-versions"
       "homebrew/services"
-      "espanso/espanso"
     ];
 
     casks = [
       "appcleaner"
-      "arc"
-      "bartender"
+      "akiflow"
       "discord"
-      "gitkraken"
       "ghostty"
       "the-unarchiver"
+      "cursor"
       "visual-studio-code"
+      "windsurf"
       "raycast"
-      "wezterm"
-      "obsidian"
       "qlmarkdown"
       "readdle-spark"
-      "keyclu"
       "font-udev-gothic"
       "font-udev-gothic-nf"
       "font-moralerspace"

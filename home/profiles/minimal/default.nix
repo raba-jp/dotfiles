@@ -17,6 +17,15 @@
 
   programs.mise = {
     enable = true;
+    enableFishIntegration = true;
+    globalConfig = {
+      tools = [
+        node = "lts";
+      ];
+    };
+    settings = {
+      experimental = true;
+    };
   };
 
   programs.eza.enable = true;

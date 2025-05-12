@@ -23,7 +23,6 @@
 
   programs.ghostty = {
     enable = true;
-    package = pkgs.stubin; # dummy
     enableFishIntegration = true;
     installBatSyntax = false;
     clearDefaultKeybinds = true;
