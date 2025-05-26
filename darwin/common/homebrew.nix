@@ -12,6 +12,7 @@
     ];
 
     casks = [
+      "azookey"
       "appcleaner"
       "akiflow"
       "discord"
