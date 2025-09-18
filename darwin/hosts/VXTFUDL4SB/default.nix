@@ -1,5 +1,6 @@
 {...}: let
   hostName = "VXTFUDL4SB";
+  username = "sakuraba";
 in {
   imports = [
     ../../common
@@ -15,4 +16,6 @@ in {
     ];
     home.stateVersion = "25.05";
   };
+
+  system.primaryUser = username;
 }

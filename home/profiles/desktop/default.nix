@@ -28,7 +28,7 @@
     installBatSyntax = false;
     clearDefaultKeybinds = true;
     settings = {
-      "theme" = "rose-pine";
+      "theme" = "Rose Pine";
       "font-size" = 14;
       "font-family" ="UDEV Gothic 35NFLG";
       "shell-integration" = "fish";
@@ -40,7 +40,6 @@
 
   programs.git = {
     enable = true;
-    delta.enable = true;
 
     userName = "Hiroki Sakuraba";
 
@@ -119,6 +118,9 @@
       ".envrc"
       ".direnv"
       "local.nix"
+
+      # mise
+      "mise.local.toml"
 
       # macOS
       "*.DS_Store"
