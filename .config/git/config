@@ -1,0 +1,27 @@
+[credential "https://github.com"]
+    helper = "!gh auth git-credential"
+
+[alias]
+    amend = "commit --amend"
+    branches = "!git branch -a --sort=authordate | cut -b 3- | sed \"s/remotes\\/origin\\///\" | sort | uniq | rg -v -- \"->\" | fzf | xargs git switch"
+    discard = "checkout --"
+    precommit = "diff --cached --diff-algorithm=minimal -w"
+    remotes = "remote -v"
+    stashes = "stash list"
+    tags = "tag"
+    tree = "log --graph --all --format='%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s'"
+    uncommit = "reset --mixed HEAD~"
+    unstage = "reset -q HEAD --"
+
+[color]
+    ui = "auto"
+
+[pull]
+    ff = "only"
+
+[push]
+    autoSetupRemote = true
+
+[user]
+    name = "Hiroki Sakuraba"
+    useConfigOnly = true

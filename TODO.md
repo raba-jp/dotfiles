@@ -1,0 +1,4 @@
+- [ ] https://github.com/joseluisq/paket のインストール
+- [ ] https://github.com/PatrickF1/fzf.fish のインストール
+- [ ] https://github.com/rose-pine/fish のインストール
+- [ ] https://github.com/decors/fish-ghq のインストール

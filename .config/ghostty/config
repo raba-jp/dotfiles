@@ -1,0 +1,8 @@
+command = fish
+font-family = UDEV Gothic 35NFLG
+font-size = 14
+keybind = clear
+keybind = global:alt+t=toggle_quick_terminal
+macos-titlebar-style = transparent
+shell-integration = fish
+theme = Rose Pine
