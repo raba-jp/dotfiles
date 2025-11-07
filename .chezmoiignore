@@ -1,0 +1,7 @@
+*.md
+LICENSE
+.github
+.editorconfig
+.gitignore
+Brewfile
+install.sh

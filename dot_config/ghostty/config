@@ -1,4 +1,4 @@
-command = fish
+command = /opt/homebrew/bin/fish
 font-family = UDEV Gothic 35NFLG
 font-size = 14
 keybind = clear

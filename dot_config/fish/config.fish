@@ -38,20 +38,15 @@ status is-interactive; and begin
     end
 
     if test "$TERM" != dumb
-        # /nix/store/rpcz0blydcyqmji56c82mvkh9jkk51bb-starship-1.24.0/bin/starship init fish | source
         starship init fish | source
     end
 
     mise activate fish | source
-    # /nix/store/hbmy51vsi92c0bfcgp2w8cy7cx1hqs93-mise-2025.9.10/bin/mise activate fish | source
 
     if set -q GHOSTTY_RESOURCES_DIR
         source "$GHOSTTY_RESOURCES_DIR/shell-integration/fish/vendor_conf.d/ghostty-shell-integration.fish"
     end
 
 
-    # /nix/store/4amf2iq54jfn3pnwm6li47sa96v8nps0-atuin-18.8.0/bin/atuin init fish --disable-up-arrow | source
     atuin init fish --disable-up-arrow | source
-
-    # /nix/store/7jfl43irizm04l5qwyfqd6wbc919fimb-direnv-2.37.1/bin/direnv hook fish | source
 end
