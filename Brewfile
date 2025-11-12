@@ -1,6 +1,8 @@
 tap "homebrew/bundle"
 tap "homebrew/services"
+tap "FelixKratz/formulae"
 
+brew "sketchybar"
 brew "gh"
 brew "fish"
 brew "starship"
@@ -12,6 +14,7 @@ brew "fzf"
 brew "bat"
 brew "eza"
 
+brew "alcove"
 cask "azookey"
 cask "appcleaner"
 cask "akiflow"
