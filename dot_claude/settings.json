@@ -1,0 +1,9 @@
+{
+  "env": {},
+  "permissions": {
+    "allow": [],
+    "deny": []
+  },
+  "model": "opus",
+  "language": "japanese"
+}
