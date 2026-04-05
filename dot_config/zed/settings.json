@@ -17,15 +17,10 @@
   "buffer_line_height": {
     "custom": 1.4
   },
-  "theme": {
-    "mode": "dark",
-    "light": "Rosé Pine Dawn",
-    "dark": "Rosé Pine"
-  },
+  "theme": "Rosé Pine",
   "scrollbar": {
     "show": "always",
     "git_diff": true,
-    "diagnostics": true,
     "search_results": true,
     "selected_symbol": true,
     "cursors": true
@@ -47,8 +42,8 @@
   },
   "preview_tabs": {
     "enabled": true,
-    "enable_preview_from_code_navigation": true,
-    "enable_preview_from_file_finder": true
+    "enable_preview_from_file_finder": true,
+    "enable_keep_preview_on_code_navigation": true,
   },
   "outline_panel": {
     "dock": "right"
@@ -77,20 +72,13 @@
     }
   },
   "terminal": {
-    "alternate_scroll": "off",
-    "blinking": "terminal_controlled",
-    "copy_on_select": true,
-    "font_family": "UDEV Gothic 35NFLG",
-    "font_size": 13,
     "shell": {
       "with_arguments": {
-        "program": "/etc/profiles/per-user/sakuraba/bin/fish",
-        "args": [
-          "--login"
-        ]
+        "program": "/opt/homebrew/bin/fish",
+        "args": [],
+        "title_override": null
       }
-    },
-    "working_directory": "current_project_directory"
+    }
   },
   "confirm_quit": true,
   "auto_signature_help": true,
