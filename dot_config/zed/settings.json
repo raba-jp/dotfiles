@@ -7,6 +7,24 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+  "agent": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-opus-4.6",
+      "enable_thinking": true,
+      "effort": "high"
+    },
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "edit_predictions": {
+    "provider": "copilot"
+  },
+  "icon_theme": "Catppuccin Mocha",
+  "which_key": {
+    "delay_ms": 900,
+    "enabled": true
+  },
   "ui_font_family": "UDEV Gothic 35",
   "ui_font_size": 14,
   "buffer_font_size": 14,
@@ -17,7 +35,7 @@
   "buffer_line_height": {
     "custom": 1.4
   },
-  "theme": "Rosé Pine",
+  "theme": "Catppuccin Mocha",
   "scrollbar": {
     "show": "always",
     "git_diff": true,
@@ -27,18 +45,16 @@
   },
   "inlay_hints": {
     "enabled": true,
-    "show_type_hints": true,
-    "show_parameter_hints": true,
-    "show_other_hints": true
+    // "show_type_hints": true,
+    // "show_parameter_hints": true,
+    // "show_other_hints": true
   },
   "formatter": "language_server",
   "format_on_save": "on",
   "always_treat_brackets_as_autoclosed": true,
   "indent_guides": {
     "enabled": true,
-    "active_line_width": 2,
     "coloring": "fixed",
-    "background_coloring": "disabled"
   },
   "preview_tabs": {
     "enabled": true,
@@ -46,10 +62,12 @@
     "enable_keep_preview_on_code_navigation": true,
   },
   "outline_panel": {
-    "dock": "right"
+    "button": true,
+    "dock": "left"
   },
   "tab_bar": {
-    "show_nav_history_buttons": false
+    "show_tab_bar_buttons": false,
+    "show_nav_history_buttons": false,
   },
   "git": {
     "git_gutter": "tracked_files",
@@ -57,19 +75,12 @@
     "inline_blame": {
       "enabled": true,
       "delay_ms": 300
-    }
+    },
   },
   "file_types": {
     "Dockerfile": [
       "Dockerfile.*"
     ]
-  },
-  "languages": {
-    "Python": {
-      "indent_guides": {
-        "coloring": "indent_aware"
-      }
-    }
   },
   "terminal": {
     "shell": {
@@ -82,5 +93,8 @@
   },
   "confirm_quit": true,
   "auto_signature_help": true,
-  "show_signature_help_after_edits": true
+  "show_signature_help_after_edits": true,
+  "collaboration_panel": {
+    "button": false
+  },
 }
