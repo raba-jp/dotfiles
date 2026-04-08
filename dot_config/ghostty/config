@@ -12,4 +12,4 @@ keybind = super+k=previous_tab
 keybind = super+s=next_tab
 macos-titlebar-style = transparent
 shell-integration = fish
-theme = Rose Pine
+theme = Catppuccin Mocha
