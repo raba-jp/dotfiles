@@ -1,7 +1,6 @@
 status is-login; and begin
 
     # Login shell initialisation
-    # fish_add_path --move --prepend --path $HOME/.nix-profile/bin /run/wrappers/bin /etc/profiles/per-user/$USER/bin /run/current-system/sw/bin
 
     set -U FZF_LEGACY_KEYBINDINGS 0
     set -U FZF_DISABLE_KEYBINDINGS 1
@@ -23,8 +22,6 @@ status is-interactive; and begin
     alias tree 'eza --tree --icons --all --git-ignore --ignore-glob=.git'
 
     # Interactive shell initialisation
-    fzf --fish | source
-    # /nix/store/8xafvgyqh8v45s2ivpjh26i332ih2692-fzf-0.66.1/bin/fzf --fish | source
 
     bind \ck up-or-search
     bind \cj down-or-search
@@ -41,12 +38,12 @@ status is-interactive; and begin
         starship init fish | source
     end
 
-    mise activate fish | source
-
     if set -q GHOSTTY_RESOURCES_DIR
         source "$GHOSTTY_RESOURCES_DIR/shell-integration/fish/vendor_conf.d/ghostty-shell-integration.fish"
     end
 
+    mise activate fish | source
+    fzf --fish | source
 
     atuin init fish --disable-up-arrow | source
 end

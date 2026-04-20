@@ -1,3 +1,4 @@
+tap "BarutSRB/tap"
 tap "FelixKratz/formulae"
 
 brew "sketchybar"
@@ -28,3 +29,4 @@ cask "font-moralerspace"
 cask "font-moralerspace-hw"
 cask "font-moralerspace-hw-jpdoc"
 cask "font-moralerspace-jpdoc"
+cask "omniwm"
