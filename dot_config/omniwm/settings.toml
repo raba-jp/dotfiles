@@ -48,6 +48,8 @@ top = 0.0
 animationsEnabled = true
 defaultLayoutType = "niri"
 hotkeysEnabled = true
+hyperKeyHoldThresholdMilliseconds = 150
+hyperTrigger = "Left Option"
 ipcEnabled = false
 preventSleepEnabled = false
 updateChecksEnabled = true
@@ -71,7 +73,6 @@ centerFocusedColumn = "never"
 columnWidthPresets = [0.25, 0.33, 0.5, 0.66, 0.75, 1.0]
 infiniteLoop = false
 maxVisibleColumns = 2
-maxWindowsPerColumn = 10
 singleWindowAspectRatio = "none"
 
 [quakeTerminal]
@@ -82,11 +83,7 @@ heightPercent = 50.0
 monitorMode = "focusedWindow"
 opacity = 1.0
 position = "center"
-useCustomFrame = false
 widthPercent = 50.0
-
-[state]
-commandPaletteLastMode = "windows"
 
 [statusBar]
 showAppNames = false
@@ -356,7 +353,7 @@ binding = "Control+Option+Shift+Command+U"
 id = "moveColumnToWorkspaceUp"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+,"
+binding = "Control+Option+Shift+Command+Comma"
 id = "moveColumnToWorkspaceDown"
 
 [[hotkeys]]
@@ -408,7 +405,7 @@ binding = "Control+Option+Shift+Command+A"
 id = "move.up"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+-"
+binding = "Control+Option+Shift+Command+Minus"
 id = "move.right"
 
 [[hotkeys]]
@@ -452,7 +449,7 @@ binding = "Unassigned"
 id = "focusMonitorPrevious"
 
 [[hotkeys]]
-binding = "Control+Command+`"
+binding = "Control+Command+Grave"
 id = "focusMonitorLast"
 
 [[hotkeys]]
@@ -772,7 +769,7 @@ binding = "Option+Shift+L"
 id = "toggleWorkspaceLayout"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+."
+binding = "Control+Option+Shift+Command+Period"
 id = "toggleOverview"
 
 [[workspaces]]

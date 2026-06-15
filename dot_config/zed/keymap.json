@@ -32,5 +32,17 @@
       "cmd-g cmd-c": "editor::GoToDeclaration"
       // "j k": ["workspace::SendKeystrokes", "escape"]
     }
+  },
+  {
+    "context": "Editor && showing_signature_help && !showing_completions",
+    "unbind": {
+      "down": "editor::SignatureHelpNext"
+    }
+  },
+  {
+    "context": "Editor && showing_signature_help && !showing_completions",
+    "unbind": {
+      "up": "editor::SignatureHelpPrevious"
+    }
   }
 ]

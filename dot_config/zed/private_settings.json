@@ -1,0 +1,151 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette
+{
+  // System
+  "proxy": "",
+  // Behavior
+  "restore_on_startup": "last_workspace",
+  "on_last_window_closed": "quit_app",
+  "when_closing_with_no_tabs": "keep_window_open",
+  "cli_default_open_behavior": "new_window",
+  "confirm_quit": true,
+  "format_on_save": "on",
+  "file_types": {
+    "Dockerfile": [
+      "Dockerfile.*"
+    ]
+  },
+  "auto_signature_help": false,
+  "show_signature_help_after_edits": true,
+  "code_lens": "on",
+  // Font
+  "ui_font_family": "UDEV Gothic 35",
+  "ui_font_size": 14,
+  "buffer_font_size": 14,
+  "buffer_font_family": "UDEV Gothic 35NFLG",
+  "buffer_font_features": {
+    "calt": true,
+  },
+  "buffer_line_height": "comfortable",
+  // UI
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha"
+  },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Catppuccin Mocha",
+    "dark": "Catppuccin Mocha"
+  },
+  "scrollbar": {
+    "show": "auto",
+    "git_diff": true,
+    "search_results": true,
+    "selected_symbol": true,
+    "cursors": true
+  },
+  "preview_tabs": {
+    "enabled": true,
+    "enable_preview_from_file_finder": true,
+    "enable_keep_preview_on_code_navigation": true,
+  },
+  "tab_bar": {
+    "show_tab_bar_buttons": false,
+    "show_nav_history_buttons": false,
+  },
+  "tabs": {
+    "show_diagnostics": "all",
+  },
+  // Panel
+  "project_panel": {
+    "default_width": 280.0,
+    "dock": "right",
+    "show_diagnostics": "all",
+  },
+  "git_panel": {
+    "dock": "right"
+  },
+  "agent": {
+    "single_file_review": false,
+    "sidebar_side": "left",
+    "dock": "left"
+  },
+  "outline_panel": {
+    "button": true,
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right",
+    "button": false
+  },
+  "debugger": {
+    "button": false
+  },
+  // Language services
+  "edit_predictions": {
+    "provider": "copilot"
+  },
+  "formatter": "language_server",
+  "languages": {
+    "Go": {
+      "inlay_hints": {
+        "enabled": true,
+        "show_type_hints": true,
+        "show_parameter_hints": false,
+        "show_value_hints": true,
+        "show_other_hints": true,
+      },
+    },
+    "TypeScript": {
+      "inlay_hints": {
+        "enabled": true,
+        "show_parameter_hints": false,
+        "show_type_hints": true,
+        "show_value_hints": true,
+      },
+    }
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+    }
+  },
+  // Buffers
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "fixed",
+  },
+  // Keybind
+  "which_key": {
+    "delay_ms": 900,
+    "enabled": true
+  },
+  "always_treat_brackets_as_autoclosed": true,
+  // Git
+  "git": {
+    "git_gutter": "tracked_files",
+    "gutter_debounce": 300,
+    "inline_blame": {
+      "enabled": true,
+      "delay_ms": 300
+    },
+  },
+  // Terminal
+  "terminal": {
+    "shell": {
+      "with_arguments": {
+        "program": "/opt/homebrew/bin/fish",
+        "args": [],
+        "title_override": null
+      }
+    }
+  },
+  // Unsorted
+}
