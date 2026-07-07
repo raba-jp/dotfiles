@@ -278,3 +278,5 @@ keybind = super+s=next_tab
 click-repeat-interval = 500
 shell-integration = fish
 auto-update-channel = stable
+
+background-opacity = 1.00

@@ -66,7 +66,7 @@
   // Panel
   "project_panel": {
     "default_width": 280.0,
-    "dock": "right",
+    "dock": "left",
     "show_diagnostics": "all",
   },
   "git_panel": {

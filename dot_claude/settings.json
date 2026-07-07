@@ -4,6 +4,33 @@
     "allow": [],
     "deny": []
   },
-  "model": "opus",
-  "language": "japanese"
+  "model": "claude-opus-4-6[1m]",
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "foldkit-skills@foldkit": true,
+    "claude-code-setup@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "foldkit": {
+      "source": {
+        "source": "github",
+        "repo": "foldkit/foldkit"
+      }
+    },
+    "fallow-skills": {
+      "source": {
+        "source": "github",
+        "repo": "fallow-rs/fallow-skills"
+      }
+    }
+  },
+  "language": "japanese",
+  "effortLevel": "high",
+  "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true,
+  "tui": "fullscreen"
 }

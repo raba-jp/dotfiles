@@ -32,3 +32,5 @@ Session.vim
 *~
 tags
 .vscode/tag
+
+**/.claude/settings.local.json

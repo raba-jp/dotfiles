@@ -1,7 +1,9 @@
 monitorBarOverrides = []
 monitorDwindleOverrides = []
+monitorGapOverrides = []
 monitorNiriOverrides = []
 monitorOrientationOverrides = []
+monitorRoutingOverrides = []
 
 [appearance]
 mode = "dark"
@@ -25,14 +27,16 @@ maxTotalBytes = 67108864
 [dwindle]
 defaultSplitRatio = 1.0
 moveToRootStable = true
-singleWindowAspectRatio = "4:3"
+singleWindowAspectRatio = "1440x1080"
 smartSplit = false
 splitWidthMultiplier = 1.0
 useGlobalGaps = true
 
 [focus]
+crossesMonitorAtEdge = false
 followsMouse = false
 followsWindowToMonitor = false
+moveCrossesMonitorAtEdge = false
 moveMouseToFocusedWindow = false
 
 [gaps]
@@ -52,6 +56,8 @@ hyperKeyHoldThresholdMilliseconds = 150
 hyperTrigger = "Left Option"
 ipcEnabled = false
 preventSleepEnabled = false
+spacesTrackingEnabled = true
+systemHyperTrigger = "None"
 updateChecksEnabled = true
 
 [gestures]
@@ -61,11 +67,11 @@ mouseResizeModifierKey = "option"
 scrollEnabled = true
 scrollModifierKey = "optionShift"
 scrollSensitivity = 5.0
+trackpadScrollStyle = "snap"
 
 [mouseWarp]
-axis = "horizontal"
+enabled = true
 margin = 1
-monitorOrder = ["Built-in Retina Display", "DELL U4021QW"]
 
 [niri]
 alwaysCenterSingleColumn = false
@@ -73,7 +79,7 @@ centerFocusedColumn = "never"
 columnWidthPresets = [0.25, 0.33, 0.5, 0.66, 0.75, 1.0]
 infiniteLoop = false
 maxVisibleColumns = 2
-singleWindowAspectRatio = "none"
+singleWindowAspectRatio = "fill"
 
 [quakeTerminal]
 animationDuration = 0.2
@@ -84,6 +90,9 @@ monitorMode = "focusedWindow"
 opacity = 1.0
 position = "center"
 widthPercent = 50.0
+
+[routing]
+mode = "macOS"
 
 [statusBar]
 showAppNames = false
@@ -273,27 +282,27 @@ binding = "Unassigned"
 id = "workspaceBackAndForth"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+R"
+binding = "Hyper+R"
 id = "switchWorkspace.next"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+W"
+binding = "Hyper+W"
 id = "switchWorkspace.previous"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+K"
+binding = "Hyper+K"
 id = "focus.left"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+T"
+binding = "Hyper+T"
 id = "focus.down"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+N"
+binding = "Hyper+N"
 id = "focus.up"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+S"
+binding = "Hyper+S"
 id = "focus.right"
 
 [[hotkeys]]
@@ -349,11 +358,11 @@ binding = "Unassigned"
 id = "moveWindowToWorkspaceDown"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+U"
+binding = "Hyper+U"
 id = "moveColumnToWorkspaceUp"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+Comma"
+binding = "Hyper+Comma"
 id = "moveColumnToWorkspaceDown"
 
 [[hotkeys]]
@@ -393,19 +402,19 @@ binding = "Unassigned"
 id = "moveColumnToWorkspace.8"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+I"
+binding = "Hyper+I"
 id = "move.left"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+O"
+binding = "Hyper+O"
 id = "move.down"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+A"
+binding = "Hyper+A"
 id = "move.up"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+Minus"
+binding = "Hyper+Minus"
 id = "move.right"
 
 [[hotkeys]]
@@ -453,7 +462,7 @@ binding = "Control+Command+Grave"
 id = "focusMonitorLast"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+Return"
+binding = "Hyper+Return"
 id = "toggleFullscreen"
 
 [[hotkeys]]
@@ -597,7 +606,7 @@ binding = "Unassigned"
 id = "moveColumnToIndex.9"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+H"
+binding = "Hyper+H"
 id = "cycleColumnWidthForward"
 
 [[hotkeys]]
@@ -657,7 +666,7 @@ binding = "Unassigned"
 id = "setWindowHeight.increase10Percent"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+B"
+binding = "Hyper+B"
 id = "balanceSizes"
 
 [[hotkeys]]
@@ -761,7 +770,7 @@ binding = "Unassigned"
 id = "toggleHiddenBar"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+F"
+binding = "Hyper+F"
 id = "toggleQuakeTerminal"
 
 [[hotkeys]]
@@ -769,7 +778,7 @@ binding = "Option+Shift+L"
 id = "toggleWorkspaceLayout"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Command+Period"
+binding = "Hyper+Period"
 id = "toggleOverview"
 
 [[workspaces]]
