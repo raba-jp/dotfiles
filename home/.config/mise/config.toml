@@ -1,0 +1,14 @@
+# mise グローバル設定
+# dotfiles マニフェストはリポジトリ root の mise.toml にある。
+# [dotfiles] をここに書いてはならない。[settings] は設定階層でマージされるため、
+# 両方に存在するとリポジトリへ cd しただけで配布挙動が変わる。
+
+[settings]
+experimental = true
+
+[tools]
+fnox = "latest"
+node = "lts"
+"npm:@anthropic-ai/claude-code" = "latest"
+"npm:@biomejs/biome" = "latest"
+"ubi:wagoodman/dive" = "latest"
