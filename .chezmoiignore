@@ -1,5 +1,6 @@
 *.md
 LICENSE
+docs
 .github
 .editorconfig
 .gitignore
