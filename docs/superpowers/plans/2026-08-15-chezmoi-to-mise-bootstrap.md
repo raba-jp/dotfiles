@@ -438,13 +438,13 @@ rm -rf /tmp/mig/sandbox /tmp/mig/home
 
 - [ ] **Step 1: プラグイン一覧を作る**
 
-削除した `run_once_after_install_fish_plugins.fish` と同じ 4 つを列挙する。
+削除した `run_once_after_install_fish_plugins.fish` と同じ 4 つを列挙する。ただし **fisher が書き出す正規形（小文字）に合わせる**こと。旧スクリプトは `PatrickF1/fzf.fish` と書いていたが、fisher は `fish_plugins` へ書き戻すときにリポジトリ名を小文字化するため、実機は `patrickf1/fzf.fish` になっている。カットオーバー後は `~/.config/fish/fish_plugins` がリポジトリへの symlink になるので、大文字のままにすると `fisher update` のたびにリポジトリが dirty になる。
 
 `home/.config/fish/fish_plugins`:
 
 ```
 jorgebucaran/fisher
-PatrickF1/fzf.fish
+patrickf1/fzf.fish
 rose-pine/fish
 decors/fish-ghq
 ```
