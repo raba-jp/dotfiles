@@ -592,6 +592,8 @@ Expected: 空。ここで差分が出たら Task 1 Step 2 と同じ手順で取�
 
 chezmoi が置いた実ファイルを symlink に置き換える。リポジトリと実機の内容は Step 2 で一致を確認済みなので `--force` は安全。
 
+**意図的な上書きが 1 件ある。** `~/.claude/settings.json` の `enabledPlugins` は実機が 1 件（`foldkit-skills@foldkit`）、リポジトリが 5 件（`superpowers` / `frontend-design` / `skill-creator` / `foldkit-skills` / `claude-code-setup`）で、**リポジトリ側を正とする決定済み**。`--force` により実機が 5 件へ揃う。それ以外のキーは完全一致しているので、この 1 点以外に上書きは発生しない。
+
 ```bash
 cd ~/ghq/github.com/raba-jp/dotfiles
 mise trust
