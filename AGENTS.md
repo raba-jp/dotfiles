@@ -12,12 +12,14 @@ macOS の個人 dotfiles リポジトリ。[mise](https://mise.jdx.dev/bootstrap
 | コマンド | 影響 |
 | --- | --- |
 | `mise bootstrap dotfiles apply` | `$HOME` の設定ファイルを上書きする |
-| `mise bootstrap`（引数なし） | 上記に加え OS パッケージのインストールまで走る |
+| `mise bootstrap`（引数なし） | 上記に加え OS パッケージのインストールと macOS defaults の書き込みまで走る |
 | `mise bootstrap packages apply` | Homebrew パッケージをインストールする |
+| `mise bootstrap macos defaults apply` | macOS のシステム設定を `defaults write` で書き換える |
 | `mise run bootstrap` | `fisher update` が走り fish プラグインを再構成する |
 | `mise bootstrap dotfiles add` | **使ってはならない**。後述 |
 
-`mise bootstrap dotfiles status` は読み取り専用なので自由に使ってよい。
+`mise bootstrap dotfiles status` と `mise bootstrap macos defaults status` は読み取り専用なので
+自由に使ってよい。`apply` 系は `--dry-run` を付ければ実行内容の確認だけで済む。
 
 ## 絶対に壊してはいけない不変条件
 
@@ -50,12 +52,12 @@ mise の `[settings]` は設定階層をまたいでマージされる。その�
 
 | ファイル | 内容 | 種別 |
 | --- | --- | --- |
-| `mise.toml` | `[dotfiles]`、`[bootstrap.packages]`、`[tasks.bootstrap]` | project config。リポジトリ内で実行する |
+| `mise.toml` | `[dotfiles]`、`[bootstrap.packages]`、`[bootstrap.macos.defaults]`、`[tasks.bootstrap]` | project config。リポジトリ内で実行する |
 | `home/.config/mise/config.toml` | `[settings] experimental`、`[tools]` | グローバル設定。dotfile として配布される |
 
 「どこからでも有効である必要があるものだけをグローバルに置く」という原則で分けている。
-その結果、リポジトリ外では `mise bootstrap dotfiles status` も `packages status` も空を返す。
-これは不具合ではなく設計どおり。
+その結果、リポジトリ外では `mise bootstrap dotfiles status` も `packages status` も
+`macos defaults status` も空を返す。これは不具合ではなく設計どおり。
 
 ## レイアウト
 
@@ -86,8 +88,46 @@ cp ~/.config/zed/settings.json home/.config/zed/settings.json
 覆われているだけのファイルは未管理と判定され、新規エントリを作った上で**ファイルを移動**して
 しまう。しかも書き込み先は既定でグローバル設定である。
 
+## macOS のシステム設定
+
+`mise.toml` の `[bootstrap.macos.defaults]` で管理している。`defaults write` を宣言的に書いたもの。
+`mise bootstrap` の 10 番目のステップとして自動で走る。単体では次のように扱う。
+
+```sh
+mise bootstrap macos defaults status            # 読み取り専用。差分を見る
+mise bootstrap macos defaults apply --dry-run   # 実行される defaults write を確認する
+mise bootstrap macos defaults apply             # 書き込む
+```
+
+`status` の 3 列目が設定したい値、4 列目が実機の現在値、5 列目が `set` / `differs` / `unset`。
+
+### 設定を足すとき
+
+1. GUI で変更する
+2. `defaults read <domain> <key>` で**実際に書かれたキーと型**を確かめる
+3. その値を `mise.toml` に書く
+4. `mise bootstrap macos defaults status` が `set` になることを確認する
+
+型はそのまま突き合わせに使われるので、推測で書かない。macOS には bool に見えて int の enum が
+ある（`com.apple.menuextra.clock` の `ShowDate` など）。`true` と書くと値が同じでも
+`differs` のままになる。
+
+curated セクション（`[bootstrap.macos.dock]` など）はこのリポジトリでは使わない。domain と key を
+生で書けば `defaults read` の出力と 1:1 で対応し、上の手順が機械的に回るため。
+
+### 実機で変えた設定を戻す
+
+dotfiles と同じで、GUI で変更すると `status` が `differs` になる。`mise.toml` を実機に合わせるか、
+`apply` でリポジトリの値を実機へ書き戻すか、どちらかを選ぶ。
+
 ## 制約
 
+- **`[bootstrap.macos.defaults]` にも prune が無い。** エントリを消しても実機の設定は元に戻らない。
+  `defaults delete <domain> <key>` を手で叩く
+- **反映にアプリの再起動やログアウトが要るものがある。** mise が実行するのは `defaults write` だけで、
+  `killall Dock` などはしない。Dock / Finder は `killall`、トラックパッド関連はログアウトが要る
+- **キーリピートは GUI が float で書く。** `KeyRepeat` / `InitialKeyRepeat` は値が同じでも
+  `status` が `2 (float)` vs `2` で `differs` と出る。一度 `apply` すれば int に正規化されて解消する
 - **`copy` に prune が無い。** リポジトリからファイルを削除しても `$HOME` 側は残る。手で消す
 - **実行ビットは git のファイルモードで表現する。** 新しいスクリプトを足したら
   `git update-index --chmod=+x <path>` を忘れないこと。`home/.config/sketchybar/` の 6 ファイルが該当
@@ -149,6 +189,17 @@ diff /tmp/before.txt /tmp/after.txt
 サンドボックスへの apply でも**グローバル設定のエントリは評価される**。実行前に
 `mise bootstrap dotfiles status` で既存エントリが `applied` であることを確認しておくこと。
 `differs` のまま実行すると no-op にならず実機が変わる。
+
+`[bootstrap.macos.defaults]` に書き換え先を差し替える仕組みは無いので、サンドボックスは使えない。
+代わりに、そのブロックだけを `/tmp` の `mise.toml` に写して `status` と `apply --dry-run` で確かめる。
+
+```sh
+mkdir -p /tmp/sbd
+sed -n '/^\[bootstrap.macos.defaults/,$p' mise.toml | sed '/^\[tasks\./,$d' > /tmp/sbd/mise.toml
+(cd /tmp/sbd && mise trust && mise bootstrap macos defaults status && mise bootstrap macos defaults apply --dry-run)
+```
+
+`--dry-run` が出力する `defaults write` の行が、意図した domain・key・型になっているかを見る。
 
 ## 参照
 

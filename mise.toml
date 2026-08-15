@@ -49,6 +49,58 @@ dotfiles.default_mode = "copy"
 "brew-cask:font-udev-gothic" = { os = "macos" }
 "brew-cask:font-udev-gothic-nf" = { os = "macos" }
 
+# macOS のシステム設定。`defaults write` 相当。
+#
+# [bootstrap.packages] と同じくマシンのセットアップであって配布する dotfile ではないので、
+# project config であるこのファイルに置く。グローバル設定に置いてはならない
+# （リポジトリ外の任意のディレクトリで `mise bootstrap` を叩いたときに評価されてしまう）。
+#
+#   確認: mise bootstrap macos defaults status         # 読み取り専用
+#   適用: mise bootstrap macos defaults apply          # 破壊的
+#
+# mise には [bootstrap.macos.dock] のような curated セクションもあるが使っていない。
+# domain と key を生で書けば `defaults read <domain> <key>` と 1:1 で対応し、
+# 実機の値との突き合わせが機械的にできるため。
+#
+# 下記は実機の現状値を書き起こしたもの。新しい設定を足すときは
+# `defaults read <domain> <key>` で実際に書かれるキーと型を確かめてから追記すること。
+# GUI で設定を変えた後は status が differs になるので、そこで拾って戻す。
+
+[bootstrap.macos.defaults."com.apple.dock"]
+autohide = true
+
+[bootstrap.macos.defaults."com.apple.finder"]
+ShowHardDrivesOnDesktop = false
+ShowExternalHardDrivesOnDesktop = true
+ShowRemovableMediaOnDesktop = true
+
+[bootstrap.macos.defaults."com.apple.menuextra.clock"]
+ShowDayOfWeek = true
+# ShowDate は bool ではなく 3 値の enum（0=スペースがあるとき 1=常に 2=表示しない）。
+# true/false で書くと値は同じでも status が differs のままになるので int で書く。
+ShowDate = 0
+
+# Stage Manager は OmniWM と競合するので無効。
+[bootstrap.macos.defaults."com.apple.WindowManager"]
+GloballyEnabled = false
+EnableTiledWindowMargins = false
+HideDesktop = true
+
+[bootstrap.macos.defaults.NSGlobalDomain]
+AppleInterfaceStyle = "Dark"
+# キーリピート。数値が小さいほど速い。システム設定の GUI では float で書かれるため、
+# 初回 apply までは status が「値は同じだが differs」と出る。apply すると int に正規化される。
+KeyRepeat = 2
+InitialKeyRepeat = 15
+
+# タップでクリック。内蔵トラックパッドと Bluetooth トラックパッドで domain が分かれており、
+# 両方に書かないと片方だけ設定が外れる。反映にはログアウトが要る。
+[bootstrap.macos.defaults."com.apple.AppleMultitouchTrackpad"]
+Clicking = true
+
+[bootstrap.macos.defaults."com.apple.driver.AppleBluetoothMultitouch.trackpad"]
+Clicking = true
+
 [tasks.bootstrap]
 shell = "fish -c"
 run = '''
