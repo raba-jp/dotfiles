@@ -1,0 +1,67 @@
+# mise グローバル設定 兼 dotfiles マニフェスト
+# ~/.config/mise/config.toml へ symlink して使う
+
+[settings]
+experimental = true
+dotfiles.root = "~/ghq/github.com/raba-jp/dotfiles/home"
+dotfiles.default_mode = "symlink"
+
+[dotfiles]
+# source 省略時は dotfiles.root 配下へ home 相対で写像される
+# ~/.config      -> ~/ghq/github.com/raba-jp/dotfiles/home/.config
+"~/.config" = { mode = "symlink-each" }
+"~/.claude/settings.json" = {}
+# マニフェスト自身。home/ の外にあるので source を明示する
+"~/.config/mise/config.toml" = "~/ghq/github.com/raba-jp/dotfiles/mise.toml"
+
+[bootstrap.packages]
+"brew:atuin" = "latest"
+"brew:bat" = "latest"
+"brew:crit" = "latest"
+"brew:eza" = "latest"
+"brew:fish" = "latest"
+"brew:fzf" = "latest"
+"brew:gh" = "latest"
+"brew:ghq" = "latest"
+"brew:mise" = "latest"
+"brew:starship" = "latest"
+
+"brew-cask:appcleaner" = { os = "macos" }
+"brew-cask:comet" = { os = "macos" }
+"brew-cask:conductor" = { os = "macos" }
+"brew-cask:discord" = { os = "macos" }
+"brew-cask:ghostty" = { os = "macos" }
+"brew-cask:granola" = { os = "macos" }
+"brew-cask:heptabase" = { os = "macos" }
+"brew-cask:lm-studio" = { os = "macos" }
+"brew-cask:obsidian" = { os = "macos" }
+"brew-cask:proton-pass" = { os = "macos" }
+"brew-cask:qlmarkdown" = { os = "macos" }
+"brew-cask:thaw" = { os = "macos" }
+"brew-cask:the-unarchiver" = { os = "macos" }
+"brew-cask:zed" = { os = "macos" }
+"brew-cask:zoom" = { os = "macos" }
+
+"brew-cask:font-moralerspace" = { os = "macos" }
+"brew-cask:font-moralerspace-hw" = { os = "macos" }
+"brew-cask:font-moralerspace-hw-jpdoc" = { os = "macos" }
+"brew-cask:font-moralerspace-jpdoc" = { os = "macos" }
+"brew-cask:font-udev-gothic" = { os = "macos" }
+"brew-cask:font-udev-gothic-nf" = { os = "macos" }
+
+[tools]
+fnox = "latest"
+node = "lts"
+"npm:@anthropic-ai/claude-code" = "latest"
+"npm:@biomejs/biome" = "latest"
+"ubi:wagoodman/dive" = "latest"
+
+[tasks.bootstrap]
+shell = "fish -c"
+run = '''
+functions -q fisher; or begin
+    curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source
+    fisher install jorgebucaran/fisher
+end
+fisher update
+'''
