@@ -93,19 +93,28 @@ chezmoi status --source .
 
 Expected: 何も出力されなければドリフト無し。`MM .claude/settings.json` のような行が出た場合は実機側が新しいので Step 2 で取り込む。
 
-- [ ] **Step 2: ドリフトがあれば作業ブランチへ取り込む**
+- [ ] **Step 2: ドリフトの向きを判定する**
 
-`chezmoi add` は既定の source（`~/.local/share/chezmoi`）を書き換えてしまうため使わない。実機のファイルを作業ブランチへ直接コピーする。
+**「実機が常に正」ではない。** 必ず両方の中身を見て、どちらが意図した状態か判断すること。`chezmoi add` は既定の source（`~/.local/share/chezmoi`）を書き換えてしまうため使わない。
 
 ```bash
 cd /Users/sakuraba/conductor/workspaces/dotfiles/biarritz
-chezmoi diff --source . ~/.claude/settings.json     # 差分を目視
-cp ~/.claude/settings.json dot_claude/settings.json
-chezmoi status --source .
+chezmoi diff --source . ~/.claude/settings.json     # - が実機、+ がリポジトリの desired state
+git log --oneline -5 -- dot_claude/settings.json    # リポジトリ側の変更経緯
+```
+
+**2026-08-15 時点の判定結果:** `.claude/settings.json` の `enabledPlugins` はリポジトリが 5 件、実機が 1 件。リポジトリ側は 2026-07-07 のコミット `f9d26eb`「Sync local settings to chezmoi source」で意図的に入れられたものなので、**リポジトリを正とする**。実機側は Task 8 の `--force` で上書きされる。したがってこの Step でリポジトリを変更する必要はない。
+
+`chezmoi status --source .` には `R scripts/install_packages.sh` が残るが、これはドリフトではない。`run_onchange_install_packages.sh.tmpl` が `{{ .chezmoi.sourceDir }}` を埋め込んでいるため、`--source .` で source パスを差し替えると必ず差分が出る。`--exclude=scripts` で除外するので Step 4 のベースラインには影響しない。
+
+- [ ] **Step 2b: 実機を正とすべきドリフトがあった場合のみ取り込む**
+
+```bash
+cp ~/.claude/settings.json dot_claude/settings.json   # 実機が正と判断した場合のみ
 git add -A && git commit -m "chore: sync local drift before mise migration"
 ```
 
-Expected: `chezmoi status --source .` が空になる。ドリフトが `.claude/settings.json` 以外にもあれば同じ要領で対応する。
+Expected: 判定の結果リポジトリが正なら、このリポジトリへのコミットは発生しない。
 
 - [ ] **Step 3: 巻き戻し用のタグをローカルに打つ**
 
