@@ -1,18 +1,18 @@
-# mise グローバル設定 兼 dotfiles マニフェスト
-# ~/.config/mise/config.toml へ symlink して使う
+# dotfiles マニフェスト兼マシンセットアップ設定
+#
+# これは project config である。リポジトリ内で実行すること。
+# source は相対パスなので、実行した checkout が配布元になる。
+# 任意の worktree から `mise bootstrap dotfiles apply` できる。
+#
+# mise のグローバル設定（[tools] など）は home/.config/mise/config.toml にあり、
+# 普通の dotfile として配布される。
 
 [settings]
-experimental = true
-dotfiles.root = "~/ghq/github.com/raba-jp/dotfiles/home"
-dotfiles.default_mode = "symlink"
+dotfiles.default_mode = "copy"
 
 [dotfiles]
-# source 省略時は dotfiles.root 配下へ home 相対で写像される
-# ~/.config      -> ~/ghq/github.com/raba-jp/dotfiles/home/.config
-"~/.config" = { mode = "symlink-each" }
-"~/.claude" = { mode = "symlink-each" }
-# マニフェスト自身。home/ の外にあるので source を明示する
-"~/.config/mise/config.toml" = "~/ghq/github.com/raba-jp/dotfiles/mise.toml"
+"~/.config" = { source = "home/.config", mode = "copy" }
+"~/.claude" = { source = "home/.claude", mode = "copy" }
 
 [bootstrap.packages]
 "brew:atuin" = "latest"
@@ -48,13 +48,6 @@ dotfiles.default_mode = "symlink"
 "brew-cask:font-moralerspace-jpdoc" = { os = "macos" }
 "brew-cask:font-udev-gothic" = { os = "macos" }
 "brew-cask:font-udev-gothic-nf" = { os = "macos" }
-
-[tools]
-fnox = "latest"
-node = "lts"
-"npm:@anthropic-ai/claude-code" = "latest"
-"npm:@biomejs/biome" = "latest"
-"ubi:wagoodman/dive" = "latest"
 
 [tasks.bootstrap]
 shell = "fish -c"
