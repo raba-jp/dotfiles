@@ -1,9 +1,0 @@
-[tools]
-fnox = "latest"
-node = "lts"
-"npm:@anthropic-ai/claude-code" = "latest"
-"npm:@biomejs/biome" = "latest"
-"ubi:wagoodman/dive" = "latest"
-
-[settings]
-experimental = true
