@@ -10,7 +10,7 @@ dotfiles.default_mode = "symlink"
 # source 省略時は dotfiles.root 配下へ home 相対で写像される
 # ~/.config      -> ~/ghq/github.com/raba-jp/dotfiles/home/.config
 "~/.config" = { mode = "symlink-each" }
-"~/.claude/settings.json" = {}
+"~/.claude" = { mode = "symlink-each" }
 # マニフェスト自身。home/ の外にあるので source を明示する
 "~/.config/mise/config.toml" = "~/ghq/github.com/raba-jp/dotfiles/mise.toml"
 

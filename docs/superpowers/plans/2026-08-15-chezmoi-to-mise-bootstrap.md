@@ -239,7 +239,7 @@ dotfiles.default_mode = "symlink"
 # source 省略時は dotfiles.root 配下へ home 相対で写像される
 # ~/.config      -> ~/ghq/github.com/raba-jp/dotfiles/home/.config
 "~/.config" = { mode = "symlink-each" }
-"~/.claude/settings.json" = {}
+"~/.claude" = { mode = "symlink-each" }
 # マニフェスト自身。home/ の外にあるので source を明示する
 "~/.config/mise/config.toml" = "~/ghq/github.com/raba-jp/dotfiles/mise.toml"
 
@@ -598,7 +598,17 @@ mise trust
 mise bootstrap dotfiles apply --dry-run --verbose
 ```
 
-Expected: `~/.config` 配下 18 個の symlink 作成（Task 5 で `fish_plugins` が増えているため Task 4 の 17 個から 1 増える）と、`~/.claude/settings.json` / `~/.config/mise/config.toml` の 2 個の個別 symlink が列挙される。想定外のパスが出ていないか目視する。
+Expected: `~/.config` 配下 17 個、`~/.claude` 配下 1 個の symlink 作成と、`~/.config/mise/config.toml` の個別 symlink が列挙される。想定外のパスが出ていないか目視する。
+
+最終的な chezmoi との差分は以下の 5 点のみであることを Task 4 で確認済み。
+
+| 差分 | 理由 |
+| --- | --- |
+| `+ .config/fish/fish_plugins` | Task 5 で追加 |
+| `- .config/gh/hosts.yml` | 認証情報の書き込み先なので管理対象から除外（public リポジトリ） |
+| `.config/mise/config.toml` の内容変更 | マニフェストになったため |
+| `- .config/mise/settings.toml` | `[settings]` へ集約 |
+| `- scripts/colortest.sh` | `$HOME` へ配らなくしたため |
 
 ```bash
 mise bootstrap dotfiles apply --yes --force
