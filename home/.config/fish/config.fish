@@ -4,7 +4,7 @@ status is-login; and begin
 
     set -U FZF_LEGACY_KEYBINDINGS 0
     set -U FZF_DISABLE_KEYBINDINGS 1
-    set -U $FZF_DEFAULT_OPTS "--color bg:#1e1e2e,bg+:#313244,fg:#cdd6f4,fg+:#cdd6f4,header:#f38ba8,hl:#f38ba8,hl+:#f38ba8,info:#cba6f7,marker:#f5e0dc,pointer:#f5e0dc,prompt:#cba6f7,spinner:#f5e0dc"
+    set -Ux FZF_DEFAULT_OPTS "--color bg:#1e1e2e,bg+:#313244,fg:#cdd6f4,fg+:#cdd6f4,header:#f38ba8,hl:#f38ba8,hl+:#f38ba8,info:#cba6f7,marker:#f5e0dc,pointer:#f5e0dc,prompt:#cba6f7,spinner:#f5e0dc"
 end
 
 status is-interactive; and begin
