@@ -4,7 +4,7 @@ My macOS configurations, managed with [mise](https://mise.jdx.dev/bootstrap.html
 
 ## Setup
 
-[Homebrew](https://brew.sh/) が入っている前提。
+[Homebrew](https://brew.sh/) が入っている前提。clone 先はどこでもよい。
 
 ```sh
 brew install mise ghq
@@ -12,38 +12,59 @@ ghq get https://github.com/raba-jp/dotfiles.git
 cd ~/ghq/github.com/raba-jp/dotfiles
 mise trust
 mise bootstrap --yes
+mise install
 ```
 
-`mise.toml` の `dotfiles.root` はこの clone 先を絶対パスで指しているので、`~/ghq/github.com/raba-jp/dotfiles` 以外の場所には置けない。
+`mise install` が別途必要なのは、`[tools]` を持つグローバル設定が dotfiles 配布フェーズで初めて
+出現するため。mise は起動時に設定を読むので、同一実行内では反映されない。
 
 ## Layout
 
-- `mise.toml` — マニフェスト。`~/.config/mise/config.toml` へ symlink される
-- `home/` — `$HOME` のミラー。`home/.config/**` は `~/.config/**` へ symlink される
+- `mise.toml` — dotfiles マニフェスト兼マシンセットアップ設定。**project config なのでリポジトリ内で実行する**
+- `home/` — `$HOME` のミラー。`home/.config/**` が `~/.config/**` へコピーされる
+- `home/.config/mise/config.toml` — mise のグローバル設定（`[tools]` など）。普通の dotfile として配布される
 
-新しい設定ファイルを追加するときは `home/` の対応する位置に置いて `mise bootstrap dotfiles apply` するだけでよい。`~/.config` と `~/.claude` は `symlink-each` なので `mise.toml` の編集は不要。
-
-symlink なので、アプリが自分の設定を書き換えるとこのリポジトリの作業ツリーが直接変更される。`~/.claude/settings.json` や `~/.config/zed/settings.json` は通常利用で dirty になる。**認証情報を書き込むファイルは管理対象に入れないこと**（`gh` の `hosts.yml` はこの理由で管理していない。このリポジトリは public）。
+`[dotfiles]` の source は相対パスなので、**実行した checkout が配布元になる**。worktree からでも
+そのまま配れるし、配布後にその worktree を消しても `$HOME` は壊れない。
 
 ## Commands
 
+配布は任意の checkout から。
+
 ```sh
-mise bootstrap status              # 全体の drift を確認
-mise bootstrap dotfiles status     # dotfiles だけ確認
-mise bootstrap dotfiles apply      # 反映
+mise bootstrap dotfiles status     # drift を確認
+mise bootstrap dotfiles apply      # 配布
 mise bootstrap --yes               # パッケージ・ツール含めて丸ごと収束
 ```
 
-`[dotfiles]` と `[bootstrap.packages]` はグローバル設定に置かれるため、**どのディレクトリで実行してもこの dotfiles と全パッケージが対象になる**。プロジェクト内で `mise bootstrap` / `mise run bootstrap` と打つと個人設定が `$HOME` へ適用される点に注意。
+`[dotfiles]` と `[bootstrap.packages]` はグローバル設定に置いていないため、これらはリポジトリ内で
+実行する必要がある。
 
-Homebrew でインストール済みの cask は mise が引き継げないため `missing` と表示される。mise 管理へ移すには一度アンインストールしてから入れ直す。
+### 設定ファイルを追加する
+
+`home/` の対応する位置に置いて apply するだけでよい。ディレクトリ単位のエントリが覆うので
+`mise.toml` の編集は不要。
+
+### 実機の変更を取り込む
+
+Zed / Claude Code / OmniWM は自分で設定ファイルを書き換える。その変更は手でリポジトリへ戻す。
 
 ```sh
-brew uninstall --cask <name>
-mise bootstrap packages apply
+mise bootstrap dotfiles status
+# → differs (zed/settings.json differs) のように対象が出る
+cp ~/.config/zed/settings.json home/.config/zed/settings.json
 ```
 
-`ghostty` は mise 経由で入れると cask の `manpage` artifact が無視されるため `man ghostty` が引けなくなる。
+`mise bootstrap dotfiles add` は使わないこと。ディレクトリエントリ配下のファイルを未管理と判定し、
+新しいエントリを作った上でファイルを移動してしまう。
+
+## Caveats
+
+- `copy` に prune は無い。リポジトリからファイルを消しても `$HOME` 側は残るので手で削除する
+- Homebrew でインストール済みの cask は mise が引き継げず `missing` と表示される。移すには
+  `brew uninstall --cask <name>` してから `mise bootstrap packages apply`
+- `ghostty` を mise 経由で入れると cask の `manpage` artifact が無視され `man ghostty` が引けなくなる
+- 認証情報を書き込むファイルは `home/` に置かないこと。このリポジトリは public
 
 ## Not managed
 
