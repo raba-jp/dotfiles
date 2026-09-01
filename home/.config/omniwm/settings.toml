@@ -3,6 +3,7 @@ monitorGapOverrides = []
 monitorNiriOverrides = []
 monitorOrientationOverrides = []
 monitorRoutingOverrides = []
+schemaVersion = 1
 
 [appearance]
 mode = "dark"
@@ -38,8 +39,10 @@ followsWindowToMonitor = false
 lockModifier = "off"
 moveCrossesMonitorAtEdge = false
 moveMouseToFocusedWindow = false
+raiseOnMouseFocus = false
 
 [gaps]
+fullscreenUsesOuterGaps = false
 size = 4.0
 
 [gaps.outer]
@@ -52,6 +55,7 @@ top = 0.0
 animationsEnabled = true
 defaultLayoutType = "niri"
 hotkeysEnabled = true
+hyperKeyModifiers = "Control+Option+Shift+Command"
 ipcEnabled = false
 preventSleepEnabled = false
 systemHyperTrigger = "None"
@@ -60,6 +64,7 @@ updateChecksEnabled = true
 [gestures]
 fingerCount = 3
 invertDirection = true
+mouseMoveModifierKey = "option"
 mouseResizeModifierKey = "option"
 scrollEnabled = true
 scrollModifierKey = "optionShift"
@@ -119,6 +124,7 @@ red = 0.3
 [quakeTerminal]
 animationDuration = 0.2
 autoHide = false
+backgroundEffect = "standardBlur"
 enabled = true
 heightPercent = 50.0
 monitorMode = "focusedWindow"
@@ -128,6 +134,10 @@ widthPercent = 50.0
 
 [routing]
 mode = "macOS"
+
+[scratchpads]
+
+[scratchpads.labels]
 
 [statusBar]
 showAppNames = false
@@ -141,6 +151,7 @@ enabled = true
 excludedBundleIDs = []
 height = 24.0
 hideEmptyWorkspaces = false
+hideInNativeFullscreen = false
 notchActiveZoneWidth = 180.0
 notchMode = "splitActiveLeft"
 position = "overlappingMenuBar"
@@ -245,6 +256,86 @@ bundleId = "com.apple.MobileSMS"
 id = "552FB77D-BF0E-4737-90A6-B5BC6986C579"
 minHeight = 320.0
 minWidth = 660.0
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "toggleScratchpad.1"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "assignFocusedWindowToScratchpad.1"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "toggleScratchpad.2"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "assignFocusedWindowToScratchpad.2"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "toggleScratchpad.3"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "assignFocusedWindowToScratchpad.3"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "toggleScratchpad.4"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "assignFocusedWindowToScratchpad.4"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "toggleScratchpad.5"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "assignFocusedWindowToScratchpad.5"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "toggleScratchpad.6"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "assignFocusedWindowToScratchpad.6"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "toggleScratchpad.7"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "assignFocusedWindowToScratchpad.7"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "toggleScratchpad.8"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "assignFocusedWindowToScratchpad.8"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "toggleScratchpad.9"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "assignFocusedWindowToScratchpad.9"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "toggleScratchpad.10"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "assignFocusedWindowToScratchpad.10"
 
 [[hotkeys]]
 binding = "Unassigned"
@@ -476,14 +567,6 @@ id = "moveWindowUpOrToWorkspaceUp"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "consumeOrExpelWindowLeft"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "consumeOrExpelWindowRight"
-
-[[hotkeys]]
-binding = "Unassigned"
 id = "consumeWindowIntoColumn"
 
 [[hotkeys]]
@@ -501,6 +584,38 @@ id = "focusMonitorPrevious"
 [[hotkeys]]
 binding = "Control+Command+Grave"
 id = "focusMonitorLast"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveWorkspaceToMonitor.left"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveWorkspaceToMonitor.right"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveWorkspaceToMonitor.up"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveWorkspaceToMonitor.down"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveWindowToMonitor.left"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveWindowToMonitor.right"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveWindowToMonitor.up"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveWindowToMonitor.down"
 
 [[hotkeys]]
 binding = "Hyper+Return"
@@ -732,35 +847,19 @@ id = "swapSplit"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "resizeGrow.left"
+id = "resizeGrow.horizontal"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "resizeGrow.right"
+id = "resizeGrow.vertical"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "resizeGrow.up"
+id = "resizeShrink.horizontal"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "resizeGrow.down"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "resizeShrink.left"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "resizeShrink.right"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "resizeShrink.up"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "resizeShrink.down"
+id = "resizeShrink.vertical"
 
 [[hotkeys]]
 binding = "Unassigned"
@@ -805,14 +904,6 @@ id = "rescueOffscreenWindows"
 [[hotkeys]]
 binding = "Unassigned"
 id = "toggleFocusedWindowFloating"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "assignFocusedWindowToScratchpad"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "toggleScratchpadWindow"
 
 [[hotkeys]]
 binding = "Unassigned"

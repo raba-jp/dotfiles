@@ -5,10 +5,13 @@
 
 [settings]
 experimental = true
+github_attestations = false
 
 [tools]
+"aqua:anomalyco/opencode" = "latest"
 fnox = "latest"
 node = "lts"
 "npm:@anthropic-ai/claude-code" = "latest"
 "npm:@biomejs/biome" = "latest"
+"npm:@openai/codex" = "latest"
 "ubi:wagoodman/dive" = "latest"
