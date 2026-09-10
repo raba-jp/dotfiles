@@ -15,16 +15,9 @@ dotfiles.default_mode = "copy"
 "~/.claude" = { source = "home/.claude", mode = "copy" }
 
 [bootstrap.packages]
-"brew:atuin" = "latest"
-"brew:bat" = "latest"
 "brew:crit" = "latest"
-"brew:eza" = "latest"
 "brew:fish" = "latest"
-"brew:fzf" = "latest"
-"brew:gh" = "latest"
-"brew:ghq" = "latest"
 "brew:mise" = "latest"
-"brew:starship" = "latest"
 
 "brew-cask:appcleaner" = { os = "macos" }
 "brew-cask:comet" = { os = "macos" }
