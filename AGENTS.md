@@ -134,9 +134,10 @@ dotfiles と同じで、GUI で変更すると `status` が `differs` になる�
 - **認証情報を書き込むファイルを `home/` に置かないこと。このリポジトリは public。**
   copy 配布でもツールが `$HOME` 側を書き換え、それを `cp` で戻す運用なので、トークンが
   tracked file に入る経路がある。`gh` の `hosts.yml` はこの理由で管理対象外にしている
-- **サードパーティ tap を要するパッケージは管理対象外。** mise の Homebrew 実装は API メタデータ
-  （`api/formula/*.json`）を publish している tap しか扱えない。sketchybar / OmniWM / qmk は
-  手動インストール。設定ファイルだけリポジトリで管理している
+- **サードパーティ tap のパッケージは mise で扱えることを確認してから追加する。**
+  API メタデータ（`api/formula/*.json` / `api/cask/*.json`）の公開状況を確認し、
+  `status` と `apply --dry-run` で検証する。sketchybar / qmk は
+  引き続き手動インストールとし、設定ファイルだけリポジトリで管理している
 - **chezmoi は撤去済み。** `chezmoi` コマンドを使わないこと。`.chezmoiignore` も削除済みなので、
   仮に再インストールして `chezmoi apply` するとリポジトリ全体が `$HOME` に撒かれる
 
