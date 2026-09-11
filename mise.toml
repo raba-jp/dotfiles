@@ -20,6 +20,7 @@ dotfiles.default_mode = "copy"
 "brew:mise" = "latest"
 
 "brew-cask:appcleaner" = { os = "macos" }
+"brew-cask:steipete/tap/codexbar" = { os = "macos" }
 "brew-cask:comet" = { os = "macos" }
 "brew-cask:conductor" = { os = "macos" }
 "brew-cask:discord" = { os = "macos" }
@@ -28,6 +29,7 @@ dotfiles.default_mode = "copy"
 "brew-cask:heptabase" = { os = "macos" }
 "brew-cask:lm-studio" = { os = "macos" }
 "brew-cask:obsidian" = { os = "macos" }
+"brew-cask:omniwm" = { os = "macos" }
 "brew-cask:proton-pass" = { os = "macos" }
 "brew-cask:qlmarkdown" = { os = "macos" }
 "brew-cask:thaw" = { os = "macos" }
