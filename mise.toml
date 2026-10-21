@@ -80,9 +80,9 @@ HideDesktop = true
 
 [bootstrap.macos.defaults.NSGlobalDomain]
 AppleInterfaceStyle = "Dark"
-# キーリピート。数値が小さいほど速い。システム設定の GUI では float で書かれるため、
-# 初回 apply までは status が「値は同じだが differs」と出る。apply すると int に正規化される。
-KeyRepeat = 2
+# キーリピート。数値が小さいほど速い。KeyRepeat は macOS が float で保持し、
+# `defaults write -int` しても float に戻されるため float で宣言する。
+KeyRepeat = 2.0
 InitialKeyRepeat = 15
 
 # タップでクリック。内蔵トラックパッドと Bluetooth トラックパッドで domain が分かれており、
