@@ -126,8 +126,8 @@ dotfiles と同じで、GUI で変更すると `status` が `differs` になる�
   `defaults delete <domain> <key>` を手で叩く
 - **反映にアプリの再起動やログアウトが要るものがある。** mise が実行するのは `defaults write` だけで、
   `killall Dock` などはしない。Dock / Finder は `killall`、トラックパッド関連はログアウトが要る
-- **キーリピートは GUI が float で書く。** `KeyRepeat` / `InitialKeyRepeat` は値が同じでも
-  `status` が `2 (float)` vs `2` で `differs` と出る。一度 `apply` すれば int に正規化されて解消する
+- **`KeyRepeat` は float で宣言する。** macOS が float で保持しており、`defaults write -int` しても
+  float に戻される。int で書くと `status` が `2 (real; expected integer)` で `differs` のまま残る
 - **`copy` に prune が無い。** リポジトリからファイルを削除しても `$HOME` 側は残る。手で消す
 - **実行ビットは git のファイルモードで表現する。** 新しいスクリプトを足したら
   `git update-index --chmod=+x <path>` を忘れないこと。`home/.config/sketchybar/` の 6 ファイルが該当
