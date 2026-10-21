@@ -24,6 +24,9 @@
       }
     }
   },
+  "attribution": {
+    "pr": ""
+  },
   "language": "japanese",
   "effortLevel": "high",
   "tui": "fullscreen",
