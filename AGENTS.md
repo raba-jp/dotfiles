@@ -1,209 +1,132 @@
 # Agent Instructions
 
-macOS の個人 dotfiles リポジトリ。[mise](https://mise.jdx.dev/bootstrap.html) の `[dotfiles]` で管理している。
+macOS の個人マシンセットアップを mise で管理する **public** リポジトリ。
+アプリの設定ファイルの正本は実 `$HOME` と private な `raba-jp/dotfiles-history` にある。
 
-## 最重要: このリポジトリはユーザーの実 `$HOME` に配布される
+## 管理境界
 
-`mise bootstrap dotfiles apply` は `~/.config/**` と `~/.claude/**` を**上書きする破壊的操作**である。
-ユーザーが明示的に依頼したときだけ実行し、その前に必ず内容差を確認すること。
+| 場所 | 内容 |
+| --- | --- |
+| `mise.toml` | パッケージ、macOS defaults、fish 初期化タスク。project config |
+| `scripts/colortest.sh` | 配布しない補助スクリプト |
+| `~/.config/mise/config.toml` | ツール・環境変数・wrapper。private 履歴で管理 |
+| `~/.config/mise/conf.d/dotfiles-tracking.toml` | 明示的な track 許可リストと watcher。private 履歴で管理 |
+| `~/.config/mise/config.local.toml` | このマシンだけの origin 接続情報。追跡しない |
 
-以下のコマンドは**依頼されない限り実行しないこと**。
+`home/` と copy 配布は撤去済み。public リポジトリに実機設定のコピーや配布元を再導入しない。
+checkout を削除しても実ファイル・履歴・watcher は壊れない。
+実機の変更を public リポジトリへ `cp` で取り込む旧運用は行わない。
+
+## 実機を変更する操作
+
+次の操作はユーザーが明示的に依頼した範囲でのみ実行する。実行前に内容差と対象を確認する。
 
 | コマンド | 影響 |
 | --- | --- |
-| `mise bootstrap dotfiles apply` | `$HOME` の設定ファイルを上書きする |
-| `mise bootstrap`（引数なし） | 上記に加え OS パッケージのインストールと macOS defaults の書き込みまで走る |
-| `mise bootstrap packages apply` | Homebrew パッケージをインストールする |
-| `mise bootstrap macos defaults apply` | macOS のシステム設定を `defaults write` で書き換える |
-| `mise run bootstrap` | `fisher update` が走り fish プラグインを再構成する |
-| `mise bootstrap dotfiles add` | **使ってはならない**。後述 |
+| `mise bootstrap` | パッケージ・macOS defaults・グローバル宣言のサービスを適用 |
+| `mise bootstrap packages apply` | Homebrew パッケージをインストール |
+| `mise bootstrap macos defaults apply` | 実機の `defaults` を変更 |
+| `mise bootstrap services apply` / `remove` | LaunchAgent を作成・起動、または停止・削除 |
+| `mise run bootstrap` | `fisher update` で fish プラグインを再構成 |
+| `mise bootstrap --adopt ...` | 共有履歴の設定ファイルを実機へ復元 |
+| `mise dot save` / `sync` / `origin set` | 履歴の保存や、private origin への送信・接続 |
+| `mise dot pull` / `rollback` / `undo` | 実機ファイルを書き換える |
 
-`mise bootstrap dotfiles status` と `mise bootstrap macos defaults status` は読み取り専用なので
-自由に使ってよい。`apply` 系は `--dry-run` を付ければ実行内容の確認だけで済む。
+`status` / `paths` / `history` は読み取り専用。`apply --dry-run` で適用内容を確認できる。
+`mise bootstrap dotfiles add` と `chezmoi` コマンドは使わない。
+`dotfiles add` は既存ファイルを移動し、グローバル設定を書き換えることがある。
+通常の設定変更に `mise bootstrap dotfiles apply` は不要。
 
 ## 絶対に壊してはいけない不変条件
 
-**グローバル設定 `home/.config/mise/config.toml` に `[dotfiles]` と `dotfiles.default_mode` を書いてはならない。**
+- public の `mise.toml` に `[dotfiles]` や `dotfiles.default_mode` を追加しない。
+- グローバルの `~/.config/mise/config.toml` にも `[dotfiles]` や `dotfiles.default_mode` を書かない。
+  mise の `[settings]` は階層をまたいでマージされ、別設定の適用モードを変える危険がある。
+- 追跡設定は専用の `conf.d/dotfiles-tracking.toml` に置き、各エントリの `mode = "track"` を明示する。
+  `source`、配布用エントリ、`dotfiles.default_mode` は持たせない。
+- `mise dot track` はグローバル設定を変更するので使わず、専用ファイルを編集する。
+- ツール・wrapper・環境変数は private 側のグローバル設定で管理し、public 側に複製しない。
+- 認証情報や実機のレビュー前の設定を、この public リポジトリへ書き込まない。
 
-mise の `[settings]` は設定階層をまたいでマージされる。そのため project config の
-`dotfiles.default_mode` が、グローバル設定に属するエントリの適用モードまで書き換えてしまう。
-この設計を検証している最中に、これが原因で実機の symlink が実体コピーへ変換される事故が
-2 回発生している。
+## 自動保存・双方向同期
 
-同じ理由で、**検証用のサンドボックス設定にも `[settings]` を書かないこと**。各エントリに
-`mode` を明示して、既定値に依存しない形にする。
+実ファイルを `track` モードで保存し、専用 private origin と同期する。
+watcher はグローバル設定から起動するため、配布元 checkout を必要としない。
 
-```toml
-# 検証用サンドボックスの正しい書き方
-[dotfiles]
-"/tmp/sandbox/.config" = { source = "/abs/path/home/.config", mode = "copy" }
-```
-
-## 配布モデル
-
-**copy モード。** 配布物は実ファイルなので、配布元の checkout を消しても `$HOME` は壊れない。
-`[dotfiles]` の source は相対パスであり、**`mise` を実行した checkout が配布元になる**。
-任意の git worktree から配布できる。
-
-配布専用の常設 clone は存在しない。リポジトリの実体は Conductor の
-`~/conductor/repos/dotfiles` とその worktree のみ。
-
-### 設定ファイルの分割
-
-| ファイル | 内容 | 種別 |
-| --- | --- | --- |
-| `mise.toml` | `[dotfiles]`、`[bootstrap.packages]`、`[bootstrap.macos.defaults]`、`[tasks.bootstrap]` | project config。リポジトリ内で実行する |
-| `home/.config/mise/config.toml` | `[settings] experimental`、`[tools]` | グローバル設定。dotfile として配布される |
-
-「どこからでも有効である必要があるものだけをグローバルに置く」という原則で分けている。
-その結果、リポジトリ外では `mise bootstrap dotfiles status` も `packages status` も
-`macos defaults status` も空を返す。これは不具合ではなく設計どおり。
-
-## レイアウト
-
-```
-mise.toml                      マニフェスト
-home/                          $HOME のミラー
-  .claude/settings.json        → ~/.claude/settings.json
-  .config/**                   → ~/.config/**
-scripts/colortest.sh           配布しない。リポジトリ内で直接実行する
-docs/superpowers/              設計ドキュメントと実装計画
-```
-
-`~/.config` と `~/.claude` はディレクトリ単位の 2 エントリで覆っている。
-**設定ファイルを追加するときは `home/` の対応する位置に置くだけでよく、`mise.toml` の編集は不要。**
-
-## 実機の変更をリポジトリへ戻す
-
-Zed / Claude Code / OmniWM は自分で設定ファイルを書き換えるため、その変更は手で戻す。
+- 現行の許可リストは13ファイル。追加・削除は実機の専用追跡ファイルで行う。
+- `~/.config` や `~/.claude` 全体を追跡しない。
+- `gh/hosts.yml`、Claude の認証情報、`~/.claude.json`、mise の `config.local.toml` を追跡しない。
+- private でも秘密は入れない。一時的な編集も保存され、除外しても過去の checkpoint は消えない。
+- **この public リポジトリを history origin に指定しない。** 接続先の変更や公開を勝手に行わない。
+- GitHub 認証は通常の `gh auth login` セッションを使う。Proton Pass から GitHub トークンを取得せず、
+  `GH_CONFIG_DIR` を差し替えず、トークンを設定や URL に書かない。
+- watcher からも Git の credential helper が利用できることを確認する。
+- 既存マシンは同じ共有履歴を adopt する。別々の初期履歴を作って同じ origin に接続しない。
 
 ```sh
-mise bootstrap dotfiles status
-# → differs (zed/settings.json differs) のように対象が出る
-cp ~/.config/zed/settings.json home/.config/zed/settings.json
+mise dot paths
+mise dot status
+mise bootstrap services status
 ```
 
-**`mise bootstrap dotfiles add` は使わないこと。** ヘルプの "If the target is already managed" の
-*managed* はエントリのキーとターゲットパスが完全一致する場合のみを指す。ディレクトリエントリに
-覆われているだけのファイルは未管理と判定され、新規エントリを作った上で**ファイルを移動**して
-しまう。しかも書き込み先は既定でグローバル設定である。
+障害時は `mise dot status` と `mise doctor` を確認する。
+実機の Homebrew 版 2026.10.17 はデスクトップ通知が利用できないので、通知だけに頼らない。
+サービスを削除しても宣言と履歴は残り、次の services apply で再起動する。
 
 ## macOS のシステム設定
 
-`mise.toml` の `[bootstrap.macos.defaults]` で管理している。`defaults write` を宣言的に書いたもの。
-`mise bootstrap` の 10 番目のステップとして自動で走る。単体では次のように扱う。
+`mise.toml` の `[bootstrap.macos.defaults]` は `defaults write` の宣言。
+curated セクション（`[bootstrap.macos.dock]` など）は使わず、domain と key を直接指定する。
 
 ```sh
-mise bootstrap macos defaults status            # 読み取り専用。差分を見る
-mise bootstrap macos defaults apply --dry-run   # 実行される defaults write を確認する
-mise bootstrap macos defaults apply             # 書き込む
+mise bootstrap macos defaults status
+mise bootstrap macos defaults apply --dry-run
 ```
 
-`status` の 3 列目が設定したい値、4 列目が実機の現在値、5 列目が `set` / `differs` / `unset`。
+`status` の3列目が設定したい値、4列目が現在値、5列目が `set` / `differs` / `unset`。
+追加・変更は GUI 操作後に `defaults read <domain> <key>` で実際のキーと型を確認する。
 
-### 設定を足すとき
+- 型を推測しない。`com.apple.menuextra.clock` の `ShowDate` は bool ではなく int の enum。
+- `KeyRepeat` は macOS が float で保持するため float で宣言する。
+- エントリ削除に prune はない。必要なら明示的な依頼のもと `defaults delete` する。
+- アプリ再起動やログアウトが必要な設定がある。mise は `killall Dock` などを実行しない。
+- サードパーティ tap のパッケージは API メタデータと `status` / `apply --dry-run` で対応を確認する。
 
-1. GUI で変更する
-2. `defaults read <domain> <key>` で**実際に書かれたキーと型**を確かめる
-3. その値を `mise.toml` に書く
-4. `mise bootstrap macos defaults status` が `set` になることを確認する
+## 新規マシン
 
-型はそのまま突き合わせに使われるので、推測で書かない。macOS には bool に見えて int の enum が
-ある（`com.apple.menuextra.clock` の `ShowDate` など）。`true` と書くと値が同じでも
-`differs` のままになる。
+README の順序に従い、GitHub 認証 → private 履歴の adopt（`--only dotfiles`）→ ツールと watcher →
+この public リポジトリのマシンセットアップ、の順に行う。
+既存ファイルがある場合は差分・バックアップを確認し、無条件に上書きしない。
 
-curated セクション（`[bootstrap.macos.dock]` など）はこのリポジトリでは使わない。domain と key を
-生で書けば `defaults read` の出力と 1:1 で対応し、上の手順が機械的に回るため。
+## 変更の検証
 
-### 実機で変えた設定を戻す
+実機の設定を変更する前に owner-only のバックアップを作り、内容・実行ビット・所有者を維持する。
+配布・履歴・復元・同期を検証する際は、環境を継承しない専用プロセスで以下を隔離する。
+ターゲットを `/tmp` に変えるだけでは、グローバル設定の実機ファイルが履歴に保存され得る。
 
-dotfiles と同じで、GUI で変更すると `status` が `differs` になる。`mise.toml` を実機に合わせるか、
-`apply` でリポジトリの値を実機へ書き戻すか、どちらかを選ぶ。
+- `HOME` と作業ディレクトリ
+- `XDG_CONFIG_HOME` / `XDG_CACHE_HOME` / `XDG_DATA_HOME` / `XDG_STATE_HOME`
+- `MISE_CONFIG_DIR` / `MISE_SYSTEM_CONFIG_DIR` / `MISE_CACHE_DIR` / `MISE_DATA_DIR` /
+  `MISE_STATE_DIR` / `MISE_TMP_DIR`
+- Git は `GIT_CONFIG_NOSYSTEM=1`、`GIT_CONFIG_GLOBAL=/dev/null` と検証専用 author / committer を指定
 
-## 制約
+検証用 project config に `[settings]` を書かない。copy を検証する場合も各エントリの mode を明示する。
+サービスの検証は `mise bootstrap services apply --dry-run` のみにし、実機 launchd へ登録しない。
+実機 watcher の検証はユーザーが設定・起動を依頼したときに限る。
+private からの復元確認は owner-only の退避先へ取得したコピーを使い、隔離環境へ Git 認証を継承しない。
 
-- **`[bootstrap.macos.defaults]` にも prune が無い。** エントリを消しても実機の設定は元に戻らない。
-  `defaults delete <domain> <key>` を手で叩く
-- **反映にアプリの再起動やログアウトが要るものがある。** mise が実行するのは `defaults write` だけで、
-  `killall Dock` などはしない。Dock / Finder は `killall`、トラックパッド関連はログアウトが要る
-- **`KeyRepeat` は float で宣言する。** macOS が float で保持しており、`defaults write -int` しても
-  float に戻される。int で書くと `status` が `2 (real; expected integer)` で `differs` のまま残る
-- **`copy` に prune が無い。** リポジトリからファイルを削除しても `$HOME` 側は残る。手で消す
-- **実行ビットは git のファイルモードで表現する。** 新しいスクリプトを足したら
-  `git update-index --chmod=+x <path>` を忘れないこと。`home/.config/sketchybar/` の 6 ファイルが該当
-- **認証情報を書き込むファイルを `home/` に置かないこと。このリポジトリは public。**
-  copy 配布でもツールが `$HOME` 側を書き換え、それを `cp` で戻す運用なので、トークンが
-  tracked file に入る経路がある。`gh` の `hosts.yml` はこの理由で管理対象外にしている
-- **サードパーティ tap のパッケージは mise で扱えることを確認してから追加する。**
-  API メタデータ（`api/formula/*.json` / `api/cask/*.json`）の公開状況を確認し、
-  `status` と `apply --dry-run` で検証する。sketchybar / qmk は
-  引き続き手動インストールとし、設定ファイルだけリポジトリで管理している
-- **chezmoi は撤去済み。** `chezmoi` コマンドを使わないこと。`.chezmoiignore` も削除済みなので、
-  仮に再インストールして `chezmoi apply` するとリポジトリ全体が `$HOME` に撒かれる
+確認項目:
 
-## 新規マシンのセットアップ
+1. 許可した実ファイルだけが保存され、認証・状態ファイルが含まれない
+2. watcher が変更を保存し、設定済みの認証で private origin へ送れる
+3. `mise bootstrap --adopt <file-url> --only dotfiles` で内容・権限を復元できる
+4. 隔離した2環境と `/tmp` の bare origin で往復同期できる
+5. 検証後に実機の内容・権限が意図せず変わっていない
 
-```sh
-brew install mise ghq
-ghq get https://github.com/raba-jp/dotfiles.git
-cd ~/ghq/github.com/raba-jp/dotfiles
-mise trust
-mise bootstrap --yes
-mise install
-```
-
-`mise install` が別途要るのは、`[tools]` を持つグローバル設定が dotfiles 配布フェーズで初めて
-出現するため。mise は起動時に設定を読むので同一実行内では反映されない。
-
-## 変更を検証する
-
-`$HOME` を触らずに配布結果を確かめる手順。
-
-```sh
-# 1. 現状のスナップショットを取る
-{
-  for f in $(find home -type f | sort); do
-    rel="${f#home/}"
-    printf '%s %s %s\n' "$rel" "$(shasum -a256 "$HOME/$rel" | cut -c1-16)" "$(stat -Lf '%Sp' "$HOME/$rel")"
-  done
-} > /tmp/before.txt
-
-# 2. サンドボックスへ配布（[settings] を書かない、mode を明示する）
-mkdir -p /tmp/sb
-cat > /tmp/sb/mise.toml <<EOF
-[dotfiles]
-"/tmp/sbhome/.config" = { source = "$PWD/home/.config", mode = "copy" }
-"/tmp/sbhome/.claude" = { source = "$PWD/home/.claude", mode = "copy" }
-EOF
-(cd /tmp/sb && mise trust && mise bootstrap dotfiles apply --yes)
-
-# 3. 突き合わせる
-{
-  for f in $(find home -type f | sort); do
-    rel="${f#home/}"
-    printf '%s %s %s\n' "$rel" "$(shasum -a256 "/tmp/sbhome/$rel" | cut -c1-16)" "$(stat -f '%Sp' "/tmp/sbhome/$rel")"
-  done
-} > /tmp/after.txt
-diff /tmp/before.txt /tmp/after.txt
-```
-
-サンドボックスへの apply でも**グローバル設定のエントリは評価される**。実行前に
-`mise bootstrap dotfiles status` で既存エントリが `applied` であることを確認しておくこと。
-`differs` のまま実行すると no-op にならず実機が変わる。
-
-`[bootstrap.macos.defaults]` に書き換え先を差し替える仕組みは無いので、サンドボックスは使えない。
-代わりに、そのブロックだけを `/tmp` の `mise.toml` に写して `status` と `apply --dry-run` で確かめる。
-
-```sh
-mkdir -p /tmp/sbd
-sed -n '/^\[bootstrap.macos.defaults/,$p' mise.toml | sed '/^\[tasks\./,$d' > /tmp/sbd/mise.toml
-(cd /tmp/sbd && mise trust && mise bootstrap macos defaults status && mise bootstrap macos defaults apply --dry-run)
-```
-
-`--dry-run` が出力する `defaults write` の行が、意図した domain・key・型になっているかを見る。
+macOS defaults は書き換え先を差し替えられないため、`status` と `apply --dry-run` で検証する。
+`--dry-run` の domain・key・型を確認し、検証のために実機へ書き込まない。
 
 ## 参照
 
-- 設計: `docs/superpowers/specs/2026-08-15-worktree-copy-distribution-design.md`
-- 実装計画: `docs/superpowers/plans/2026-08-15-worktree-copy-distribution.md`
-- chezmoi からの移行経緯: `docs/superpowers/plans/2026-08-15-chezmoi-to-mise-bootstrap.md`
+- 現行設計: `docs/superpowers/specs/2026-11-16-private-dotfiles-history-design.md`
+- `docs/superpowers/` の過去の copy / chezmoi 設計・計画は履歴資料。現行の配布手順として使わない

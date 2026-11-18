@@ -1,18 +1,4 @@
-# dotfiles マニフェスト兼マシンセットアップ設定
-#
-# これは project config である。リポジトリ内で実行すること。
-# source は相対パスなので、実行した checkout が配布元になる。
-# 任意の worktree から `mise bootstrap dotfiles apply` できる。
-#
-# mise のグローバル設定（[tools] など）は home/.config/mise/config.toml にあり、
-# 普通の dotfile として配布される。
-
-[settings]
-dotfiles.default_mode = "copy"
-
-[dotfiles]
-"~/.config" = { source = "home/.config", mode = "copy" }
-"~/.claude" = { source = "home/.claude", mode = "copy" }
+# macOS のマシンセットアップ設定。リポジトリ内で実行すること。
 
 [bootstrap.packages]
 "brew:crit" = "latest"
